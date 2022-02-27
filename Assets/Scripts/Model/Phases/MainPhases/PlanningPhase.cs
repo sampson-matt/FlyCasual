@@ -4,6 +4,7 @@ using UnityEngine;
 using SubPhases;
 using Ship;
 using System.Linq;
+using Editions;
 
 namespace MainPhases
 {
@@ -42,9 +43,12 @@ namespace MainPhases
 
         private void FinishPlanningPhase()
         {
-            int randomPlayer = UnityEngine.Random.Range(1, 3);
-            if (randomPlayer != Tools.PlayerToInt(Phases.PlayerWithInitiative)) Messages.ShowInfo("First Player is changed");
-            Phases.PlayerWithInitiative = Tools.IntToPlayer(randomPlayer);
+            if (Editions.Edition.Current.RuleSet.GetType() == typeof(Editions.RuleSets.RuleSet25))
+            {
+                int randomPlayer = UnityEngine.Random.Range(1, 3);
+                if (randomPlayer != Tools.PlayerToInt(Phases.PlayerWithInitiative)) Messages.ShowInfo("First Player is changed");
+                Phases.PlayerWithInitiative = Tools.IntToPlayer(randomPlayer);
+            }
 
             StartSystemsPhase();
         }

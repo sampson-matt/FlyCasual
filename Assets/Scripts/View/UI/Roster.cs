@@ -9,6 +9,7 @@ using Ship;
 using System;
 using Tokens;
 using Remote;
+using Editions;
 
 public static partial class Roster {
 
@@ -31,7 +32,10 @@ public static partial class Roster {
         CreatePlayers();
         SpawnAllShips();
         SetPlayerCustomization();
-        ClearPlayerWithInitiative();
+        if (Editions.Edition.Current.RuleSet.GetType() == typeof(Editions.RuleSets.RuleSet25))
+        {
+            ClearPlayerWithInitiative();
+        }
     }
 
     public static void ShowPlayerWithInititive(PlayerNo playerNo)

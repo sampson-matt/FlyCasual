@@ -39,8 +39,11 @@ namespace RulesList
 
             int costP1 = Roster.GetPlayer(PlayerNo.Player1).SquadCost;
             int costP2 = Roster.GetPlayer(PlayerNo.Player2).SquadCost;
-
-            if (costP1 < costP2)
+            if(Global.IsCampaignGame)
+            {
+                GameMode.CurrentGameMode.GiveInitiativeToPlayer(2);
+            }
+            else if (costP1 < costP2)
             {
                 GameMode.CurrentGameMode.GiveInitiativeToPlayer(1);
             }
@@ -101,7 +104,14 @@ namespace SubPhases
             AddDecision("Me", StayWithInitiative);
             AddDecision("Opponent", GiveInitiative);
 
-            DefaultDecisionName = "Opponent";
+            if(Global.IsCampaignGame)
+            {
+                DefaultDecisionName = "Me";
+            }
+            else
+            {
+                DefaultDecisionName = "Opponent";
+            }
 
             DescriptionShort = "Initiative";
             string playerName = (Roster.GetPlayer(2) is HumanPlayer) ? "Player " + Tools.PlayerToInt(Phases.PlayerWithInitiative) : Roster.GetPlayer(Phases.PlayerWithInitiative).NickName;

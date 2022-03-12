@@ -27,14 +27,6 @@ namespace MainPhases
         public override void NextPhase()
         {
             Selection.DeselectAllShips();
-
-            GenericSubPhase subphase = Phases.StartTemporarySubPhaseNew("Notification", typeof(NotificationSubPhase), StartPlanningPhase);
-            (subphase as NotificationSubPhase).TextToShow = "Planning";
-            subphase.Start();
-        }
-
-        private void StartPlanningPhase()
-        {
             Phases.CurrentPhase = new PlanningPhase();
             Phases.CurrentPhase.StartPhase();
         }

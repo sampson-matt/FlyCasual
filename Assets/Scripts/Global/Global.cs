@@ -18,6 +18,8 @@ public class Global : MonoBehaviour {
 
     public static SquadBuilder SquadBuilder { get; set;}
 
+    public static bool IsCampaignGame  { get; set;}
+
     void Awake()
     {
         if (!isAlreadyInitialized)
@@ -112,7 +114,14 @@ public class Global : MonoBehaviour {
 
     public static void StartLocalGame()
     {
-        GameMode.CurrentGameMode = new LocalGame();
+        if(IsCampaignGame)
+        {
+            GameMode.CurrentGameMode = new LocalCampaign();
+        }
+        else
+        {
+            GameMode.CurrentGameMode = new LocalGame();
+        }
         SwitchToBattleScene();
     }
 
@@ -153,8 +162,11 @@ public class Global : MonoBehaviour {
 
     public static bool IsVsAiGame
     {
+        
         get { return SquadBuilder.SquadLists[PlayerNo.Player2].PlayerType.IsSubclassOf(typeof(GenericAiPlayer)); }
     }
+
+    
 
     public static void PrepareOnlineMatchLists(int playerInt, string playerName, string title, string avatar, string squadString)
     {

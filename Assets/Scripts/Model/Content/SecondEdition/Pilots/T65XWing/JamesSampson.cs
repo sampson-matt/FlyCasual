@@ -16,7 +16,7 @@ namespace Ship
                     3,
                     38,
                     isLimited: true,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Pilot }
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Modification }
                 );
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
                 ImageUrl = "https://www.x-wing-cardcreator.com/img/published/James%20Sampson_sampsonmatt_0.png";

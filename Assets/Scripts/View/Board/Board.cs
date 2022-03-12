@@ -23,6 +23,12 @@ namespace BoardTools
         public static GameObject StartingZone4;
         public static GameObject StartingZone4a;
         public static GameObject StartingZone5;
+        public static GameObject StartingZoneCampaign1;
+        public static GameObject StartingZoneCampaign2;
+        public static GameObject StartingZoneCampaign3;
+        public static GameObject StartingZoneCampaign4;
+        public static GameObject StartingZoneCampaign5;
+        public static GameObject StartingZoneCampaign6;
 
         public static readonly float SIZE_ANY = 91.44f;
         public static readonly float SIZE_X = 91.44f;
@@ -40,13 +46,19 @@ namespace BoardTools
             BoardTransform = GameObject.Find("SceneHolder/Board").transform;
             RulersHolderTransform = BoardTransform.Find("RulersHolder");
             ObstacleHolderTransform = BoardTransform.Find("ObstaclesZone/ObstaclesHolder");
-            StartingZone1 = BoardTransform.Find("Playmat/StaringZone1").gameObject;
-            StartingZone2 = BoardTransform.Find("Playmat/StaringZone2").gameObject;
-            StartingZone3 = BoardTransform.Find("Playmat/StaringZone3").gameObject;
-            StartingZone3a = BoardTransform.Find("Playmat/StaringZone3a").gameObject;
-            StartingZone4 = BoardTransform.Find("Playmat/StaringZone4").gameObject;
-            StartingZone4a = BoardTransform.Find("Playmat/StaringZone4a").gameObject;
-            StartingZone5 = BoardTransform.Find("Playmat/StaringZone5").gameObject;
+            StartingZone1 = BoardTransform.Find("Playmat/StartingZone1").gameObject;
+            StartingZone2 = BoardTransform.Find("Playmat/StartingZone2").gameObject;
+            StartingZone3 = BoardTransform.Find("Playmat/StartingZone3").gameObject;
+            StartingZone3a = BoardTransform.Find("Playmat/StartingZone3a").gameObject;
+            StartingZone4 = BoardTransform.Find("Playmat/StartingZone4").gameObject;
+            StartingZone4a = BoardTransform.Find("Playmat/StartingZone4a").gameObject;
+            StartingZone5 = BoardTransform.Find("Playmat/StartingZone5").gameObject;
+            StartingZoneCampaign1 = BoardTransform.Find("Playmat/StartingZoneCampaign1").gameObject;
+            StartingZoneCampaign2 = BoardTransform.Find("Playmat/StartingZoneCampaign2").gameObject;
+            StartingZoneCampaign3 = BoardTransform.Find("Playmat/StartingZoneCampaign3").gameObject;
+            StartingZoneCampaign4 = BoardTransform.Find("Playmat/StartingZoneCampaign4").gameObject;
+            StartingZoneCampaign5 = BoardTransform.Find("Playmat/StartingZoneCampaign5").gameObject;
+            StartingZoneCampaign6 = BoardTransform.Find("Playmat/StartingZoneCampaign6").gameObject;
 
             MovementTemplates.PrepareMovementTemplates();
 
@@ -155,6 +167,12 @@ namespace BoardTools
             StartingZone4.SetActive(false);
             StartingZone4a.SetActive(false);
             StartingZone5.SetActive(false);
+            StartingZoneCampaign1.SetActive(false);
+            StartingZoneCampaign2.SetActive(false);
+            StartingZoneCampaign3.SetActive(false);
+            StartingZoneCampaign4.SetActive(false);
+            StartingZoneCampaign5.SetActive(false);
+            StartingZoneCampaign6.SetActive(false);
         }
 
         //SCALING TOOLS
@@ -401,7 +419,7 @@ namespace BoardTools
 
         public static void HighlightOfStartingZoneOn()
         {
-            if (Roster.GetPlayer(Phases.CurrentSubPhase.RequiredPlayer) is HumanPlayer)
+            if (Roster.GetPlayer(Phases.CurrentSubPhase.RequiredPlayer).PlayerType == Players.PlayerType.Human || Roster.GetPlayer(Phases.CurrentSubPhase.RequiredPlayer).PlayerType == Players.PlayerType.Hotac)
             {
                 GameObject.Find("SceneHolder").transform.Find("Board").Find("ObstaclesZone").Find("ObstaclesZoneHighlight").gameObject.SetActive(true);
             }

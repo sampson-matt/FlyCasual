@@ -24,6 +24,13 @@ namespace SubPhases
 
         public override void Next()
         {
+            GenericSubPhase subphase = Phases.StartTemporarySubPhaseNew("Notification", typeof(NotificationSubPhase), StartPlanningSubPhase);
+            (subphase as NotificationSubPhase).TextToShow = "Planning";
+            subphase.Start();
+        }
+
+        private void StartPlanningSubPhase()
+        {
             Phases.CurrentSubPhase = new PlanningSubPhase();
             Phases.CurrentSubPhase.Start();
             Phases.CurrentSubPhase.Prepare();

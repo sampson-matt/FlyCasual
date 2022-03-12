@@ -42,6 +42,10 @@ public class RosterBuilderUI : MonoBehaviour {
     {
         if (Global.SquadBuilder.CurrentSquad.IsValid)
         {
+            if(Global.IsCampaignGame)
+            {
+                StartBattle();
+            }
             if (Global.IsVsAiGame)
             {
                 MainMenu.CurrentMainMenu.ChangePanel("AiDecisionPanel");

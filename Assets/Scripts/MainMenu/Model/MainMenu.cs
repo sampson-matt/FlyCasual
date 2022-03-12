@@ -208,6 +208,14 @@ public partial class MainMenu : MonoBehaviour {
     {
         Global.SquadBuilder = new SquadBuilder();
         new SquadBuilderView(Global.SquadBuilder);
+        if("Campaign".Equals(modeName))
+        {
+            Global.IsCampaignGame = true;
+        }
+        else
+        {
+            Global.IsCampaignGame = false;
+        }
         Global.SquadBuilder.SetPlayers(modeName);
     }
 

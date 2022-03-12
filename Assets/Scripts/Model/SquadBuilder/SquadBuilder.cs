@@ -50,6 +50,9 @@ namespace SquadBuilderNS
                 case "vsAI":
                     SetPlayerTypes(typeof(HumanPlayer), typeof(AggressorAiPlayer));
                     break;
+                case "Campaign":
+                    SetPlayerTypes(typeof(HumanPlayer), typeof(AggressorAiPlayer));
+                    break;
                 case "Internet":
                     SetPlayerTypes(typeof(HumanPlayer), typeof(NetworkOpponentPlayer));
                     break;

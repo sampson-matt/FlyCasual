@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using BoardTools;
 using Ship;
 using GameCommands;
@@ -34,110 +35,189 @@ namespace SquadBuilderNS
 
         private int ShipDirection { get; set; }
 
+        private JSONObject campaignMission { get; set; }
+
         public void LoadCampaign()
         {
+            List<JSONObject> campaignMissionJsons = GetCampaignMissionsJsons();
+            campaignMission = campaignMissionJsons[0];
+            List<DeploymentConfig> deploymentConfigs = new List<DeploymentConfig>();
+
             Phases.Events.OnSetupStart += InitialSetup;
             Phases.Events.OnPlanningPhaseStart += MidGameShipAddition;
         }
 
+        //public void BrowseCampaignMissions()
+        //{
+        //    List<JSONObject> campaignMissionJsons = GetCampaignMissionsJsons();
+
+        //    ShowCampaignMissions(campaignMissionJsons);
+        //}
+
+        private List<JSONObject> GetCampaignMissionsJsons()
+        {
+            List<JSONObject> campaignMissionsJsons = new List<JSONObject>();
+
+            string directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToCampaignSetup;
+            if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
+
+            foreach (var filePath in Directory.GetFiles(directoryPath))
+            {
+                string content = File.ReadAllText(filePath);
+                JSONObject missionJson = new JSONObject(content);
+                missionJson.AddField("filename", new FileInfo(filePath).Name);
+                campaignMissionsJsons.Add(missionJson);
+            }
+
+            return campaignMissionsJsons;
+        }
+
         private void InitialSetup()
         {
+            LoadShipsForRound(0);
+        }
+
+        private void LoadShipsForRound(int roundNumber)
+        {
             List<DeploymentConfig> deploymentConfigs = new List<DeploymentConfig>();
-            List<GenericShip> deploymentGroup = new List<GenericShip>();
-            for (int i = 1; i < 3; i++)
-            {
-                GenericShip testShip = new Ship.SecondEdition.TIELnFighter.AcademyPilot();
-                SquadListShip newship = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(testShip);
-                ShipFactory.SpawnShip(newship);
-                deploymentGroup.Add(testShip);
-                Roster.AddShipToLists(testShip);
-            }
-            DeploymentConfig deploymentConfig = new DeploymentConfig(deploymentGroup, Board.StartingZoneCampaign3);
-            deploymentConfigs.Add(deploymentConfig);
 
-            List<GenericShip> deploymentGroup2 = new List<GenericShip>();
-            for (int i = 1; i < 3; i++)
+            if (campaignMission.HasField("deploymentConfigs"))
             {
-                GenericShip testShip = new Ship.SecondEdition.TIELnFighter.AcademyPilot();
-                SquadListShip newship = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(testShip);
-                ShipFactory.SpawnShip(newship);
-                deploymentGroup2.Add(testShip);
-                Roster.AddShipToLists(testShip);
-            }
-            DeploymentConfig deploymentConfig2 = new DeploymentConfig(deploymentGroup2, Board.StartingZoneCampaign4);
-            deploymentConfigs.Add(deploymentConfig2);
+                JSONObject deploymentConfigsJson = campaignMission["deploymentConfigs"];
+                foreach (JSONObject deploymentConfigJson in deploymentConfigsJson.list)
+                {
+                    List<GenericShip> deploymentGroup = new List<GenericShip>();
+                    GameObject startingZone = new GameObject();
+                    if (deploymentConfigJson.HasField("deploymentRound") && deploymentConfigJson["deploymentRound"].str.Equals(roundNumber.ToString()))
+                    {
+                        string factionNameXws = deploymentConfigJson["faction"].str;
+                        Faction faction = Edition.Current.XwsToFaction(factionNameXws);
 
-            var subphase = Phases.StartTemporarySubPhaseNew<SetupCampaignShipSubPhase>(
-                "Setup",
-                delegate {
+                        if (deploymentConfigJson.HasField("pilots"))
+                        {
+                            JSONObject pilotJsons = deploymentConfigJson["pilots"];
+                            foreach (JSONObject pilotJson in pilotJsons.list)
+                            {
+                                string shipNameXws = pilotJson["ship"].str;
+
+                                string shipNameGeneral = "";
+                                ShipRecord shipRecord = SquadBuilder.Instance.Database.AllShips.FirstOrDefault(n => n.ShipNameCanonical == shipNameXws);
+                                if (shipRecord == null)
+                                {
+                                    Messages.ShowError("Cannot find ship: " + shipNameXws);
+                                    continue;
+                                }
+
+                                shipNameGeneral = shipRecord.ShipName;
+
+                                string pilotNameXws = pilotJson["id"].str;
+                                PilotRecord pilotRecord = SquadBuilder.Instance.Database.AllPilots.FirstOrDefault(n => n.PilotNameCanonical == pilotNameXws && n.Ship.ShipName == shipNameGeneral && n.PilotFaction == faction);
+                                if (pilotRecord == null)
+                                {
+                                    Messages.ShowError("Cannot find pilot: " + pilotNameXws);
+                                    continue;
+                                }
+
+                                GenericShip newShipInstance = (GenericShip)Activator.CreateInstance(Type.GetType(pilotRecord.PilotTypeName));
+                                Edition.Current.AdaptShipToRules(newShipInstance);
+                                SquadListShip newShip = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(newShipInstance);
+
+                                ShipFactory.SpawnShip(newShip);
+                                deploymentGroup.Add(newShipInstance);
+                                Roster.AddShipToLists(newShipInstance);
+
+                                Dictionary<string, string> upgradesThatCannotBeInstalled = new Dictionary<string, string>();
+
+                                if (pilotJson.HasField("upgrades"))
+                                {
+                                    JSONObject upgradeJsons = pilotJson["upgrades"];
+                                    if (upgradeJsons.keys != null)
+                                    {
+                                        foreach (string upgradeType in upgradeJsons.keys)
+                                        {
+                                            JSONObject upgradeNames = upgradeJsons[upgradeType];
+                                            foreach (JSONObject upgradeRecord in upgradeNames.list)
+                                            {
+                                                UpgradeRecord newUpgradeRecord = SquadBuilder.Instance.Database.AllUpgrades.FirstOrDefault(n => n.UpgradeNameCanonical == upgradeRecord.str);
+                                                if (newUpgradeRecord == null)
+                                                {
+                                                    Messages.ShowError("Cannot find upgrade: " + upgradeRecord.str);
+                                                }
+
+                                                bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgradeRecord.str, Edition.Current.XwsToUpgradeType(upgradeType));
+                                                if (!upgradeInstalledSucessfully && !upgradesThatCannotBeInstalled.ContainsKey(upgradeRecord.str)) upgradesThatCannotBeInstalled.Add(upgradeRecord.str, upgradeType);
+                                            }
+                                        }
+
+                                        while (upgradeJsons.Count != 0)
+                                        {
+                                            Dictionary<string, string> upgradesThatCannotBeInstalledCopy = new Dictionary<string, string>(upgradesThatCannotBeInstalled);
+
+                                            bool wasSuccess = false;
+                                            foreach (var upgrade in upgradesThatCannotBeInstalledCopy)
+                                            {
+                                                bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgrade.Key, Edition.Current.XwsToUpgradeType(upgrade.Value));
+                                                if (upgradeInstalledSucessfully)
+                                                {
+                                                    wasSuccess = true;
+                                                    upgradesThatCannotBeInstalled.Remove(upgrade.Key);
+                                                }
+                                            }
+
+                                            if (!wasSuccess) break;
+                                        }
+                                    }
+                                }
+
+                                if (pilotJson.HasField("vendor"))
+                                {
+                                    JSONObject vendorData = pilotJson["vendor"];
+                                    if (vendorData.HasField("Sandrem.FlyCasual"))
+                                    {
+                                        JSONObject myVendorData = vendorData["Sandrem.FlyCasual"];
+                                        if (myVendorData.HasField("skin"))
+                                        {
+                                            newShip.Instance.ModelInfo.SkinName = myVendorData["skin"].str;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (deploymentConfigJson.HasField("startingZone"))
+                        {
+                            if (deploymentConfigJson["startingZone"].str == "random")
+                            {
+                                startingZone = RandomStartZone(1, 6);
+                            }
+                            else
+                            {
+                                startingZone = Board.GetStartingZoneCampaign(deploymentConfigJson["startingZone"].str);
+                            }
+                        }
+                        DeploymentConfig deploymentConfig = new DeploymentConfig(deploymentGroup, startingZone);
+                        deploymentConfigs.Add(deploymentConfig);
+                    }                    
                 }
-            );
 
-            subphase.DeploymentConfigs = deploymentConfigs;
+                if(deploymentConfigs.Count>0)
+                {
+                    var subphase = Phases.StartTemporarySubPhaseNew<SetupCampaignShipSubPhase>(
+                    "Setup",
+                    delegate
+                    {
+                    }
+                );
 
-            subphase.Start();
+                    subphase.DeploymentConfigs = deploymentConfigs;
 
-            //for (int i = 1; i < 3; i++)
-            //{
-            //    GenericShip testShip = new Ship.SecondEdition.TIELnFighter.AcademyPilot();
-            //    SquadListShip newship = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(testShip);
-            //    ShipFactory.SpawnShip(newship);
-            //    deploymentGroup.Add(testShip);
-            //    Roster.AddShipToLists(testShip);
-            //}
-
-            //var subphase2 = Phases.StartTemporarySubPhaseNew<SetupCampaignShipSubPhase>(
-            //    "Setup",
-            //    delegate {
-            //    }
-            //);
-
-            //subphase2.DeploymentGroup = deploymentGroup;
-            //subphase2.StartingZone = Board.StartingZoneCampaign4;
-
-            //subphase2.Start();
+                    subphase.Start();
+                }
+            }
         }
 
         private void MidGameShipAddition()
         {
-            if (Phases.RoundCounter == 4)
-            {
-                List<GenericShip> deploymentGroup = new List<GenericShip>();
-                for (int i = 1; i < 2; i++)
-                {
-                    GenericShip testShip = new Ship.SecondEdition.TIEInterceptor.AlphaSquadronPilot();
-                    SquadListShip newship = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(testShip);
-                    ShipFactory.SpawnShip(newship);
-                    deploymentGroup.Add(testShip);
-                    Roster.AddShipToLists(testShip);
-                }
-                var subphase = Phases.StartTemporarySubPhaseNew<SetupCampaignShipSubPhase>(
-                    "Setup",
-                    delegate { }
-                );
-                subphase.DeploymentConfigs = new[] { new DeploymentConfig(deploymentGroup, RandomStartZone(1, 6)) }.ToList();
-
-                subphase.Start();
-            }
-            if (Phases.RoundCounter == 7)
-            {
-                List<GenericShip> deploymentGroup = new List<GenericShip>();
-                for (int i = 1; i < 3; i++)
-                {
-                    GenericShip testShip = new Ship.SecondEdition.TIELnFighter.AcademyPilot();
-                    SquadListShip newship = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(testShip);
-                    ShipFactory.SpawnShip(newship);
-                    deploymentGroup.Add(testShip);
-                    Roster.AddShipToLists(testShip);
-                }
-                var subphase = Phases.StartTemporarySubPhaseNew<SetupCampaignShipSubPhase>(
-                    "Setup",
-                    delegate { }
-                );
-                subphase.DeploymentConfigs = new[] { new DeploymentConfig(deploymentGroup, RandomStartZone(1, 6)) }.ToList();
-
-                subphase.Start();
-            }
+            LoadShipsForRound(Phases.RoundCounter);
         }
 
 

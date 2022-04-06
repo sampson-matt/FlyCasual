@@ -238,6 +238,27 @@ namespace BoardTools
             return result;
         }
 
+        public static GameObject GetStartingZoneCampaign(String StartingZoneCampaign)
+        {
+            switch (StartingZoneCampaign)
+            {
+                case "StartingZoneCampaign1":
+                    return StartingZoneCampaign1;
+                case "StartingZoneCampaign2":
+                    return StartingZoneCampaign2;
+                case "StartingZoneCampaign3":
+                    return StartingZoneCampaign3;
+                case "StartingZoneCampaign4":
+                    return StartingZoneCampaign4;
+                case "StartingZoneCampaign5":
+                    return StartingZoneCampaign5;
+                case "StartingZoneCampaign6":
+                    return StartingZoneCampaign6;
+                default:
+                    return StartingZone1;
+            }
+        }
+
         public static bool ShipStandIsInside(GameObject shipObject, Transform zone)
         {
             Vector3 zoneStart = zone.transform.TransformPoint(-0.5f, -0.5f, -0.5f);
@@ -419,7 +440,7 @@ namespace BoardTools
 
         public static void HighlightOfStartingZoneOn()
         {
-            if (Roster.GetPlayer(Phases.CurrentSubPhase.RequiredPlayer).PlayerType == Players.PlayerType.Human || Roster.GetPlayer(Phases.CurrentSubPhase.RequiredPlayer).PlayerType == Players.PlayerType.Hotac)
+            if (Roster.GetPlayer(Phases.CurrentSubPhase.RequiredPlayer).PlayerType == Players.PlayerType.Human)
             {
                 GameObject.Find("SceneHolder").transform.Find("Board").Find("ObstaclesZone").Find("ObstaclesZoneHighlight").gameObject.SetActive(true);
             }

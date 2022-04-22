@@ -61,6 +61,12 @@ namespace SquadBuilderNS
             string directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToCampaignSetup;
             if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
 
+            if (Directory.GetFiles(directoryPath).Length < 1)
+            { 
+                string saveFilePath = directoryPath + "/001 Hotac Test.json";
+                File.WriteAllText(saveFilePath, "{\"description\":\"Hotac Test\",\"name\":\"001 Hotac Test\",\"obstacles\":[\"coreasteroid5\",\"core2asteroid5\",\"core2asteroid4\"],\"deploymentConfigs\":[{\"faction\":\"galacticempire\",\"startingZone\":\"StartingZoneCampaign3\",\"deploymentRound\":\"0\",\"pilots\":[{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"StartingZoneCampaign4\",\"deploymentRound\":\"0\",\"pilots\":[{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"random\",\"deploymentRound\":\"4\",\"pilots\":[{\"id\":\"alphasquadronpilot\",\"ship\":\"tieininterceptor\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"random\",\"deploymentRound\":\"7\",\"pilots\":[{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]}],\"points\":76,\"version\":\"0.3.0\"}");
+            }
+
             foreach (var filePath in Directory.GetFiles(directoryPath))
             {
                 string content = File.ReadAllText(filePath);

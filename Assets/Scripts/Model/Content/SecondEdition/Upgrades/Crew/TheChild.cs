@@ -10,13 +10,11 @@ namespace UpgradesList.SecondEdition
     {
         public TheChild() : base()
         {
-            FromMod = typeof(Mods.ModsList.UnreleasedContentMod);
-
             UpgradeInfo = new UpgradeCardInfo
             (
                 "The Child",
                 UpgradeType.Crew,
-                cost: 5,
+                cost: 6,
                 abilityType: typeof(Abilities.SecondEdition.TheChildAbility),
                 restriction: new FactionRestriction(Faction.Imperial, Faction.Rebel, Faction.Scum),
                 addForce: 2

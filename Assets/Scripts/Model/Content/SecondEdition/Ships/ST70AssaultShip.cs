@@ -32,7 +32,10 @@ namespace Ship
                         UpgradeType.Modification,
                         UpgradeType.Crew,
                         UpgradeType.Crew,
-                        UpgradeType.Illicit
+                        UpgradeType.Gunner,
+                        UpgradeType.Illicit,
+                        UpgradeType.Illicit,
+                        UpgradeType.Title
                     )
                 );
 

@@ -13,16 +13,18 @@ namespace Ship
         {
             public FennRauRebel() : base()
             {
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
-
                 PilotInfo = new PilotCardInfo
                 (
                     "Fenn Rau",
                     6,
-                    60,
+                    62,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.FennRauRebelFangAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.Talent,
+                        UpgradeType.Modification
+                    },
                     factionOverride: Faction.Rebel
                 );
 

@@ -7,19 +7,19 @@ namespace Ship
 {
     namespace SecondEdition.T65XWing
     {
-        public class JamesSampson : T65XWing
+        public class HotacXwing : T65XWing
         {
-            public JamesSampson() : base()
+            public HotacXwing() : base()
             {
                 PilotInfo = new PilotCardInfo(
-                    "James Sampson",
+                    "Hotac XWing",
                     3,
                     38,
                     isLimited: true,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Modification }
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Modification },
+                    seImageNumber: 10
                 );
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
-                ImageUrl = "https://www.x-wing-cardcreator.com/img/published/James%20Sampson_sampsonmatt_0.png";
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Content;
+using System;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -26,6 +27,7 @@ namespace Ship
         public Faction Faction { get; private set; }
         public ForceAlignment ForceAlignment { get; private set; }
         public int SEImageNumber { get; private set; }
+        public List<Tags> Tags { get; }
 
         public PilotCardInfo(string pilotName,
             int initiative,
@@ -39,6 +41,7 @@ namespace Ship
             int regensCharges = 0,
             UpgradeType extraUpgradeIcon = UpgradeType.None,
             List<UpgradeType> extraUpgradeIcons = null,
+            List<Tags> tags = null,
             Faction factionOverride = Faction.None,
             ForceAlignment forceAlignmentOverride = ForceAlignment.None,
             int seImageNumber = 0,

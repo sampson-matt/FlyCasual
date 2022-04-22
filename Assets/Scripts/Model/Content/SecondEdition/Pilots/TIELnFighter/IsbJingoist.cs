@@ -5,6 +5,7 @@ using Ship;
 using SubPhases;
 using Arcs;
 using Tokens;
+using Content;
 
 namespace Ship
 {
@@ -14,16 +15,22 @@ namespace Ship
         {
             public IsbJingoist() : base()
             {
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
-
                 PilotInfo = new PilotCardInfo
                 (
                     "ISB Jingoist",
                     4,
-                    28,
+                    26,
                     limited: 2,
                     abilityType: typeof(Abilities.SecondEdition.IsbJingoistAbility),
-                    extraUpgradeIcon: UpgradeType.Talent
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.Talent,
+                        UpgradeType.Illicit
+                    },
+                    tags: new List<Tags>
+                    {
+                        Tags.Tie
+                    }
                 );
 
                 ImageUrl = "https://i.imgur.com/6rxtxtb.png";
@@ -103,7 +110,7 @@ namespace Abilities.SecondEdition
             Selection.ThisShip = TargetShip;
             Selection.ActiveShip = HostShip;
 
-            IsbJingoistTokenRemovalDecisionSubphase subphase = Phases.StartTemporarySubPhaseNew<IsbJingoistTokenRemovalDecisionSubphase>("ISB Jingoist: Which token to remove",Triggers.FinishTrigger);
+            IsbJingoistTokenRemovalDecisionSubphase subphase = Phases.StartTemporarySubPhaseNew<IsbJingoistTokenRemovalDecisionSubphase>("ISB Jingoist: Which token to remove", Triggers.FinishTrigger);
             subphase.AbilitySource = HostShip;
             subphase.DoIfSkipped = AskWhichBadTokenToAssign;
             subphase.Start();
@@ -169,4 +176,3 @@ namespace Abilities.SecondEdition
         }
     }
 }
-

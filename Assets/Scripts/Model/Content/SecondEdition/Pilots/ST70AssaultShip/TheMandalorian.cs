@@ -14,13 +14,11 @@ namespace Ship
         {
             public TheMandalorian() : base()
             {
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
-
                 PilotInfo = new PilotCardInfo
                 (
                     "The Mandalorian",
                     5,
-                    55,
+                    57,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TheMandalorianAbility),
                     extraUpgradeIcon: UpgradeType.Talent

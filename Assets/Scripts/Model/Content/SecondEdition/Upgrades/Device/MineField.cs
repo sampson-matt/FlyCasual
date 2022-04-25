@@ -12,9 +12,10 @@ using UnityEngine;
 namespace UpgradesList.SecondEdition
 {
     public class MineField : GenericUpgrade
-    {
+    {        
         public MineField() : base()
         {
+            FromMod = typeof(Mods.ModsList.HotacPilotsModSE);
             UpgradeInfo = new UpgradeCardInfo(
                 "Mine Field",
                 UpgradeType.Device,

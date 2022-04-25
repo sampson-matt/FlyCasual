@@ -12,11 +12,10 @@ namespace Ship
             public HotacXwing() : base()
             {
                 PilotInfo = new PilotCardInfo(
-                    "Hotac XWing",
+                    "Hotac X-Wing",
                     3,
                     38,
-                    isLimited: true,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Modification },
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Modification},
                     seImageNumber: 10
                 );
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };

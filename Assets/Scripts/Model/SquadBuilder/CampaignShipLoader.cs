@@ -32,10 +32,10 @@ namespace SquadBuilderNS
         private float FormationWidth { get; set; }
 
         private Dictionary<GenericShip, Vector3> PlannedShipPositions = new Dictionary<GenericShip, Vector3>();
-
         private int ShipDirection { get; set; }
-
         private JSONObject campaignMission { get; set; }
+        private int squadSize { get; set; }
+        private int averageInitiative { get; set; }
 
         public void LoadCampaign()
         {
@@ -61,10 +61,15 @@ namespace SquadBuilderNS
             string directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToCampaignSetup;
             if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
 
+            if(File.Exists(directoryPath + "/001 Hotac Test.json"))
+            {
+                File.Delete(directoryPath + "/001 Hotac Test.json");
+            }
+
             if (Directory.GetFiles(directoryPath).Length < 1)
             { 
-                string saveFilePath = directoryPath + "/001 Hotac Test.json";
-                File.WriteAllText(saveFilePath, "{\"description\":\"Hotac Test\",\"name\":\"001 Hotac Test\",\"obstacles\":[\"coreasteroid5\",\"core2asteroid5\",\"core2asteroid4\"],\"deploymentConfigs\":[{\"faction\":\"galacticempire\",\"startingZone\":\"StartingZoneCampaign3\",\"deploymentRound\":\"0\",\"pilots\":[{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"StartingZoneCampaign4\",\"deploymentRound\":\"0\",\"pilots\":[{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"random\",\"deploymentRound\":\"4\",\"pilots\":[{\"id\":\"alphasquadronpilot\",\"ship\":\"tieininterceptor\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"random\",\"deploymentRound\":\"7\",\"pilots\":[{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]}],\"points\":76,\"version\":\"0.3.0\"}");
+                string saveFilePath = directoryPath + "/002 Hotac Test.json";
+                File.WriteAllText(saveFilePath, "{\"description\":\"Hotac Test\",\"name\":\"002 Hotac Test\",\"obstacles\":[\"coreasteroid5\",\"core2asteroid5\",\"core2asteroid4\"],\"deploymentConfigs\":[{\"faction\":\"galacticempire\",\"startingZone\":\"StartingZoneCampaign3\",\"deploymentRound\":\"0\",\"pilots\":[{\"squadSize\":\"1\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"2\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"4\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"6\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"StartingZoneCampaign4\",\"deploymentRound\":\"0\",\"pilots\":[{\"squadSize\":\"1\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"3\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"5\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"random\",\"deploymentRound\":\"4\",\"pilots\":[{\"squadSize\":\"1\",\"id\":\"alphasquadronpilot\",\"ship\":\"tieininterceptor\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"4\",\"id\":\"alphasquadronpilot\",\"ship\":\"tieininterceptor\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"random\",\"deploymentRound\":\"7\",\"pilots\":[{\"squadSize\":\"2\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"3\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"5\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"6\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]}],\"points\":76,\"version\":\"0.3.0\"}");
             }
 
             foreach (var filePath in Directory.GetFiles(directoryPath))
@@ -80,6 +85,7 @@ namespace SquadBuilderNS
 
         private void InitialSetup()
         {
+            squadSize = Roster.GetPlayer(PlayerNo.Player1).Ships.Count;
             LoadShipsForRound(0);
         }
 
@@ -104,86 +110,93 @@ namespace SquadBuilderNS
                             JSONObject pilotJsons = deploymentConfigJson["pilots"];
                             foreach (JSONObject pilotJson in pilotJsons.list)
                             {
-                                string shipNameXws = pilotJson["ship"].str;
+                                string squadSizeString = pilotJson["squadSize"].str;
 
-                                string shipNameGeneral = "";
-                                ShipRecord shipRecord = SquadBuilder.Instance.Database.AllShips.FirstOrDefault(n => n.ShipNameCanonical == shipNameXws);
-                                if (shipRecord == null)
+                                int squadSizeValue = Int16.Parse(pilotJson["squadSize"].str);
+
+                                if(squadSizeValue<=squadSize)
                                 {
-                                    Messages.ShowError("Cannot find ship: " + shipNameXws);
-                                    continue;
-                                }
+                                    string shipNameXws = pilotJson["ship"].str;
 
-                                shipNameGeneral = shipRecord.ShipName;
-
-                                string pilotNameXws = pilotJson["id"].str;
-                                PilotRecord pilotRecord = SquadBuilder.Instance.Database.AllPilots.FirstOrDefault(n => n.PilotNameCanonical == pilotNameXws && n.Ship.ShipName == shipNameGeneral && n.PilotFaction == faction);
-                                if (pilotRecord == null)
-                                {
-                                    Messages.ShowError("Cannot find pilot: " + pilotNameXws);
-                                    continue;
-                                }
-
-                                GenericShip newShipInstance = (GenericShip)Activator.CreateInstance(Type.GetType(pilotRecord.PilotTypeName));
-                                Edition.Current.AdaptShipToRules(newShipInstance);
-                                SquadListShip newShip = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(newShipInstance);
-
-                                ShipFactory.SpawnShip(newShip);
-                                deploymentGroup.Add(newShipInstance);
-                                Roster.AddShipToLists(newShipInstance);
-
-                                Dictionary<string, string> upgradesThatCannotBeInstalled = new Dictionary<string, string>();
-
-                                if (pilotJson.HasField("upgrades"))
-                                {
-                                    JSONObject upgradeJsons = pilotJson["upgrades"];
-                                    if (upgradeJsons.keys != null)
+                                    string shipNameGeneral = "";
+                                    ShipRecord shipRecord = SquadBuilder.Instance.Database.AllShips.FirstOrDefault(n => n.ShipNameCanonical == shipNameXws);
+                                    if (shipRecord == null)
                                     {
-                                        foreach (string upgradeType in upgradeJsons.keys)
+                                        Messages.ShowError("Cannot find ship: " + shipNameXws);
+                                        continue;
+                                    }
+
+                                    shipNameGeneral = shipRecord.ShipName;
+
+                                    string pilotNameXws = pilotJson["id"].str;
+                                    PilotRecord pilotRecord = SquadBuilder.Instance.Database.AllPilots.FirstOrDefault(n => n.PilotNameCanonical == pilotNameXws && n.Ship.ShipName == shipNameGeneral && n.PilotFaction == faction);
+                                    if (pilotRecord == null)
+                                    {
+                                        Messages.ShowError("Cannot find pilot: " + pilotNameXws);
+                                        continue;
+                                    }
+
+                                    GenericShip newShipInstance = (GenericShip)Activator.CreateInstance(Type.GetType(pilotRecord.PilotTypeName));
+                                    Edition.Current.AdaptShipToRules(newShipInstance);
+                                    SquadListShip newShip = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(newShipInstance);
+
+                                    ShipFactory.SpawnShip(newShip);
+                                    deploymentGroup.Add(newShipInstance);
+                                    Roster.AddShipToLists(newShipInstance);
+
+                                    Dictionary<string, string> upgradesThatCannotBeInstalled = new Dictionary<string, string>();
+
+                                    if (pilotJson.HasField("upgrades"))
+                                    {
+                                        JSONObject upgradeJsons = pilotJson["upgrades"];
+                                        if (upgradeJsons.keys != null)
                                         {
-                                            JSONObject upgradeNames = upgradeJsons[upgradeType];
-                                            foreach (JSONObject upgradeRecord in upgradeNames.list)
+                                            foreach (string upgradeType in upgradeJsons.keys)
                                             {
-                                                UpgradeRecord newUpgradeRecord = SquadBuilder.Instance.Database.AllUpgrades.FirstOrDefault(n => n.UpgradeNameCanonical == upgradeRecord.str);
-                                                if (newUpgradeRecord == null)
+                                                JSONObject upgradeNames = upgradeJsons[upgradeType];
+                                                foreach (JSONObject upgradeRecord in upgradeNames.list)
                                                 {
-                                                    Messages.ShowError("Cannot find upgrade: " + upgradeRecord.str);
+                                                    UpgradeRecord newUpgradeRecord = SquadBuilder.Instance.Database.AllUpgrades.FirstOrDefault(n => n.UpgradeNameCanonical == upgradeRecord.str);
+                                                    if (newUpgradeRecord == null)
+                                                    {
+                                                        Messages.ShowError("Cannot find upgrade: " + upgradeRecord.str);
+                                                    }
+
+                                                    bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgradeRecord.str, Edition.Current.XwsToUpgradeType(upgradeType));
+                                                    if (!upgradeInstalledSucessfully && !upgradesThatCannotBeInstalled.ContainsKey(upgradeRecord.str)) upgradesThatCannotBeInstalled.Add(upgradeRecord.str, upgradeType);
+                                                }
+                                            }
+
+                                            while (upgradeJsons.Count != 0)
+                                            {
+                                                Dictionary<string, string> upgradesThatCannotBeInstalledCopy = new Dictionary<string, string>(upgradesThatCannotBeInstalled);
+
+                                                bool wasSuccess = false;
+                                                foreach (var upgrade in upgradesThatCannotBeInstalledCopy)
+                                                {
+                                                    bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgrade.Key, Edition.Current.XwsToUpgradeType(upgrade.Value));
+                                                    if (upgradeInstalledSucessfully)
+                                                    {
+                                                        wasSuccess = true;
+                                                        upgradesThatCannotBeInstalled.Remove(upgrade.Key);
+                                                    }
                                                 }
 
-                                                bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgradeRecord.str, Edition.Current.XwsToUpgradeType(upgradeType));
-                                                if (!upgradeInstalledSucessfully && !upgradesThatCannotBeInstalled.ContainsKey(upgradeRecord.str)) upgradesThatCannotBeInstalled.Add(upgradeRecord.str, upgradeType);
+                                                if (!wasSuccess) break;
                                             }
-                                        }
-
-                                        while (upgradeJsons.Count != 0)
-                                        {
-                                            Dictionary<string, string> upgradesThatCannotBeInstalledCopy = new Dictionary<string, string>(upgradesThatCannotBeInstalled);
-
-                                            bool wasSuccess = false;
-                                            foreach (var upgrade in upgradesThatCannotBeInstalledCopy)
-                                            {
-                                                bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgrade.Key, Edition.Current.XwsToUpgradeType(upgrade.Value));
-                                                if (upgradeInstalledSucessfully)
-                                                {
-                                                    wasSuccess = true;
-                                                    upgradesThatCannotBeInstalled.Remove(upgrade.Key);
-                                                }
-                                            }
-
-                                            if (!wasSuccess) break;
                                         }
                                     }
-                                }
 
-                                if (pilotJson.HasField("vendor"))
-                                {
-                                    JSONObject vendorData = pilotJson["vendor"];
-                                    if (vendorData.HasField("Sandrem.FlyCasual"))
+                                    if (pilotJson.HasField("vendor"))
                                     {
-                                        JSONObject myVendorData = vendorData["Sandrem.FlyCasual"];
-                                        if (myVendorData.HasField("skin"))
+                                        JSONObject vendorData = pilotJson["vendor"];
+                                        if (vendorData.HasField("Sandrem.FlyCasual"))
                                         {
-                                            newShip.Instance.ModelInfo.SkinName = myVendorData["skin"].str;
+                                            JSONObject myVendorData = vendorData["Sandrem.FlyCasual"];
+                                            if (myVendorData.HasField("skin"))
+                                            {
+                                                newShip.Instance.ModelInfo.SkinName = myVendorData["skin"].str;
+                                            }
                                         }
                                     }
                                 }

@@ -14,7 +14,6 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Pilot,
 
                 cost: 8,
-                isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.AhsokaTanoAbility),
                 addForce: 2
             );

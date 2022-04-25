@@ -13,7 +13,6 @@ namespace UpgradesList.SecondEdition
                 "Sabine Wren Pilot Ability",
                 UpgradeType.Pilot,
                 cost: 8,
-                isLimited: true,
                 abilityType: typeof(Abilities.FirstEdition.SabineWrenPilotAbility)
             );
             ImageUrl = "https://www.x-wing-cardcreator.com/img/published/Sabine%20Wren%20Pilot%20Ability_Sabine%20Wren%20Pilot%20Ability_0.png";

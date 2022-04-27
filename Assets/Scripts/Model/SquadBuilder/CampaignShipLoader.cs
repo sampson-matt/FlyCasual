@@ -33,14 +33,14 @@ namespace SquadBuilderNS
 
         private Dictionary<GenericShip, Vector3> PlannedShipPositions = new Dictionary<GenericShip, Vector3>();
         private int ShipDirection { get; set; }
-        private JSONObject campaignMission { get; set; }
+        
         private int squadSize { get; set; }
         private int averageInitiative { get; set; }
 
         public void LoadCampaign()
         {
             List<JSONObject> campaignMissionJsons = GetCampaignMissionsJsons();
-            campaignMission = campaignMissionJsons[0];
+            CampaignLoader.campaignMission = campaignMissionJsons[0];
             List<DeploymentConfig> deploymentConfigs = new List<DeploymentConfig>();
 
             Phases.Events.OnSetupStart += InitialSetup;
@@ -93,9 +93,9 @@ namespace SquadBuilderNS
         {
             List<DeploymentConfig> deploymentConfigs = new List<DeploymentConfig>();
 
-            if (campaignMission.HasField("deploymentConfigs"))
+            if (CampaignLoader.campaignMission.HasField("deploymentConfigs"))
             {
-                JSONObject deploymentConfigsJson = campaignMission["deploymentConfigs"];
+                JSONObject deploymentConfigsJson = CampaignLoader.campaignMission["deploymentConfigs"];
                 foreach (JSONObject deploymentConfigJson in deploymentConfigsJson.list)
                 {
                     List<GenericShip> deploymentGroup = new List<GenericShip>();
@@ -265,6 +265,7 @@ namespace SquadBuilderNS
     }
     public static class CampaignLoader
     {
+        public static JSONObject campaignMission { get; set; }
         public static void LoadCampaign()
         {
             CampaignShipLoader currentCampaignShipLoader = new CampaignShipLoader();

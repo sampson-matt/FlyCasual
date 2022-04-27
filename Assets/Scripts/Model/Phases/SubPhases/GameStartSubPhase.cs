@@ -33,6 +33,10 @@ namespace SubPhases
             {
                 Phases.CurrentSubPhase = new ObstaclesPlacementSubPhase();
             }
+            if(Global.IsCampaignGame)
+            {
+                Phases.CurrentSubPhase = new CampaignObstaclesPlacementSubPhase();
+            }
             else
             {
                 Phases.CurrentSubPhase = new SetupStartSubPhase();

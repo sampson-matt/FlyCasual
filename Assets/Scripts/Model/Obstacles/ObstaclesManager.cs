@@ -104,6 +104,18 @@ namespace Obstacles
             return Instance.ChosenObstacles.First(n => n.Name == name);
         }
 
+        public static GenericObstacle GetRandomAsteroid()
+        {
+            int rand = UnityEngine.Random.Range(0, 11);
+            GenericObstacle asteroid = Instance.AllPossibleObstacles[rand];
+            GenericObstacle newAsteroid = (GenericObstacle)Activator.CreateInstance(
+                asteroid.GetType(),
+                new object[] { asteroid.Name, asteroid.ShortName }
+            );
+            Instance.ChosenObstacles.Add(newAsteroid);
+            return newAsteroid;
+        }
+
         public static GenericObstacle GetPossibleObstacle(string obstacleShortName)
         {
             obstacleShortName = obstacleShortName.Replace("vt49debris", "vt49decimatordebris"); // Pre 1.4

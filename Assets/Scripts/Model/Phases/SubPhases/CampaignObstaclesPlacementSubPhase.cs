@@ -56,19 +56,13 @@ namespace SubPhases
         {
             Board.ToggleObstaclesHolder(true);
 
-            int asteroidCount = 1;
-
             ObstaclesManager.Instance.ChosenObstacles.Clear();
             ChosenObstacles.Clear();
             for(int i = 0; i<6; i++)
             {
                 ChosenObstacles.Add(ObstaclesManager.GetRandomAsteroid());
-            }
-            
-            foreach (GenericObstacle obstacle in ChosenObstacles)
-            {
-                GameObject obstacleHolder = Board.GetObstacleHolder().Find("Obstacle" + asteroidCount++).gameObject;
-                obstacle.Spawn(obstacle.Name + " " + asteroidCount, obstacleHolder.transform);
+                GameObject obstacleHolder = Board.GetObstacleHolder().Find("Obstacle" + 1).gameObject;
+                ChosenObstacles[i].Spawn(ChosenObstacles[i].Name + " " + i, obstacleHolder.transform);
             }
         }
 
@@ -326,7 +320,7 @@ namespace SubPhases
             MovementTemplates.ReturnRangeRulerR1();
             MovementTemplates.ReturnRangeRulerR2();
 
-            if (ObstaclesManager.GetPlacedObstaclesCount() < 6)
+            if (ObstaclesManager.GetPlacedObstaclesCount() < ObstaclesManager.Instance.ChosenObstacles.Count)
             {
                 Phases.CurrentSubPhase.Next();
             }

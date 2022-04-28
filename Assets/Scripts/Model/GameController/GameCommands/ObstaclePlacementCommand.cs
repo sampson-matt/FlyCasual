@@ -20,9 +20,10 @@ namespace GameCommands
 
             Console.Write($"Obstacle is placed: {obstacleName}");
 
-            ObstaclesPlacementSubPhase.PlaceObstacle
-            (
-                obstacleName,
+            if (Global.IsCampaignGame)
+            {
+                CampaignObstaclesPlacementSubPhase.PlaceObstacle
+                (obstacleName,
                 new Vector3
                 (
                     float.Parse(GetString("positionX"), CultureInfo.InvariantCulture),
@@ -36,6 +37,27 @@ namespace GameCommands
                     float.Parse(GetString("rotationZ"), CultureInfo.InvariantCulture)
                 )
              );
+            }
+            else
+            {
+                ObstaclesPlacementSubPhase.PlaceObstacle
+                (obstacleName,
+                new Vector3
+                (
+                    float.Parse(GetString("positionX"), CultureInfo.InvariantCulture),
+                    0,
+                    float.Parse(GetString("positionZ"), CultureInfo.InvariantCulture)
+                ),
+                new Vector3
+                (
+                    float.Parse(GetString("rotationX"), CultureInfo.InvariantCulture),
+                    float.Parse(GetString("rotationY"), CultureInfo.InvariantCulture),
+                    float.Parse(GetString("rotationZ"), CultureInfo.InvariantCulture)
+                )
+             );
+            }
+
+
         }
     }
 

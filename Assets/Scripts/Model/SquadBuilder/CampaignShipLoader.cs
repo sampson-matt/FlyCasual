@@ -114,7 +114,7 @@ namespace SquadBuilderNS
 
                                 int squadSizeValue = Int16.Parse(pilotJson["squadSize"].str);
 
-                                if(squadSizeValue<=squadSize)
+                                if (squadSizeValue <= squadSize)
                                 {
                                     string shipNameXws = pilotJson["ship"].str;
 
@@ -213,8 +213,11 @@ namespace SquadBuilderNS
                                 startingZone = Board.GetStartingZoneCampaign(deploymentConfigJson["startingZone"].str);
                             }
                         }
-                        DeploymentConfig deploymentConfig = new DeploymentConfig(deploymentGroup, startingZone);
-                        deploymentConfigs.Add(deploymentConfig);
+                        if (deploymentGroup.Count > 0)
+                        {
+                            DeploymentConfig deploymentConfig = new DeploymentConfig(deploymentGroup, startingZone);
+                            deploymentConfigs.Add(deploymentConfig);
+                        }
                     }                    
                 }
 

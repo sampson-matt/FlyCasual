@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Upgrade;
+using Mods.ModsList;
 
 namespace Ship
 {
@@ -17,10 +18,11 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Hotac HWK",
                     3,
-                    31,
-                    isLimited: true,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Illicit, UpgradeType.Pilot }
+                    0,
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Illicit, UpgradeType.Pilot, UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Talent, UpgradeType.Sensor, UpgradeType.Modification, UpgradeType.Modification},
+                    seImageNumber: 45
                 );
+                RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
             }
         }
     }

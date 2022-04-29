@@ -14,11 +14,13 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Hotac Y-Wing",
                     2,
-                    29,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Modification },
+                    0,
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Modification, UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Modification, UpgradeType.Talent, UpgradeType.Pilot },
                     seImageNumber: 18
                 );
-                RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
+                RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) }; 
+                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Missile);
+                ShipInfo.UpgradeIcons.Upgrades.Add(UpgradeType.Gunner);
             }
         }
     }

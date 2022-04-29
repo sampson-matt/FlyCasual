@@ -145,7 +145,29 @@ namespace SquadBuilderNS
 
         private bool HasPilots(ShipRecord ship, Faction faction)
         {
-            return Global.SquadBuilder.Database.AllPilots.Any(n => n.Ship == ship && n.PilotFaction == faction);
+
+            if (Global.IsCampaignGame)
+            {
+               return Global.SquadBuilder.Database.AllPilots
+                .Any(n =>
+                    n.Ship == ship
+                    && n.PilotFaction == faction
+                    && n.Instance.GetType().ToString().Contains(Edition.Current.NameShort)
+                    && n.PilotName.ToString().Contains("Hotac")
+                    && !n.Instance.IsHiddenSquadbuilderOnly
+                );
+            }
+            else
+            {
+                return Global.SquadBuilder.Database.AllPilots
+                .Any(n =>
+                    n.Ship == ship
+                    && n.PilotFaction == faction
+                    && n.Instance.GetType().ToString().Contains(Edition.Current.NameShort)
+                    && !n.Instance.IsHiddenSquadbuilderOnly
+                );
+            }
+            //return Global.SquadBuilder.Database.AllPilots.Any(n => n.Ship == ship && n.PilotFaction == faction);
         }
     }
 }

@@ -9,13 +9,31 @@ namespace SquadBuilderNS
 {
     public class SquadBuilderPilotsView
     {
-        public void ShowAvailablePilots(Faction faction, string shipName)
+        public void ShowAvailablePilots(Faction faction, string shipName, Boolean isCampaign = false)
         {
             PilotPanelSquadBuilder.WaitingToLoad = 0;
 
             ShipRecord shipRecord = Global.SquadBuilder.Database.AllShips.Find(n => n.ShipName == shipName);
 
-            List<PilotRecord> AllPilotsFiltered = Global.SquadBuilder.Database.AllPilots
+            List<PilotRecord> AllPilotsFiltered = new List<PilotRecord>();
+
+            if (isCampaign)
+            {
+                AllPilotsFiltered = Global.SquadBuilder.Database.AllPilots
+                .Where(n =>
+                    n.Ship == shipRecord
+                    && n.PilotFaction == faction
+                    && n.Instance.GetType().ToString().Contains(Edition.Current.NameShort)
+                    && n.PilotName.ToString().Contains("Hotac")
+                    && !n.Instance.IsHiddenSquadbuilderOnly
+                )
+                .OrderByDescending(n => n.PilotSkill).
+                OrderByDescending(n => n.Instance.PilotInfo.Cost).
+                ToList();
+            }
+            else
+            {
+                AllPilotsFiltered = Global.SquadBuilder.Database.AllPilots
                 .Where(n =>
                     n.Ship == shipRecord
                     && n.PilotFaction == faction
@@ -25,6 +43,8 @@ namespace SquadBuilderNS
                 .OrderByDescending(n => n.PilotSkill).
                 OrderByDescending(n => n.Instance.PilotInfo.Cost).
                 ToList();
+            }
+            
             int pilotsCount = AllPilotsFiltered.Count();
 
             Transform contentTransform = GameObject.Find("UI/Panels/SelectPilotPanel/Panel/Scroll View/Viewport/Content").transform;

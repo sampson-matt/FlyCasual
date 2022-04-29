@@ -31,8 +31,15 @@ namespace SquadBuilderNS
 
             prefab = (GameObject)Resources.Load("Prefabs/SquadBuilder/AddShipButton", typeof(GameObject));
             GameObject addShipButton = MonoBehaviour.Instantiate(prefab, Panel.transform);
-
-            Sprite factionSprite = GameObject.Find("UI/Panels").transform.Find("SelectFactionPanel").Find("Panel").Find("FactionPanels" + Edition.Current.NameShort).Find(Global.SquadBuilder.CurrentSquad.SquadFaction.ToString()).GetComponent<Image>().sprite;
+            Sprite factionSprite = null;
+            if (Global.IsCampaignGame)
+            {
+                factionSprite = GameObject.Find("UI/Panels").transform.Find("SelectFactionPanel").Find("Panel").Find("FactionPanelsCampaign").Find(Global.SquadBuilder.CurrentSquad.SquadFaction.ToString()).GetComponent<Image>().sprite;
+            }
+            else
+            {
+                factionSprite = GameObject.Find("UI/Panels").transform.Find("SelectFactionPanel").Find("Panel").Find("FactionPanels" + Edition.Current.NameShort).Find(Global.SquadBuilder.CurrentSquad.SquadFaction.ToString()).GetComponent<Image>().sprite;
+            }            
             addShipButton.GetComponent<Image>().sprite = factionSprite;
             return addShipButton;
         }

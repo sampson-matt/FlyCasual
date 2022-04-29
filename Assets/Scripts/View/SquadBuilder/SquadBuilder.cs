@@ -161,13 +161,20 @@ namespace SquadBuilderNS
 
         public void ShowFactionsImages()
         {
-            List<string> panelNames = new List<string>() { "FactionPanelsFirstEdition", "FactionPanelsSecondEdition" };
+            List<string> panelNames = new List<string>() { "FactionPanelsFirstEdition", "FactionPanelsSecondEdition", "FactionPanelsCampaign" };
             foreach (string panelName in panelNames)
             {
                 GameObject.Find("UI/Panels/SelectFactionPanel/Panel").transform.Find(panelName).gameObject.SetActive(false);
             }
-
-            GameObject panelGO = GameObject.Find("UI/Panels/SelectFactionPanel/Panel").transform.Find("FactionPanels" + Edition.Current.NameShort).gameObject;
+            GameObject panelGO = new GameObject();
+            if (Global.IsCampaignGame)
+            {
+                panelGO = GameObject.Find("UI/Panels/SelectFactionPanel/Panel").transform.Find("FactionPanelsCampaign").gameObject;
+            }
+            else
+            {
+                panelGO = GameObject.Find("UI/Panels/SelectFactionPanel/Panel").transform.Find("FactionPanels" + Edition.Current.NameShort).gameObject;
+            }            
             MainMenu.ScalePanel(panelGO.transform, maxScale: 1.25f);
             panelGO.SetActive(true);
 
@@ -198,7 +205,15 @@ namespace SquadBuilderNS
         public void ShowPilotsFilteredByShipAndFaction()
         {
             ShowLoadingContentStub("Pilot");
-            PilotsView.ShowAvailablePilots(Model.CurrentSquad.SquadFaction, Global.SquadBuilder.CurrentShipName);
+            if(Global.IsCampaignGame)
+            {
+                PilotsView.ShowAvailablePilots(Model.CurrentSquad.SquadFaction, Global.SquadBuilder.CurrentShipName, true);
+            }
+            else
+            {
+                PilotsView.ShowAvailablePilots(Model.CurrentSquad.SquadFaction, Global.SquadBuilder.CurrentShipName);
+            }
+            
             UpdateSquadCost("SelectPilotPanel");
         }
 

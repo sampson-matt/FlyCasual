@@ -196,7 +196,14 @@ public partial class MainMenu : MonoBehaviour {
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         InitializeSquadBuilder(modeName);
-        ChangePanel("SelectFactionPanel");
+        if(Global.IsCampaignGame)
+        {
+            ChangePanel("SelectFactionPanel");
+        }
+        else
+        {
+            ChangePanel("SelectFactionPanel");
+        }
     }
 
     public void StartReplay()
@@ -206,9 +213,7 @@ public partial class MainMenu : MonoBehaviour {
 
     public void InitializeSquadBuilder(string modeName)
     {
-        Global.SquadBuilder = new SquadBuilder();
-        new SquadBuilderView(Global.SquadBuilder);
-        if("Campaign".Equals(modeName))
+        if ("Campaign".Equals(modeName))
         {
             Global.IsCampaignGame = true;
         }
@@ -216,6 +221,9 @@ public partial class MainMenu : MonoBehaviour {
         {
             Global.IsCampaignGame = false;
         }
+        Global.SquadBuilder = new SquadBuilder();
+        new SquadBuilderView(Global.SquadBuilder);
+        
         Global.SquadBuilder.SetPlayers(modeName);
     }
 

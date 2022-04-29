@@ -274,6 +274,17 @@ namespace Ship
 
             if (IsHidden) return false;
 
+            if(Global.IsCampaignGame)
+            {                
+                foreach (var modType in RequiredMods)
+                {
+                    if (modType.Name == "HotacPilotsModSE")
+                    {
+                        return true;
+                    }
+                }
+            }
+
             if (RequiredMods.Count != 0)
             {
                 foreach (var modType in RequiredMods)

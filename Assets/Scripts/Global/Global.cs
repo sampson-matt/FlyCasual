@@ -12,7 +12,7 @@ public class Global : MonoBehaviour {
 
     private static bool isAlreadyInitialized;
 
-    public static string CurrentVersion = "v0.2-Alpha";
+    public static string CurrentVersion = "v0.3-Alpha";
     public static int CurrentVersionInt = 101081010;
     public static int LatestVersionInt = 101081010;
 

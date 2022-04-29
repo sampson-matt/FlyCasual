@@ -65,7 +65,7 @@ namespace SubPhases
 
             ObstaclesManager.Instance.ChosenObstacles.Clear();
             ChosenObstacles.Clear();
-            for(int i = 0; i<0; i++)
+            for(int i = 0; i<6; i++)
             {
                 ChosenObstacles.Add(ObstaclesManager.GetRandomAsteroid());
                 GameObject obstacleHolder = Board.GetObstacleHolder().Find("Obstacle" + 1).gameObject;

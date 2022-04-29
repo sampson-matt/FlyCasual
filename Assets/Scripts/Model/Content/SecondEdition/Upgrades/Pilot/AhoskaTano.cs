@@ -13,11 +13,11 @@ namespace UpgradesList.SecondEdition
                 "Ahsoka Tano Pilot Ability",
                 UpgradeType.Pilot,
 
-                cost: 8,
-                abilityType: typeof(Abilities.SecondEdition.AhsokaTanoAbility),
-                addForce: 2
+                cost: 30,
+                abilityType: typeof(Abilities.SecondEdition.AhsokaTanoRebelAbility),
+                addForce: 3
             );
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/f2/84/f284aa2b-9e09-4c3c-968b-935360a65edc/swz83_pilot_ahsokatano.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Pilot-Abilities/main/PilotAbilities/Rebel/ahsokatano.png";
         }
 
 

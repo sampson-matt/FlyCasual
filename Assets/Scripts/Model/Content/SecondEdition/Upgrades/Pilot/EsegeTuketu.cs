@@ -15,7 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 8,
                 abilityType: typeof(Abilities.SecondEdition.EsegeTuketuAbility)
             );
-            ImageUrl = "https://www.x-wing-cardcreator.com/img/published/Esege%20Tuketu%20Pilot%20Ability_Esege%20Tuketu%20Pilot%20Ability_0.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Pilot-Abilities/main/PilotAbilities/Rebel/esegetuketu.png";
         }
 
 

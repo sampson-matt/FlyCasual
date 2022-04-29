@@ -15,7 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 8,
                 abilityType: typeof(Abilities.FirstEdition.SabineWrenPilotAbility)
             );
-            ImageUrl = "https://www.x-wing-cardcreator.com/img/published/Sabine%20Wren%20Pilot%20Ability_Sabine%20Wren%20Pilot%20Ability_0.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Pilot-Abilities/main/PilotAbilities/Rebel/sabinewren.png";
         }
 
 

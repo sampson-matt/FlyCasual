@@ -31,11 +31,14 @@ namespace SubPhases
         {
             if (!DebugManager.NoObstaclesSetup)
             {
-                Phases.CurrentSubPhase = new ObstaclesPlacementSubPhase();
-            }
-            if(Global.IsCampaignGame)
-            {
-                Phases.CurrentSubPhase = new CampaignObstaclesPlacementSubPhase();
+                if (Global.IsCampaignGame)
+                {
+                    Phases.CurrentSubPhase = new CampaignObstaclesPlacementSubPhase();
+                }
+                else
+                {
+                    Phases.CurrentSubPhase = new ObstaclesPlacementSubPhase();
+                }
             }
             else
             {

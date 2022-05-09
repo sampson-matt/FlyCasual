@@ -120,6 +120,11 @@ namespace SquadBuilderNS
             SquadsManagement.BrowseSavedSquads();
         }
 
+        public void BrowseCampaignMissions()
+        {
+            SquadsManagement.BrowseCampaignMissions();
+        }
+
         public static void OrganizePanels(Transform contentTransform, float freeSpace)
         {
             float totalHeight = 0;

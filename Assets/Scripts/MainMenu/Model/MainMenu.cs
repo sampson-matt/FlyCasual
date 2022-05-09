@@ -198,7 +198,7 @@ public partial class MainMenu : MonoBehaviour {
         InitializeSquadBuilder(modeName);
         if(Global.IsCampaignGame)
         {
-            ChangePanel("SelectFactionPanel");
+            ChangePanel("BrowseCampaignMissionsPanel");
         }
         else
         {

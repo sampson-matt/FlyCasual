@@ -39,48 +39,10 @@ namespace SquadBuilderNS
 
         public void LoadCampaign()
         {
-            List<JSONObject> campaignMissionJsons = GetCampaignMissionsJsons();
-            CampaignLoader.campaignMission = campaignMissionJsons[0];
             List<DeploymentConfig> deploymentConfigs = new List<DeploymentConfig>();
 
             Phases.Events.OnSetupStart += InitialSetup;
             Phases.Events.OnPlanningPhaseStart += MidGameShipAddition;
-        }
-
-        //public void BrowseCampaignMissions()
-        //{
-        //    List<JSONObject> campaignMissionJsons = GetCampaignMissionsJsons();
-
-        //    ShowCampaignMissions(campaignMissionJsons);
-        //}
-
-        private List<JSONObject> GetCampaignMissionsJsons()
-        {
-            List<JSONObject> campaignMissionsJsons = new List<JSONObject>();
-
-            string directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToCampaignSetup;
-            if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
-
-            if(File.Exists(directoryPath + "/001 Hotac Test.json"))
-            {
-                File.Delete(directoryPath + "/001 Hotac Test.json");
-            }
-
-            if (Directory.GetFiles(directoryPath).Length < 1)
-            { 
-                string saveFilePath = directoryPath + "/002 Hotac Test.json";
-                File.WriteAllText(saveFilePath, "{\"description\":\"Hotac Test\",\"name\":\"002 Hotac Test\",\"obstacles\":[\"coreasteroid5\",\"core2asteroid5\",\"core2asteroid4\"],\"deploymentConfigs\":[{\"faction\":\"galacticempire\",\"startingZone\":\"StartingZoneCampaign3\",\"deploymentRound\":\"0\",\"pilots\":[{\"squadSize\":\"1\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"2\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"4\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"6\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"StartingZoneCampaign4\",\"deploymentRound\":\"0\",\"pilots\":[{\"squadSize\":\"1\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"3\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"5\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"random\",\"deploymentRound\":\"4\",\"pilots\":[{\"squadSize\":\"1\",\"id\":\"alphasquadronpilot\",\"ship\":\"tieininterceptor\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"4\",\"id\":\"alphasquadronpilot\",\"ship\":\"tieininterceptor\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]},{\"faction\":\"galacticempire\",\"startingZone\":\"random\",\"deploymentRound\":\"7\",\"pilots\":[{\"squadSize\":\"2\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"3\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"5\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}},{\"squadSize\":\"6\",\"id\":\"academypilot\",\"ship\":\"tielnfighter\",\"upgrades\":{},\"vendor\":{\"Sandrem.FlyCasual\":{\"skin\":\"Gray\"}}}]}],\"points\":76,\"version\":\"0.3.0\"}");
-            }
-
-            foreach (var filePath in Directory.GetFiles(directoryPath))
-            {
-                string content = File.ReadAllText(filePath);
-                JSONObject missionJson = new JSONObject(content);
-                missionJson.AddField("filename", new FileInfo(filePath).Name);
-                campaignMissionsJsons.Add(missionJson);
-            }
-
-            return campaignMissionsJsons;
         }
 
         private void InitialSetup()

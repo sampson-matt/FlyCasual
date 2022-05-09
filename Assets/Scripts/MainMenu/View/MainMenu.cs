@@ -95,6 +95,9 @@ public partial class MainMenu : MonoBehaviour {
             case "BrowseSavedSquadsPanel":
                 Global.SquadBuilder.View.BrowseSavedSquads();
                 break;
+            case "BrowseCampaignMissionsPanel":
+                Global.SquadBuilder.View.BrowseCampaignMissions();
+                break;
             case "SaveSquadronPanel":
                 Global.SquadBuilder.View.PrepareSaveSquadronPanel();
                 break;
@@ -198,6 +201,11 @@ public partial class MainMenu : MonoBehaviour {
     public void PreviousPanel()
     {
         CurrentMainMenu.ChangePanel(CurrentMainMenu.PreviousPanelName);
+    }
+
+    public void GameModeDecisionPanel()
+    {
+        MainMenu.CurrentMainMenu.ChangePanel("GameModeDecisionPanel");
     }
 
     public void OpenPatreon()

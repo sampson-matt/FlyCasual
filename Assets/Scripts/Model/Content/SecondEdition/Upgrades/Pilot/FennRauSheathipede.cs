@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 12,
                 abilityType: typeof(Abilities.FirstEdition.FennRauRebelAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Pilot-Abilities/main/PilotAbilities/Rebel/fennrausheathipede.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/PilotAbilities/Rebel/fennrausheathipede.png";
         }
 
 

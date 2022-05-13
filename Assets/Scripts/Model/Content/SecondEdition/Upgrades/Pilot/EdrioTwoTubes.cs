@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 4,
                 abilityType: typeof(Abilities.FirstEdition.EdrioTwoTubesAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Pilot-Abilities/main/PilotAbilities/Rebel/edriotwotubes.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/PilotAbilities/Rebel/edriotwotubes.png";
         }
 
 

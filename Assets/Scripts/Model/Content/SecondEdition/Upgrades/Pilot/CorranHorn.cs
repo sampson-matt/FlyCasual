@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 10,
                 abilityType: typeof(Abilities.SecondEdition.CorranHornAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Pilot-Abilities/main/PilotAbilities/Rebel/corranhorn.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/PilotAbilities/Rebel/corranhorn.png";
         }
 
 

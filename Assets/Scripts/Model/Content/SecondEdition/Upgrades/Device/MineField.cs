@@ -16,6 +16,7 @@ namespace UpgradesList.SecondEdition
         public MineField() : base()
         {
             FromMod = typeof(Mods.ModsList.HotacPilotsModSE);
+
             UpgradeInfo = new UpgradeCardInfo(
                 "Mine Field",
                 UpgradeType.Device,
@@ -29,7 +30,7 @@ namespace UpgradesList.SecondEdition
                 remoteType: typeof(Remote.MineField)
             );
 
-            ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/44556cd042e536b41e7e89850e13081a.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/Upgrades/payload/minefield.png";
         }
     }
 }

@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 10,
                 abilityType: typeof(Abilities.SecondEdition.DashRendarAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Pilot-Abilities/main/PilotAbilities/Rebel/dashrendar.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/PilotAbilities/Rebel/dashrendar.png";
         }
 
 

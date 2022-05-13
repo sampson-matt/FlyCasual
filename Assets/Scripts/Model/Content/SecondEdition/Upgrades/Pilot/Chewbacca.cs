@@ -18,7 +18,7 @@ namespace UpgradesList.SecondEdition
                 charges: 1,
                 regensCharges: true
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Pilot-Abilities/main/PilotAbilities/Rebel/chewbacca.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/PilotAbilities/Rebel/chewbacca.png";
         }
 
 

@@ -37,6 +37,7 @@ namespace Editions
         public override MovementComplexity IonManeuverComplexity { get { return MovementComplexity.Easy; } }
         public override string PathToSavedSquadrons { get { return "SavedSquadrons"; } } //RandomAiSquadrons
         public override string PathToCampaignSetup { get { return "CampaignSetup";  } }
+        public override string PathToElitePilotUpgrades { get { return "ElitePilotUpgrades"; } }
 
         public override string RootUrlForImages { get { return "https://squadbuilder.fantasyflightgames.com/card_images/"; } }
         public override Vector2 UpgradeCardSize { get { return new Vector2(418, 300); } }

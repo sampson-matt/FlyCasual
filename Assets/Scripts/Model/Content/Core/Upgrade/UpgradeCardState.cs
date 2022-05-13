@@ -20,8 +20,8 @@ namespace Upgrade
             }
         }
 
-        public int Charges { get; private set; }
-        public int MaxCharges { get; private set; }
+        public int Charges { get; set; }
+        public int MaxCharges { get; set; }
         public bool UsesCharges { get { return MaxCharges > 0; } }
 
         public bool IsFaceup { get; private set; }

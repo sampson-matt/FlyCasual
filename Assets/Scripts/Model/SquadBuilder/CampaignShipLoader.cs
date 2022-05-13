@@ -12,6 +12,8 @@ using Ship;
 using GameCommands;
 using GameModes;
 using System;
+using Newtonsoft.Json;
+using Mods;
 
 
 namespace SquadBuilderNS
@@ -48,7 +50,19 @@ namespace SquadBuilderNS
         private void InitialSetup()
         {
             squadSize = Roster.GetPlayer(PlayerNo.Player1).Ships.Count;
+            determineAverageInitiative();
             LoadShipsForRound(0);
+        }
+
+        private void determineAverageInitiative()
+        {
+            List<GenericShip> ships =  Roster.GetPlayer(PlayerNo.Player1).Ships.Values.ToList();
+            int initiativeTotal = 0;
+            foreach (GenericShip ship in ships)
+            {
+                initiativeTotal += ship.PilotInfo.Initiative;
+            }
+            averageInitiative = initiativeTotal / ships.Count;
         }
 
         private void LoadShipsForRound(int roundNumber)
@@ -101,52 +115,37 @@ namespace SquadBuilderNS
                                     GenericShip newShipInstance = (GenericShip)Activator.CreateInstance(Type.GetType(pilotRecord.PilotTypeName));
                                     Edition.Current.AdaptShipToRules(newShipInstance);
                                     SquadListShip newShip = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(newShipInstance);
-
-                                    ShipFactory.SpawnShip(newShip);
-                                    deploymentGroup.Add(newShipInstance);
-                                    Roster.AddShipToLists(newShipInstance);
-
+                                    
                                     Dictionary<string, string> upgradesThatCannotBeInstalled = new Dictionary<string, string>();
 
                                     if (pilotJson.HasField("upgrades"))
                                     {
                                         JSONObject upgradeJsons = pilotJson["upgrades"];
-                                        if (upgradeJsons.keys != null)
+                                        InstallCampaignUpgrade(newShip, upgradesThatCannotBeInstalled, upgradeJsons);
+                                    }
+
+                                    if(pilotJson.HasField("randomUpgrades"))
+                                    {
+                                        string upgradeClass = pilotJson["randomUpgrades"].str;
+                                        InstallElitePilotUpgrades(upgradeClass, newShip, newShipInstance, upgradesThatCannotBeInstalled);
+                                    }
+
+                                    while (true)
+                                    {
+                                        Dictionary<string, string> upgradesThatCannotBeInstalledCopy = new Dictionary<string, string>(upgradesThatCannotBeInstalled);
+
+                                        bool wasSuccess = false;
+                                        foreach (var upgrade in upgradesThatCannotBeInstalledCopy)
                                         {
-                                            foreach (string upgradeType in upgradeJsons.keys)
+                                            bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgrade.Key, Edition.Current.XwsToUpgradeType(upgrade.Value));
+                                            if (upgradeInstalledSucessfully)
                                             {
-                                                JSONObject upgradeNames = upgradeJsons[upgradeType];
-                                                foreach (JSONObject upgradeRecord in upgradeNames.list)
-                                                {
-                                                    UpgradeRecord newUpgradeRecord = SquadBuilder.Instance.Database.AllUpgrades.FirstOrDefault(n => n.UpgradeNameCanonical == upgradeRecord.str);
-                                                    if (newUpgradeRecord == null)
-                                                    {
-                                                        Messages.ShowError("Cannot find upgrade: " + upgradeRecord.str);
-                                                    }
-
-                                                    bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgradeRecord.str, Edition.Current.XwsToUpgradeType(upgradeType));
-                                                    if (!upgradeInstalledSucessfully && !upgradesThatCannotBeInstalled.ContainsKey(upgradeRecord.str)) upgradesThatCannotBeInstalled.Add(upgradeRecord.str, upgradeType);
-                                                }
-                                            }
-
-                                            while (upgradeJsons.Count != 0)
-                                            {
-                                                Dictionary<string, string> upgradesThatCannotBeInstalledCopy = new Dictionary<string, string>(upgradesThatCannotBeInstalled);
-
-                                                bool wasSuccess = false;
-                                                foreach (var upgrade in upgradesThatCannotBeInstalledCopy)
-                                                {
-                                                    bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgrade.Key, Edition.Current.XwsToUpgradeType(upgrade.Value));
-                                                    if (upgradeInstalledSucessfully)
-                                                    {
-                                                        wasSuccess = true;
-                                                        upgradesThatCannotBeInstalled.Remove(upgrade.Key);
-                                                    }
-                                                }
-
-                                                if (!wasSuccess) break;
+                                                wasSuccess = true;
+                                                upgradesThatCannotBeInstalled.Remove(upgrade.Key);
                                             }
                                         }
+
+                                        if (!wasSuccess) break;
                                     }
 
                                     if (pilotJson.HasField("vendor"))
@@ -161,6 +160,9 @@ namespace SquadBuilderNS
                                             }
                                         }
                                     }
+                                    ShipFactory.SpawnShip(newShip);
+                                    deploymentGroup.Add(newShipInstance);
+                                    Roster.AddShipToLists(newShipInstance);
                                 }
                             }
                         }
@@ -196,6 +198,116 @@ namespace SquadBuilderNS
 
                     subphase.Start();
                 }
+            }
+        }
+
+        private void InstallElitePilotUpgrades(string upgradeClass, SquadListShip newShip, GenericShip newShipInstance, Dictionary<string, string> upgradesThatCannotBeInstalled)
+        {
+            JSONObject elitePilotUpgrades = LoadElitePilotUpgrades();
+
+            if(elitePilotUpgrades.HasField("ships"))
+            {
+                JSONObject shipsJson = elitePilotUpgrades["ships"];
+                foreach (JSONObject shipJson in shipsJson.list)
+                {
+                    if (shipJson.HasField("type") && shipJson["type"].str.Equals(newShip.Instance.ShipTypeCanonical))
+                    {
+                        if (shipJson.HasField("upgrades"))
+                        {
+                            JSONObject upgrades = shipJson["upgrades"];
+                            int randomUpgrade = UnityEngine.Random.Range(0, upgrades.Count-1);
+                            JSONObject upgrade = upgrades[randomUpgrade];
+                            if (upgradeClass.Equals("basic"))
+                            {
+                                if (upgrade.HasField("basicUpgrades"))
+                                {
+                                    JSONObject basicUpgrade = upgrade["basicUpgrades"];
+                                    InstallCampaignUpgrade(newShip, upgradesThatCannotBeInstalled, basicUpgrade);
+                                }
+                                newShipInstance.PilotInfo.Initiative = 1;
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+
+        private JSONObject LoadElitePilotUpgrades()
+        {
+            string directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToElitePilotUpgrades;
+            if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
+
+            string filePath = directoryPath + "/elitePilotUpgrades.json";
+            if (!File.Exists(filePath))
+            {
+                File.WriteAllText(filePath, "{\"name\":\"elitePilotUpgrades\",\"ships\":[{\"type\":\"tiesabomber\",\"upgrades\":[{\"basicUpgrades\":{\"missile\":[\"homingmissiles\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}},{\"basicUpgrades\":{\"torpedo\":[\"advprotontorpedoes\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}},{\"basicUpgrades\":{\"missile\":[\"clustermissiles\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}},{\"basicUpgrades\":{\"missile\":[\"clustermissiles\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}},{\"basicUpgrades\":{\"missile\":[\"ionmissiles\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}},{\"basicUpgrades\":{\"torpedo\":[\"protontorpedoes\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}}]}]}");
+            }
+            string content = File.ReadAllText(filePath);
+            JSONObject elitePilotJson = new JSONObject(content);
+            return elitePilotJson;
+        }
+
+        private static void InstallCampaignUpgrade(SquadListShip newShip, Dictionary<string, string> upgradesThatCannotBeInstalled, JSONObject upgradeJsons)
+        {
+            if (upgradeJsons.keys != null)
+            {
+                foreach (string upgradeKey in upgradeJsons.keys)
+                {
+                    JSONObject upgradeNames = upgradeJsons[upgradeKey];
+                    foreach (JSONObject upgradeRecord in upgradeNames.list)
+                    {
+                        string upgradeName = upgradeRecord.str;
+                        string upgradeType = upgradeKey;
+
+                        UpgradeRecord newUpgradeRecord = SquadBuilder.Instance.Database.AllUpgrades.FirstOrDefault(n => n.UpgradeNameCanonical == upgradeName);
+                        if (newUpgradeRecord == null)
+                        {
+                            Messages.ShowError("Cannot find upgrade: " + upgradeName);
+                        }
+
+                        bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgradeName, Edition.Current.XwsToUpgradeType(upgradeType));
+                        if (!upgradeInstalledSucessfully && !upgradesThatCannotBeInstalled.ContainsKey(upgradeName)) upgradesThatCannotBeInstalled.Add(upgradeName, upgradeType);
+                    }
+                }
+            }
+
+
+            
+        }
+
+        private void setRandomBasicUpgrade(ref string upgradeName, ref string upgradeType)
+        {
+            switch (upgradeName)
+            {
+                case "tiesabomber":
+                    int randomUpgrade = UnityEngine.Random.Range(0, 4);
+                    switch (randomUpgrade)
+                    {
+                        case 0:
+                            upgradeName = "homingmissiles";
+                            upgradeType = "missile";
+                            break;
+                        case 1:
+                            upgradeName = "advprotontorpedoes";
+                            upgradeType = "torpedo";
+                            break;
+                        case 2:
+                            upgradeName = "clustermissiles";
+                            upgradeType = "missile";
+                            break;
+                        case 3:
+                            upgradeName = "ionmissiles";
+                            upgradeType = "missile";
+                            break;
+                        case 4:
+                            upgradeName = "protontorpedoes";
+                            upgradeType = "torpedo";
+                            break;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
 

@@ -161,6 +161,14 @@ namespace Upgrade
 
             if (IsHidden) return false;
 
+            if (Global.IsCampaignGame)
+            {
+                if (FromMod!=null && FromMod.Name == "HotacPilotsModSE")
+                {
+                    return true;
+                }
+            }
+
             if (FromMod != null && !ModsManager.Mods[FromMod].IsAvailable()) return false;
             //if (FromMod != null && FromMod.Count != 0 && !ModsManager.Mods[FromMod[1]].IsOn) return false;
             return result;

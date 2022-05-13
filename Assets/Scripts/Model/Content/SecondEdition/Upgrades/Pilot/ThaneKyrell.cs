@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 10,
                 abilityType: typeof(Abilities.SecondEdition.ThaneKyrellAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Pilot-Abilities/main/PilotAbilities/Rebel/thanekyrell.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/PilotAbilities/Rebel/thanekyrell.png";
         }
 
 

@@ -31,6 +31,7 @@ namespace Editions
         public abstract Dictionary<string, string> PreGeneratedAiSquadrons { get; }
         public abstract string PathToSavedSquadrons { get; }
         public abstract string PathToCampaignSetup { get; }
+        public abstract string PathToElitePilotUpgrades { get; }
         public abstract string RootUrlForImages { get; }
         public abstract Vector2 UpgradeCardSize { get; }
         public abstract Vector2 UpgradeCardCompactOffset { get; }

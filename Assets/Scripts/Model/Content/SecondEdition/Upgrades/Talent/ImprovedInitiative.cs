@@ -27,6 +27,7 @@ namespace Abilities.SecondEdition
 {
     public class ImprovedInitiativeAbility : GenericAbility
     {
+        private bool isActive = false;
         public override void ActivateAbility()
         {
             
@@ -34,17 +35,30 @@ namespace Abilities.SecondEdition
 
         public override void ActivateAbilityForSquadBuilder()
         {
-            HostShip.PilotInfo.Initiative++;
+            if(!isActive)
+            {
+                HostShip.PilotInfo.Initiative++;
+                isActive = true;
+            }            
         }
 
         public override void DeactivateAbility()
         {
+            if(isActive)
+            {
+                HostShip.PilotInfo.Initiative--;
+                isActive = false;
+            }
             
         }
 
         public override void DeactivateAbilityForSquadBuilder()
         {
-            HostShip.PilotInfo.Initiative--;
+            if (isActive)
+            {
+                HostShip.PilotInfo.Initiative--;
+                isActive = false;
+            }
         }
     }
 }

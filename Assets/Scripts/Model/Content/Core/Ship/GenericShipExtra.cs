@@ -278,7 +278,7 @@ namespace Ship
             {                
                 foreach (var modType in RequiredMods)
                 {
-                    if (modType.Name == "HotacPilotsModSE")
+                    if (modType.Name == "HotacPilotsModSE"||modType.Name == "HotacEliteImperialPilotsModSE")
                     {
                         return true;
                     }

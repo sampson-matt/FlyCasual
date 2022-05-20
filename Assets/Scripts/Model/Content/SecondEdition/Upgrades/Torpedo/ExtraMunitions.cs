@@ -9,7 +9,7 @@ namespace UpgradesList.SecondEdition
     {
         public ExtraMunitions() : base()
         {
-            FromMod = typeof(Mods.ModsList.HotacPilotsModSE);
+            FromMod = typeof(Mods.ModsList.HotacEliteImperialPilotsModSE);
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Extra Munitions",

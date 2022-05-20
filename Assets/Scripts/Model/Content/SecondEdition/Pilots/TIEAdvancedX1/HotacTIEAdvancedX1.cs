@@ -17,7 +17,7 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Pilot},
                     seImageNumber: 98
                 );
-                RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
+                RequiredMods = new List<Type>() { typeof(HotacEliteImperialPilotsModSE) };
             }
         }
     }

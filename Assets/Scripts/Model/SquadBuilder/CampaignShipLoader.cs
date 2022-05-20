@@ -90,8 +90,34 @@ namespace SquadBuilderNS
 
                                 int squadSizeValue = Int16.Parse(pilotJson["squadSize"].str);
 
-                                if (squadSizeValue <= squadSize)
+                                int averageInitiaveValue = 0;
+
+                                if(pilotJson.HasField("averageInitiave"))
                                 {
+                                    averageInitiaveValue = Int16.Parse(pilotJson["averageInitiave"].str);
+                                }
+
+                                if (squadSizeValue <= squadSize && averageInitiaveValue <= averageInitiative)
+                                {
+                                    if(pilotJson.HasField("replace"))
+                                    {
+                                        string typeValue = pilotJson["replace"].str;
+                                        GenericShip replaceShip = null;
+                                        string replaceShipId = null;
+                                        foreach(KeyValuePair<string, GenericShip> shipEntry in Roster.Player2.Ships)
+                                        {
+                                            if(typeValue.Equals(shipEntry.Value.ShipTypeCanonical))
+                                            {
+                                                replaceShip = shipEntry.Value;
+                                                replaceShipId = shipEntry.Key;
+                                            }
+                                        }
+                                        if(replaceShip!=null)
+                                        {
+                                            Roster.RemoveDestroyedShip(replaceShipId);
+                                            deploymentGroup.Remove(replaceShip);
+                                        }
+                                    }
                                     string shipNameXws = pilotJson["ship"].str;
 
                                     string shipNameGeneral = "";
@@ -215,18 +241,53 @@ namespace SquadBuilderNS
                         if (shipJson.HasField("upgrades"))
                         {
                             JSONObject upgrades = shipJson["upgrades"];
-                            int randomUpgrade = UnityEngine.Random.Range(0, upgrades.Count-1);
-                            JSONObject upgrade = upgrades[randomUpgrade];
+                            int randomUpgrade = UnityEngine.Random.Range(0, upgrades.Count);
+                            JSONObject upgrade = upgrades[randomUpgrade];                            
+                            if (upgrade.HasField("basic"))
+                            {
+                                JSONObject basicUpgrade = upgrade["basic"];
+                                InstallCampaignUpgrade(newShip, upgradesThatCannotBeInstalled, basicUpgrade);
+                            }
                             if (upgradeClass.Equals("basic"))
                             {
-                                if (upgrade.HasField("basicUpgrades"))
-                                {
-                                    JSONObject basicUpgrade = upgrade["basicUpgrades"];
-                                    InstallCampaignUpgrade(newShip, upgradesThatCannotBeInstalled, basicUpgrade);
-                                }
                                 newShipInstance.PilotInfo.Initiative = 1;
                             }
-                            
+                            if (upgradeClass.Equals("elite"))
+                            {
+                                if (upgrade.HasField("elite"))
+                                {
+                                    JSONObject eliteUpgrade = upgrade["elite"];
+                                    InstallCampaignUpgrade(newShip, upgradesThatCannotBeInstalled, eliteUpgrade);
+                                }
+                                newShipInstance.PilotInfo.Initiative = 3;
+                                if(averageInitiative>=3)
+                                {
+                                    newShipInstance.PilotInfo.Initiative = 4;
+                                    if(upgrade.HasField("elite3"))
+                                    {
+                                        JSONObject eliteUpgrade = upgrade["elite3"];
+                                        InstallCampaignUpgrade(newShip, upgradesThatCannotBeInstalled, eliteUpgrade);
+                                    }
+                                }
+                                if (averageInitiative >= 4)
+                                {
+                                    newShipInstance.PilotInfo.Initiative = 5;
+                                    if (upgrade.HasField("elite4"))
+                                    {
+                                        JSONObject eliteUpgrade = upgrade["elite4"];
+                                        InstallCampaignUpgrade(newShip, upgradesThatCannotBeInstalled, eliteUpgrade);
+                                    }
+                                }
+                                if (averageInitiative >= 5)
+                                {
+                                    newShipInstance.PilotInfo.Initiative = 6;
+                                    if (upgrade.HasField("elite5"))
+                                    {
+                                        JSONObject eliteUpgrade = upgrade["elite5"];
+                                        InstallCampaignUpgrade(newShip, upgradesThatCannotBeInstalled, eliteUpgrade);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -239,10 +300,7 @@ namespace SquadBuilderNS
             if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
 
             string filePath = directoryPath + "/elitePilotUpgrades.json";
-            if (!File.Exists(filePath))
-            {
-                File.WriteAllText(filePath, "{\"name\":\"elitePilotUpgrades\",\"ships\":[{\"type\":\"tiesabomber\",\"upgrades\":[{\"basicUpgrades\":{\"missile\":[\"homingmissiles\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}},{\"basicUpgrades\":{\"torpedo\":[\"advprotontorpedoes\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}},{\"basicUpgrades\":{\"missile\":[\"clustermissiles\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}},{\"basicUpgrades\":{\"missile\":[\"clustermissiles\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}},{\"basicUpgrades\":{\"missile\":[\"ionmissiles\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}},{\"basicUpgrades\":{\"torpedo\":[\"protontorpedoes\"]},\"elite3Upgrades\":{\"torpedo\":[\"extraMunitions\"]}}]}]}");
-            }
+            File.WriteAllText(filePath, "{\"name\":\"elitePilotUpgrades\",\"ships\":[{\"type\":\"tiesabomber\",\"upgrades\":[{\"basic\":{\"missile\":[\"homingmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"zertikstrompilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"rexlerbrathpilotability\"]}},{\"basic\":{\"torpedo\":[\"advprotontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"modification\":[\"shieldupgrade\"]},\"elite3\":{\"pilot\":[\"majorrhymerpilotability\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"redlinepilotability\"]},\"elite4\":{\"talent\":[\"ruthless\"]},\"elite5\":{\"pilot\":[\"kirkanospilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"marksmanship\"]},\"elite3\":{\"pilot\":[\"commanderalozenpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"majorrhymerpilotability\"]}},{\"basic\":{\"missile\":[\"ionmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"howlrunnerpilotability\"]},\"elite4\":{\"talent\":[\"outmaneuver\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"torpedo\":[\"protontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"nightbeastpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"kathscarletempirepilotability\"]}}]},{\"type\":\"tieininterceptor\",\"upgrades\":[{\"basic\":{\"modification\":[\"autothrusters\"]}},{\"basic\":{\"modification\":[\"autothrusters\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]}}]},{\"type\":\"tieadvancedx1\",\"upgrades\":[{\"basic\":{\"sensor\":[\"accuracycorrector\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"coloneljendon\"]}}]}]}");            
             string content = File.ReadAllText(filePath);
             JSONObject elitePilotJson = new JSONObject(content);
             return elitePilotJson;
@@ -270,44 +328,6 @@ namespace SquadBuilderNS
                         if (!upgradeInstalledSucessfully && !upgradesThatCannotBeInstalled.ContainsKey(upgradeName)) upgradesThatCannotBeInstalled.Add(upgradeName, upgradeType);
                     }
                 }
-            }
-
-
-            
-        }
-
-        private void setRandomBasicUpgrade(ref string upgradeName, ref string upgradeType)
-        {
-            switch (upgradeName)
-            {
-                case "tiesabomber":
-                    int randomUpgrade = UnityEngine.Random.Range(0, 4);
-                    switch (randomUpgrade)
-                    {
-                        case 0:
-                            upgradeName = "homingmissiles";
-                            upgradeType = "missile";
-                            break;
-                        case 1:
-                            upgradeName = "advprotontorpedoes";
-                            upgradeType = "torpedo";
-                            break;
-                        case 2:
-                            upgradeName = "clustermissiles";
-                            upgradeType = "missile";
-                            break;
-                        case 3:
-                            upgradeName = "ionmissiles";
-                            upgradeType = "missile";
-                            break;
-                        case 4:
-                            upgradeName = "protontorpedoes";
-                            upgradeType = "torpedo";
-                            break;
-                    }
-                    break;
-                default:
-                    break;
             }
         }
 

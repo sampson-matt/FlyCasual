@@ -15,7 +15,7 @@ namespace UpgradesList.SecondEdition
     {        
         public MineField() : base()
         {
-            FromMod = typeof(Mods.ModsList.HotacPilotsModSE);
+            FromMod = typeof(Mods.ModsList.HotacEliteImperialPilotsModSE);
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Mine Field",

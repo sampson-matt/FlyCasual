@@ -163,7 +163,7 @@ namespace Upgrade
 
             if (Global.IsCampaignGame)
             {
-                if (FromMod!=null && FromMod.Name == "HotacPilotsModSE")
+                if (FromMod!=null && (FromMod.Name == "HotacPilotsModSE"||FromMod.Name == "HotacEliteImperialPilotsModSE"))
                 {
                     return true;
                 }

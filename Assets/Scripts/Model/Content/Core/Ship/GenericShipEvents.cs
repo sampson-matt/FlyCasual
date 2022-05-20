@@ -42,6 +42,7 @@ namespace Ship
         public delegate void EventHandlerShipToken(GenericShip ship, GenericToken token);
         public delegate void EventHandlerShipTypeBool(GenericShip ship, System.Type type, ref bool data);
         public delegate void EventHandlerShipMovement(GenericShip ship, ref Movement.ManeuverHolder movement);
+        public delegate void EventHandlerShipBoolArgs(GenericShip ship, ref bool flag, EventArgs e = null);
         public delegate void EventHandlerShipCritArgs(GenericShip ship, GenericDamageCard crit, EventArgs e = null);
         public delegate void EventHandlerTokenBool(Tokens.GenericToken token, ref bool data);
         public delegate void EventHandlerShipTokenBool(GenericShip ship, Tokens.GenericToken token, ref bool data);

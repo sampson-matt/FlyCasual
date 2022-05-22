@@ -11,6 +11,9 @@ using System;
 using GameModes;
 using GameCommands;
 using System.Globalization;
+using SquadBuilderNS;
+using Ship;
+using Remote;
 
 namespace SubPhases
 {
@@ -22,12 +25,19 @@ namespace SubPhases
         private bool IsRangeRulerNeeded { get {return Roster.GetPlayer(Phases.CurrentSubPhase.RequiredPlayer).GetType() == typeof(HumanPlayer); } }
 
         public static GenericObstacle ChosenObstacle;
-        private float MinBoardEdgeDistance;
+        private int MinXint;
+        private int MinYint;
+        private float MinBoardEdgeDistanceX;
+        private float MinBoardEdgeDistanceY;
+        private float MinDistanceFromCenterX;
+        private float MinDistanceFromCenterY;
         private float MinObstaclesDistance;
+        private float MaxObstaclesDistance;
+        private int numberObstacles;
         private static bool IsPlacementBlocked;
-        private static bool IsEnteredPlaymat;
-        private static bool IsEnteredPlacementZone;
         public static bool IsLocked;
+        private string obstacleType;
+        private List<Vector3> minePlacements { get; } = new List<Vector3>();
         private List<GenericObstacle> ChosenObstacles { get; } = new List<GenericObstacle>();
 
         public override void Start()
@@ -40,14 +50,31 @@ namespace SubPhases
         {
             Console.Write($"\nSetup Phase", isBold: true, color: "orange");
 
+            MinXint = 2;
+            MinYint = 2;
+            MaxObstaclesDistance = float.MaxValue;
+            numberObstacles = 0;
+
+            LoadCampaingObstacles();
+
+            MinBoardEdgeDistanceX = Board.BoardIntoWorld(MinXint * Board.RANGE_1);
+            MinDistanceFromCenterX = 5 - MinBoardEdgeDistanceX;
+
+            MinBoardEdgeDistanceY = Board.BoardIntoWorld(MinYint * Board.RANGE_1);
+            MinDistanceFromCenterY = 5 - MinBoardEdgeDistanceY;
+
+            //MinObstaclesDistance = Board.BoardIntoWorld(Board.RANGE_1);
+
             ShowObstaclesHolder();
-
-            MinBoardEdgeDistance = Board.BoardIntoWorld(2 * Board.RANGE_1);
-            MinObstaclesDistance = Board.BoardIntoWorld(Board.RANGE_1);
-
+            
             ChosenObstacle = null;
 
             ObstaclesManager.SetObstaclesCollisionDetectionQuality(CollisionDetectionQuality.Low);
+
+            if(obstacleType=="mineField")
+            {
+                PlaceMines();
+            }
 
             if (ChosenObstacles.Count > 0)
             {
@@ -59,17 +86,116 @@ namespace SubPhases
             }
         }
 
+        private void PlaceMines()
+        {
+            for(int i =0; i<numberObstacles; i++)
+            {
+                Vector3 minePlacement = generateRandomMinePlacement();                
+                minePlacements.Add(minePlacement);
+                Quaternion bombRotation = new Quaternion(0, 0, 0, 0);
+                GameObject obstacleHolder = Board.GetObstacleHolder().Find("Obstacle" + 1).gameObject;
+                Type remoteType = typeof(MineField);
+                GenericShip mineField = ShipFactory.SpawnRemote(
+                    (GenericRemote)Activator.CreateInstance(remoteType, Roster.Player2),
+                    minePlacement,
+                    bombRotation
+                );
+            }
+        }
+
+        private Vector3 adjustMineMinimumDistance(Vector3 minePlacement, Vector3 previousMinePlacement)
+        {
+            float distanceBetween = Vector3.Distance(minePlacement, previousMinePlacement);
+            if (distanceBetween < MinObstaclesDistance)
+            {
+                adjustMineMinimumDistance(generateRandomMinePlacement(), previousMinePlacement);
+            }
+
+            return minePlacement;
+        }
+
+        private bool withinMaxOfAtLeastOne(Vector3 minePlacement)
+        {
+            foreach(Vector3 previousMinePlacement in minePlacements)
+            {
+                float distanceBetween = Vector3.Distance(minePlacement, previousMinePlacement);
+                if(distanceBetween<=MaxObstaclesDistance+.4)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private Vector3 generateRandomMinePlacement()
+        {
+            float randomX = UnityEngine.Random.Range(-MinDistanceFromCenterX+.5f, MinDistanceFromCenterX-.5f);
+            float randomZ = UnityEngine.Random.Range(-MinDistanceFromCenterY+.5f, MinDistanceFromCenterY-.5f);
+            Vector3 minePlacement = new Vector3(randomX, 0, randomZ);
+            foreach(Vector3 previousMinePlacement in minePlacements)
+            {
+                float distanceBetween = Vector3.Distance(minePlacement, previousMinePlacement);
+                if (distanceBetween < MinObstaclesDistance+.3 || !withinMaxOfAtLeastOne(minePlacement))
+                {
+                    minePlacement = generateRandomMinePlacement();
+                }
+            }
+            return minePlacement;
+        }
+
+        private void LoadCampaingObstacles()
+        {
+            if (CampaignLoader.campaignMission.HasField("obstacles"))
+            {
+                JSONObject obstaclesJson = CampaignLoader.campaignMission["obstacles"];
+                foreach (JSONObject obstacle in obstaclesJson.list)
+                {
+                    if (obstacle.HasField("type"))
+                    {
+                        obstacleType = obstacle["type"].str;
+                    }
+                    if (obstacle.HasField("minBoardEdgeDistanceX"))
+                    {
+                        MinXint = Int16.Parse(obstacle["minBoardEdgeDistanceX"].str);
+                    }
+                    if (obstacle.HasField("minBoardEdgeDistanceY"))
+                    {
+                        MinYint = Int16.Parse(obstacle["minBoardEdgeDistanceY"].str);
+                    }
+                    if (obstacle.HasField("minSeparationDistance"))
+                    {
+                        MinObstaclesDistance = Int16.Parse(obstacle["minSeparationDistance"].str);
+                    }
+                    if (obstacle.HasField("maxSeparationDistance"))
+                    {
+                        MaxObstaclesDistance = Int16.Parse(obstacle["maxSeparationDistance"].str);
+                    }
+                    if (obstacle.HasField("count"))
+                    {
+                        numberObstacles = Int16.Parse(obstacle["count"].str);
+                    }
+                    if (obstacle.HasField("squadCount"))
+                    {
+                        numberObstacles = Roster.GetPlayer(PlayerNo.Player1).Ships.Count * Int16.Parse(obstacle["squadCount"].str);
+                    }
+                }
+            }
+        }
+
         private void ShowObstaclesHolder()
         {
             Board.ToggleObstaclesHolder(true);
 
             ObstaclesManager.Instance.ChosenObstacles.Clear();
             ChosenObstacles.Clear();
-            for(int i = 0; i<6; i++)
+            if(obstacleType=="asteroids")
             {
-                ChosenObstacles.Add(ObstaclesManager.GetRandomAsteroid());
-                GameObject obstacleHolder = Board.GetObstacleHolder().Find("Obstacle" + 1).gameObject;
-                ChosenObstacles[i].Spawn(ChosenObstacles[i].Name + " " + i, obstacleHolder.transform);
+                for (int i = 0; i < numberObstacles; i++)
+                {
+                    ChosenObstacles.Add(ObstaclesManager.GetRandomAsteroid());
+                    GameObject obstacleHolder = Board.GetObstacleHolder().Find("Obstacle" + 1).gameObject;
+                    ChosenObstacles[i].Spawn(ChosenObstacles[i].Name + " " + i, obstacleHolder.transform);
+                }
             }
         }
 
@@ -112,37 +238,6 @@ namespace SubPhases
             return false;
         }
 
-        private void CheckEntered()
-        {
-            Vector3 position = ChosenObstacle.ObstacleGO.transform.position;
-
-            if (!IsEnteredPlacementZone)
-            {
-                if (Mathf.Abs(position.x) < 2.7f && Mathf.Abs(position.z) < 2.7f)
-                {
-                    IsEnteredPlacementZone = true;
-                }
-            }
-
-            if (!IsEnteredPlaymat)
-            {
-                if (Mathf.Abs(position.x) < 5f && Mathf.Abs(position.z) < 5f)
-                {
-                    IsEnteredPlaymat = true;
-                }
-            }
-
-            if (IsEnteredPlaymat)
-            {
-                if (position.x < -4.5f) ChosenObstacle.ObstacleGO.transform.position = new Vector3(-4.5f, position.y, position.z);
-                if (position.x > 4.5f) ChosenObstacle.ObstacleGO.transform.position = new Vector3(4.5f, position.y, position.z);
-
-                position = ChosenObstacle.ObstacleGO.transform.position;
-                if (position.z < -4.5f) ChosenObstacle.ObstacleGO.transform.position = new Vector3(position.x, position.y, -4.5f);
-                if (position.z > 4.5f) ChosenObstacle.ObstacleGO.transform.position = new Vector3(position.x, position.y, 4.5f);
-            }
-        }
-
         private void CheckLimits()
         {
             IsPlacementBlocked = false;
@@ -169,7 +264,16 @@ namespace SubPhases
                 if (Physics.Raycast(closestPoint + new Vector3(0, 0.003f, 0), ChosenObstacle.ObstacleGO.transform.position - closestPoint, out hitInfo))
                 {
                     float distanceFromEdge = Vector3.Distance(closestPoint, hitInfo.point);
-                    if (distanceFromEdge < MinBoardEdgeDistance)
+                    float checkDistance = 0f;
+                    if (collider.bounds.center.x == 0f)
+                    {
+                        checkDistance = MinBoardEdgeDistanceY;
+                    }
+                    else if (collider.bounds.center.z == 0f)
+                    {
+                        checkDistance = MinBoardEdgeDistanceX;
+                    }
+                    if (distanceFromEdge < checkDistance)
                     {
                         IsShiftRequired = true;
 
@@ -180,7 +284,7 @@ namespace SubPhases
                             minDistance = distanceFromEdge;
                         }
 
-                        MoveObstacleToKeepInPlacementZone(closestPoint, hitInfo.point);
+                        MoveObstacleToKeepInPlacementZone(closestPoint, hitInfo.point, checkDistance);
                     }
                 }
             }
@@ -191,10 +295,10 @@ namespace SubPhases
             }
         }
 
-        private void MoveObstacleToKeepInPlacementZone(Vector3 pointOnEdge, Vector3 nearestPoint)
+        private void MoveObstacleToKeepInPlacementZone(Vector3 pointOnEdge, Vector3 nearestPoint, float checkDistance)
         {
             Vector3 disallowedVector = nearestPoint - pointOnEdge;
-            Vector3 allowedVector = disallowedVector / Vector3.Distance(pointOnEdge, nearestPoint) * MinBoardEdgeDistance;
+            Vector3 allowedVector = disallowedVector / Vector3.Distance(pointOnEdge, nearestPoint) * checkDistance;
 
             Vector3 shift = (allowedVector - disallowedVector);
             ChosenObstacle.ObstacleGO.transform.position += shift;
@@ -267,7 +371,7 @@ namespace SubPhases
 
         private bool TryToPlaceObstacle()
         {
-            if (IsEnteredPlacementZone && !IsPlacementBlocked && !IsLocked)
+            if (!IsPlacementBlocked && !IsLocked)
             {
                 IsLocked = true;
 
@@ -321,8 +425,6 @@ namespace SubPhases
 
             ChosenObstacle.IsPlaced = true;
             ChosenObstacle = null;
-            IsEnteredPlacementZone = false;
-            IsEnteredPlaymat = false;
 
             MovementTemplates.ReturnRangeRulerR1();
             MovementTemplates.ReturnRangeRulerR2();
@@ -335,6 +437,18 @@ namespace SubPhases
             {
                 FinishSubPhase();
             }
+        }
+
+        public static void PlaceShip(int shipId, Vector3 position, Vector3 angles)
+        {
+            Phases.CurrentSubPhase.IsReadyForCommands = false;
+
+            Roster.SetRaycastTargets(true);
+            //inReposition = false;
+
+            Selection.ChangeActiveShip("ShipId:" + shipId);
+            Selection.ThisShip.CallOnSetupPlaced();
+            Board.PlaceShip(Selection.ThisShip, position, angles, delegate { Selection.DeselectThisShip(); Phases.CurrentSubPhase.Next(); });
         }
 
         public void PlaceRandom()
@@ -350,13 +464,12 @@ namespace SubPhases
 
         private void SetRandomPosition()
         {
-            float randomX = UnityEngine.Random.Range(-2.7f, 2.7f);
-            float randomZ = UnityEngine.Random.Range(-2.7f, 2.7f);
+            float randomX = UnityEngine.Random.Range(-MinDistanceFromCenterX, MinDistanceFromCenterX);
+            float randomZ = UnityEngine.Random.Range(-MinDistanceFromCenterY, MinDistanceFromCenterY);
             float randomRot = UnityEngine.Random.Range(-180, 180);
 
             ChosenObstacle.ObstacleGO.transform.position = new Vector3(randomX, 0, randomZ);
             ChosenObstacle.ObstacleGO.transform.localEulerAngles += new Vector3(0, randomRot, 0);
-            CheckEntered();
             CheckLimits();
 
             if (!IsPlacementBlocked)

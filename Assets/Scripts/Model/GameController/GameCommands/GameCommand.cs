@@ -11,6 +11,7 @@ public enum GameCommandTypes
     Decision,
     ObstaclePlacement,
     ShipPlacement,
+    MinePlacement,
     AssignManeuver,
     PressNext,
     ActivateAndMove,

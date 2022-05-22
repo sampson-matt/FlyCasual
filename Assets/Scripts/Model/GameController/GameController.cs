@@ -73,6 +73,9 @@ public static class GameController
             case GameCommandTypes.ShipPlacement:
                 command = new ShipPlacementCommand(commandType, subPhase, subPhaseId, parameters);
                 break;
+            case GameCommandTypes.MinePlacement:
+                command = new MinePlacementCommand(commandType, subPhase, subPhaseId, parameters);
+                break;
             case GameCommandTypes.AssignManeuver:
                 command = new AssignManeuverCommand(commandType, subPhase, subPhaseId, parameters);
                 break;

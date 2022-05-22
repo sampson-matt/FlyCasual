@@ -107,7 +107,7 @@ namespace Ship
         {
             foreach (Transform spotlight in Model.transform.Find("RotationHelper/RotationHelper2/ShipAllParts/Spotlight").transform)
             {
-                spotlight.GetComponent<Light>().cullingMask |= 1 << LayerMask.NameToLayer("ShipId:" + ShipId);
+                spotlight.GetComponent<Light>().cullingMask |= 1 << LayerMask.NameToLayer("Ships");
             }
         }
 
@@ -379,7 +379,7 @@ namespace Ship
 
         public void SetRaycastTarget(bool value)
         {
-            int layer = (value) ? LayerMask.NameToLayer("ShipId:" + ShipId) : LayerMask.NameToLayer("Ignore Raycast") ;
+            int layer = (value) ? LayerMask.NameToLayer("Ships") : LayerMask.NameToLayer("Ignore Raycast") ;
             SetLayerRecursive(Model.transform, layer);
         }
 

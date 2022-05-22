@@ -12,7 +12,7 @@ Notes:
 * I'm learning Unity, C#, and Github as I go, so things will be slow, inconsistent and error prone
 
 Thanks:
-* Sandrem for creating FlyCasual (his Patrean is [here](https://www.patreon.com/Sandrem)
+* Sandrem for creating FlyCasual (his Patreon is [here](https://www.patreon.com/Sandrem))
 * Josh Derkson, Sean Tiernan and all the folks that helped create the HotAC campaign and its 2.0 version
 * Jim Bob of Infinite Arenas who provided the tools I used to make all the custom cards for this
 

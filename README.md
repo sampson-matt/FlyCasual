@@ -7,6 +7,8 @@ I have two primary goals with this fork FlyCasual:
 Added Features:
 * Campaign Game Mode
 * Rebel Pilot Abilities as Upgrades for HotAC ships
+* 'Hotac Pilots' option under the 'Mods' menu which allows using custom HotAC pilots in other game modes
+* 'Elite Imperial Pilots' option under the 'Mods' menu which allows using custom Imperial pilots and abilities in other game modes
 
 Notes:
 * I'm learning Unity, C#, and Github as I go, so things will be slow, inconsistent and error prone
@@ -19,6 +21,7 @@ Thanks:
 
 Links:
 * [Download](https://github.com/sampson-matt/FlyCasual/releases)
+* [Custom HotAC Upgrade Cards](https://github.com/sampson-matt/Hotac-Upgrade-Cards)
 * [Original FlyCasual](https://github.com/Sandrem/FlyCasual/releases)
 * [HotAC Facebook Group](https://www.facebook.com/groups/872507722883025)
 * [Infinite Arenas](https://infinitearenas.com/)

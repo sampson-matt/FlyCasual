@@ -10,6 +10,7 @@ Added Features:
 
 Notes:
 * I'm learning Unity, C#, and Github as I go, so things will be slow, inconsistent and error prone
+* If anyone wants to throw any money my way for some reason you can do that [here](https://paypal.me/sampsonmatt?country.x=US&locale.x=en_US).
 
 Thanks:
 * Sandrem for creating FlyCasual (his Patreon is [here](https://www.patreon.com/Sandrem))

@@ -14,6 +14,11 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Pilot,
 
                 cost: 8,
+                restriction: new StatValueRestriction(
+                        StatValueRestriction.Stats.Initiative,
+                        StatValueRestriction.Conditions.HigherThanOrEqual,
+                        4
+                    ),
                 abilityType: typeof(Abilities.SecondEdition.ChewbaccaRebelPilotAbility),
                 charges: 1,
                 regensCharges: true

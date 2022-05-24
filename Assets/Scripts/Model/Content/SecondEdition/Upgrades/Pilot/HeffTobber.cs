@@ -14,6 +14,11 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Pilot,
 
                 cost: 4,
+                restriction: new StatValueRestriction(
+                        StatValueRestriction.Stats.Initiative,
+                        StatValueRestriction.Conditions.HigherThanOrEqual,
+                        2
+                    ),
                 abilityType: typeof(Abilities.SecondEdition.HeffTobberAbility)
             );
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/PilotAbilities/Rebel/hefftobber.png";

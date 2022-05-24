@@ -14,6 +14,11 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Pilot,
 
                 cost: 30,
+                restriction: new StatValueRestriction(
+                        StatValueRestriction.Stats.Initiative,
+                        StatValueRestriction.Conditions.HigherThanOrEqual,
+                        5
+                    ),
                 abilityType: typeof(Abilities.SecondEdition.AhsokaTanoRebelAbility),
                 addForce: 3
             );

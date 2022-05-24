@@ -16,9 +16,14 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Pilot,
 
                 cost: 10,
-                abilityType: typeof(Abilities.FirstEdition.KathScarletEmpireAbility)
+                restriction: new StatValueRestriction(
+                        StatValueRestriction.Stats.Initiative,
+                        StatValueRestriction.Conditions.HigherThanOrEqual,
+                        5
+                    ),
+                abilityType: typeof(Abilities.SecondEdition.RedlineAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/PilotAbilities/Imperial/nightbeast.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/PilotAbilities/Imperial/redline.png";
         }
 
 

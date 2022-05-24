@@ -13,6 +13,11 @@ namespace UpgradesList.SecondEdition
                 "Kazuda Xiono Pilot Ability",
                 UpgradeType.Pilot,
                 cost: 8,
+                restriction: new StatValueRestriction(
+                        StatValueRestriction.Stats.Initiative,
+                        StatValueRestriction.Conditions.HigherThanOrEqual,
+                        4
+                    ),
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.KazudaXionoAbility)
             );

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using RulesList;
+using SquadBuilderNS;
 
 public static class Rules
 {
@@ -39,7 +40,14 @@ public static class Rules
 
     public static void Initialize()
     {
-        WinConditions = new WinConditionsRule();
+        if (Global.IsCampaignGame)
+        {
+            WinConditions = CampaignLoader.WinCondition;
+        }
+        else
+        {
+            WinConditions = new WinConditionsStandardRule();
+        }        
         DistanceBonus = new DistanceBonusRule();
         EndPhase = new EndPhaseCleanupRule();
         Stress = new StressRule();

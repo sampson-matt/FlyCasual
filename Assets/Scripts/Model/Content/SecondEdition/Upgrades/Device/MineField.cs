@@ -41,9 +41,36 @@ namespace Abilities.SecondEdition
 {
     public class MineFieldDeployAbility : GenericAbility
     {
+        private int availableMines = 0;
         public override void ActivateAbility()
         {
+            availableMines = setAvailableMines();
             Phases.Events.OnRoundStart += CheckAbility;
+        }
+
+        private int setAvailableMines()
+        {
+            int availableMines = 0;
+            JSONObject campaignMission = SquadBuilderNS.CampaignLoader.CampaignMission;
+            if (campaignMission.HasField("obstacles"))
+            {
+                JSONObject obstaclesJson = campaignMission["obstacles"];
+                foreach (JSONObject obstacle in obstaclesJson.list)
+                {
+                    if (obstacle.HasField("type") && "mineField" == obstacle["type"].str)
+                    {
+                        if (obstacle.HasField("count"))
+                        {
+                            availableMines = Int16.Parse(obstacle["count"].str);
+                        }
+                        if (obstacle.HasField("squadCount"))
+                        {
+                            availableMines = Roster.GetPlayer(PlayerNo.Player1).Ships.Count *Int16.Parse(obstacle["squadCount"].str);
+                        }
+                    }
+                }
+            }
+            return availableMines;
         }
 
         public override void DeactivateAbility()
@@ -85,35 +112,11 @@ namespace Abilities.SecondEdition
             {
                 return false;
             }
-
-
             return isMineFieldAvailable();
-
-
         }
 
         private bool isMineFieldAvailable()
         {
-            int availableMines = 0;
-            JSONObject campaignMission = SquadBuilderNS.CampaignLoader.campaignMission;
-            if (campaignMission.HasField("obstacles"))
-            {
-                JSONObject obstaclesJson = campaignMission["obstacles"];
-                foreach (JSONObject obstacle in obstaclesJson.list)
-                {
-                    if (obstacle.HasField("type") && "mineField"== obstacle["type"].str)
-                    {
-                        if (obstacle.HasField("count"))
-                        {
-                            availableMines = Int16.Parse(obstacle["count"].str);
-                        }
-                        if (obstacle.HasField("squadCount"))
-                        {
-                            availableMines = Roster.GetPlayer(PlayerNo.Player1).Ships.Count * Int16.Parse(obstacle["squadCount"].str);
-                        }
-                    }
-                }
-            }
             int currentMines = Roster.GetPlayer(PlayerNo.Player2).Remotes.Where(r => r.Value.GetType().Equals(typeof(Remote.MineField))).Count();
             return currentMines < availableMines;
         }

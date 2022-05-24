@@ -14,6 +14,7 @@ using GameModes;
 using System;
 using Newtonsoft.Json;
 using Mods;
+using RulesList;
 
 
 namespace SquadBuilderNS
@@ -69,9 +70,9 @@ namespace SquadBuilderNS
         {
             List<DeploymentConfig> deploymentConfigs = new List<DeploymentConfig>();
 
-            if (CampaignLoader.campaignMission.HasField("deploymentConfigs"))
+            if (CampaignLoader.CampaignMission.HasField("deploymentConfigs"))
             {
-                JSONObject deploymentConfigsJson = CampaignLoader.campaignMission["deploymentConfigs"];
+                JSONObject deploymentConfigsJson = CampaignLoader.CampaignMission["deploymentConfigs"];
                 foreach (JSONObject deploymentConfigJson in deploymentConfigsJson.list)
                 {
                     List<GenericShip> deploymentGroup = new List<GenericShip>();
@@ -362,11 +363,75 @@ namespace SquadBuilderNS
     }
     public static class CampaignLoader
     {
-        public static JSONObject campaignMission { get; set; }
+        public static JSONObject CampaignMission { get; set; }
+        public static WinConditionsRule WinCondition { get; set; }
         public static void LoadCampaign()
         {
             CampaignShipLoader currentCampaignShipLoader = new CampaignShipLoader();
             currentCampaignShipLoader.LoadCampaign();
+            LoadWinConditions();
         }
+
+        private static void LoadWinConditions()
+        {
+            if (CampaignMission.HasField("victory"))
+            {
+                string victoryMessage = "";
+                string defeatMessage = "";
+                JSONObject victoryJson = CampaignMission["victory"];
+                if(CampaignMission.HasField("victoryMessage"))
+                {
+                    victoryMessage = CampaignMission["victoryMessage"].str;
+                }
+                if (CampaignMission.HasField("defeatMessage"))
+                {
+                    defeatMessage = CampaignMission["defeatMessage"].str;
+                }
+                if ("survive".Equals(victoryJson["condition"].str))
+                {
+                    if (victoryJson.HasField("rounds"))
+                    {
+                        int rounds = Int16.Parse(victoryJson["rounds"].str);
+                        WinCondition = new WinConditionsSurviveRule(rounds);
+                    }
+                    else
+                    {
+                        WinCondition = new WinConditionsStandardRule();
+                    }
+                }
+                if ("destroy".Equals(victoryJson["condition"].str))
+                {
+                    if (victoryJson.HasField("enemyType")&&(victoryJson.HasField("remaining")))
+                    {
+                        string enemyType = victoryJson["enemyType"].str;
+                        string remainingStr = victoryJson["remaining"].str;
+                        int remaining = 0;
+                        if(remainingStr.Equals("squadSize"))
+                        {
+                            remaining = Roster.GetPlayer(PlayerNo.Player1).Ships.Count;
+                        } 
+                        else
+                        {
+                            remaining = Int32.Parse(remainingStr);
+                        }
+                        WinCondition = new WinConditionsDestroyRule(enemyType,remaining,victoryMessage,defeatMessage);
+                    }
+                    else
+                    {
+                        WinCondition = new WinConditionsStandardRule();
+                    }
+                }
+                else
+                {
+                    WinCondition = new WinConditionsStandardRule();
+                }
+            }
+            else
+            {
+                WinCondition = new WinConditionsStandardRule();
+            }
+        }
+
+
     }
 }

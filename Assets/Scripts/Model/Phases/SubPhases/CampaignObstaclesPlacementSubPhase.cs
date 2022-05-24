@@ -145,9 +145,9 @@ namespace SubPhases
 
         private void LoadCampaingObstacles()
         {
-            if (CampaignLoader.campaignMission.HasField("obstacles"))
+            if (CampaignLoader.CampaignMission.HasField("obstacles"))
             {
-                JSONObject obstaclesJson = CampaignLoader.campaignMission["obstacles"];
+                JSONObject obstaclesJson = CampaignLoader.CampaignMission["obstacles"];
                 foreach (JSONObject obstacle in obstaclesJson.list)
                 {
                     if (obstacle.HasField("type"))

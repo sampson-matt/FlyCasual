@@ -327,7 +327,10 @@ public static partial class Roster {
             float totalHeight = 0;
             foreach (Transform transform in GameObject.Find("UI/RostersHolder").transform.Find("TeamPlayer" + i + "/RosterHolder").transform)
             {
-                totalHeight += transform.GetComponent<RectTransform>().sizeDelta.y + 5;
+                if(transform.gameObject.activeSelf)
+                {
+                    totalHeight += transform.GetComponent<RectTransform>().sizeDelta.y + 5;
+                }                
             }
 
             float globalUiScale = GameObject.Find("UI").transform.localScale.x;

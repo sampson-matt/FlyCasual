@@ -8,6 +8,8 @@ using BoardTools;
 using Movement;
 using SubPhases.SecondEdition;
 using UnityEngine;
+using Players;
+using System.Linq;
 
 namespace UpgradesList.SecondEdition
 {
@@ -21,7 +23,7 @@ namespace UpgradesList.SecondEdition
                 "Mine Field",
                 UpgradeType.Device,
                 subType: UpgradeSubType.Remote,
-                charges: 2,
+                charges: 99,
                 cannotBeRecharged: true,
                 cost: 5,
                 isLimited: false,
@@ -46,7 +48,7 @@ namespace Abilities.SecondEdition
 
         public override void DeactivateAbility()
         {
-            Phases.Events.OnSystemsPhaseStart -= CheckAbility;
+            Phases.Events.OnRoundStart -= CheckAbility;
             Phases.Events.OnSystemsPhaseStart -= RegisterOwnAbilityTrigger;
         }
 
@@ -69,12 +71,51 @@ namespace Abilities.SecondEdition
         {
             AskToUseAbility(
                 HostUpgrade.UpgradeInfo.Name,
-                NeverUseByDefault,
+                AIShouldUseAbility,
                 DeployRemote,
                 descriptionLong: "Do you want to drop a mine field?",
                 imageHolder: HostUpgrade,
                 requiredPlayer: HostShip.Owner.PlayerNo
             );
+        }
+
+        private bool AIShouldUseAbility()
+        {
+            if(!Global.IsCampaignGame)
+            {
+                return false;
+            }
+
+
+            return isMineFieldAvailable();
+
+
+        }
+
+        private bool isMineFieldAvailable()
+        {
+            int availableMines = 0;
+            JSONObject campaignMission = SquadBuilderNS.CampaignLoader.campaignMission;
+            if (campaignMission.HasField("obstacles"))
+            {
+                JSONObject obstaclesJson = campaignMission["obstacles"];
+                foreach (JSONObject obstacle in obstaclesJson.list)
+                {
+                    if (obstacle.HasField("type") && "mineField"== obstacle["type"].str)
+                    {
+                        if (obstacle.HasField("count"))
+                        {
+                            availableMines = Int16.Parse(obstacle["count"].str);
+                        }
+                        if (obstacle.HasField("squadCount"))
+                        {
+                            availableMines = Roster.GetPlayer(PlayerNo.Player1).Ships.Count * Int16.Parse(obstacle["squadCount"].str);
+                        }
+                    }
+                }
+            }
+            int currentMines = Roster.GetPlayer(PlayerNo.Player2).Remotes.Where(r => r.Value.GetType().Equals(typeof(Remote.MineField))).Count();
+            return currentMines < availableMines;
         }
 
         private void DeployRemote(object sender, EventArgs e)

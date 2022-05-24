@@ -20,7 +20,7 @@ namespace Remote
             RemoteInfo = new RemoteInfo(
                 "Mine Field",
                 0, 1, 3,
-                "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/3/38/Remote_BuzzDroidSwarm.png",
+                "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/Upgrades/payload/minefield.png",
                 typeof(Abilities.SecondEdition.MineFieldAbiliy)
             );
         }

@@ -17,7 +17,7 @@ namespace Ship
                 (
                     "Fenn Rau",
                     6,
-                    62,
+                    56,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.FennRauRebelFangAbility),
                     extraUpgradeIcons: new List<UpgradeType>

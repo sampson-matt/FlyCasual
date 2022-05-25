@@ -18,7 +18,7 @@ namespace Ship
                 (
                     "Bo-Katan Kryze",
                     4,
-                    66,
+                    58,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BoKatanKryzeRepublicAbility),
                     extraUpgradeIcon: UpgradeType.Talent

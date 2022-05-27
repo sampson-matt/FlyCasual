@@ -30,6 +30,7 @@ namespace Upgrade
     public enum UpgradeType
     {
         Pilot,
+        Init,
         ForcePower,
         Talent,
         Sensor,

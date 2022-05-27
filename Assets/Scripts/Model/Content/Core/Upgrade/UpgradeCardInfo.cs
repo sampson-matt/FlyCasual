@@ -153,6 +153,11 @@ namespace Upgrade
             AddSlots();
             AddActions();
             AddAbilities();
+            if(HostShip is IHotacShip)
+            {
+                (HostShip as IHotacShip).RecheckSlots();
+            }
+            
         }
 
         public void RemoveFromShip()
@@ -162,6 +167,10 @@ namespace Upgrade
             RemoveSlots();
             RemoveActions();
             RemoveAbilities();
+            if (HostShip is IHotacShip)
+            {
+                (HostShip as IHotacShip).RecheckSlots();
+            }
         }
 
         private void AddStats()

@@ -17,7 +17,26 @@ namespace SquadBuilderNS
 
             List<UpgradeRecord> filteredUpgrades = null;
 
-            if (slot.Type != UpgradeType.Omni)
+            if (slot.Type == UpgradeType.Pilot)
+            {
+                filteredUpgrades = Global.SquadBuilder.Database.AllUpgrades.Where(n =>
+                     (n.Instance.HasType(slot.Type) || n.Instance.HasType(UpgradeType.Talent))
+                     && n.Instance.UpgradeInfo.Restrictions.IsAllowedForShip(Global.SquadBuilder.CurrentShip.Instance)
+                     && n.Instance.IsAllowedForShip(Global.SquadBuilder.CurrentShip.Instance)
+                     && n.Instance.HasEnoughSlotsInShip(Global.SquadBuilder.CurrentShip.Instance)
+                     && ShipDoesntHaveUpgradeWithSameName(Global.SquadBuilder.CurrentShip.Instance, n.Instance)
+                ).ToList();
+            }
+            else if (slot.Type == UpgradeType.Init)
+            {
+                filteredUpgrades = Global.SquadBuilder.Database.AllUpgrades.Where(n =>
+                     n.Instance.HasType(slot.Type) 
+                     && n.Instance.UpgradeInfo.Restrictions.IsAllowedForShip(Global.SquadBuilder.CurrentShip.Instance)
+                     && n.Instance.IsAllowedForShip(Global.SquadBuilder.CurrentShip.Instance)
+                     && n.Instance.HasEnoughSlotsInShip(Global.SquadBuilder.CurrentShip.Instance)
+                ).ToList();
+            }
+            else if (slot.Type != UpgradeType.Omni)
             {
                 filteredUpgrades = Global.SquadBuilder.Database.AllUpgrades.Where(n =>
                      n.Instance.HasType(slot.Type)
@@ -26,7 +45,7 @@ namespace SquadBuilderNS
                      && n.Instance.HasEnoughSlotsInShip(Global.SquadBuilder.CurrentShip.Instance)
                      && ShipDoesntHaveUpgradeWithSameName(Global.SquadBuilder.CurrentShip.Instance, n.Instance)
                 ).ToList();
-            }
+            }             
             else
             {
                 filteredUpgrades = Global.SquadBuilder.Database.AllUpgrades;

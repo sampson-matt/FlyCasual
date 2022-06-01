@@ -79,7 +79,9 @@ namespace SubPhases
             {
                 GenerateShipFormation(DeploymentGroup, PlotShipLeft);
             }
-            if (StartingZone.Equals(Board.StartingZoneCampaign3) || StartingZone.Equals(Board.StartingZoneCampaign4))
+            if (StartingZone.Equals(Board.StartingZoneCampaign26) || StartingZone.Equals(Board.StartingZoneCampaign3) 
+                || StartingZone.Equals(Board.StartingZoneCampaign4) || StartingZone.Equals(Board.StartingZoneCampaign44) 
+                || StartingZone.Equals(Board.StartingZone2))
             {
                 GenerateShipFormation(DeploymentGroup, PlotShipTop);
             }
@@ -123,9 +125,15 @@ namespace SubPhases
 
             foreach (GenericShip ship in DeploymentGroup)
             {
-                if (StartingZone.Equals(Board.StartingZoneCampaign3) || StartingZone.Equals(Board.StartingZoneCampaign4))
+                if (StartingZone.Equals(Board.StartingZoneCampaign26) || StartingZone.Equals(Board.StartingZoneCampaign3) 
+                    || StartingZone.Equals(Board.StartingZoneCampaign4) || StartingZone.Equals(Board.StartingZoneCampaign44) 
+                    || StartingZone.Equals(Board.StartingZone2))
                 {
                     PlannedShipPositions[ship] += new Vector3(xShift, 0, Board.BoardIntoWorld(91.44f / 2f) + -1 * Board.BoardIntoWorld(Board.RANGE_1));
+                    if(ship.Owner.PlayerNo.Equals(Players.PlayerNo.Player1))
+                    {
+                        ship.SetAngles(new Vector3(0, 180f, 0));
+                    }
                 }
                 else if (StartingZone.Equals(Board.StartingZoneCampaign1) || StartingZone.Equals(Board.StartingZoneCampaign2))
                 {

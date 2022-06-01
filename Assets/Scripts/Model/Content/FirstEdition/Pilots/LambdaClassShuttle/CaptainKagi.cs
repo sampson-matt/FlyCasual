@@ -1,5 +1,7 @@
 ﻿using Ship;
+using System;
 using System.Collections.Generic;
+using Upgrade;
 
 namespace Ship
 {
@@ -45,10 +47,13 @@ namespace Abilities.FirstEdition
                 {
                     if ((defender as GenericShip).Owner.PlayerNo == HostShip.Owner.PlayerNo)
                     {
-                        BoardTools.DistanceInfo positionInfo = new BoardTools.DistanceInfo(attacker, HostShip);
-                        if (positionInfo.Range >= attacker.TargetLockMinRange && positionInfo.Range <= attacker.TargetLockMaxRange)
+                        if (!DefenderAlsoHasAbility(defender as GenericShip))
                         {
-                            abilityIsActive = true;
+                            BoardTools.DistanceInfo positionInfo = new BoardTools.DistanceInfo(attacker, HostShip);
+                            if (positionInfo.Range >= attacker.TargetLockMinRange && positionInfo.Range <= attacker.TargetLockMaxRange)
+                            {
+                                abilityIsActive = true;
+                            }
                         }
                     }
                 }
@@ -64,5 +69,16 @@ namespace Abilities.FirstEdition
             }
         }
 
+        private bool DefenderAlsoHasAbility(GenericShip defender)
+        {
+            foreach (GenericUpgrade upgrade in defender.UpgradeBar.InstalledUpgradesAll_System)
+            {
+                if (upgrade.UpgradeInfo.Name.Equals(this.HostName))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

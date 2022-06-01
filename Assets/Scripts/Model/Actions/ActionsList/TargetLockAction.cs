@@ -180,6 +180,12 @@ namespace ActionsList
                 result += 55;                
             }
 
+            if (result == 0 && HasValidLockTargetsAndNoLockOnShipInRange(Selection.ThisShip))
+            {
+                // We don't already have a target that is in range and locked, and we have targets available, but lower priority than a focus
+                result += 45;
+            }
+
             return result;
         }
 

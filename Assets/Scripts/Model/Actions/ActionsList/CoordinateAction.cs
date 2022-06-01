@@ -202,6 +202,29 @@ namespace ActionsList
                 Phases.GoBack();
             }
         }
+
+        public override int GetActionPriority()
+        {
+            int result = 0;
+            // Increase the chance to coordinate if the ship has coordinate targets.
+            if (HasCoordinateTargets())
+            {
+                result += 30;
+            }
+            return result;
+        }
+
+        private bool HasCoordinateTargets()
+        {
+            foreach (GenericShip ship in Roster.GetPlayer(HostShip.Owner.PlayerNo).Ships.Values)
+            {
+                if(ship.CanBeCoordinated && Board.CheckInRange(HostShip, ship, 1, 2, RangeCheckReason.CoordinateAction))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
 }

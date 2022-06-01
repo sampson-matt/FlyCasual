@@ -25,8 +25,10 @@ namespace BoardTools
         public static GameObject StartingZone5;
         public static GameObject StartingZoneCampaign1;
         public static GameObject StartingZoneCampaign2;
+        public static GameObject StartingZoneCampaign26;
         public static GameObject StartingZoneCampaign3;
         public static GameObject StartingZoneCampaign4;
+        public static GameObject StartingZoneCampaign44;
         public static GameObject StartingZoneCampaign5;
         public static GameObject StartingZoneCampaign6;
 
@@ -55,8 +57,10 @@ namespace BoardTools
             StartingZone5 = BoardTransform.Find("Playmat/StartingZone5").gameObject;
             StartingZoneCampaign1 = BoardTransform.Find("Playmat/StartingZoneCampaign1").gameObject;
             StartingZoneCampaign2 = BoardTransform.Find("Playmat/StartingZoneCampaign2").gameObject;
+            StartingZoneCampaign26 = BoardTransform.Find("Playmat/StartingZoneCampaign2.6").gameObject;
             StartingZoneCampaign3 = BoardTransform.Find("Playmat/StartingZoneCampaign3").gameObject;
             StartingZoneCampaign4 = BoardTransform.Find("Playmat/StartingZoneCampaign4").gameObject;
+            StartingZoneCampaign44 = BoardTransform.Find("Playmat/StartingZoneCampaign4.4").gameObject;
             StartingZoneCampaign5 = BoardTransform.Find("Playmat/StartingZoneCampaign5").gameObject;
             StartingZoneCampaign6 = BoardTransform.Find("Playmat/StartingZoneCampaign6").gameObject;
 
@@ -246,14 +250,20 @@ namespace BoardTools
                     return StartingZoneCampaign1;
                 case "StartingZoneCampaign2":
                     return StartingZoneCampaign2;
+                case "StartingZoneCampaign2.6":
+                    return StartingZoneCampaign26;
                 case "StartingZoneCampaign3":
                     return StartingZoneCampaign3;
                 case "StartingZoneCampaign4":
                     return StartingZoneCampaign4;
+                case "StartingZoneCampaign4.4":
+                    return StartingZoneCampaign44;
                 case "StartingZoneCampaign5":
                     return StartingZoneCampaign5;
                 case "StartingZoneCampaign6":
                     return StartingZoneCampaign6;
+                case "StartingZone2":
+                    return StartingZone2;
                 default:
                     return StartingZone1;
             }

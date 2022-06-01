@@ -217,7 +217,13 @@ namespace SubPhases
                 {
                     if (FilterShipTargets(anotherShip))
                     {
-                        if (IsLocked) return false;
+                        //TODO confirm this
+                        if (IsLocked)
+                        {
+                            IsLocked = false;
+                            return false;
+                        }
+                        
                         IsLocked = true;
 
                         SendSelectShipCommand(anotherShip);

@@ -14,7 +14,7 @@ namespace Ship
                     "Hotac Bomber Pilot",
                     1,
                     0,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Pilot, UpgradeType.Torpedo},
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Pilot, UpgradeType.Torpedo, UpgradeType.Init},
                     seImageNumber: 112
                 );
                 RequiredMods = new List<Type>() { typeof(HotacEliteImperialPilotsModSE) };

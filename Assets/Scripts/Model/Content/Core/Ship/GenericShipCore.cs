@@ -54,6 +54,8 @@ namespace Ship
 
         public int ShipId { get; protected set; }
         public GenericPlayer Owner { get; protected set; }
+        public string StrikeTarget { get; set; }
+        public Dictionary<string, GenericShip> StrikeTargets { get; set; }
 
         public string PilotName { get; set; }
 

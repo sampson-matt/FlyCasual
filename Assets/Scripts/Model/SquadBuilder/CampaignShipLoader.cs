@@ -141,9 +141,18 @@ namespace SquadBuilderNS
 
                                     GenericShip newShipInstance = (GenericShip)Activator.CreateInstance(Type.GetType(pilotRecord.PilotTypeName));
                                     Edition.Current.AdaptShipToRules(newShipInstance);
-                                    SquadListShip newShip = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(newShipInstance);
-                                    
-                                    Dictionary<string, string> upgradesThatCannotBeInstalled = new Dictionary<string, string>();
+                                    SquadListShip newShip = null;
+                                    if(factionNameXws.Equals("galacticempire"))
+                                    {
+                                        newShip = Global.SquadBuilder.SquadLists[PlayerNo.Player2].AddShip(newShipInstance);
+                                    } 
+                                    else if (factionNameXws.Equals("rebelalliance"))
+                                    {
+                                        newShip = Global.SquadBuilder.SquadLists[PlayerNo.Player1].AddShip(newShipInstance);
+                                    }
+
+
+                                        Dictionary<string, string> upgradesThatCannotBeInstalled = new Dictionary<string, string>();
 
                                     if (pilotJson.HasField("upgrades"))
                                     {
@@ -187,6 +196,13 @@ namespace SquadBuilderNS
                                             }
                                         }
                                     }
+
+                                    if (pilotJson.HasField("strikeTarget"))
+                                    {
+                                        newShip.Instance.OnMovementActivationStart += SetStrikeTarget;
+                                        newShip.Instance.OnShipIsPlaced += SetStrikeTarget;
+                                        newShip.Instance.StrikeTarget = pilotJson["strikeTarget"].str;
+                                    }
                                     ShipFactory.SpawnShip(newShip);
                                     deploymentGroup.Add(newShipInstance);
                                     Roster.AddShipToLists(newShipInstance);
@@ -226,6 +242,13 @@ namespace SquadBuilderNS
                     subphase.Start();
                 }
             }
+        }
+
+        private void SetStrikeTarget(GenericShip ship)
+        {
+            Dictionary<string, GenericShip> strikeTargets = Roster.Player1.Ships.Where(s => s.Value.PilotNameCanonical.Equals(ship.StrikeTarget)).ToDictionary(s => s.Key, s => s.Value);
+            ship.StrikeTargets = strikeTargets;
+            ship.OnShipIsPlaced -= SetStrikeTarget;
         }
 
         private void InstallElitePilotUpgrades(string upgradeClass, SquadListShip newShip, GenericShip newShipInstance, Dictionary<string, string> upgradesThatCannotBeInstalled)
@@ -301,7 +324,7 @@ namespace SquadBuilderNS
             if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
 
             string filePath = directoryPath + "/elitePilotUpgrades.json";
-            File.WriteAllText(filePath, "{\"name\":\"elitePilotUpgrades\",\"ships\":[{\"type\":\"tiesabomber\",\"upgrades\":[{\"basic\":{\"missile\":[\"homingmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"zertikstrompilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"rexlerbrathpilotability\"]}},{\"basic\":{\"torpedo\":[\"advprotontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"modification\":[\"shieldupgrade\"]},\"elite3\":{\"pilot\":[\"majorrhymerpilotability\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"redlinepilotability\"]},\"elite4\":{\"talent\":[\"ruthless\"]},\"elite5\":{\"pilot\":[\"kirkanospilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"marksmanship\"]},\"elite3\":{\"pilot\":[\"commanderalozenpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"majorrhymerpilotability\"]}},{\"basic\":{\"missile\":[\"ionmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"howlrunnerpilotability\"]},\"elite4\":{\"talent\":[\"outmaneuver\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"torpedo\":[\"protontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"nightbeastpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"kathscarletempirepilotability\"]}}]},{\"type\":\"tieininterceptor\",\"upgrades\":[{\"basic\":{\"modification\":[\"autothrusters\"]}},{\"basic\":{\"modification\":[\"autothrusters\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]}}]},{\"type\":\"tieadvancedx1\",\"upgrades\":[{\"basic\":{\"sensor\":[\"accuracycorrector\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"coloneljendon\"]}}]}]}");            
+            File.WriteAllText(filePath, "{\"name\":\"elitePilotUpgrades\",\"ships\":[{\"type\":\"tiesabomber\",\"upgrades\":[{\"basic\":{\"missile\":[\"homingmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"zertikstrompilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"rexlerbrathpilotability\"]}},{\"basic\":{\"torpedo\":[\"advprotontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"modification\":[\"shieldupgrade\"]},\"elite3\":{\"pilot\":[\"majorrhymerpilotability\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"redlinepilotability\"]},\"elite4\":{\"talent\":[\"ruthless\"]},\"elite5\":{\"pilot\":[\"kirkanospilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"marksmanship\"]},\"elite3\":{\"pilot\":[\"commanderalozenpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"majorrhymerpilotability\"]}},{\"basic\":{\"missile\":[\"ionmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"howlrunnerpilotability\"]},\"elite4\":{\"talent\":[\"outmaneuver\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"torpedo\":[\"protontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"nightbeastpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"kathscarletempirepilotability\"]}}]},{\"type\":\"tieininterceptor\",\"upgrades\":[{\"basic\":{\"modification\":[\"autothrusters\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"pushthelimit\"]},\"elite3\":{\"pilot\":[\"captainkagipilotability\"]},\"elite4\":{\"talent\":[\"experthandlinghotac\"]},\"elite5\":{\"pilot\":[\"soontirfellpilotability\"]}},{\"basic\":{\"modification\":[\"autothrusters\"]},\"elite\":{\"modification\":[\"stealthdevice\"],\"talent\":[\"experthandlinghotac\"]},\"elite3\":{\"pilot\":[\"whisperpilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]},\"elite\":{\"modification\":[\"autothrusters\"],\"talent\":[\"predator\"]},\"elite3\":{\"pilot\":[\"rexlerbrathpilotability\"]},\"elite4\":{\"talent\":[\"lonewolf\"]},\"elite5\":{\"pilot\":[\"maulermithelpilotability\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]},\"elite\":{\"modification\":[\"hullupgrade\"],\"talent\":[\"squadleaderhotac\"]},\"elite3\":{\"modification\":[\"experimentalinterface\"]},\"elite4\":{\"talent\":[\"swarmtactics\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]},\"elite\":{\"modification\":[\"autothrusters\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"backstabberpilotability\"]},\"elite4\":{\"talent\":[\"calculation\"]},\"elite5\":{\"pilot\":[\"rearadmiralchiraneaupilotability\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"expose\"]},\"elite3\":{\"modification\":[\"targetingcomputerhotac\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"turrphennirpilotability\"]}}]},{\"type\":\"tieadvancedx1\",\"upgrades\":[{\"basic\":{\"sensor\":[\"accuracycorrector\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"coloneljendon\"]}}]}]}");
             string content = File.ReadAllText(filePath);
             JSONObject elitePilotJson = new JSONObject(content);
             return elitePilotJson;
@@ -399,6 +422,20 @@ namespace SquadBuilderNS
                         WinCondition = new WinConditionsStandardRule();
                     }
                 }
+                if ("escape".Equals(victoryJson["condition"].str))
+                {
+                    if (victoryJson.HasField("ship") && victoryJson.HasField("direction"))
+                    {
+                        string ship = victoryJson["ship"].str;
+                        string direction = victoryJson["direction"].str;
+                        Direction escapeDirection = getDirectionFromString(direction);
+                        WinCondition = new WinConditionsEscapeRule(ship, escapeDirection, victoryMessage, defeatMessage);
+                    }
+                    else
+                    {
+                        WinCondition = new WinConditionsStandardRule();
+                    }
+                }
                 if ("destroy".Equals(victoryJson["condition"].str))
                 {
                     if (victoryJson.HasField("enemyType")&&(victoryJson.HasField("remaining")))
@@ -432,6 +469,20 @@ namespace SquadBuilderNS
             }
         }
 
-
+        private static Direction getDirectionFromString(string direction)
+        {
+            switch (direction)
+            {
+                case "Top":
+                    return Direction.Top;
+                case "Bottom":
+                    return Direction.Bottom;
+                case "Left":
+                    return Direction.Left;
+                case "Right":
+                    return Direction.Top;
+            }
+            return Direction.None;
+        }
     }
 }

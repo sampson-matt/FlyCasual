@@ -312,7 +312,12 @@ namespace AI.Aggressor
             minDistanceToNearestEnemyInShotRange = 0;
             minAngle = float.MaxValue;
             enemiesInShotRange = 0;
-            foreach (GenericShip enemyShip in ship.Owner.EnemyShips.Values)
+            List<GenericShip> potentialTargets = ship.Owner.EnemyShips.Values.ToList();
+            if(ship.StrikeTargets!=null && ship.StrikeTargets.Count>0)
+            {
+                potentialTargets = ship.StrikeTargets.Values.ToList();
+            }
+            foreach (GenericShip enemyShip in potentialTargets)
             {
                 DistanceInfo distInfo = new DistanceInfo(ship, enemyShip);
                 if (distInfo.MinDistance.DistanceReal < minDistanceToEnemyShip)

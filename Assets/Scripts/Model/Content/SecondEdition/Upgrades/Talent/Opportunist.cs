@@ -15,6 +15,7 @@ namespace UpgradesList.SecondEdition
     {
         public Opportunist() : base()
         {
+            FromMod = typeof(Mods.ModsList.HotacEliteImperialPilotsModSE);
             UpgradeInfo = new UpgradeCardInfo(
                 "Opportunist",
                 UpgradeType.Talent,

@@ -102,7 +102,7 @@ namespace SquadBuilderNS
         {
             if (!DebugManager.DebugNoSquadPointsLimit)
             {
-                if (squad.Points > Edition.Current.MaxPoints)
+                if (squad.Points > Edition.Current.MaxPoints && !Global.IsCampaignGame)
                 {
                     Messages.ShowError("The cost of your squadron cannot be more than " + Edition.Current.MaxPoints);
                     return false;

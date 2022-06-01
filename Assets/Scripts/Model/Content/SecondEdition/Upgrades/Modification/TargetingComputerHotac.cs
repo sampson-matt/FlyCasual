@@ -1,39 +1,34 @@
-using BoardTools;
-using Ship;
-using SubPhases;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Actions;
+using ActionsList;
 using Upgrade;
+using Ship;
+using System;
+using SubPhases;
+using BoardTools;
 
 namespace UpgradesList.SecondEdition
 {
-    public class CommanderAlozenPilotAbility : GenericUpgrade
+    public class TargetingComputerHotac : GenericUpgrade
     {
-        public CommanderAlozenPilotAbility() : base()
+        public TargetingComputerHotac() : base()
         {
             FromMod = typeof(Mods.ModsList.HotacEliteImperialPilotsModSE);
-
             UpgradeInfo = new UpgradeCardInfo(
-                "Commander Alozen Pilot Ability",
-                UpgradeType.Pilot,
-
-                cost: 8,
-                restriction: new StatValueRestriction(
-                        StatValueRestriction.Stats.Initiative,
-                        StatValueRestriction.Conditions.HigherThanOrEqual,
-                        4
-                    ),
-                abilityType: typeof(Abilities.SecondEdition.CommanderAlozenAbility)
+                "Targeting Computer Hotac",
+                UpgradeType.Modification,
+                cost: 3,
+                addAction: new ActionInfo(typeof(TargetLockAction)),
+                abilityType: typeof(Abilities.SecondEdition.TargetingComputerHotacAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/PilotAbilities/Imperial/commanderalozen.png";
+
+            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/0b/d7/0bd7d42f-4401-4f58-9f9e-a5856e6c94f1/swz47_upgrade-targeting-computer.png";
         }
     }
 }
 
 namespace Abilities.SecondEdition
 {
-    public class CommanderAlozenAbility : GenericAbility
+    public class TargetingComputerHotacAbility : GenericAbility
     {
         public override void ActivateAbility()
         {
@@ -50,18 +45,6 @@ namespace Abilities.SecondEdition
             RegisterAbilityTrigger(TriggerTypes.OnCombatActivation, StarExecutionOfAbility);
         }
 
-        //private bool AbilityConditionsAreMet()
-        //{
-        //    bool result = true;
-
-        //    foreach (GenericShip enemyShip in HostShip.Owner.EnemyShips.Values)
-        //    {
-        //        if (enemyShip.SectorsInfo.IsShipInSector(HostShip, Arcs.ArcType.Front)) return false;
-        //    }
-
-        //    return result;
-        //}
-
         private void StarExecutionOfAbility(object sender, EventArgs e)
         {
             if (HasTargersForAbility())
@@ -73,7 +56,7 @@ namespace Abilities.SecondEdition
                     GetAiPriority,
                     HostShip.Owner.PlayerNo,
                     name: HostShip.PilotInfo.PilotName,
-                    description: "You may acquire a lock on an enemy ship at Range 1",
+                    description: "You may acquire a lock on an enemy ship in Range",
                     imageSource: HostShip
                 );
             }
@@ -104,7 +87,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return HostShip.GetRangeToShip(ship) == 1 && ship.Owner != HostShip.Owner;
+            return HostShip.GetRangeToShip(ship) <= 3 && ship.Owner!=HostShip.Owner;
         }
 
         private int GetAiPriority(GenericShip ship)

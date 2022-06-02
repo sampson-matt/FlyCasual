@@ -177,8 +177,12 @@ namespace SubPhases
                     {
                         if (mouseKeyIsPressed == 1)
                         {
-                            if (IsLocked) return false;
-                            IsLocked = true;
+                            //TODO this isn't right, and I need to fix it
+                            if (IsLocked)
+                            {
+                                IsLocked = false;
+                                return false;
+                            }
 
                             SendSelectShipCommand(ship);
                         }
@@ -217,7 +221,7 @@ namespace SubPhases
                 {
                     if (FilterShipTargets(anotherShip))
                     {
-                        //TODO confirm this
+                        //TODO this isn't right, and I need to fix it
                         if (IsLocked)
                         {
                             IsLocked = false;

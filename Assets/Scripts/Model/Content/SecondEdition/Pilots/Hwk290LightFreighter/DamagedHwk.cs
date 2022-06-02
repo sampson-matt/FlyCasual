@@ -41,23 +41,29 @@ namespace Abilities.SecondEdition
 
         public override void ActivateAbility()
         {
-            HostShip.OnSetupPlaced += DealDamage;
+             Phases.Events.OnSetupEnd += DealDamage;
         }
 
         public override void DeactivateAbility()
         {
-            HostShip.OnSetupPlaced += DealDamage;
+            Phases.Events.OnSetupEnd -= DealDamage;
         }
 
-        private void DealDamage(GenericShip ship)
+        private void DealDamage()
         {
-            RegisterAbilityTrigger(TriggerTypes.OnShipIsPlaced, DealDamageToItself);
+
             HostShip.State.ShieldsMax = Roster.Player1.Ships.Count - 1;
             HostShip.State.ShieldsCurrent = Roster.Player1.Ships.Count - 1;
+            RegisterAbilityTrigger(TriggerTypes.OnSetupEnd, AssignCritCard);
+
+
+
         }
 
-        private void DealDamageToItself(object sender, EventArgs e)
+        private void AssignCritCard(object sender, EventArgs e)
         {
+            Phases.CurrentSubPhase.Pause();
+
             DamageDeck Deck = DamageDecks.GetDamageDeck(HostShip.Owner.PlayerNo);
             GenericDamageCard critCard = (GenericDamageCard)System.Activator.CreateInstance(typeof(DamageDeckCardSE.DamagedSensorArray));
             Deck.PutOnTop(critCard);
@@ -68,8 +74,14 @@ namespace Abilities.SecondEdition
                     Source = HostShip,
                     DamageType = DamageTypes.CardAbility
                 },
-                Triggers.FinishTrigger
+                CleanUp
             );
+        }
+
+        private void CleanUp()
+        {
+            Phases.CurrentSubPhase.Resume();
+            Triggers.FinishTrigger();
         }
     }
 }

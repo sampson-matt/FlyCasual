@@ -38,7 +38,6 @@ namespace RulesList
             escapeShip = Roster.Player1.Ships.Values.Where(s => s.PilotNameCanonical.Equals(ship)).Last();
 
             escapeShip.OnOffTheBoard += CheckEscape;
-            escapeShip.OnShipIsDestroyed += ImperialVictory;
         }
 
         private void CheckEscape(ref bool shouldBeDestroyed, Direction direction)
@@ -68,21 +67,15 @@ namespace RulesList
             Rules.FinishGame();
         }
 
-        public void ImperialVictory(GenericShip ship, bool isFled)
-        {
-            if (DebugManager.BatchAiSquadTestingModeActive)
-            {
-                BatchAiSquadsTestingModeExtraOption.Results[Tools.IntToPlayer(2)]++;
-            }
-            if (DebugManager.ReleaseVersion) AnalyticsEvent.GameOver();
-            UI.AddTestLogEntry(GetPlayerName(Roster.AnotherPlayer(2)) + " Wins!");
-            UI.ShowGameResults("Imperial Victory!");
-            Rules.FinishGame();
-        }
-
         public override void CheckWinConditions()
         {
             int eliminatedTeam = Roster.CheckIsAnyTeamIsEliminated();
+
+            if(escapeShip.IsDestroyed)
+            {
+                eliminatedTeam = 1;
+                Messages.ShowInfo(escapeShip.PilotInfo.PilotName + " has been destroyed.");
+            }
 
             if (eliminatedTeam != 0)
             {

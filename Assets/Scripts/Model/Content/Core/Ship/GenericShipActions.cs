@@ -75,7 +75,9 @@ namespace Ship
         public static event EventHandlerShipTargetLockable OnTargetLockIsAcquiredGlobal;
 
         public event EventHandlerShip OnCoordinateTargetIsSelected;
-        public event EventHandlerShip OnJamTargetIsSelected;        
+        public event EventHandlerShip OnJamTargetIsSelected;
+
+        public event EventHandlerShip OnProtectTargetIsSelected;
 
         public event EventHandlerShip OnRerollIsConfirmed;
 
@@ -681,6 +683,15 @@ namespace Ship
             if (OnJamTargetIsSelected != null) OnJamTargetIsSelected(targetShip);
 
             Triggers.ResolveTriggers(TriggerTypes.OnJamTargetIsSelected, callback);
+        }
+
+        // Protect action
+
+        public void CallProtectTargetIsSelected(GenericShip targetShip, Action callback)
+        {
+            if (OnProtectTargetIsSelected != null) OnProtectTargetIsSelected(targetShip);
+
+            Triggers.ResolveTriggers(TriggerTypes.OnProtectTargetIsSelected, callback);
         }
 
         // Reroll is confirmed

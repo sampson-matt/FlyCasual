@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Analytics;
 using Ship;
 using System.Collections.Generic;
+using System;
 
 namespace RulesList
 {
@@ -38,6 +39,21 @@ namespace RulesList
             escapeShip = Roster.Player1.Ships.Values.Where(s => s.PilotNameCanonical.Equals(ship)).Last();
 
             escapeShip.OnOffTheBoard += CheckEscape;
+            escapeShip.OnShipIsReadyToBeRemoved += ShipRemoved;
+        }
+
+        private void ShipRemoved(GenericShip ship)
+        {
+            Messages.ShowInfo(escapeShip.PilotInfo.PilotName + " has been destroyed.");
+            if (DebugManager.BatchAiSquadTestingModeActive)
+            {
+                BatchAiSquadsTestingModeExtraOption.Results[Tools.IntToPlayer(2)]++;
+            }
+            UI.AddTestLogEntry(GetPlayerName(2) + " Wins!");
+            UI.ShowGameResults("Imperial Victory!");
+            if (DebugManager.ReleaseVersion) AnalyticsEvent.GameOver();
+
+            Rules.FinishGame();
         }
 
         private void CheckEscape(ref bool shouldBeDestroyed, Direction direction)

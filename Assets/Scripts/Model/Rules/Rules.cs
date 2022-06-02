@@ -24,6 +24,7 @@ public static class Rules
     public static TargetIsLegalForShotRule TargetIsLegalForShot { get; private set; }
     public static IonizationRule Ionization { get; private set; }
     public static JamRule Jam { get; private set; }
+    public static ProtectRule Protect { get; private set; }
     public static TargetLocksRule TargetLocks { get; private set; }
     public static WeaponsDisabledRule WeaponsDisabled { get; private set; }
     public static BullseyeArcRule BullseyeArc { get; private set; }
@@ -64,6 +65,7 @@ public static class Rules
         TargetIsLegalForShot = new TargetIsLegalForShotRule();
         Ionization = new IonizationRule();
         Jam = new JamRule();
+        Protect = new ProtectRule();
         TargetLocks = new TargetLocksRule();
         WeaponsDisabled = new WeaponsDisabledRule();
         BullseyeArc = new BullseyeArcRule();

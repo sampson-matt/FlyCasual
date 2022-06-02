@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Mods.ModsList;
 using System;
 using Upgrade;
+using Actions;
+using ActionsList;
 
 namespace Ship
 {
@@ -20,7 +22,7 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Init, UpgradeType.Pilot, UpgradeType.Modification },
                     seImageNumber: 21
                 );
-                
+                ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ProtectAction)));
                 ModelInfo.SkinName = "Green";
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Configuration);

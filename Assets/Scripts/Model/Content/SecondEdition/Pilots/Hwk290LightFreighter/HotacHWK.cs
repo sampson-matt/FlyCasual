@@ -6,6 +6,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Upgrade;
 using Mods.ModsList;
+using Actions;
+using ActionsList;
 
 namespace Ship
 {
@@ -23,6 +25,7 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Illicit, UpgradeType.Init, UpgradeType.Pilot },
                     seImageNumber: 45
                 );
+                ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ProtectAction)));
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
             }
             public void RecheckSlots()

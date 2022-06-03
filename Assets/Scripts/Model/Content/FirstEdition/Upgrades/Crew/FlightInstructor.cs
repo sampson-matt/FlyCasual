@@ -105,7 +105,8 @@ namespace ActionsList
             DiceRerollManager diceRerollManager = new DiceRerollManager
             {
                 SidesCanBeRerolled = allowedRerolls,
-                CallBack = callBack
+                CallBack = callBack,
+                NumberOfDiceCanBeRerolled = 1
             };
 
             diceRerollManager.Start();

@@ -145,6 +145,7 @@ namespace AI.Aggressor
                 float minDistanceToEnemyShip, minDistanceToNearestEnemyInShotRange, minAngle;
                 int enemiesInShotRange;
                 ProcessHeavyGeometryCalculations(ship, out minDistanceToEnemyShip, out minDistanceToNearestEnemyInShotRange, out minAngle, out enemiesInShotRange);
+                
 
                 NavigationResult result = new NavigationResult()
                 {
@@ -156,7 +157,9 @@ namespace AI.Aggressor
                     isBumped = prediction.IsBumped,
                     isLandedOnObstacle = prediction.IsLandedOnAsteroid,
                     isOffTheBoard = prediction.IsOffTheBoard,
-                    FinalPositionInfo = prediction.FinalPositionInfo
+                    isEscaped = determineEscaped(ship.EscapeEdge, prediction),
+                    FinalPositionInfo = prediction.FinalPositionInfo,
+                    isFleeing = ship.IsFleeing
                 };
                 result.CalculatePriority();
 
@@ -259,10 +262,12 @@ namespace AI.Aggressor
                     isLandedOnObstacle = prediction.IsLandedOnAsteroid,
                     obstaclesHit = prediction.AsteroidsHit.Count,
                     isOffTheBoard = prediction.IsOffTheBoard,
+                    isEscaped = determineEscaped(ship.EscapeEdge, prediction),
                     minesHit = prediction.MinesHit.Count,
                     isOffTheBoardNextTurn = false, //!NextTurnNavigationResults.Any(n => !n.isOffTheBoard),
                     isHitAsteroidNextTurn = false, //!NextTurnNavigationResults.Any(n => n.obstaclesHit == 0),
-                    FinalPositionInfo = prediction.FinalPositionInfo
+                    FinalPositionInfo = prediction.FinalPositionInfo,
+                    isFleeing = ship.IsFleeing
                 };
 
                 foreach (GenericShip enemyShip in CurrentPlayer.EnemyShips.Values)
@@ -276,6 +281,7 @@ namespace AI.Aggressor
 
                     float minDistanceToEnemyShip, minDistanceToNearestEnemyInShotRange, minAngle;
                     int enemiesInShotRange;
+                    
                     ProcessHeavyGeometryCalculations(ship, out minDistanceToEnemyShip, out minDistanceToNearestEnemyInShotRange, out minAngle, out enemiesInShotRange);
 
                     CurrentNavigationResult.distanceToNearestEnemy = minDistanceToEnemyShip;
@@ -304,6 +310,42 @@ namespace AI.Aggressor
             VirtualBoard.Ships[ship].SetPlannedManeuverCode(maneuverToCheck.Key, ++OrderOfActivation);
             ship.ClearAssignedManeuver();
             Selection.DeselectThisShip();
+        }
+
+        private static bool determineEscaped(string escapeEdge, MovementPrediction prediction)
+        {
+            switch (escapeEdge)
+            {
+                case null:
+                    return false;
+                case "north":
+                    return prediction.IsOffTheBoardNorth;
+                case "south":
+                    return prediction.IsOffTheBoardSouth;
+                case "east":
+                    return prediction.IsOffTheBoardEast;
+                case "west":
+                    return prediction.IsOffTheBoardWest;
+                default:
+                    return false;
+            }
+        }
+
+        private static Vector3 determineEscapeEdge(string escapeEdge)
+        {
+            switch (escapeEdge)
+            {
+                case "north":
+                    return Board.GetBoard().Find("OffTheBoardHolder").Find("OffTheBoardNorth").transform.position;
+                case "south":
+                    return Board.GetBoard().Find("OffTheBoardHolder").Find("OffTheBoardSouth").transform.position;
+                case "east":
+                    return Board.GetBoard().Find("OffTheBoardHolder").Find("OffTheBoardEast").transform.position;
+                case "west":
+                    return Board.GetBoard().Find("OffTheBoardHolder").Find("OffTheBoardWest").transform.position;
+                default:
+                    return Board.GetBoard().Find("OffTheBoardHolder").Find("OffTheBoardNorth").transform.position;
+            }
         }
 
         private static void ProcessHeavyGeometryCalculations(GenericShip ship, out float minDistanceToEnemyShip, out float minDistanceToNearestEnemyInShotRange, out float minAngle, out int enemiesInShotRange)
@@ -340,8 +382,21 @@ namespace AI.Aggressor
                 Vector3 toEnemyShip = enemyShip.GetCenter() - ship.GetCenter();
                 float angle = Mathf.Abs(Vector3.SignedAngle(forward, toEnemyShip, Vector3.down));
                 if (angle < minAngle) minAngle = angle;
+
+                if(ship.IsFleeing)
+                {
+                    Vector3 escapeEdge = determineEscapeEdge(ship.EscapeEdge);
+                    float DistanceToEscapeEdge = Vector3.Distance(ship.GetPosition(), escapeEdge);
+                    minDistanceToEnemyShip = Vector3.Distance(ship.GetPosition(), escapeEdge);
+                    minDistanceToNearestEnemyInShotRange = Vector3.Distance(ship.GetPosition(), escapeEdge);
+                    toEnemyShip = escapeEdge - ship.GetCenter();
+                    minAngle = Mathf.Abs(Vector3.SignedAngle(forward, toEnemyShip, Vector3.down));
+                    enemiesInShotRange = 0;
+                }
             }
         }
+
+        
 
         private static void SetVirtualPositionsForShipsWithPreviousActivations(List<GenericShip> orderOfActivation)
         {
@@ -402,7 +457,7 @@ namespace AI.Aggressor
             bool HasAnyManeuverWithoutOffBoardFinish = false;
             bool HasAnyManeuverWithoutAsteroidCollision = false;
 
-            foreach (string turnManeuver in GetShortestTurnManeuvers(ship))
+            foreach (string turnManeuver in ship.GetManeuvers().Keys)
             {
                 GenericMovement movement = ShipMovementScript.MovementFromString(turnManeuver);
 
@@ -413,7 +468,7 @@ namespace AI.Aggressor
                 MovementPrediction prediction = new MovementPrediction(ship, movement);
                 yield return prediction.CalculateMovementPredicition();
 
-                if (!CurrentNavigationResult.isOffTheBoard) HasAnyManeuverWithoutOffBoardFinish = true;
+                if (!CurrentNavigationResult.isOffTheBoard || CurrentNavigationResult.isEscaped) HasAnyManeuverWithoutOffBoardFinish = true;
                 if (CurrentNavigationResult.obstaclesHit == 0) HasAnyManeuverWithoutAsteroidCollision = true;
             }
 
@@ -451,7 +506,7 @@ namespace AI.Aggressor
         public static GenericShip GetNextShipWithoutAssignedManeuver()
         {
             return Roster.GetPlayer(Phases.CurrentSubPhase.RequiredPlayer).Ships.Values
-                .Where(n => n.AssignedManeuver == null && !n.State.IsIonized)
+                .Where(n => n.AssignedManeuver == null && !n.State.IsIonized && !n.State.IsDisabled)
                 .OrderBy(n => VirtualBoard.Ships[n].OrderToActivate)
                 .FirstOrDefault();
         }

@@ -81,7 +81,7 @@ namespace SubPhases
             }
             if (StartingZone.Equals(Board.StartingZoneCampaign26) || StartingZone.Equals(Board.StartingZoneCampaign3) 
                 || StartingZone.Equals(Board.StartingZoneCampaign4) || StartingZone.Equals(Board.StartingZoneCampaign44) 
-                || StartingZone.Equals(Board.StartingZone2))
+                || StartingZone.Equals(Board.StartingZone2) || StartingZone.Equals(Board.StartingZoneCampaignC) || StartingZone.Equals(Board.StartingZoneCampaignCL) || StartingZone.Equals(Board.StartingZoneCampaignCR))
             {
                 GenerateShipFormation(DeploymentGroup, PlotShipTop);
             }
@@ -144,6 +144,10 @@ namespace SubPhases
                 {
                     PlannedShipPositions[ship] += new Vector3(Board.BoardIntoWorld(91.44f / 2f) - Board.BoardIntoWorld(Board.RANGE_1), 0, zShift);
                     ship.SetAngles(new Vector3(0, -90f, 0));
+                }
+                else if (StartingZone.Equals(Board.StartingZoneCampaignC) || StartingZone.Equals(Board.StartingZoneCampaignCL) || StartingZone.Equals(Board.StartingZoneCampaignCR))
+                {
+                    PlannedShipPositions[ship] += new Vector3(xShift, 0, zCenter - Board.BoardIntoWorld(2 / 2f));                    
                 }
             }
         }

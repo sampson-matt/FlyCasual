@@ -17,6 +17,10 @@ public class ObstaclesStayDetector: MonoBehaviour {
     public List<Collider> OverlapedMines = new List<Collider>();
 
     public bool OffTheBoard = false;
+    public bool OffTheBoardNorth = false;
+    public bool OffTheBoardSouth = false;
+    public bool OffTheBoardEast = false;
+    public bool OffTheBoardWest = false;
 
     void OnTriggerEnter(Collider collisionInfo)
     {
@@ -38,9 +42,25 @@ public class ObstaclesStayDetector: MonoBehaviour {
                     OverlapedMines.Add(collisionInfo);
                 }
             }
-            else if (collisionInfo.name == "OffTheBoard")
+            else if (collisionInfo.name.StartsWith("OffTheBoard"))
             {
                 OffTheBoard = true;
+                if (collisionInfo.name == "OffTheBoardNorth")
+                {
+                    OffTheBoardNorth = true;
+                }
+                else if (collisionInfo.name == "OffTheBoardSouth")
+                {
+                    OffTheBoardSouth = true;
+                }
+                else if (collisionInfo.name == "OffTheBoardEast")
+                {
+                    OffTheBoardEast = true;
+                }
+                else if (collisionInfo.name == "OffTheBoardWest")
+                {
+                    OffTheBoardWest = true;
+                }
             }
             else if (collisionInfo.name == "ObstaclesStayDetector")
             {

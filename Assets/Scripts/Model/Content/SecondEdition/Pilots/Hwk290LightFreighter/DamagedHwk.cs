@@ -51,13 +51,9 @@ namespace Abilities.SecondEdition
 
         private void DealDamage()
         {
-
             HostShip.State.ShieldsMax = Roster.Player1.Ships.Count - 1;
             HostShip.State.ShieldsCurrent = Roster.Player1.Ships.Count - 1;
             RegisterAbilityTrigger(TriggerTypes.OnSetupEnd, AssignCritCard);
-
-
-
         }
 
         private void AssignCritCard(object sender, EventArgs e)

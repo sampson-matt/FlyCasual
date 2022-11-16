@@ -181,7 +181,7 @@ namespace Players
         private GenericShip GetNextShipWithoutAssignedManeuver()
         {
             return Roster.GetPlayer(Phases.CurrentSubPhase.RequiredPlayer).Ships.Values
-                .Where(n => n.AssignedManeuver == null && !n.State.IsIonized)
+                .Where(n => n.AssignedManeuver == null && !n.State.IsIonized && !n.State.IsDisabled)
                 .FirstOrDefault();
         }
 

@@ -25,6 +25,9 @@ namespace AI.Aggressor
 
         public bool isBumped;
 
+        public bool isFleeing;
+        public bool isEscaped;
+
         public GenericMovement movement;
 
         public int Priority { get; private set; }
@@ -33,6 +36,11 @@ namespace AI.Aggressor
 
         public void CalculatePriority()
         {
+            if (isFleeing && isEscaped)
+            {
+                Priority = int.MaxValue;
+                return;
+            }
             if (isOffTheBoard)
             {
                 Priority = int.MinValue;

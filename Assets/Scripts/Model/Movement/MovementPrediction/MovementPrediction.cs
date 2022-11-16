@@ -19,6 +19,10 @@ namespace Movement
         public ShipPositionInfo FinalPositionBeforeRotationInfo { get; private set; }
         public float SuccessfullMovementProgress { get; private set; }
         public bool IsOffTheBoard;
+        public bool IsOffTheBoardNorth;
+        public bool IsOffTheBoardSouth;
+        public bool IsOffTheBoardEast;
+        public bool IsOffTheBoardWest;
         public bool IsBumped { get { return ShipsBumped.Count != 0; } }
         public List<GenericShip> ShipsBumped = new List<GenericShip>();
         public List<GenericShip> ShipsBumpedOnTheEnd = new List<GenericShip>();
@@ -173,6 +177,10 @@ namespace Movement
         private void ProcessOffTheBoard(ObstaclesStayDetector obstacleStayDetector)
         {
             IsOffTheBoard = obstacleStayDetector.OffTheBoard;
+            IsOffTheBoardNorth = obstacleStayDetector.OffTheBoardNorth;
+            IsOffTheBoardSouth = obstacleStayDetector.OffTheBoardSouth;
+            IsOffTheBoardEast = obstacleStayDetector.OffTheBoardEast;
+            IsOffTheBoardWest = obstacleStayDetector.OffTheBoardWest;
         }
 
         private void ProcessObstaclesLanded(ObstaclesStayDetector obstacleStayDetector)

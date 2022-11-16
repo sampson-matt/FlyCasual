@@ -56,7 +56,8 @@ namespace Ship
         public GenericPlayer Owner { get; protected set; }
         public string StrikeTarget { get; set; }
         public Dictionary<string, GenericShip> StrikeTargets { get; set; }
-
+        public bool IsFleeing { get; set; }
+        public string EscapeEdge { get; set; }
         public string PilotName { get; set; }
 
         public int TargetLockMinRange { get; protected set; }

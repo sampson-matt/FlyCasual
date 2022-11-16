@@ -63,7 +63,7 @@ public class ObstaclesStayDetectorForced: MonoBehaviour {
             {
                 if (!OverlapedMinesNow.Contains(collisionInfo)) OverlapedMinesNow.Add(collisionInfo);
             }
-            else if (collisionInfo.name == "OffTheBoard")
+            else if (collisionInfo.name.StartsWith("OffTheBoard"))
             {
                 OffTheBoardNow = true;
             }

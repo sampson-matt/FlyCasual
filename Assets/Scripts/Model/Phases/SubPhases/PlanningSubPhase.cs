@@ -143,6 +143,7 @@ namespace SubPhases
                 && (ship.Owner.PlayerNo == RequiredPlayer
                     || (Global.IsNetworkGame == true && ship.Owner is Players.HumanPlayer))
                 && !RulesList.IonizationRule.IsIonized(ship)
+                && !ship.State.IsDisabled
                 && !(ship is GenericRemote);
         }
 
@@ -161,7 +162,7 @@ namespace SubPhases
         {
             if (ship is GenericRemote || IsLocked) return;
 
-            if (!RulesList.IonizationRule.IsIonized(ship))
+            if (!RulesList.IonizationRule.IsIonized(ship) && !ship.State.IsDisabled)
             {
                 IsLocked = true;
 

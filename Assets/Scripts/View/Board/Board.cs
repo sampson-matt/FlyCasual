@@ -31,6 +31,9 @@ namespace BoardTools
         public static GameObject StartingZoneCampaign44;
         public static GameObject StartingZoneCampaign5;
         public static GameObject StartingZoneCampaign6;
+        public static GameObject StartingZoneCampaignC;
+        public static GameObject StartingZoneCampaignCL;
+        public static GameObject StartingZoneCampaignCR;
 
         public static readonly float SIZE_ANY = 91.44f;
         public static readonly float SIZE_X = 91.44f;
@@ -63,6 +66,9 @@ namespace BoardTools
             StartingZoneCampaign44 = BoardTransform.Find("Playmat/StartingZoneCampaign4.4").gameObject;
             StartingZoneCampaign5 = BoardTransform.Find("Playmat/StartingZoneCampaign5").gameObject;
             StartingZoneCampaign6 = BoardTransform.Find("Playmat/StartingZoneCampaign6").gameObject;
+            StartingZoneCampaignC = BoardTransform.Find("Playmat/StartingZoneCampaignC").gameObject;
+            StartingZoneCampaignCL = BoardTransform.Find("Playmat/StartingZoneCampaignCL").gameObject;
+            StartingZoneCampaignCR = BoardTransform.Find("Playmat/StartingZoneCampaignCR").gameObject;
 
             MovementTemplates.PrepareMovementTemplates();
 
@@ -262,6 +268,12 @@ namespace BoardTools
                     return StartingZoneCampaign5;
                 case "StartingZoneCampaign6":
                     return StartingZoneCampaign6;
+                case "StartingZoneCampaignC":
+                    return StartingZoneCampaignC;
+                case "StartingZoneCampaignCL":
+                    return StartingZoneCampaignCL;
+                case "StartingZoneCampaignCR":
+                    return StartingZoneCampaignCR;
                 case "StartingZone2":
                     return StartingZone2;
                 default:

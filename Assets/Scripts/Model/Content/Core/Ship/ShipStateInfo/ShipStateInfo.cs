@@ -223,6 +223,8 @@ namespace Ship
             get { return RulesList.IonizationRule.IsIonized(this.HostShip); }
         }
 
+        public bool IsDisabled { get; set; }
+
         public GenericShip LastCoordinatedShip { get; set; }
     }
 }

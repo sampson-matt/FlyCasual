@@ -23,6 +23,7 @@ public static class Rules
     public static InitiativeRule Initiative { get; private set; }
     public static TargetIsLegalForShotRule TargetIsLegalForShot { get; private set; }
     public static IonizationRule Ionization { get; private set; }
+    public static DisabledRule Disabled { get; private set; }
     public static JamRule Jam { get; private set; }
     public static ProtectRule Protect { get; private set; }
     public static TargetLocksRule TargetLocks { get; private set; }
@@ -64,6 +65,7 @@ public static class Rules
         Initiative = new InitiativeRule();
         TargetIsLegalForShot = new TargetIsLegalForShotRule();
         Ionization = new IonizationRule();
+        Disabled = new DisabledRule();
         Jam = new JamRule();
         Protect = new ProtectRule();
         TargetLocks = new TargetLocksRule();

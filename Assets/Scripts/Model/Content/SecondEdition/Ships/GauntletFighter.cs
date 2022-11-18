@@ -51,9 +51,9 @@ namespace Ship
                 ModelInfo = new ShipModelInfo
                 (
                     "Gauntlet Fighter",
-                    "Default",
+                    "Blue",
                     new Vector3(-3.7f, 7.84f, 5.55f),
-                    4f,
+                    6f,
                     isMetallic: true
                 );
 

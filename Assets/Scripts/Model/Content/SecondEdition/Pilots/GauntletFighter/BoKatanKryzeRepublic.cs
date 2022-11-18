@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -10,7 +11,7 @@ namespace Ship
         {
             public BoKatanKryzeRepublic() : base()
             {
-                IsWIP = true;
+                //IsWIP = true;
 
                 RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 

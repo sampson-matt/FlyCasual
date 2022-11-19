@@ -13,7 +13,7 @@ namespace Ship
                 (
                     "Outer Rim Enforcer",
                     2,
-                    48
+                    47
                 );
 
                 ImageUrl = "https://infinitearenas.com/xw2/images/pilots/outerrimenforcer.png";

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -6,9 +7,9 @@ namespace Ship
 {
     namespace SecondEdition.GauntletFighter
     {
-        public class BoKatanKryzeSeparatists : GauntletFighter
+        public class RookKast : GauntletFighter
         {
-            public BoKatanKryzeSeparatists() : base()
+            public RookKast() : base()
             {
                 //IsWIP = true;
 
@@ -16,19 +17,17 @@ namespace Ship
 
                 PilotInfo = new PilotCardInfo
                 (
-                    "Bo-Katan Kryze",
-                    4,
-                    56,
-                    pilotTitle: "Vizsla's Lieutenant",
+                    "Rook Kast",
+                    3,
+                    61,
+                    pilotTitle: "Stoic Super Commando",
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.BoKatanKryzeSeparatistsAbility),
+                    abilityType: typeof(Abilities.SecondEdition.RookKastAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
-                    factionOverride: Faction.Separatists
+                    factionOverride: Faction.Scum
                 );
 
-                PilotNameCanonical = "bokatankryze-separatistalliance";
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/bokatankryze-separatistalliance.png";
+                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/e/e1/Rookkast.png";
             }
         }
     }
@@ -36,16 +35,16 @@ namespace Ship
 
 namespace Abilities.SecondEdition
 {
-    public class BoKatanKryzeSeparatistsAbility : GenericAbility
+    public class RookKastAbility : GenericAbility
     {
         public override void ActivateAbility()
         {
-            
+
         }
 
         public override void DeactivateAbility()
         {
-            
+
         }
     }
 }

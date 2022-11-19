@@ -36,14 +36,19 @@ namespace Ship
                     (
                         UpgradeType.Modification,
                         UpgradeType.Crew,
-                        UpgradeType.Crew,
-                        UpgradeType.Crew
+                        UpgradeType.Gunner,
+                        UpgradeType.Device,
+                        UpgradeType.Title,
+                        UpgradeType.Configuration
                     ),
-                    factionsAll: new List<Faction>() { Faction.Republic, Faction.Separatists }
+                    factionsAll: new List<Faction>() { Faction.Republic, Faction.Separatists, Faction.Scum, Faction.Rebel, Faction.Imperial }
                 );
 
                 IconicPilots = new Dictionary<Faction, System.Type> 
                 {
+                    { Faction.Rebel, typeof(EzraBridger) },
+                    { Faction.Imperial, typeof(GarSaxon) },
+                    { Faction.Scum, typeof(RookKast) },
                     { Faction.Republic, typeof(BoKatanKryzeRepublic) },
                     { Faction.Separatists, typeof(BoKatanKryzeSeparatists) }
                 };

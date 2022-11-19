@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Upgrade;
+using System;
 
 namespace Ship
 {
@@ -9,6 +10,10 @@ namespace Ship
         {
             public MagnaGuardProtector() : base()
             {
+                //IsWIP = true;
+
+                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
+
                 PilotInfo = new PilotCardInfo(
                     "MagnaGuard Protector",
                     4,

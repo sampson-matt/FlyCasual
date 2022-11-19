@@ -22,7 +22,7 @@ namespace Ship
                     58,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BoKatanKryzeRepublicAbility),
-                    extraUpgradeIcon: UpgradeType.Talent
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }
                 );
 
                 ImageUrl = "https://i.imgur.com/QCUreef.png";

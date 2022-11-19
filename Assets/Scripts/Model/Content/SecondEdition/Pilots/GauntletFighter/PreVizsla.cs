@@ -6,9 +6,9 @@ namespace Ship
 {
     namespace SecondEdition.GauntletFighter
     {
-        public class BoKatanKryzeSeparatists : GauntletFighter
+        public class PreVizsla : GauntletFighter
         {
-            public BoKatanKryzeSeparatists() : base()
+            public PreVizsla() : base()
             {
                 //IsWIP = true;
 
@@ -16,19 +16,17 @@ namespace Ship
 
                 PilotInfo = new PilotCardInfo
                 (
-                    "Bo-Katan Kryze",
-                    4,
-                    56,
-                    pilotTitle: "Vizsla's Lieutenant",
+                    "Pre Vizsla",
+                    3,
+                    59,
+                    pilotTitle: "Leader of Death Watch",
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.BoKatanKryzeSeparatistsAbility),
+                    abilityType: typeof(Abilities.SecondEdition.PreVizslaAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     factionOverride: Faction.Separatists
                 );
 
-                PilotNameCanonical = "bokatankryze-separatistalliance";
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/bokatankryze-separatistalliance.png";
+                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/1/1f/Previzsla.png";
             }
         }
     }
@@ -36,7 +34,7 @@ namespace Ship
 
 namespace Abilities.SecondEdition
 {
-    public class BoKatanKryzeSeparatistsAbility : GenericAbility
+    public class PreVizslaAbility : GenericAbility
     {
         public override void ActivateAbility()
         {

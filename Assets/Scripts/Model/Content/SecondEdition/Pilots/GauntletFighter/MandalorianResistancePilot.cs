@@ -11,9 +11,6 @@ namespace Ship
         {
             public MandalorianResistancePilot() : base()
             {
-                //IsWIP = true;
-
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
                 PilotInfo = new PilotCardInfo
                 (
@@ -22,10 +19,11 @@ namespace Ship
                     53,
                     pilotTitle: "Clan Loyalist",
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.ChopperPilotAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent },
                     factionOverride: Faction.Rebel
                 );
+
+                ModelInfo.SkinName = "Blue";
 
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/a/a6/Mandalorianresistancepilot.png";
             }

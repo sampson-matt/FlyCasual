@@ -10,9 +10,6 @@ namespace Ship
         {
             public DeathWatchWarrior() : base()
             {
-                //IsWIP = true;
-
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
                 PilotInfo = new PilotCardInfo
                 (
@@ -24,6 +21,8 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     factionOverride: Faction.Separatists
                 );
+
+                ModelInfo.SkinName = "CIS Dark";
 
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/e/ed/Deathwatchwarrior.png";
             }

@@ -11,9 +11,6 @@ namespace Ship
         {
             public ImperialSuperCommando() : base()
             {
-                //IsWIP = true;
-
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
                 PilotInfo = new PilotCardInfo
                 (
@@ -24,6 +21,8 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent},
                     factionOverride: Faction.Imperial
                 );
+
+                ModelInfo.SkinName = "Gray";
 
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Title);
 

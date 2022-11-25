@@ -27,6 +27,8 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.GuildBountyHunterAbility)
                 );
 
+                ModelInfo.SkinName = "Red Stripes";
+
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/c/c0/Guildbountyhunter.png";
             }
         }

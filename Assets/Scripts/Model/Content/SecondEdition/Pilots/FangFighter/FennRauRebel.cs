@@ -17,7 +17,8 @@ namespace Ship
                 (
                     "Fenn Rau",
                     6,
-                    56,
+                    55,
+                    pilotTitle: "Mandalorian Protector",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.FennRauRebelFangAbility),
                     extraUpgradeIcons: new List<UpgradeType>
@@ -27,6 +28,7 @@ namespace Ship
                     },
                     factionOverride: Faction.Rebel
                 );
+                ModelInfo.SkinName = "Fenn Rau";
 
                 PilotNameCanonical = "fennrau-rebelalliance";
 

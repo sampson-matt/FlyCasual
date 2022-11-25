@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Upgrade;
+using System;
 
 namespace Ship
 {
@@ -9,6 +10,8 @@ namespace Ship
         {
             public NomLumb() : base()
             {
+                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
+
                 PilotInfo = new PilotCardInfo(
                     "Nom Lumb",
                     1,

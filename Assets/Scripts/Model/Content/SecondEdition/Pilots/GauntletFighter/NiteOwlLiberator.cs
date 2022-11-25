@@ -21,6 +21,8 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }
                 );
 
+                ModelInfo.SkinName = "Blue";
+
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/7/76/Niteowlliberator.png";
             }
         }

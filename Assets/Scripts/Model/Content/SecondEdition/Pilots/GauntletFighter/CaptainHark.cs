@@ -27,6 +27,8 @@ namespace Ship
                     factionOverride: Faction.Imperial
                 );
 
+                ModelInfo.SkinName = "Gray";
+
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Title);
 
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/1/10/Captainhark.png";

@@ -21,6 +21,7 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },
                     seImageNumber: 157
                 );
+                ModelInfo.SkinName = "Zealous Recruit";
             }
         }
     }

@@ -10,8 +10,6 @@ namespace Ship
         {
             public MagnaGuardProtector() : base()
             {
-                //IsWIP = true;
-
                 RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
                 PilotInfo = new PilotCardInfo(

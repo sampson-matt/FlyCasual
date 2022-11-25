@@ -11,7 +11,6 @@ namespace Ship
         {
             public RookKast() : base()
             {
-                //IsWIP = true;
 
                 RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
@@ -26,6 +25,8 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     factionOverride: Faction.Scum
                 );
+
+                ModelInfo.SkinName = "Red";
 
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/e/e1/Rookkast.png";
             }

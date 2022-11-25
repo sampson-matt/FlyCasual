@@ -11,7 +11,6 @@ namespace Ship
         {
             public GarSaxon() : base()
             {
-                //IsWIP = true;
 
                 RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
@@ -26,6 +25,8 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent},
                     factionOverride: Faction.Imperial
                 );
+
+                ModelInfo.SkinName = "CIS Dark";
 
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Title);
 

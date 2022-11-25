@@ -11,9 +11,6 @@ namespace Ship
         {
             public EzraBridger() : base()
             {
-                //IsWIP = true;
-
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
                 PilotInfo = new PilotCardInfo
                 (
@@ -27,6 +24,8 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.ForcePower},
                     factionOverride: Faction.Rebel
                 );
+
+                ModelInfo.SkinName = "Red";
 
                 PilotNameCanonical = "ezrabridger-gauntletfighter";
 

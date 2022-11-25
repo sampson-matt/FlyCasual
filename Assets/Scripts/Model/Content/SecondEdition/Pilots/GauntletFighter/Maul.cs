@@ -11,7 +11,6 @@ namespace Ship
         {
             public Maul() : base()
             {
-                //IsWIP = true;
 
                 RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
@@ -27,6 +26,8 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.ForcePower, UpgradeType.Illicit },
                     factionOverride: Faction.Scum
                 );
+
+                ModelInfo.SkinName = "Red Old";
 
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/a/a2/Maulgauntlet.png";
             }

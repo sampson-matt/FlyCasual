@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 using Upgrade;
 
 namespace Ship
@@ -9,6 +10,8 @@ namespace Ship
         {
             public CadBaneSeparatist() : base()
             {
+                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
+
                 PilotInfo = new PilotCardInfo(
                     "Cad Bane",
                     4,

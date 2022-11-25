@@ -17,7 +17,7 @@ namespace Ship
                     seImageNumber: 159
                 );
 
-                ModelInfo.SkinName = "Skull Squadron";
+                ModelInfo.SkinName = "Skull Squadron Pilot";
             }
         }
     }

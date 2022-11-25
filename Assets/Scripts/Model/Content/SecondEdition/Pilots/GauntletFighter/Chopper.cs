@@ -11,9 +11,6 @@ namespace Ship
         {
             public Chopper() : base()
             {
-                //IsWIP = true;
-
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
                 PilotInfo = new PilotCardInfo
                 (
@@ -25,6 +22,8 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ChopperPilotAbility),
                     factionOverride: Faction.Rebel
                 );
+
+                ModelInfo.SkinName = "Red";
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();
 

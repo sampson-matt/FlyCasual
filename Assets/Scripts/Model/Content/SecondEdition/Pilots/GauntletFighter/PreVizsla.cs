@@ -10,7 +10,6 @@ namespace Ship
         {
             public PreVizsla() : base()
             {
-                //IsWIP = true;
 
                 RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
@@ -25,6 +24,8 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     factionOverride: Faction.Separatists
                 );
+
+                ModelInfo.SkinName = "CIS Light";
 
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/1/1f/Previzsla.png";
             }

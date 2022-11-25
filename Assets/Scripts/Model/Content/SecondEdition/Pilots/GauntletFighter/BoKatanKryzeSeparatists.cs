@@ -26,6 +26,8 @@ namespace Ship
                     factionOverride: Faction.Separatists
                 );
 
+                ModelInfo.SkinName = "CIS";
+
                 PilotNameCanonical = "bokatankryze-separatistalliance";
 
                 ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/bokatankryze-separatistalliance.png";

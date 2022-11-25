@@ -25,6 +25,8 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }
                 );
 
+                ModelInfo.SkinName = "Dark Blue";
+
                 ImageUrl = "https://i.imgur.com/QCUreef.png";
             }
         }

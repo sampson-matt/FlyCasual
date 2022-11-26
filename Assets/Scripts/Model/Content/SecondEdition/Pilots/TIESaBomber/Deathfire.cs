@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Deathfire\"",
                     2,
-                    32,
+                    31,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DeathfireAbility),
                     seImageNumber: 110

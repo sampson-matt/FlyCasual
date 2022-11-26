@@ -12,7 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Inquisitor",
                     3,
-                    39,
+                    38,
                     force: 1,
                     extraUpgradeIcon: UpgradeType.ForcePower,
                     seImageNumber: 102

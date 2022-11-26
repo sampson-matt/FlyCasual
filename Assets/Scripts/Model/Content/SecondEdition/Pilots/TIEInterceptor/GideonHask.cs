@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Gideon Hask",
                     4,
-                    48,
+                    46,
                     isLimited: true,
                     abilityType: typeof(GideoHaskTieInterceptorAbility),
                     extraUpgradeIcon: UpgradeType.Talent

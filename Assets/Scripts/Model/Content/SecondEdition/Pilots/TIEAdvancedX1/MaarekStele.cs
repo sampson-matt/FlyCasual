@@ -11,7 +11,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Maarek Stele",
                     5,
-                    44,
+                    43,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.MaarekSteleAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

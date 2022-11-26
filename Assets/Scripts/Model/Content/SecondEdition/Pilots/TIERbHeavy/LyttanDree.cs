@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Lyttan Dree",
                     3,
-                    36,
+                    37,
                     abilityType: typeof(Abilities.SecondEdition.LyttanDreePilotAbility),
                     isLimited: true
                 );

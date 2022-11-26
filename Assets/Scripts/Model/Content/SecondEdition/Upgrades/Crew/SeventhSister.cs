@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Seventh Sister",
                 UpgradeType.Crew,
-                cost: 9,
+                cost: 10,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Imperial),
                 addForce: 1,

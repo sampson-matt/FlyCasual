@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Redline\"",
                     5,
-                    51,
+                    50,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.RedlineAbility),
                     seImageNumber: 139

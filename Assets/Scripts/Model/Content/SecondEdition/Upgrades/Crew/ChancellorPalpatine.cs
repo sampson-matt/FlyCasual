@@ -17,7 +17,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Chancellor Palpatine",
                 UpgradeType.Crew,
-                cost: 14,
+                cost: 15,
                 addForce: 1,
                 addAction: new ActionInfo(typeof(CoordinateAction), ActionColor.Purple),
                 restriction: new FactionRestriction(Faction.Republic, Faction.Separatists),

@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Anakin Skywalker",
                     4,
-                    41,
+                    43,
                     isLimited: true,
                     force: 1,
                     abilityText: "Before you reveal your maneuver, you may spend 1 force to barrel roll (this does not count as an action).",

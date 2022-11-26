@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.Eta2Actis
             PilotInfo = new PilotCardInfo(
                 "Shaak Ti",
                 4,
-                43,
+                45,
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.ShaakTiAbility),

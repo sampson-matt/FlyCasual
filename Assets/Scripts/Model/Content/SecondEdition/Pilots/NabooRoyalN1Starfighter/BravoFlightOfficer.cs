@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Bravo Flight Officer",
                     2,
-                    33
+                    31
                 );
 
                 ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/274db1f70ed4da939b9440837a30c39a.png";

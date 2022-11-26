@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Jek Porkins",
                     4,
-                    44,
+                    43,
                     isLimited: true,
                     abilityType: typeof(JekPorkinsAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

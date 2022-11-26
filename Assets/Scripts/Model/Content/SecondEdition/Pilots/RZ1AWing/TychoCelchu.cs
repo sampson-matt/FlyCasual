@@ -1,5 +1,6 @@
-﻿using Mods.ModsList;
-using System.Collections;
+﻿using ActionsList;
+using Content;
+using System;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -15,16 +16,43 @@ namespace Ship
                     "Tycho Celchu",
                     5,
                     40,
+                    pilotTitle: "Son of Alderaan",
                     isLimited: true,
-                    abilityType: typeof(Abilities.FirstEdition.TychoCelchuAbility),
+                    abilityType: typeof(Abilities.SecondEdition.TychoCelchuAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }
                 );
-                
-                RequiredMods = new List<System.Type>() { typeof(FirstEditionPilotsMod) };
-                PilotNameCanonical = "tychocelchu-rz1awing-firsteditionpilotsmod";
 
-                ImageUrl = "https://i.imgur.com/lzgv9da.png";
+                ImageUrl = "https://images.squarespace-cdn.com/content/v1/5ce432b1f9d2be000134d8ae/790214c2-924a-4066-894a-ac71d59cc82b/SWZ97_TychoCelchulegal.png";
             }
+        }
+    }
+}
+
+namespace Abilities.SecondEdition
+{
+    public class TychoCelchuAbility : GenericAbility
+    {
+        public override void ActivateAbility()
+        {
+            HostShip.OnCheckCanPerformActionsWhileStressed += ConfirmThatIsPossible;
+            HostShip.OnCanPerformActionWhileStressed += CheckTwoOrFewerStress;
+        }
+
+        public override void DeactivateAbility()
+        {
+            HostShip.OnCanPerformActionWhileStressed -= CheckTwoOrFewerStress;
+            HostShip.OnCheckCanPerformActionsWhileStressed -= ConfirmThatIsPossible;
+        }
+
+
+        private void ConfirmThatIsPossible(ref bool isAllowed)
+        {
+            isAllowed = (HostShip.Tokens.CountTokensByType<Tokens.StressToken>() <= 2);
+        }
+
+        private void CheckTwoOrFewerStress(GenericAction action, ref bool isAllowed)
+        {
+            isAllowed = (HostShip.Tokens.CountTokensByType<Tokens.StressToken>() <= 2);
         }
     }
 }

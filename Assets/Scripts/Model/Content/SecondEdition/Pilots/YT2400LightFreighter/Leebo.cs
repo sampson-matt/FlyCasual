@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Leebo",
                     3,
-                    72,
+                    73,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LeeboAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

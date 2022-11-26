@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Wullffwarro",
                     4,
-                    53,
+                    54,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.WullffwarroAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

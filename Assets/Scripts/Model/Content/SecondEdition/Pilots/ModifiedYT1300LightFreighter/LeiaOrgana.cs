@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Leia Organa",
                     5,
-                    77,
+                    79,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LeiaOrganaPilotAbility),
                     extraUpgradeIcon: UpgradeType.ForcePower,

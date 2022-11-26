@@ -18,6 +18,7 @@ namespace Ship
         public string AbilityText { get; private set; }
 
         public int Force { get; set; }
+        public int RegensForce { get; set; }
         public int Charges { get; private set; }
         public int RegensCharges { get; private set; }
 
@@ -37,6 +38,7 @@ namespace Ship
             Type abilityType = null,
             string pilotTitle = "",
             int force = 0,
+            int regensForce = 1,
             int charges = 0,
             int regensCharges = 0,
             UpgradeType extraUpgradeIcon = UpgradeType.None,
@@ -65,6 +67,7 @@ namespace Ship
             AbilityText = abilityText;
 
             Force = force;
+            RegensForce = regensForce;
             Charges = charges;
             RegensCharges = regensCharges;
 

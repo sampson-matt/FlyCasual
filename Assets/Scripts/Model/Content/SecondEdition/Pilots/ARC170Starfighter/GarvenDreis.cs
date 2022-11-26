@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Garven Dreis",
                     4,
-                    49,
+                    50,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.GarvenDreisAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

@@ -1,8 +1,11 @@
-﻿using Abilities.SecondEdition;
-using Mods.ModsList;
+﻿using System.Collections.Generic;
 using System;
-using System.Collections.Generic;
 using Upgrade;
+using Content;
+using Ship;
+using BoardTools;
+using SubPhases;
+using System.Linq;
 
 namespace Ship
 {
@@ -16,19 +19,95 @@ namespace Ship
                     "Corran Horn",
                     5,
                     53,
-                    pilotTitle: "Tenacious Investigator",
+                    pilotTitle: "Rogue Nine",
                     isLimited: true,
-                    abilityType: typeof(CorranHornAbility),
+                    abilityType: typeof(Abilities.SecondEdition.CorranHornXWingAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 
-                RequiredMods = new List<Type>() { typeof(MyOtherRideIsModSE) };
-                PilotNameCanonical = "corranhorn-t65xwing-myotherrideismod";
+                PilotNameCanonical = "corranhorn-t65xwing";
 
-                ImageUrl = "https://i.imgur.com/vGutvzp.png";
+                ImageUrl = "https://i.imgur.com/0lxticA.png";
 
                 ModelInfo.SkinName = "Green";
             }
+        }
+    }
+}
+
+namespace Abilities.SecondEdition
+{
+    public class CorranHornXWingAbility : GenericAbility
+    {
+        public override void ActivateAbility()
+        {
+            HostShip.OnAttackStartAsAttacker += CheckAbility;
+        }
+
+        public override void DeactivateAbility()
+        {
+            HostShip.OnAttackStartAsAttacker -= CheckAbility;
+        }
+
+        private void CheckAbility()
+        {
+            if (ActionsHolder.HasTargetLockOn(HostShip, Combat.Defender)
+                && AnyFriendlyShipsLockedYou())
+            {
+                RegisterAbilityTrigger(TriggerTypes.OnAttackStart, AskToSelectShipForCorranHornAbility);
+            }
+        }
+
+        private bool AnyFriendlyShipsLockedYou()
+        {
+            foreach (GenericShip friendlyShip in HostShip.Owner.Ships.Values)
+            {
+                if (Tools.IsSameShip(HostShip, friendlyShip)) continue;
+
+                if (ActionsHolder.HasTargetLockOn(friendlyShip, HostShip)) return true;
+            }
+
+            return false;
+        }
+
+        private void AskToSelectShipForCorranHornAbility(object sender, EventArgs e)
+        {
+            SelectTargetForAbility
+            (
+                TransferLock,
+                FilterTargets,
+                GetAiPriority,
+                HostShip.Owner.PlayerNo,
+                name: HostShip.PilotInfo.PilotName,
+                description: "Choose a ship that will transfer it's lock to defender",
+                imageSource: HostShip
+            );
+        }
+
+        private void TransferLock()
+        {
+            SelectShipSubPhase.FinishSelectionNoCallback();
+
+            char lockLetter = ActionsHolder.GetTargetLocksLetterPairs(TargetShip, HostShip).First();
+            ActionsHolder.ReassignTargetLockToken(lockLetter, HostShip, Combat.Defender, Triggers.FinishTrigger);
+        }
+
+        private bool FilterTargets(GenericShip ship)
+        {
+            return ActionsHolder.HasTargetLockOn(ship, HostShip);
+        }
+
+        private int GetAiPriority(GenericShip ship)
+        {
+            return ship.PilotInfo.Cost * HasDefenderInRange(ship);
+        }
+
+        private int HasDefenderInRange(GenericShip ship)
+        {
+            if (ActionsHolder.HasTargetLockOn(ship, Combat.Defender)) return 0;
+
+            ShotInfo shotInfo = new ShotInfo(ship, Combat.Defender, ship.PrimaryWeapons);
+            return (shotInfo.IsShotAvailable) ? 1 : 0;
         }
     }
 }

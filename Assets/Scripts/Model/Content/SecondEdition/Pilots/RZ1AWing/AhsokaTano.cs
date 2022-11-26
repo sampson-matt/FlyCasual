@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Ahsoka Tano",
                     5,
-                    49,
+                    50,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.AhsokaTanoRebelAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.ForcePower, UpgradeType.ForcePower },

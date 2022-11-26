@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Magva Yarro",
                     3,
-                    50,
+                    48,
                     isLimited: true,
                     abilityType: typeof(MagvaYarroPilotAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },

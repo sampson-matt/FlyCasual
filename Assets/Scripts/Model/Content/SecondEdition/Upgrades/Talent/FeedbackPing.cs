@@ -14,7 +14,7 @@ namespace UpgradesList.SecondEdition
             (
                 "Feedback Ping",
                 UpgradeType.Talent,
-                cost: 1,
+                cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.FeedbackPingAbility),
                 restriction: new ActionBarRestriction(typeof(ReloadAction))
             );

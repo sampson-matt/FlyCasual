@@ -11,7 +11,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Benthic Two Tubes",
                     2,
-                    46,
+                    45,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.BenthicTwoTubesAbility),
                     extraUpgradeIcon: UpgradeType.Illicit,

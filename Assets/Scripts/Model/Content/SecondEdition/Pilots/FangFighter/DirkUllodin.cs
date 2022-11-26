@@ -17,7 +17,7 @@ namespace Ship
                 (
                     "Dirk Ullodin",
                     3,
-                    36,
+                    46,
                     pilotTitle: "Aspiring Commando",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DirkUllodinAbility),

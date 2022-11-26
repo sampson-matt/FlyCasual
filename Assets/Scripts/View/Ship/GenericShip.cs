@@ -466,6 +466,11 @@ namespace Ship
             return ShipAllParts.Find("ShipBase").Find("MultiSelectionProjector");
         }
 
+        public Transform GetPossibleSelectionProjector()
+        {
+            return ShipAllParts.Find("ShipBase").Find("PossibleSelectionProjector");
+        }
+
         public void HighlightThisSelected()
         {
             if (!DebugManager.BatchAiSquadTestingModeActive)
@@ -515,15 +520,19 @@ namespace Ship
 
         public void HighlightCanBeSelectedOn()
         {
-            if (!DebugManager.DebugTemporary)
-            {
-                ShipAllParts.Find("Spotlight").gameObject.SetActive(true);
-            }
+            Transform projector = GetPossibleSelectionProjector();
+            projector.gameObject.SetActive(true);
+            //if (!DebugManager.DebugTemporary)
+            //{
+            //    ShipAllParts.Find("Spotlight").gameObject.SetActive(true);
+            //}
         }
 
         public void HighlightCanBeSelectedOff()
         {
-            ShipAllParts.Find("Spotlight").gameObject.SetActive(false);
+            Transform projector = GetPossibleSelectionProjector();
+            projector.gameObject.SetActive(false);
+            //ShipAllParts.Find("Spotlight").gameObject.SetActive(false);
         }
 
         public void SetHeight(float height)

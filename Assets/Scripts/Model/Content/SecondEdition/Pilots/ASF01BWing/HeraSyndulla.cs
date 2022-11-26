@@ -18,7 +18,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Hera Syndulla",
                     6,
-                    48,
+                    50,
                     pilotTitle: "Phoenix Leader",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.HeraSyndullaABWingAbility),

@@ -18,7 +18,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Prince Xizor",
                     4,
-                    51,
+                    50,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.PrinceXizorAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

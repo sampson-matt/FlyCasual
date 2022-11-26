@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Foreman Proach",
                     4,
-                    29,
+                    28,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ForemanProachAbility),
                     extraUpgradeIcon: UpgradeType.Talent

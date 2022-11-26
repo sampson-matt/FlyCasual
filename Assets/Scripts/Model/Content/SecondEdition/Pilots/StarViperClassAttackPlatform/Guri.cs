@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Guri",
                     5,
-                    60,
+                    59,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.GuriAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

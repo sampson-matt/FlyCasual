@@ -15,7 +15,7 @@ namespace Ship
                 (
                     "Amaxine Warrior",
                     3,
-                    33,
+                    32,
                     extraUpgradeIcons: new List<UpgradeType>()
                     {
                         UpgradeType.Talent,

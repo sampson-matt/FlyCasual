@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Quinn Jast",
                     3,
-                    31,
+                    29,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.QuinnJastAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

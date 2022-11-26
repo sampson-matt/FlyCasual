@@ -12,7 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Boba Fett",
                     5,
-                    85,
+                    91,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.BobaFettScumAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },

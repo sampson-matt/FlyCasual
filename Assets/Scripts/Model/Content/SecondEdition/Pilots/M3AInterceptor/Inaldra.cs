@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Inaldra",
                     2,
-                    30,
+                    29,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.InaldraAbilitySE),
                     seImageNumber: 187

@@ -18,7 +18,7 @@ namespace Ship
                 (
                     "The Mandalorian",
                     5,
-                    58,
+                    55,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TheMandalorianAbility),
                     extraUpgradeIcon: UpgradeType.Talent

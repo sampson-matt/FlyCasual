@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Kath Scarlet",
                     4,
-                    68,
+                    67,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KathScarletAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew },

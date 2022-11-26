@@ -12,7 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Kad Solus",
                     4,
-                    53,
+                    51,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KadSolusAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },

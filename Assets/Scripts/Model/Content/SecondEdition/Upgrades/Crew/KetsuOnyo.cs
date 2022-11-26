@@ -13,7 +13,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
             "Ketsu Onyo",
             UpgradeType.Crew,
-                cost: 4,
+                cost: 3,
                 abilityType: typeof(Abilities.SecondEdition.KetsuOnyoAbility),
                 seImageNumber: 134,
                 isLimited: true,

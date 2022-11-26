@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Han Solo",
                     6,
-                    48,
+                    49,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.HanSoloScumPilotAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

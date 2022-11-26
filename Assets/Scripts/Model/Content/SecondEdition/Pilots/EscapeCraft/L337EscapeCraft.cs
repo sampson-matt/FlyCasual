@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "L3-37",
                     2,
-                    26,
+                    25,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.L337Ability),
                     extraUpgradeIcon: UpgradeType.Talent,

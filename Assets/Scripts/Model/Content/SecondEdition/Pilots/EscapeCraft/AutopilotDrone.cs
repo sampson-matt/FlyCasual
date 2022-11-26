@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Autopilot Drone",
                     1,
-                    12,
+                    11,
                     isLimited: true,
                     charges: 3,
                     seImageNumber: 229

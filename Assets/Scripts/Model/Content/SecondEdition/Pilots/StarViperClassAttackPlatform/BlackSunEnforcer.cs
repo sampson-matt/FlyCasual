@@ -9,7 +9,7 @@
                 PilotInfo = new PilotCardInfo(
                     "Black Sun Enforcer",
                     2,
-                    45,
+                    44,
                     seImageNumber: 182
                 );
             }

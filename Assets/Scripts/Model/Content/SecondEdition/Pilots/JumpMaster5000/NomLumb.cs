@@ -18,7 +18,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Nom Lumb",
                     1,
-                    38,
+                    39,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.NomLumbAbility)
                 );

@@ -16,7 +16,7 @@ namespace Ship.SecondEdition.BTLA4YWing
             (
                 "Arliz Hadrassian",
                 4,
-                38,
+                37,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.ArlizHadrassianAbility),
                 extraUpgradeIcons: new List<UpgradeType>()

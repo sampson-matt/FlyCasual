@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "G4R-GOR V/M",
                     0,
-                    28,
+                    27,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.G4RGORVMAbility)
                 );

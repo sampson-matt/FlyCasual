@@ -12,7 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Lando Calrissian",
                     4,
-                    29,
+                    27,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LandoCalrissianScumPilotAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

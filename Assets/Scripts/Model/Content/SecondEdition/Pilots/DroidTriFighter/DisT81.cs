@@ -16,7 +16,7 @@ namespace Ship.SecondEdition.DroidTriFighter
             PilotInfo = new PilotCardInfo(
                 "DIS-T81",
                 4,
-                37,
+                38,
                 true,
                 extraUpgradeIcon: UpgradeType.Talent,
                 abilityType: typeof(Abilities.SecondEdition.DisT81Ability)

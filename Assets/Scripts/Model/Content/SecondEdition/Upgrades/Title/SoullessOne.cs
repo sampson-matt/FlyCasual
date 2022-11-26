@@ -11,7 +11,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Soulless One",
                 UpgradeType.Title,
-                cost: 6,
+                cost: 7,
                 isLimited: true,
                 addHull: 2,
                 restrictions: new UpgradeCardRestrictions(

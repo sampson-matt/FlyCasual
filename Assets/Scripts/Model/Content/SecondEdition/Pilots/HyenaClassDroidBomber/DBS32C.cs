@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
             PilotInfo = new PilotCardInfo(
                 "DBS-32C",
                 3,
-                40,
+                38,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.DBS32CAbility),
                 extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Sensor, UpgradeType.TacticalRelay },

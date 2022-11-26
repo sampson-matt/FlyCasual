@@ -12,7 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Zari Bangel",
                     3,
-                    35,
+                    34,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ZariBangelAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent }

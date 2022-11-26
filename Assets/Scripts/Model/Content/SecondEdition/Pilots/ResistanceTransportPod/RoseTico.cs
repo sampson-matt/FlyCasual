@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.ResistanceTransportPod
             PilotInfo = new PilotCardInfo(
                 "Rose Tico",
                 3,
-                28,
+                23,
                 isLimited: true,
                 abilityType: typeof(RoseTicoResistanceTransportPodAbility),
                 extraUpgradeIcon: UpgradeType.Talent

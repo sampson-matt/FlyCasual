@@ -13,7 +13,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Finn",
                 UpgradeType.Gunner,
-                cost: 9,
+                cost: 8,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Resistance),
                 abilityType: typeof(Abilities.SecondEdition.FinnAbility)

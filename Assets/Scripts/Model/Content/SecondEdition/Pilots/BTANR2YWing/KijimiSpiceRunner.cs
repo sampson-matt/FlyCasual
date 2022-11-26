@@ -14,7 +14,7 @@ namespace Ship
                 (
                     "Kijimi Spice Runner",
                     2,
-                    31,
+                    30,
                     extraUpgradeIcons: new List<UpgradeType>
                     {
                         UpgradeType.Illicit

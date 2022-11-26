@@ -14,7 +14,7 @@ namespace Ship
                 (
                     "Wilsa Teshlo",
                     4,
-                    34,
+                    33,
                     extraUpgradeIcon: UpgradeType.Talent,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.WilsaTeshloAbility)

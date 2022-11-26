@@ -19,7 +19,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Ronith Blario",
                     2,
-                    34,
+                    33,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.RonithBlarioAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent } 

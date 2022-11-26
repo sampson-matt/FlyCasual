@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Ben Teene",
                     3,
-                    54,
+                    53,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BenTeeneAbility)
                 );

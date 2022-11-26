@@ -15,7 +15,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Proud Tradition",
                 UpgradeType.Talent,
-                cost: 2,
+                cost: 1,
                 restriction: new FactionRestriction(Faction.FirstOrder),
                 abilityType: typeof(Abilities.SecondEdition.ProudTraditionAbility)
             );

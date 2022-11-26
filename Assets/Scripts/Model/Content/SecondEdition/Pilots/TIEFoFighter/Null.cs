@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Null\"",
                     0,
-                    30,
+                    29,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.NullAbility)
                 );

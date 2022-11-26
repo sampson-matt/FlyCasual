@@ -18,7 +18,7 @@ namespace Ship
                 (
                     "\"Dread\"",
                     3,
-                    32,
+                    33,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DreadPilotAbility),
                     extraUpgradeIcon: UpgradeType.Talent

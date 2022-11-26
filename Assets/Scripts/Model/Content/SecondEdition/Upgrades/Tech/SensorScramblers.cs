@@ -18,7 +18,7 @@ namespace UpgradesList.SecondEdition
             (
                 "Sensor Scramblers",
                 type: UpgradeType.Tech,
-                cost: 1,
+                cost: 2,
                 restriction: new ShipRestriction
                 (
                     typeof(Ship.SecondEdition.TIEWiWhisperModifiedInterceptor.TIEWiWhisperModifiedInterceptor),

@@ -18,7 +18,7 @@ namespace Ship
                 (
                     "\"Breach\"",
                     5,
-                    36,
+                    37,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BreachPilotAbility),
                     extraUpgradeIcon: UpgradeType.Talent

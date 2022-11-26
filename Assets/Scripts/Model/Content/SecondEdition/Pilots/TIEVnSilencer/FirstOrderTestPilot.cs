@@ -11,7 +11,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "First Order Test Pilot",
                     4,
-                    56,
+                    55,
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 

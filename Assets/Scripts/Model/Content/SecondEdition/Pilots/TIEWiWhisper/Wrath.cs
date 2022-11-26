@@ -18,7 +18,7 @@ namespace Ship
                 (
                     "\"Wrath\"",
                     5,
-                    53,
+                    49,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.WrathPilotAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent }

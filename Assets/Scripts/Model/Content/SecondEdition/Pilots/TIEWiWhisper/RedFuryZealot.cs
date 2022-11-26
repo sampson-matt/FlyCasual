@@ -12,7 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Red Fury Zealot",
                     2,
-                    44,
+                    42,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent }
                 );
 

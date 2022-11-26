@@ -15,7 +15,7 @@ namespace Ship
                 (
                     "\"Grudge\"",
                     2,
-                    36,
+                    38,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.GrudgePilotAbility)
                 );

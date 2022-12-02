@@ -27,6 +27,11 @@ namespace Ship
             return AssignedTokens.Where(n => colors.Contains(n.TokenColor)).ToList();
         }
 
+        public List<GenericToken> GetNonLockRedOrangeTokens()
+        {
+            return AssignedTokens.Where(n => (n.TokenColor==TokenColors.Red||n.TokenColor==TokenColors.Orange)&& n.GetType().BaseType != typeof(GenericTargetLockToken)).ToList();
+        }
+
         public List<GenericToken> GetTokensByShape(TokenShapes shape)
         {
             return AssignedTokens.Where(n => n.TokenShape == shape).ToList();

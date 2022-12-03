@@ -118,14 +118,12 @@ namespace Abilities.SecondEdition
         public override void ActivateAbility()
         {
             ChangeInitialWingsPosition();
-            //HostShip.OnMovementActivationStart += RegisterAskToFlip;
             HostShip.OnMovementExecuted += RegisterAskToRotate;
         }
 
         public override void DeactivateAbility()
         {
             //HostShip.WingsOpen();
-            //HostShip.OnMovementActivationStart -= RegisterAskToFlip;
             HostShip.OnMovementExecuted -= RegisterAskToRotate;
         }
 
@@ -142,31 +140,6 @@ namespace Abilities.SecondEdition
             }
         }
 
-        protected void RegisterAskToFlip(GenericShip ship)
-        {
-            if (BoardTools.Board.IsOffTheBoard(ship)) return;
-
-            RegisterAbilityTrigger(TriggerTypes.OnMovementFinish, AskToFlip);
-        }
-
-        private void AskToFlip(object sender, EventArgs e)
-        {
-            AskToUseAbility(
-                HostUpgrade.UpgradeInfo.Name,
-                AlwaysUseByDefault,
-                DoFlipSide,
-                descriptionLong: "Do you want to flip the wing up?",
-                imageHolder: HostUpgrade
-            );
-        }
-
-        private void DoFlipSide(object sender, EventArgs e)
-        {
-            //HostShip.WingsOpen();
-            (HostUpgrade as GenericDualUpgrade).Flip();
-            DecisionSubPhase.ConfirmDecision();
-        }
-
         protected void AskToRotate(object sender, EventArgs e)
         {
             PivotWindDecisionSubphase subphase = Phases.StartTemporarySubPhaseNew<PivotWindDecisionSubphase>("Rotate the ship?", Triggers.FinishTrigger);
@@ -181,6 +154,7 @@ namespace Abilities.SecondEdition
             subphase.AddDecision("No", delegate { DecisionSubPhase.ConfirmDecision(); }, isCentered: true);
 
             (HostUpgrade as GenericDualUpgrade).Flip();
+            //HostShip.WingsOpen();
 
             subphase.Start();
         }

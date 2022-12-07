@@ -56,7 +56,7 @@ namespace Abilities.SecondEdition
         public override void ActivateAbility()
         {
             Phases.Events.OnGameStart += ChangeInitialWingsPosition;
-            HostShip.OnMovementExecuted += RegisterAskToUseFlip;
+            HostShip.OnMovementFinishSuccessfully += RegisterAskToUseFlip;
             HostShip.AfterGotNumberOfDefenceDice += DecreaseDice;
             HostShip.Tokens.AssignCondition(new Conditions.SwivelWingCondition(HostShip, HostUpgrade));
         }
@@ -64,7 +64,7 @@ namespace Abilities.SecondEdition
         public override void DeactivateAbility()
         {
             Phases.Events.OnGameStart -= ChangeInitialWingsPosition;
-            HostShip.OnMovementExecuted -= RegisterAskToUseFlip;
+            HostShip.OnMovementFinishSuccessfully -= RegisterAskToUseFlip;
             HostShip.AfterGotNumberOfDefenceDice -= DecreaseDice;
             HostShip.Tokens.RemoveCondition(typeof(Conditions.SwivelWingCondition));
         }
@@ -88,7 +88,7 @@ namespace Abilities.SecondEdition
 
             if (ship.AssignedManeuver.Bearing == Movement.ManeuverBearing.Stationary) return;
 
-            RegisterAbilityTrigger(TriggerTypes.OnMovementExecuted, AskToFlip);
+            RegisterAbilityTrigger(TriggerTypes.OnMovementFinish, AskToFlip);
         }
 
         protected void AskToFlip(object sender, EventArgs e)
@@ -142,7 +142,7 @@ namespace Abilities.SecondEdition
 
         protected void AskToRotate(object sender, EventArgs e)
         {
-            PivotWindDecisionSubphase subphase = Phases.StartTemporarySubPhaseNew<PivotWindDecisionSubphase>("Rotate the ship?", Triggers.FinishTrigger);
+            SwivelWingDecisionSubphase subphase = Phases.StartTemporarySubPhaseNew<SwivelWingDecisionSubphase>("Rotate the ship?", Triggers.FinishTrigger);
 
             subphase.DescriptionShort = "Swivel Wing";
             subphase.DescriptionLong = "Rotate the ship?";
@@ -177,7 +177,7 @@ namespace Abilities.SecondEdition
             HostShip.Rotate90Counterclockwise(Triggers.FinishTrigger);
         }
 
-        private class PivotWindDecisionSubphase : DecisionSubPhase { };
+        private class SwivelWingDecisionSubphase : DecisionSubPhase { };
     }
 }
 

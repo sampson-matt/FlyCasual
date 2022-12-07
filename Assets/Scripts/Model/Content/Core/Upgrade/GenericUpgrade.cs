@@ -153,6 +153,7 @@ namespace Upgrade
 
         public virtual bool IsAllowedForShip(GenericShip ship)
         {
+            if (FromMod != null && !ModsManager.Mods[FromMod].IsAvailable()) return false;
             return true;
         }
 

@@ -56,7 +56,7 @@ namespace Abilities.SecondEdition
 
         private void StartRollDiceSubphase(object sender, EventArgs e)
         {
-            Messages.ShowInfo(HostUpgrade.UpgradeInfo.Name + " firing at " + HostShip.PilotInfo.PilotName);
+            Messages.ShowInfo(HostUpgrade.UpgradeInfo.Name + " firing at " + targetShip.PilotInfo.PilotName);
             PerformDiceCheck(
                 HostShip.PilotInfo.PilotName + ": Facedown damage card on hit",
                 DiceKind.Attack,

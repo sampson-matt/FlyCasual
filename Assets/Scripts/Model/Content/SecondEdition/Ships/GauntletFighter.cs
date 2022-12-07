@@ -44,6 +44,8 @@ namespace Ship
                     factionsAll: new List<Faction>() { Faction.Republic, Faction.Separatists, Faction.Scum, Faction.Rebel, Faction.Imperial }
                 );
 
+                DefaultUpgrades.Add(typeof(UpgradesList.SecondEdition.SwivelWingDown));
+
                 IconicPilots = new Dictionary<Faction, System.Type> 
                 {
                     { Faction.Rebel, typeof(EzraBridger) },

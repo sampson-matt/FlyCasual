@@ -27,6 +27,7 @@ namespace Ship
 
         // EVENTS
         public event EventHandlerShip OnMovementActivationStart;
+        public static event EventHandlerShip OnMovementActivationStartGlobal;
         public event EventHandlerShip OnMovementActivationFinish;
 
         public event EventHandlerShip OnGenerateActions;
@@ -179,6 +180,8 @@ namespace Ship
         public void CallMovementActivationStart(Action callBack)
         {
             if (OnMovementActivationStart != null) OnMovementActivationStart(this);
+
+            if (OnMovementActivationStartGlobal != null) OnMovementActivationStartGlobal(this);
 
             Triggers.ResolveTriggers(TriggerTypes.OnMovementActivationStart, callBack);
         }

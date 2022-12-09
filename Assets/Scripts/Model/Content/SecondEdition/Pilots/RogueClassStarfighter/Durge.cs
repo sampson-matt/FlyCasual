@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Durge",
                     5,
-                    39,
+                    42,
                     pilotTitle: "Hard to Kill",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DurgeAbility),

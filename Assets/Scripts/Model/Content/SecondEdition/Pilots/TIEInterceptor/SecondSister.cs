@@ -12,7 +12,7 @@ namespace Ship.SecondEdition.TIEInterceptor
             PilotInfo = new PilotCardInfo(
                 "Second Sister",
                 4,
-                48,
+                47,
                 force: 2,
                 pilotTitle: "Manipulative Monster",
                 isLimited: true,

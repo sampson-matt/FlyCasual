@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Flight Leader Ubbel",
                     5,
-                    38,
+                    42,
                     pilotTitle: "Onyx Leader",
                     abilityType: typeof(Abilities.SecondEdition.FlightLeaderUbbelAbility),
                     isLimited: true,

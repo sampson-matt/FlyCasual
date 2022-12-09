@@ -19,7 +19,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Hondo Ohnaka",
                     1,
-                    70,
+                    63,
                     pilotTitle: "I Smell Profit!",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.HondoOhnakaPilotAbility),

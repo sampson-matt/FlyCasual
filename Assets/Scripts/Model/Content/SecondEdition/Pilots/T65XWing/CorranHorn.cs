@@ -18,7 +18,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Corran Horn",
                     5,
-                    53,
+                    45,
                     pilotTitle: "Rogue Nine",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CorranHornXWingAbility),

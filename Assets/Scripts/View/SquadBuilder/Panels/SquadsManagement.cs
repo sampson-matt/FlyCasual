@@ -68,7 +68,7 @@ namespace SquadBuilderNS
 
             //RectTransform contentRectTransform = contentTransform.GetComponent<RectTransform>();
             //Vector3 currentPosition = new Vector3(0, -FREE_SPACE, contentTransform.localPosition.z);
-
+            //ToDo save and load campaign squads separately
             foreach (var squadList in squadsJsonsList)
             {
                 GameObject SquadListRecord;

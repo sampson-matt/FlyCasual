@@ -18,7 +18,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Tor Phun",
                     3,
-                    53,
+                    47,
                     pilotTitle: "Direct Pressure",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TorPhunAbility),

@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Yrica Quell",
                     3,
-                    31,
+                    24,
                     pilotTitle: "Consumed by Duty",
                     isLimited: true,
                     abilityType: typeof(YricaQuellAbility),

@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Magna Tolvan",
                     3,
-                    31,
+                    25,
                     pilotTitle: "Cold Tyrant",
                     isLimited: true,
                     abilityType: typeof(MagnaTolvanAbility),

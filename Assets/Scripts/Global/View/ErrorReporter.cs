@@ -39,7 +39,7 @@ public class ErrorReporter : MonoBehaviour
 
     private void ReportButtonEffect()
     {
-        Application.OpenURL("https://github.com/Sandrem/FlyCasual/issues");
+        Application.OpenURL("https://github.com/sampson-matt/FlyCasual/issues");
     }
 
     private void CloseButtonEffect()

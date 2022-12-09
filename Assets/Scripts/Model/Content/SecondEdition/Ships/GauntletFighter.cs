@@ -49,9 +49,9 @@ namespace Ship
                 IconicPilots = new Dictionary<Faction, System.Type> 
                 {
                     { Faction.Rebel, typeof(EzraBridger) },
-                    { Faction.Imperial, typeof(GarSaxon) },
+                    { Faction.Imperial, typeof(ImperialSuperCommando) },
                     { Faction.Scum, typeof(RookKast) },
-                    { Faction.Republic, typeof(BoKatanKryzeRepublic) },
+                    { Faction.Republic, typeof(NiteOwlLiberator) },
                     { Faction.Separatists, typeof(BoKatanKryzeSeparatists) }
                 };
 

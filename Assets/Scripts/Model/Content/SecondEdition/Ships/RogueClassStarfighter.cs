@@ -45,7 +45,7 @@ namespace Ship
                 IconicPilots = new Dictionary<Faction, System.Type>
                 {
                     { Faction.Scum, typeof(CadBaneScum) },
-                    { Faction.Separatists, typeof(CadBaneSeparatist) }
+                    { Faction.Separatists, typeof(MagnaGuardExecutioner) }
                 };
 
                 ModelInfo = new ShipModelInfo

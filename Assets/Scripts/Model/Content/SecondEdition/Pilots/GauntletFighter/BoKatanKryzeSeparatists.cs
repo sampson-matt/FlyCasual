@@ -14,10 +14,6 @@ namespace Ship
         {
             public BoKatanKryzeSeparatists() : base()
             {
-                //IsWIP = true;
-
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
-
                 PilotInfo = new PilotCardInfo
                 (
                     "Bo-Katan Kryze",

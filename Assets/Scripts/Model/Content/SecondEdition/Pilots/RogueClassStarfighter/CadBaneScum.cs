@@ -12,8 +12,6 @@ namespace Ship
         {
             public CadBaneScum() : base()
             {
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
-
                 PilotInfo = new PilotCardInfo(
                     "Cad Bane",
                     4,

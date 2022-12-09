@@ -13,9 +13,6 @@ namespace Ship
         {
             public RookKast() : base()
             {
-
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
-
                 PilotInfo = new PilotCardInfo
                 (
                     "Rook Kast",

@@ -53,7 +53,9 @@ namespace Abilities.SecondEdition
         private void RegisterOwnAbilityTrigger(GenericShip ship)
         {
             if (HostUpgrade.State.Charges>0 && HostShip.Damage.GetFaceupCrits(CriticalCardType.Ship).Any())
+            {
                 RegisterAbilityTrigger(TriggerTypes.OnSystemsPhaseStart, AskToUseOwnAbility);
+            }
         }
 
         private void AskToUseOwnAbility(object sender, EventArgs e)

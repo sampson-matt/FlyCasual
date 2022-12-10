@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Upgrade;
 using System;
+using Abilities.SecondEdition;
+using System.Linq;
 
 namespace Ship
 {
@@ -10,7 +12,6 @@ namespace Ship
         {
             public IG102() : base()
             {
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
 
                 PilotInfo = new PilotCardInfo(
                     "IG-102",
@@ -24,7 +25,10 @@ namespace Ship
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();
 
-                ShipAbilities.Add(new Abilities.SecondEdition.NetworkedCalculationsAbility());
+                DeadToRights oldAbility = (DeadToRights)ShipAbilities.First(n => n.GetType() == typeof(DeadToRights));
+                oldAbility.DeactivateAbility();
+                ShipAbilities.Remove(oldAbility);
+                ShipAbilities.Add(new NetworkedCalculationsAbility());
 
                 ImageUrl = "https://infinitearenas.com/xw2/images/pilots/ig102.png";
             }
@@ -38,12 +42,44 @@ namespace Abilities.SecondEdition
     {
         public override void ActivateAbility()
         {
-
+            AddDiceModification(
+                HostName,
+                IsDiceModificationAvailable,
+                GetDiceModificationPriority,
+                DiceModificationType.Change,
+                1,
+                sidesCanBeSelected: new List<DieSide>() { DieSide.Blank },
+                sideCanBeChangedTo: DieSide.Focus
+            );
         }
 
         public override void DeactivateAbility()
         {
+            RemoveDiceModification();
+        }
 
+        private int GetDiceModificationPriority()
+        {
+            int result = 0;
+
+            if (Combat.CurrentDiceRoll.Blanks > 0) result = 100;
+
+            return result;
+        }
+
+        private bool IsDiceModificationAvailable()
+        {
+            bool result = false;
+
+            if (Combat.AttackStep == CombatStep.Defence)
+            {
+                if (Combat.Attacker.PilotInfo.Initiative>=HostShip.PilotInfo.Initiative)
+                {
+                    result = true;
+                }
+            }
+
+            return result;
         }
     }
 }

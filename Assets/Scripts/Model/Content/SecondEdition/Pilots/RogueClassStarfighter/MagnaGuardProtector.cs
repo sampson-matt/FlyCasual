@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Upgrade;
 using System;
+using Abilities.SecondEdition;
+using System.Linq;
 
 namespace Ship
 {
@@ -24,7 +26,10 @@ namespace Ship
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();
 
-                ShipAbilities.Add(new Abilities.SecondEdition.NetworkedCalculationsAbility());
+                DeadToRights oldAbility = (DeadToRights)ShipAbilities.First(n => n.GetType() == typeof(DeadToRights));
+                oldAbility.DeactivateAbility();
+                ShipAbilities.Remove(oldAbility);
+                ShipAbilities.Add(new NetworkedCalculationsAbility());
 
                 ImageUrl = "https://infinitearenas.com/xw2/images/pilots/magnaguardprotector.png";
             }

@@ -20,7 +20,7 @@ namespace UpgradesList.SecondEdition
                     new UpgradeSlot(UpgradeType.Crew),
                     new UpgradeSlot(UpgradeType.Device),
                 },
-                addAction: new ActionInfo(typeof(CoordinateAction), ActionColor.Red),
+                addAction: new ActionInfo(typeof(CloakAction), ActionColor.Red),
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.RogueClassStarfighter.RogueClassStarfighter))
             );
 

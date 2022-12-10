@@ -49,7 +49,10 @@ namespace Abilities.SecondEdition
         // Offensive portion
         private void RegisterPreVizslaAbility()
         {
-            RegisterAbilityTrigger(TriggerTypes.OnAttackStart, ShowDecision);
+            if(Combat.Defender.PilotInfo.Initiative>=HostShip.PilotInfo.Initiative)
+            {
+                RegisterAbilityTrigger(TriggerTypes.OnAttackStart, ShowDecision);
+            }
         }
 
         private void ShowDecision(object sender, System.EventArgs e)

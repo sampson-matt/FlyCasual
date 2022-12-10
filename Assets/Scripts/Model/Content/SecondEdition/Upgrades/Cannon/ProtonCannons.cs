@@ -17,25 +17,27 @@ namespace UpgradesList.SecondEdition
                     UpgradeType.Cannon
                 },
                 cost: 5,
-                charges: 2,
-                regensCharges: true,
                 weaponInfo: new SpecialWeaponInfo(
                     attackValue: 4,
                     minRange: 2,
                     maxRange: 3,
+                    charges: 2,
+                    regensCharges: true,
                     arc: ArcType.Bullseye
                 ),
                 abilityType: typeof(Abilities.SecondEdition.ProtonCannonsAbility)
+
             );
 
+
             ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/protoncannons.png";
-        }        
+        }
+        public override void PayAttackCost(Action callBack) { callBack(); }
     }
 }
 
 namespace Abilities.SecondEdition
 {
-    //After you suffer damage, you may spend 1 charge to perform an action.
     public class ProtonCannonsAbility : GenericAbility
     {
         public override void ActivateAbility()
@@ -46,7 +48,7 @@ namespace Abilities.SecondEdition
                 GetDiceModificationAiPriority,
                 DiceModificationType.Change,
                 1,
-                new List<DieSide>() { DieSide.Success, DieSide.Focus },
+                new List<DieSide>() { DieSide.Focus, DieSide.Success  },
                 DieSide.Crit,
                 payAbilityCost: payCharges
             );
@@ -59,9 +61,10 @@ namespace Abilities.SecondEdition
 
         private void payCharges(Action<bool> callback)
         {
-            if (HostShip.State.Charges > 1)
+            if (HostUpgrade.State.Charges > 1)
             {
-                HostShip.State.Charges=HostShip.State.Charges-2;
+                HostUpgrade.State.SpendCharge();
+                HostUpgrade.State.SpendCharge();
                 callback(true);
             }
             else
@@ -78,7 +81,7 @@ namespace Abilities.SecondEdition
 
             if (Combat.ChosenWeapon != HostUpgrade) result = false;
 
-            if (HostShip.State.Charges < 2) result = false;
+            if (HostUpgrade.State.Charges < 2) result = false;
 
             return result;
         }

@@ -53,7 +53,7 @@ namespace Abilities.SecondEdition
 
         private void UseChargesToPerformAction(object sender, EventArgs e)
         {
-            if (HostShip.State.Charges > 1)
+            if (HostShip.State.Charges > 1 && HostShip.Tokens.GetNonLockRedOrangeTokens().Count>0)
             {
                 AskToUseAbility(
                     HostShip.PilotInfo.PilotName,

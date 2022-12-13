@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
+using Tokens;
 
 namespace Ship
 {
@@ -56,6 +57,7 @@ namespace Abilities.SecondEdition
         {
             if (Tools.IsSameTeam(HostShip, ship)
                 && BoardState.IsInRange(HostShip, ship, 1, 2)
+                && ship.Tokens.GetNonLockRedTokens().Count>=1
                 && HasEnemyInFrontAtR1(ship))
             {
                 RegisterAbilityTrigger(TriggerTypes.OnCombatActivation, AskToRemoveRedNonLockToken);

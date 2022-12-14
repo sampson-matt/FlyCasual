@@ -16,7 +16,7 @@ namespace Ship
             {
                 PilotInfo = new PilotCardInfo(
                     "Reaper Squadron Scout",
-                    2,
+                    3,
                     24,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent}
                 );

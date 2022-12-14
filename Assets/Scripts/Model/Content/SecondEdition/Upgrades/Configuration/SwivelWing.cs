@@ -152,28 +152,30 @@ namespace Abilities.SecondEdition
             subphase.AddDecision("90 Counterclockwise", Rotate90Counterclockwise);
             subphase.AddDecision("90 Clockwise", Rotate90Clockwise);
             subphase.AddDecision("No", delegate { DecisionSubPhase.ConfirmDecision(); }, isCentered: true);
-
-            (HostUpgrade as GenericDualUpgrade).Flip();
-            //HostShip.WingsOpen();
-
             subphase.Start();
         }
 
         private void Rotate180(object sender, EventArgs e)
         {
             DecisionSubPhase.ConfirmDecisionNoCallback();
+            (HostUpgrade as GenericDualUpgrade).Flip();
+            //HostShip.WingsOpen();
             HostShip.Rotate180(Triggers.FinishTrigger);
         }
 
         private void Rotate90Clockwise(object sender, EventArgs e)
         {
             DecisionSubPhase.ConfirmDecisionNoCallback();
+            (HostUpgrade as GenericDualUpgrade).Flip();
+            //HostShip.WingsOpen();
             HostShip.Rotate90Clockwise(Triggers.FinishTrigger);
         }
 
         private void Rotate90Counterclockwise(object sender, EventArgs e)
         {
             DecisionSubPhase.ConfirmDecisionNoCallback();
+            (HostUpgrade as GenericDualUpgrade).Flip();
+            //HostShip.WingsOpen();
             HostShip.Rotate90Counterclockwise(Triggers.FinishTrigger);
         }
 

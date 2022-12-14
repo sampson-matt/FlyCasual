@@ -82,7 +82,7 @@ namespace Abilities.SecondEdition
             //HostShip.WingsOpen();
         }
 
-        protected void RegisterAskToUseFlip(GenericShip ship)
+        protected virtual void RegisterAskToUseFlip(GenericShip ship)
         {
             if (BoardTools.Board.IsOffTheBoard(ship)) return;
 
@@ -95,7 +95,7 @@ namespace Abilities.SecondEdition
         {
             AskToUseAbility(
                 HostUpgrade.UpgradeInfo.Name,
-                NeverUseByDefault,
+                AlwaysUseByDefault,
                 DoFlipSide,
                 descriptionLong: "Do you want to flip the wing down?",
                 imageHolder: HostUpgrade

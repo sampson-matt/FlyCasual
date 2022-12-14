@@ -5,6 +5,9 @@ using Upgrade;
 using Movement;
 using Ship;
 using UpgradesList;
+using Abilities.SecondEdition;
+using System.Linq;
+using Abilities;
 
 namespace Ship
 {
@@ -14,10 +17,6 @@ namespace Ship
         {
             public CaptainHark() : base()
             {
-                //IsWIP = true;
-
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
-
                 PilotInfo = new PilotCardInfo
                 (
                     "Captain Hark",
@@ -25,10 +24,12 @@ namespace Ship
                     51,
                     pilotTitle: "Obedient Underling",
                     isLimited: true,
-                    //abilityType: typeof(Abilities.SecondEdition.CaptainHarkAbility),
+                    abilityType: typeof(Abilities.SecondEdition.CaptainHarkAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent},
                     factionOverride: Faction.Imperial
                 );
+
+                
 
                 ModelInfo.SkinName = "Gray";
 
@@ -40,97 +41,188 @@ namespace Ship
     }
 }
 
-//namespace Abilities.SecondEdition
-//{
-//    public class CaptainHarkAbility : Abilities.SecondEdition.SwivelWingDownAbility
-//    {
-//        private GenericUpgrade SwivelWingUpgrade;
-//        public override void ActivateAbility()
-//        {
-//            SwivelWingUpgrade = GetSwivelWing();
-//            SwivelWingUpgrade.DeactivateAbility();
-//            HostShip.OnManeuverIsRevealed += RegisterAskToRotate;
-//        }
+namespace Abilities.SecondEdition
+{
+    public class CaptainHarkAbility : GenericAbility
+    {
+        public override void ActivateAbility()
+        {
+            HostShip.OnSetupPlaced += ReplaceSwivelWing;
+        }
 
-//        public override void DeactivateAbility()
-//        {
-//            HostShip.OnManeuverIsRevealed -= RegisterAskToRotate;
-//            SwivelWingUpgrade = GetSwivelWing();
-//            SwivelWingUpgrade.ActivateAbility();
-//        }
+        public override void DeactivateAbility()
+        {
+            HostShip.OnSetupPlaced -= ReplaceSwivelWing;
+        }
 
-//        protected override void RegisterAskToRotate(GenericShip ship)
-//        {
-//            if (ship.AssignedManeuver.Bearing == Movement.ManeuverBearing.Stationary)
-//            {
-//                RegisterAbilityTrigger(TriggerTypes.OnManeuverIsRevealed, AskToRotate);
-//            }
-//        }
+        private void ReplaceSwivelWing(GenericShip ship)
+        {
+            GenericUpgrade SwivelWingUpgrade = GetSwivelWing();
+            if (SwivelWingUpgrade != null)
+            { 
+                SwivelWingUpgrade.DeactivateAbility();
+                GenericUpgrade captainHarkSwivelWing = new UpgradesList.SecondEdition.SwivelWingHarkDown();
+                SwivelWingUpgrade.ReplaceUpgradeBy(captainHarkSwivelWing);
+            }
+        }
 
-//        protected override void AskToRotate(object sender, EventArgs e)
-//        {
-            
-//            SwivelWingDecisionSubphase subphase = Phases.StartTemporarySubPhaseNew<SwivelWingDecisionSubphase>(
-//                "Choose Wich Direction to Sideslip", 
-//                delegate {
-//                    (SwivelWingUpgrade as GenericDualUpgrade).Flip();        
-//                    Triggers.FinishTrigger();
-//                }
-//             );
+        private GenericUpgrade GetSwivelWing()
+        {
+            return HostShip.UpgradeBar.GetUpgradesAll().Find(n => n.UpgradeInfo.HasType(UpgradeType.Configuration));
+        }
+    }
+}
 
-//            subphase.DescriptionShort = "Sideslip";
-//            subphase.DescriptionLong = "Choose Wich Direction to Sideslip";
-//            subphase.ImageSource = HostShip;
+namespace Abilities.SecondEdition
+{
+    public class SwivelWingHarkDownAbility : GenericAbility
+    {
+        public override void ActivateAbility()
+        {
+            HostShip.OnManeuverIsRevealed += RegisterAskToRotate;
+        }
 
-//            subphase.AddDecision("Left", DoSideSlipLeft);
-//            subphase.AddDecision("Right", DoSideSlipRight);
-            
+        public override void DeactivateAbility()
+        {
+            HostShip.OnManeuverIsRevealed -= RegisterAskToRotate;
+        }
 
-            
-//            //HostShip.WingsOpen();
+        protected void RegisterAskToRotate(GenericShip ship)
+        {
+            if (ship.AssignedManeuver.Bearing == Movement.ManeuverBearing.Stationary)
+            {
+                RegisterAbilityTrigger(TriggerTypes.OnManeuverIsRevealed, AskToRotate);
+            }
+        }
 
-//            subphase.Start();
-//        }
+        protected void AskToRotate(object sender, EventArgs e)
+        {
+            SwivelWingDecisionSubphase subphase = Phases.StartTemporarySubPhaseNew<SwivelWingDecisionSubphase>(
+                "Choose Wich Direction to Sideslip",
+                delegate
+                {
+                    
+                    Triggers.FinishTrigger();
+                }
+             );
 
-//        private void FlipCard()
-//        {
-//            (SwivelWingUpgrade as GenericDualUpgrade).Flip();
-//            Triggers.FinishTrigger();
-//        }
+            subphase.DescriptionShort = "Sideslip";
+            subphase.DescriptionLong = "Choose Wich Direction to Sideslip";
+            subphase.ImageSource = HostShip;
 
-//        private GenericUpgrade GetSwivelWing()
-//        {
-//            return HostShip.UpgradeBar.GetUpgradesAll().Find(n => n.UpgradeInfo.HasType(UpgradeType.Configuration));
-//        }
+            subphase.AddDecision("Left", DoSideSlipLeft);
+            subphase.AddDecision("Right", DoSideSlipRight);
+            //HostShip.WingsOpen();
 
-//        private void DoSideSlipRight(object sender, EventArgs e)
-//        {
-//            GenericMovement movement = new SideslipBankMovement(
-//                1,
-//                ManeuverDirection.Right,
-//                ManeuverBearing.SideslipBank,
-//                GenericMovement.IncreaseComplexity(HostShip.RevealedManeuver.ColorComplexity)
-//            );
+            subphase.Start();
+        }
 
-//            Messages.ShowInfo($"{HostShip.PilotInfo.PilotName}: Maneuver is changed to Sideslip");
-//            HostShip.SetAssignedManeuver(movement);
+        private void DoSideSlipRight(object sender, EventArgs e)
+        {
+            DecisionSubPhase.ConfirmDecisionNoCallback();
+            GenericMovement movement = new SideslipBankMovement(
+                1,
+                ManeuverDirection.Right,
+                ManeuverBearing.SideslipBank,
+                GenericMovement.IncreaseComplexity(HostShip.RevealedManeuver.ColorComplexity)
+            );
 
-//            Triggers.FinishTrigger();
-//        }
+            Messages.ShowInfo($"{HostShip.PilotInfo.PilotName}: Maneuver is changed to Sideslip");
+            HostShip.SetAssignedManeuver(movement);
 
-//        private void DoSideSlipLeft(object sender, EventArgs e)
-//        {
-//            GenericMovement movement = new SideslipBankMovement(
-//                1,
-//                ManeuverDirection.Left,
-//                ManeuverBearing.SideslipBank,
-//                GenericMovement.IncreaseComplexity(HostShip.RevealedManeuver.ColorComplexity)
-//            );
+            (HostUpgrade as GenericDualUpgrade).Flip();
 
-//            Messages.ShowInfo($"{HostShip.PilotInfo.PilotName}: Maneuver is changed to Sideslip");
-//            HostShip.SetAssignedManeuver(movement);
+            Triggers.FinishTrigger();
+        }
 
-//            Triggers.FinishTrigger();
-//        }
-//    }
-//}
+        private void DoSideSlipLeft(object sender, EventArgs e)
+        {
+            DecisionSubPhase.ConfirmDecisionNoCallback();
+            GenericMovement movement = new SideslipBankMovement(
+                1,
+                ManeuverDirection.Left,
+                ManeuverBearing.SideslipBank,
+                GenericMovement.IncreaseComplexity(HostShip.RevealedManeuver.ColorComplexity)
+            );
+
+            Messages.ShowInfo($"{HostShip.PilotInfo.PilotName}: Maneuver is changed to Sideslip");
+            HostShip.SetAssignedManeuver(movement);
+
+            (HostUpgrade as GenericDualUpgrade).Flip();
+
+            Triggers.FinishTrigger();
+        }
+
+        private class SwivelWingDecisionSubphase : DecisionSubPhase { };
+    }
+
+    public class SwivelWingHarkUpAbility : SwivelWingUpAbility
+    {
+        
+
+        protected override void RegisterAskToUseFlip(GenericShip ship)
+        {
+            if (BoardTools.Board.IsOffTheBoard(ship)) return;
+
+            if (ship.AssignedManeuver.Bearing == Movement.ManeuverBearing.SideslipBank) return;
+
+            RegisterAbilityTrigger(TriggerTypes.OnMovementFinish, AskToFlip);
+        }
+
+        
+    }
+}
+
+namespace UpgradesList.SecondEdition
+{
+    public class SwivelWingHarkDown : GenericDualUpgrade
+    {
+        public SwivelWingHarkDown() : base()
+        {
+            IsHidden = true;
+
+            UpgradeInfo = new UpgradeCardInfo(
+                "Swivel Wing (Down)",
+                UpgradeType.Configuration,
+                cost: 0,
+                restriction: new ShipRestriction(typeof(Ship.SecondEdition.GauntletFighter.GauntletFighter)),
+                abilityType: typeof(Abilities.SecondEdition.SwivelWingHarkDownAbility)
+            );
+
+            SelectSideOnSetup = false;
+
+            NameCanonical = "swivelwingdownhark";
+
+            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/swivelwing.png";
+
+            AnotherSide = typeof(SwivelWingHarkUp);
+        }
+    }
+
+    public class SwivelWingHarkUp : GenericDualUpgrade
+    {
+        public SwivelWingHarkUp() : base()
+        {
+            IsHidden = true;
+            NameCanonical = "SwivelWing-anotherside";
+
+            UpgradeInfo = new UpgradeCardInfo(
+                "Swivel Wing (Up)",
+                UpgradeType.Configuration,
+                cost: 0,
+                restriction: new ShipRestriction(typeof(Ship.SecondEdition.GauntletFighter.GauntletFighter)),
+                abilityType: typeof(Abilities.SecondEdition.SwivelWingHarkUpAbility)
+            );
+
+            SelectSideOnSetup = false;
+
+            NameCanonical = "swivelwinguphark";
+
+            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/swivelwing-sideb.png";
+
+            IsSecondSide = true;
+
+            AnotherSide = typeof(SwivelWingHarkDown);
+        }
+    }
+}

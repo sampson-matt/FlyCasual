@@ -20,6 +20,7 @@ namespace Ship
                     pilotTitle: "Dueling Droid",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.IG102Ability),
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent },
                     factionOverride: Faction.Separatists
                 );
 

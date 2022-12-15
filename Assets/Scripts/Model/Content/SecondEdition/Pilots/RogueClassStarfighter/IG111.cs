@@ -20,6 +20,7 @@ namespace Ship
                     pilotTitle: "One Eye",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.IG111Ability),
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent },
                     factionOverride: Faction.Separatists
                 );
 

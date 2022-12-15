@@ -15,6 +15,7 @@ namespace Ship
                     "MagnaGuard Executioner",
                     3,
                     37,
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent },
                     factionOverride: Faction.Separatists
                 );
 

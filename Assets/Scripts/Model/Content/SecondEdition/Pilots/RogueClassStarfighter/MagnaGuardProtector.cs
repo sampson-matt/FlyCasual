@@ -21,6 +21,7 @@ namespace Ship
                     limited: 2,
                     pilotTitle: "Implacable Escort",
                     abilityType: typeof(Abilities.SecondEdition.MagnaGuardProtectorAbility),
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent },
                     factionOverride: Faction.Separatists
                 );
 

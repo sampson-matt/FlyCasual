@@ -20,6 +20,7 @@ namespace Ship
                     pilotTitle: "Tenacious Bodyguard",
                     isLimited: true,
                     abilityType: typeof(IG101Ability),
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent },
                     factionOverride: Faction.Separatists
                 );
 

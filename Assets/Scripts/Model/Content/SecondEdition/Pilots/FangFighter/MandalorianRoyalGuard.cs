@@ -1,9 +1,9 @@
 ﻿using Ship;
-using SubPhases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
+using BoardTools;
 
 namespace Ship
 {
@@ -41,12 +41,49 @@ namespace Abilities.SecondEdition
     {
         public override void ActivateAbility()
         {
-            
+            AddDiceModification(
+                "Mandalorian Royal Guard",
+                IsAvailable,
+                AiPriority,
+                DiceModificationType.Change,
+                1,
+                sideCanBeChangedTo: DieSide.Success,
+                isGlobal: true,
+                payAbilityCost: PayAbilityCost
+            );
+        }
+        private void PayAbilityCost(Action<bool> callback)
+        {
+            HostShip.Tokens.AssignToken(typeof(Tokens.DepleteToken), delegate { });
+            HostShip.Tokens.AssignToken(typeof(Tokens.StrainToken), () => callback(true));
+        }
+
+        public bool IsAvailable()
+        {
+            bool result = false;
+
+            if (Combat.AttackStep == CombatStep.Defence && Combat.Attacker.Owner.PlayerNo != HostShip.Owner.PlayerNo && Combat.Defender.ShipInfo.BaseSize != BaseSize.Small)
+            {
+                ShotInfoArc arcInfo = new ShotInfoArc(
+                    Combat.Attacker,
+                    HostShip,
+                    Combat.ArcForShot
+                );
+
+                if (arcInfo.InArc) result = true;
+            }
+
+            return result;
+        }
+
+        private int AiPriority()
+        {
+            return 95;
         }
 
         public override void DeactivateAbility()
         {
-            
+            RemoveDiceModification();
         }
     }
 }

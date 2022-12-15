@@ -57,7 +57,7 @@ namespace Abilities.SecondEdition
 
         private void ChooseToken(object sender, EventArgs e)
         {
-            if (HostUpgrade.State.Charges > 1 && HostShip.Tokens.HasToken(typeof(Tokens.StressToken))&& !HostShip.AssignedManeuver.GetColor().Equals(Color.blue))
+            if (HostUpgrade.State.Charges > 1 && HostShip.Tokens.HasToken(typeof(Tokens.StressToken))&& HostShip.AssignedManeuver.ColorComplexity != MovementComplexity.Easy)
             {
                 var decisionSubPhase = Phases.StartTemporarySubPhaseNew<DecisionSubPhase>(
                     Name,

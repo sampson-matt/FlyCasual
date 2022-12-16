@@ -22,6 +22,7 @@ namespace Ship
                     "Bo-Katan Kryze",
                     4,
                     56,
+                    pilotTitle: "Nite Owl Commander",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BoKatanKryzeRepublicAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }

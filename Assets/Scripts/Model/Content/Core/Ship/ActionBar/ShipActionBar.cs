@@ -56,6 +56,18 @@ namespace Ship
                 RemoveLinkedAction(typeof(BarrelRollAction), typeof(FocusAction));
                 AddLinkedAction(new LinkedActionInfo(typeof(BarrelRollAction), typeof(CalculateAction)));
             }
+
+            if (LinkedActions.Any(a => a.ActionType == typeof(FocusAction) && a.ActionLinkedType == typeof(BarrelRollAction)))
+            {
+                RemoveLinkedAction(typeof(FocusAction), typeof(BarrelRollAction));
+                AddLinkedAction(new LinkedActionInfo(typeof(CalculateAction), typeof(BarrelRollAction)));
+            }
+
+            if (LinkedActions.Any(a => a.ActionType == typeof(FocusAction) && a.ActionLinkedType == typeof(BoostAction)))
+            {
+                RemoveLinkedAction(typeof(FocusAction), typeof(BoostAction));
+                AddLinkedAction(new LinkedActionInfo(typeof(CalculateAction), typeof(BoostAction)));
+            }
         }
     }
 

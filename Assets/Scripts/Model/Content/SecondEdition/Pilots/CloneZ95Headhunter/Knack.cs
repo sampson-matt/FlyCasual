@@ -18,8 +18,6 @@ namespace Ship
         {
             public Knack() : base()
             {
-                RequiredMods = new List<Type>() { typeof(Mods.ModsList.UnreleasedContentMod) };
-
                 PilotInfo = new PilotCardInfo(
                     "\"Knack\"",
                     5,

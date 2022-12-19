@@ -2,6 +2,8 @@
 using SubPhases;
 using Upgrade;
 using Ship;
+using System.Linq;
+using Abilities;
 
 namespace Ship
 {
@@ -23,6 +25,10 @@ namespace Ship
                 );
                 ShipInfo.Shields++;
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
+                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Configuration);
+                AutoThrustersAbility oldAbility = (AutoThrustersAbility)ShipAbilities.First(n => n.GetType() == typeof(AutoThrustersAbility));
+                ShipAbilities.Remove(oldAbility);
+                ShipAbilities.Add(new SensitiveControlsRealAbility());
                 PilotNameCanonical = "idenversio-boy";
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/idenversio-boy.png";
             }

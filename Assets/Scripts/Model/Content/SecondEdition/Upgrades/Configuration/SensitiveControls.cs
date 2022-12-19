@@ -88,7 +88,7 @@ namespace Abilities.SecondEdition
                 Triggers.FinishTrigger,
                 descriptionShort: "Sensitive Controls",
                 descriptionLong: "You may perform a red barrel roll or boost action",
-                imageHolder: HostUpgrade
+                imageHolder: HostReal as IImageHolder
             );
         }
     }

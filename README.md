@@ -1,4 +1,4 @@
-# Fly Casual HotAC Campaign Mod
+# Fly Casual Legacy
 
 I have two primary goals with this fork FlyCasual:
 * Implement the Heroes of the Aturi Cluster Campaign

@@ -1,4 +1,4 @@
-# Fly Casual HotAC Campaign Mod
+# Fly Casual Legacy
 
 I have two primary goals with this fork FlyCasual:
 * Implement the Heroes of the Aturi Cluster Campaign
@@ -12,18 +12,21 @@ Added Features:
 
 Notes:
 * I'm learning Unity, C#, and Github as I go, so things will be slow, inconsistent and error prone
-* If anyone wants to throw any money my way for some reason you can do that [here](https://paypal.me/sampsonmatt?country.x=US&locale.x=en_US).
+* If anyone wants to throw any money my way for some reason you can do that [here](patreon.com/user?u=84527220).
 
 Thanks:
-* Sandrem for creating FlyCasual (his Patreon is [here](https://www.patreon.com/Sandrem))
+* Sandrem for creating FlyCasual
+* The X-Wing Legacy group for continuing to support 2.0 points for new releases.
 * Josh Derkson, Sean Tiernan and all the folks that helped create the HotAC campaign and its 2.0 version
 * Jim Bob of Infinite Arenas who provided the tools I used to make all the custom cards for this
 
 Links:
 * [Download](https://github.com/sampson-matt/FlyCasual/releases)
+* [X-Wing Legacy](https://x2po.org/)
 * [Custom HotAC Upgrade Cards](https://github.com/sampson-matt/Hotac-Upgrade-Cards)
-* [Original FlyCasual](https://github.com/Sandrem/FlyCasual/releases)
+* [Custom AMG Scenario Pilot Cards](https://github.com/sampson-matt/FlyCasualLegacyCustomCards)
 * [HotAC Facebook Group](https://www.facebook.com/groups/872507722883025)
 * [Infinite Arenas](https://infinitearenas.com/)
+* [My Patreon](patreon.com/user?u=84527220) - if anyone feels so inclined
 
 "Star Wars: X-Wing Miniatures Game" is a trademark of Fantasy Flight Games. This game is not endorsed by Fantasy Flight Games, Lucasfilm Ltd. or Twentieth Century Fox and is intended for entertainment only. Star Wars, the Star Wars logo, all names and pictures of Star Wars characters, vehicles and other Star Wars related items are registered trademarks and/or copyrights of Lucasfilm Ltd., or their respective trademark and copyright holders. This game is not-for-profit and is only intended for use by fans of the game line.

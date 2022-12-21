@@ -16,11 +16,8 @@ namespace Ship
                     5,
                     48,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.WedgeAntillesBoYAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 1
+                    abilityType: typeof(Abilities.SecondEdition.WedgeAntillesBoYAbility)
                 );
-                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Talent);
                 ShipAbilities.Add(new HopeAbility());
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/wedgeantilles-boy.png";
                 PilotNameCanonical = "wedgeantilles-boy";

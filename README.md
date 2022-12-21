@@ -27,6 +27,6 @@ Links:
 * [Custom AMG Scenario Pilot Cards](https://github.com/sampson-matt/FlyCasualLegacyCustomCards)
 * [HotAC Facebook Group](https://www.facebook.com/groups/872507722883025)
 * [Infinite Arenas](https://infinitearenas.com/)
-* [My Patreon](patreon.com/user?u=84527220) - if anyone feels so inclined
+* [My Patreon](https://patreon.com/user?u=84527220) - if anyone feels so inclined
 
 "Star Wars: X-Wing Miniatures Game" is a trademark of Fantasy Flight Games. This game is not endorsed by Fantasy Flight Games, Lucasfilm Ltd. or Twentieth Century Fox and is intended for entertainment only. Star Wars, the Star Wars logo, all names and pictures of Star Wars characters, vehicles and other Star Wars related items are registered trademarks and/or copyrights of Lucasfilm Ltd., or their respective trademark and copyright holders. This game is not-for-profit and is only intended for use by fans of the game line.

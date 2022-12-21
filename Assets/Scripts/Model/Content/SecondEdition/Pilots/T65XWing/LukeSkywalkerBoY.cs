@@ -71,6 +71,7 @@ namespace Abilities.SecondEdition
             PreviousCurrentShip = Selection.ThisShip;
 
             Selection.ChangeActiveShip(HostShip);
+            CameraScript.RestoreCamera();
             Selection.ThisShip.AskPerformFreeAction(
                 new List<GenericAction>()
                 {

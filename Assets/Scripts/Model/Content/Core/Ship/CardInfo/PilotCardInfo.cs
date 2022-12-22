@@ -79,6 +79,8 @@ namespace Ship
             if (extraUpgradeIcon != UpgradeType.None) ExtraUpgrades.Add(extraUpgradeIcon);
             if (extraUpgradeIcons != null) ExtraUpgrades.AddRange(extraUpgradeIcons);
 
+            Tags = tags ?? new List<Tags>();
+
             if (factionOverride != Faction.None) Faction = factionOverride;
 
             ForceAlignment = forceAlignmentOverride;

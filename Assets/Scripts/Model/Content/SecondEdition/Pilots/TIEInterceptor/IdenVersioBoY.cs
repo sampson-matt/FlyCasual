@@ -3,7 +3,8 @@ using SubPhases;
 using Upgrade;
 using Ship;
 using System.Linq;
-using Abilities;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -21,6 +22,10 @@ namespace Ship
                     charges: 2,
                     regensCharges: 1,
                     abilityType: typeof(IdenVersioBoYAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
                 ShipInfo.Shields++;

@@ -2,6 +2,8 @@
 using Abilities.SecondEdition;
 using Actions;
 using ActionsList;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -18,6 +20,10 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(WampaAbility),
                     charges: 1,
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     regensCharges: 1
                 );
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(TargetLockAction)));

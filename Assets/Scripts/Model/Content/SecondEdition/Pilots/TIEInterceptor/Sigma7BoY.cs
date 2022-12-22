@@ -7,6 +7,8 @@ using Tokens;
 using ActionsList;
 using Actions;
 using BoardTools;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -23,6 +25,10 @@ namespace Ship
                     isLimited: true,
                     charges: 2,
                     abilityType: typeof(Sigma7Ability),
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(TargetLockAction)));

@@ -4,6 +4,7 @@
     {
         AWing,
         BountyHunter,
+        BoY,
         BWing,
         Clone,
         DarkSide,

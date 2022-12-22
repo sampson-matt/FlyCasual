@@ -1,7 +1,8 @@
 ﻿using Conditions;
 using Ship;
-using Upgrade;
+using Content;
 using Abilities.SecondEdition;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -16,6 +17,10 @@ namespace Ship
                     5,
                     48,
                     isLimited: true,
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     abilityType: typeof(Abilities.SecondEdition.WedgeAntillesBoYAbility)
                 );
                 ShipAbilities.Add(new HopeAbility());

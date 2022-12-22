@@ -1,4 +1,6 @@
 ﻿using Abilities.FirstEdition;
+using System.Collections.Generic;
+using Content;
 
 namespace Ship
 {
@@ -13,6 +15,10 @@ namespace Ship
                     4,
                     47,
                     isLimited: true,
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     abilityType: typeof(GarvenDreisAbility)
                 );
                 ShipAbilities.Add(new Abilities.SecondEdition.HopeAbility());

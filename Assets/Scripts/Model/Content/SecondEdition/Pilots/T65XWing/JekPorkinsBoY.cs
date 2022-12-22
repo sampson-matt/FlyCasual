@@ -1,6 +1,6 @@
 ﻿using Abilities.SecondEdition;
-using System;
-using Upgrade;
+using System.Collections.Generic;
+using Content;
 
 namespace Ship
 {
@@ -15,6 +15,10 @@ namespace Ship
                     4,
                     44,
                     isLimited: true,
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     abilityType: typeof(JekPorkinsAbility)
                 );
                 ShipAbilities.Add(new HopeAbility());

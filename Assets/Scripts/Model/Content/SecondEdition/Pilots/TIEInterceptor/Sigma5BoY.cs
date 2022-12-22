@@ -3,9 +3,9 @@ using SubPhases;
 using Upgrade;
 using Ship;
 using System.Linq;
-using Abilities;
+using System.Collections.Generic;
 using ActionsList;
-using Actions;
+using Content;
 using System;
 
 namespace Ship
@@ -23,6 +23,10 @@ namespace Ship
                     isLimited: true,
                     charges: 2,
                     abilityType: typeof(Sigma5Ability),
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
                 ShipInfo.Hull++;

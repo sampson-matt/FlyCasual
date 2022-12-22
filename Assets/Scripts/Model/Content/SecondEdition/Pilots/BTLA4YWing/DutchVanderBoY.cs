@@ -5,7 +5,7 @@ using SubPhases;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using Content;
 using Tokens;
 using UnityEngine;
 using Upgrade;
@@ -24,6 +24,10 @@ namespace Ship
                     44,
                     isLimited: true,
                     abilityType: typeof(DutchVanderBoYAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     extraUpgradeIcon: UpgradeType.Modification
                 );
                 ShipAbilities.Add(new HopeAbility());

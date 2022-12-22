@@ -1,5 +1,7 @@
 ﻿using Upgrade;
 using Ship;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -15,6 +17,10 @@ namespace Ship
                     35,
                     isLimited: true,
                     extraUpgradeIcon: UpgradeType.Talent,
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     abilityType: typeof(Abilities.SecondEdition.DarkCurseAbility)
                 );
                 ShipInfo.Hull++;

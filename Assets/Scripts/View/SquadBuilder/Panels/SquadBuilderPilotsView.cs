@@ -39,9 +39,9 @@ namespace SquadBuilderNS
                     && n.PilotFaction == faction
                     && n.Instance.GetType().ToString().Contains(Edition.Current.NameShort)
                     && !n.Instance.IsHiddenSquadbuilderOnly
-                )
-                .OrderByDescending(n => n.PilotSkill).
+                ).OrderByDescending(n => n.PilotSkill).
                 OrderByDescending(n => n.Instance.PilotInfo.Cost).
+                OrderByDescending(n => n.Tags.Contains(Content.Tags.BoY) ? 0 : 1).
                 ToList();
             }
             

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Tokens;
 using Upgrade;
-using UpgradesList.SecondEdition;
+using Content;
 using Abilities.SecondEdition;
 
 namespace Ship
@@ -25,6 +25,10 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(LukeSkywalkerAbility),
                     force: 2,
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     extraUpgradeIcon: UpgradeType.ForcePower
                 );
                 ShipAbilities.Add(new HopeAbility());

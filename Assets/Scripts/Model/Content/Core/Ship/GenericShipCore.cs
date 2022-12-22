@@ -4,7 +4,7 @@ using UnityEngine;
 using Arcs;
 using Abilities;
 using System;
-using Editions;
+using Content;
 using Upgrade;
 using Players;
 
@@ -411,6 +411,15 @@ namespace Ship
         public void SetChargesToMax()
         {
             State.Charges = State.MaxCharges;
+        }
+
+        public bool CanEquipTagRestrictedUpgrade(Tags tag)
+        {
+            var result = ((PilotInfo as PilotCardInfo).Tags.Contains(tag));
+
+            OnUpgradeEquipTagCheck?.Invoke(tag, ref result);
+
+            return result;
         }
 
         public bool CanEquipForceAlignedCard(ForceAlignment alignment)

@@ -1,6 +1,7 @@
 ﻿using BoardTools;
 using System;
-using System.Collections;
+using System.Collections.Generic;
+using Content;
 using ActionsList;
 using Upgrade;
 
@@ -19,6 +20,10 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.HanSoloBoYPilotAbility),
                     charges: 4,
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/hansolo-boy.png";

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Ship;
 using SubPhases;
 using BoardTools;
+using Content;
 
 namespace Ship
 {
@@ -17,6 +18,10 @@ namespace Ship
                     3,
                     44,
                     isLimited: true,
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     abilityType: typeof(Abilities.SecondEdition.BiggsDarklighterBoYAbility)
                 );
                 ShipAbilities.Add(new HopeAbility());

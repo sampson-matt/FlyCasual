@@ -5,8 +5,8 @@ using Ship;
 using System.Linq;
 using Abilities;
 using ActionsList;
-using Actions;
-using System;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -23,6 +23,10 @@ namespace Ship
                     isLimited: true,
                     charges: 2,
                     abilityType: typeof(Sigma6Ability),
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
                 ShipInfo.Hull++;

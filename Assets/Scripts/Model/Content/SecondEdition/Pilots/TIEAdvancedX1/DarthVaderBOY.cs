@@ -1,7 +1,7 @@
 ﻿using Abilities.SecondEdition;
 using ActionsList;
 using Ship;
-using System;
+using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -20,6 +20,10 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(DarthVaderDefenderAbility),
                     force: 3,
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     extraUpgradeIcon: UpgradeType.ForcePower
                 );
                 ShipInfo.Shields++;

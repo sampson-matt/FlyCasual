@@ -6,7 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Tokens;
+using Content;
 using UnityEngine;
 using Upgrade;
 
@@ -25,6 +25,10 @@ namespace Ship
                     pilotTitle: "Battle of Yavin",
                     isLimited: true,
                     abilityType: typeof(PopsKrailBoYAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Modification }
                 );
                 ShipAbilities.Add(new HopeAbility());

@@ -1,6 +1,8 @@
 ﻿using Abilities.SecondEdition;
 using BoardTools;
 using Upgrade;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -16,6 +18,10 @@ namespace Ship
                     34,
                     isLimited: true,
                     abilityType: typeof(DexTireeAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.BoY
+                    },
                     extraUpgradeIcon: UpgradeType.Modification
                 );
                 ShipAbilities.Add(new HopeAbility());

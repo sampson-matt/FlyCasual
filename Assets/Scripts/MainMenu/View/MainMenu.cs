@@ -213,6 +213,11 @@ public partial class MainMenu : MonoBehaviour {
         Application.OpenURL("https://www.patreon.com/Sandrem");
     }
 
+    public void JoinLegacy()
+    {
+        Application.OpenURL("https://x2po.org/");
+    }
+
     public void SetFaction(string factionChar)
     {
         PopularSquads.SetFaction(factionChar);

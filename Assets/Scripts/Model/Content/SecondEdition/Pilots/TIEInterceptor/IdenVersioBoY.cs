@@ -86,7 +86,7 @@ namespace Abilities.SecondEdition
                     HostShip.PilotInfo.PilotName,
                     AlwaysUseByDefault,
                     delegate { BlankDamage(); },
-                    descriptionLong: "Do you want to spend 2 Charges to prevent damage?",
+                    descriptionLong: "Do you want to spend 2 Charges to prevent 1 damage?",
                     imageHolder: HostShip
                 );
             }
@@ -99,7 +99,14 @@ namespace Abilities.SecondEdition
         private void BlankDamage()
         {
             HostShip.SpendCharges(2);
-            curToDamage.AssignedDamageDiceroll.RemoveAll();
+            if (curToDamage.AssignedDamageDiceroll.CriticalSuccesses > 0)
+            {
+                curToDamage.AssignedDamageDiceroll.RemoveType(DieSide.Crit);
+            }
+            else
+            {
+                curToDamage.AssignedDamageDiceroll.RemoveType(DieSide.Success);
+            }
             DecisionSubPhase.ConfirmDecision();
         }
 

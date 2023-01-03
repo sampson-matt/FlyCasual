@@ -66,7 +66,10 @@ namespace ActionsList
             bool isBeforeManeuverPhase = !Selection.ActiveShip.AiPlans.shipHasManeuvered;
             // Until I get Advanced Sensors fixed...
             isBeforeManeuverPhase = false;
-            result = AI.Aggressor.NavigationSubSystem.TryActionPossibilities(this, isBeforeManeuverPhase);
+            if (Mods.ModsManager.Mods[typeof(Mods.ModsList.AIBoostTestModSE)].IsOn)
+            {
+                result = AI.Aggressor.NavigationSubSystem.TryActionPossibilities(this, isBeforeManeuverPhase);
+            }            
 
             return result;
         }
@@ -162,7 +165,7 @@ namespace SubPhases
 
             InitializeRendering();
 
-            if (TheShip.Owner.PlayerType == PlayerType.Ai && Mods.ModsManager.Mods[typeof(Mods.ModsList.AIBoostTestModSE)].IsOn)
+            if (TheShip.Owner.PlayerType == PlayerType.Ai)
             {
                 // We have AI here.  Do AI things.
                 AiSinglePlan aiBoostAction = TheShip.AiPlans.GetPlanByActionName("Boost");

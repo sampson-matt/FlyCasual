@@ -118,7 +118,10 @@ namespace Ship
             {
                 if (OnManeuverIsReadyToBeRevealedGlobal != null) OnManeuverIsReadyToBeRevealedGlobal(this);
                 if (OnManeuverIsReadyToBeRevealed != null) OnManeuverIsReadyToBeRevealed(this);
-
+                if (Selection.ThisShip.AiPlans != null)
+                {
+                    Selection.ThisShip.AiPlans.shipHasManeuvered = false;
+                }
                 Triggers.ResolveTriggers(TriggerTypes.OnManeuverIsReadyToBeRevealed, callBack);
             }
             else  // For ionized ships
@@ -158,7 +161,10 @@ namespace Ship
         public void StartMoving(System.Action callback)
         {
             if (OnMovementStart != null) OnMovementStart(this);
-
+            if (Selection.ThisShip.AiPlans != null)
+            {
+                Selection.ThisShip.AiPlans.shipHasManeuvered = true;
+            }
             Triggers.ResolveTriggers(TriggerTypes.OnMovementStart, callback);
         }
 

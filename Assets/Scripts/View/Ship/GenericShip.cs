@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using ActionsList;
+using Movement;
 
 namespace Ship
 {
@@ -14,6 +16,8 @@ namespace Ship
     {
         protected Transform ShipAllParts;
         private Transform modelCenter;
+
+        public AiPlansStorage AiPlans = new AiPlansStorage();
 
         private string originalSkinName;
 
@@ -88,7 +92,7 @@ namespace Ship
         {
             TextMesh ShipIdText = model.transform.Find("RotationHelper/RotationHelper2/ShipAllParts/ShipIdText").GetComponent<TextMesh>();
             ShipIdText.text = ShipId.ToString();
-            ShipIdText.color = (Owner.PlayerNo == Players.PlayerNo.Player1) ? Color.green: Color.red;
+            ShipIdText.color = (Owner.PlayerNo == Players.PlayerNo.Player1) ? Color.green : Color.red;
         }
 
         protected void SetTagOfChildrenRecursive(Transform parent, string tag)
@@ -343,7 +347,7 @@ namespace Ship
 
         private string GetDefaultSkinName()
         {
-            GenericShip parentShip = (GenericShip) System.Activator.CreateInstance(this.GetType().BaseType);
+            GenericShip parentShip = (GenericShip)System.Activator.CreateInstance(this.GetType().BaseType);
             return parentShip.ModelInfo.SkinName;
         }
 
@@ -379,7 +383,7 @@ namespace Ship
 
         public void SetRaycastTarget(bool value)
         {
-            int layer = (value) ? LayerMask.NameToLayer("Ships") : LayerMask.NameToLayer("Ignore Raycast") ;
+            int layer = (value) ? LayerMask.NameToLayer("Ships") : LayerMask.NameToLayer("Ignore Raycast");
             SetLayerRecursive(Model.transform, layer);
         }
 
@@ -445,7 +449,7 @@ namespace Ship
             else
             {
                 callBack();
-            }            
+            }
         }
 
         public void MoveUpwards(float progress)
@@ -586,7 +590,7 @@ namespace Ship
                     Vector3 targetPoint = Selection.AnotherShip.GetModelCenter();
                     origin.LookAt(targetPoint);
                     ParticleSystem.MainModule particles = origin.GetComponentInChildren<ParticleSystem>().main;
-                    particles.startLifetimeMultiplier = (Vector3.Distance(origin.position, targetPoint) * 0.25f / (10/3));
+                    particles.startLifetimeMultiplier = (Vector3.Distance(origin.position, targetPoint) * 0.25f / (10 / 3));
                 }
 
                 shotsTransform.gameObject.SetActive(true);
@@ -668,7 +672,101 @@ namespace Ship
             string result = inputName.Replace('/', ' ');
             return result;
         }
+    }
 
+    public class AiPlansStorage
+    {
+        private List<AiSinglePlan> PlansList = new List<AiSinglePlan>();
+        public bool shipHasManeuvered = false;
+
+        public AiSinglePlan GetPlannedAction()
+        {
+            if (PlansList.Count != 0)
+            {
+                OrderByPriority();
+                return PlansList.First();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public int GetActionsCount()
+        {
+            return PlansList.Count();
+        }
+
+        public AiSinglePlan GetPlanByActionName(string actionName)
+        {
+            AiSinglePlan chosenPlan = null;
+            if (PlansList.Count != 0)
+            {
+                foreach (AiSinglePlan plan in PlansList)
+                {
+                    if (plan.currentAction.Name == actionName)
+                    {
+                        chosenPlan = plan;
+                        break;
+                    }
+                }
+            }
+            return chosenPlan;
+        }
+
+        public void OrderByPriority()
+        {
+            // Put the highest priority action first.
+            PlansList.OrderByDescending(plan => plan.Priority);
+        }
+
+        public void AddPlan(AiSinglePlan newPlan)
+        {
+            PlansList.Add(newPlan);
+        }
+
+        public void RemovePlan(AiSinglePlan Plan)
+        {
+            if (PlansList.Count > 0)
+            {
+                PlansList.Remove(Plan);
+            }
+        }
+
+        public void ClearPlans()
+        {
+            PlansList.Clear();
+        }
+    }
+
+    public class AiSinglePlan
+    {
+        public int Priority = 0;
+        public string actionName;
+        public bool isRedAction = false;
+        public GenericAction currentAction = null;
+        public GenericMovement currentActionMove = null;
+        private List<GenericShip> preferredTargets = new List<GenericShip>();
+
+        public void AddTarget(GenericShip newTarget)
+        {
+            preferredTargets.Add(newTarget);
+        }
+
+        public void RemoveTarget(GenericShip ship)
+        {
+            preferredTargets.Remove(ship);
+        }
+
+        public void ClearTargetList()
+        {
+            preferredTargets.Clear();
+        }
+
+        public GenericShip GetFirstTarget()
+        {
+            return preferredTargets.First();
+        }
     }
 
 }

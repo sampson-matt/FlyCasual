@@ -12,6 +12,8 @@ using Bombs;
 using Ship;
 using Movement;
 using System;
+using AI;
+using Players;
 
 namespace ActionsList
 {
@@ -54,6 +56,19 @@ namespace ActionsList
         {
             SelectedBoostTemplate = null;
             Phases.GoBack();
+        }
+
+        public override int GetActionPriority()
+        {
+            int result = 0;
+
+            // Check to see if we are before the maneuver phase or not.
+            bool isBeforeManeuverPhase = !Selection.ActiveShip.AiPlans.shipHasManeuvered;
+            // Until I get Advanced Sensors fixed...
+            isBeforeManeuverPhase = false;
+            result = AI.Aggressor.NavigationSubSystem.TryActionPossibilities(this, isBeforeManeuverPhase);
+
+            return result;
         }
     }
 
@@ -147,7 +162,19 @@ namespace SubPhases
 
             InitializeRendering();
 
-            if (SelectedBoostHelper != null)
+            if (TheShip.Owner.PlayerType == PlayerType.Ai && Mods.ModsManager.Mods[typeof(Mods.ModsList.AIBoostTestModSE)].IsOn)
+            {
+                // We have AI here.  Do AI things.
+                AiSinglePlan aiBoostAction = TheShip.AiPlans.GetPlanByActionName("Boost");
+                if (aiBoostAction != null)
+                {
+                    SelectTemplateByName(aiBoostAction.actionName, aiBoostAction.isRedAction);
+
+                    // Now that we're done with the plan, remove it.
+                    TheShip.AiPlans.RemovePlan(aiBoostAction);
+                }
+            }
+            else if(SelectedBoostHelper != null)
             {
                 SelectTemplate(AvailableBoostMoves.First(n => n.Name == SelectedBoostHelper));
                 SelectTemplateDecisionIsTaken();
@@ -228,6 +255,25 @@ namespace SubPhases
             }
 
             SelectedBoostHelper = move.Name;
+        }
+
+        private void SelectTemplateByName(string actionName, bool isRed)
+        {
+            if (isRed && !HostAction.IsRed)
+            {
+                HostAction.Color = ActionColor.Red;
+                TheShip.OnActionIsPerformed += ResetActionColor;
+            }
+
+            SelectedBoostHelper = actionName;
+            if (TheShip.Owner.PlayerType == PlayerType.Ai)
+            {
+                SelectTemplateDecisionIsTaken();
+            }
+            else
+            {
+                DecisionSubPhase.ConfirmDecision();
+            }
         }
 
         private void ResetActionColor(GenericAction action)
@@ -356,7 +402,18 @@ namespace SubPhases
             }
             else
             {
-                CancelBoost(boostProblems);
+                if (TheShip.Owner.PlayerType == PlayerType.Ai)
+                {
+                    //TODO figure out why this allows the AI to take a different action. Find a better way to gracefully fail the boost action
+                    //Phases.GoBack();
+                    //TheShip.CallActionIsReadyToBeFailed(HostAction, boostProblems, false);
+                    //TheShip.CallOnActionIsReallyFailed(HostAction, false, false);
+                    HostAction.RevertActionOnFail(false);
+                }
+                else
+                {
+                    CancelBoost(boostProblems);
+                }
             }
         }
 

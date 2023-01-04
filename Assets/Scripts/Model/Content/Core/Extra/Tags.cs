@@ -15,6 +15,7 @@
         Mandalorian,
         Partisan,
         Sith,
+        SoC,
         Spectre,
         Tie,
         XWing,

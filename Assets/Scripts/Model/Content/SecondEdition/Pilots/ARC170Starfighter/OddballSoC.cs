@@ -34,7 +34,7 @@ namespace Ship
                 );
                 ShipAbilities.Add(new Abilities.SecondEdition.BornForThisAbility());
 
-                PilotNameCanonical = "oddball-SoC";
+                PilotNameCanonical = "oddball-soc";
 
                 ModelInfo.SkinName = "Red";
 
@@ -51,7 +51,7 @@ namespace Abilities.SecondEdition
         public override void ActivateAbility()
         {
             AddDiceModification(
-                "Born for This",
+                HostName + ": Born for This: Focus",
                 IsFocusAvailable,
                 () => 20,
                 DiceModificationType.Change,
@@ -63,7 +63,7 @@ namespace Abilities.SecondEdition
             );
 
             AddDiceModification(
-                "Born for This",
+                HostName + ": Born for This: Evade",
                 IsEvadeAvailable,
                 GetDiceModificationPriority,
                 DiceModificationType.Change,
@@ -135,6 +135,7 @@ namespace Abilities.SecondEdition
         {
             GenericShip activeShip = Combat.Defender;
             return Combat.AttackStep == CombatStep.Defence
+                && Combat.CurrentDiceRoll.Focuses > 0
                 && !HostShip.IsStrained
                 && activeShip.Owner == HostShip.Owner
                 && activeShip != HostShip

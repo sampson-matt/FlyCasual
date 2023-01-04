@@ -41,7 +41,7 @@ namespace SquadBuilderNS
                     && !n.Instance.IsHiddenSquadbuilderOnly
                 ).OrderByDescending(n => n.PilotSkill).
                 OrderByDescending(n => n.Instance.PilotInfo.Cost).
-                OrderByDescending(n => n.Tags.Contains(Content.Tags.BoY) ? 0 : 1).
+                OrderByDescending(n => n.Tags.Contains(Content.Tags.BoY) || n.Tags.Contains(Content.Tags.SoC) ? 0 : 1).
                 ToList();
             }
             

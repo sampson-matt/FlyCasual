@@ -605,13 +605,13 @@ namespace AI.Aggressor
 
             NavigationResult StartingPosition = VirtualBoard.Ships[thisShip].NavigationResults.First(n => n.Key == thisShip.AssignedManeuver.ToString()).Value;
 
-            foreach (GenericShip ship in CurrentPlayer.EnemyShips.Values)
-            {
-                if(!IsActivationBeforeCurrentShip(ship))
-                {
-                    VirtualBoard.SwitchToVirtualPosition(ship);
-                }                
-            }
+            //foreach (GenericShip ship in CurrentPlayer.EnemyShips.Values)
+            //{
+            //    if(!IsActivationBeforeCurrentShip(ship))
+            //    {
+            //        VirtualBoard.SwitchToVirtualPosition(ship);
+            //    }                
+            //}
 
             float minDistanceToEnemyShip, minDistanceToNearestEnemyInShotRange, minAngle;
             int enemiesInShotRange, enemiesTargetingThisShip;
@@ -629,13 +629,13 @@ namespace AI.Aggressor
             //    myBoard.SetVirtualPositionInfo(ship, ship.GetPositionInfo(), "");
             //}
 
-            foreach (GenericShip ship in CurrentPlayer.EnemyShips.Values)
-            {
-                if (!IsActivationBeforeCurrentShip(ship))
-                {
-                    VirtualBoard.SwitchToRealPosition(ship);
-                }
-            }
+            //foreach (GenericShip ship in CurrentPlayer.EnemyShips.Values)
+            //{
+            //    if (!IsActivationBeforeCurrentShip(ship))
+            //    {
+            //        VirtualBoard.SwitchToRealPosition(ship);
+            //    }
+            //}
 
             int startingResult = CalculateBoostPositionPriority(StartingPosition);
 
@@ -702,13 +702,13 @@ namespace AI.Aggressor
                 {
                     CheckNextTurnRecursive(thisShip);
 
-                    foreach (GenericShip ship in CurrentPlayer.EnemyShips.Values)
-                    {
-                        if (!IsActivationBeforeCurrentShip(ship))
-                        {
-                            VirtualBoard.SwitchToVirtualPosition(ship);
-                        }
-                    }
+                    //foreach (GenericShip ship in CurrentPlayer.EnemyShips.Values)
+                    //{
+                    //    if (!IsActivationBeforeCurrentShip(ship))
+                    //    {
+                    //        VirtualBoard.SwitchToVirtualPosition(ship);
+                    //    }
+                    //}
 
 
                     ProcessHeavyGeometryCalculations(thisShip, out minDistanceToEnemyShip, out minDistanceToNearestEnemyInShotRange, out minAngle, out enemiesInShotRange, out enemiesTargetingThisShip);
@@ -719,13 +719,13 @@ namespace AI.Aggressor
                     BoostResult.enemiesInShotRange = enemiesInShotRange;
                     BoostResult.enemiesTargetingThisShip = enemiesTargetingThisShip;
 
-                    foreach (GenericShip ship in CurrentPlayer.EnemyShips.Values)
-                    {
-                        if (!IsActivationBeforeCurrentShip(ship))
-                        {
-                            VirtualBoard.SwitchToRealPosition(ship);
-                        }
-                    }
+                    //foreach (GenericShip ship in CurrentPlayer.EnemyShips.Values)
+                    //{
+                    //    if (!IsActivationBeforeCurrentShip(ship))
+                    //    {
+                    //        VirtualBoard.SwitchToRealPosition(ship);
+                    //    }
+                    //}
                 }
 
                 myBoard.SwitchToRealPosition(thisShip);

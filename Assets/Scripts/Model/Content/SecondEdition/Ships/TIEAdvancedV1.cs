@@ -9,7 +9,7 @@ namespace Ship
 {
     namespace SecondEdition.TIEAdvancedV1
     {
-        public class TIEAdvancedV1 : FirstEdition.TIEAdvPrototype.TIEAdvPrototype, TIE
+        public class TIEAdvancedV1 : FirstEdition.TIEAdvPrototype.TIEAdvPrototype
         {
             public TIEAdvancedV1() : base()
             {

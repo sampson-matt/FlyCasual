@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Content;
 using System.Collections.Generic;
 using Movement;
 using ActionsList;
@@ -10,7 +10,7 @@ namespace Ship
 {
     namespace FirstEdition.TIEReaper
     {
-        public class TIEReaper : GenericShip, TIE
+        public class TIEReaper : GenericShip
         {
             public TIEReaper() : base()
             {
@@ -29,7 +29,11 @@ namespace Ship
                         UpgradeType.Modification,
                         UpgradeType.Crew,
                         UpgradeType.Crew
-                    )
+                    ),
+                    tags: new List<Tags>
+                    {
+                        Tags.Tie
+                    }
                 );
 
                 IconicPilots = new Dictionary<Faction, System.Type> {

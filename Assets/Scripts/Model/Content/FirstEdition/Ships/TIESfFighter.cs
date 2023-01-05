@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Content;
 using System.Collections.Generic;
 using Movement;
 using ActionsList;
@@ -10,7 +10,7 @@ namespace Ship
 {
     namespace FirstEdition.TIESfFighter
     {
-        public class TIESfFighter : GenericShip, TIE
+        public class TIESfFighter : GenericShip
         {
 
             public TIESfFighter() : base()
@@ -36,6 +36,10 @@ namespace Ship
                         UpgradeType.Missile,
                         UpgradeType.Tech
                     ),
+                    tags: new List<Tags>
+                    {
+                        Tags.Tie
+                    },
                     subFaction: Faction.FirstOrder
                 );
 

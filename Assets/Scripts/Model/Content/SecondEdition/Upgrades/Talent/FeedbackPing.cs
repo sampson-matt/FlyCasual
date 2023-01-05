@@ -1,5 +1,4 @@
 ﻿using Upgrade;
-using Ship;
 using ActionsList;
 
 namespace UpgradesList.SecondEdition
@@ -16,15 +15,14 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Talent,
                 cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.FeedbackPingAbility),
-                restriction: new ActionBarRestriction(typeof(ReloadAction))
+                restrictions: new UpgradeCardRestrictions
+                (
+                    new TagRestriction(Content.Tags.Tie),
+                    new ActionBarRestriction(typeof(ReloadAction))
+                )
             );
 
             ImageUrl = "https://i.imgur.com/48SK1DJ.png";
-        }
-
-        public override bool IsAllowedForShip(GenericShip ship)
-        {
-            return ship is TIE;
         }
     }
 }

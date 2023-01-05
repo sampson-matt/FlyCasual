@@ -12,13 +12,14 @@ namespace UpgradesList.FirstEdition
                 "Lightweight Frame",
                 UpgradeType.Modification,
                 cost: 2,
-                abilityType: typeof(Abilities.FirstEdition.LightweightFrameAbility)
+                abilityType: typeof(Abilities.FirstEdition.LightweightFrameAbility),
+                restriction: new TagRestriction(Content.Tags.Tie)
             );
         }
 
         public override bool IsAllowedForShip(GenericShip ship)
         {
-            return (ship.ShipInfo.Agility < 3 && ship is TIE);
+            return (ship.ShipInfo.Agility < 3);
         }
     }
 }

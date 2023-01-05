@@ -15,16 +15,11 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Modification,
                 cost: 2,
                 charges: 2,
-                abilityType: typeof(Abilities.SecondEdition.PrecisionIonEnginesAbility)
+                abilityType: typeof(Abilities.SecondEdition.PrecisionIonEnginesAbility),
+                restriction: new TagRestriction(Content.Tags.Tie)
             );
 
             ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/bb/fb/bbfb4727-e2f5-4f23-be9a-3341ea4de7b5/swz80_upgrade_precison-ion-engines.png";
-        }
-
-        public override bool IsAllowedForShip(GenericShip ship)
-        {
-            return ship is TIE
-                && ship.ShipInfo.Agility == 3;
         }
     }
 }

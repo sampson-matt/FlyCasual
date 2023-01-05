@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Content;
 using System.Collections.Generic;
 using Movement;
 using ActionsList;
@@ -11,7 +11,7 @@ namespace Ship
 {
     namespace FirstEdition.TIEPhantom
     {
-        public class TIEPhantom : GenericShip, TIE
+        public class TIEPhantom : GenericShip
         {
             public TIEPhantom() : base()
             {
@@ -31,7 +31,11 @@ namespace Ship
                         UpgradeType.Modification,
                         UpgradeType.Sensor,
                         UpgradeType.Crew
-                    )
+                    ),
+                    tags: new List<Tags>
+                    {
+                        Tags.Tie
+                    }
                 );
 
                 IconicPilots = new Dictionary<Faction, System.Type> {

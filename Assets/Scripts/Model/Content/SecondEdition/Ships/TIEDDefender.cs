@@ -12,7 +12,7 @@ namespace Ship
 {
     namespace SecondEdition.TIEDDefender
     {
-        public class TIEDDefender : FirstEdition.TIEDefender.TIEDefender, TIE
+        public class TIEDDefender : FirstEdition.TIEDefender.TIEDefender
         {
             public TIEDDefender() : base()
             {

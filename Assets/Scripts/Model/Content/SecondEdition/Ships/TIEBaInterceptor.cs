@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using Content;
 using System.Collections.Generic;
 using System.Linq;
 using Actions;
@@ -14,7 +14,7 @@ using Upgrade;
 
 namespace Ship.SecondEdition.TIEBaInterceptor
 {
-    public class TIEBaInterceptor : GenericShip, TIE
+    public class TIEBaInterceptor : GenericShip
     {
         public TIEBaInterceptor() : base()
         {
@@ -36,7 +36,11 @@ namespace Ship.SecondEdition.TIEBaInterceptor
                     UpgradeType.Missile,
                     UpgradeType.Tech,
                     UpgradeType.Modification                    
-                )
+                ),
+                tags: new List<Tags>
+                {
+                    Tags.Tie
+                }
             );
 
             ShipAbilities.Add(new Abilities.SecondEdition.FineTunedThrusters());

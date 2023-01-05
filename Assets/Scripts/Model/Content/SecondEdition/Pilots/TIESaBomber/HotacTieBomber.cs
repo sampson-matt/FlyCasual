@@ -6,7 +6,7 @@ namespace Ship
 {
     namespace SecondEdition.TIESaBomber
     {
-        public class HotacBomberPilot : TIESaBomber, TIE
+        public class HotacBomberPilot : TIESaBomber
         {
             public HotacBomberPilot() : base()
             {

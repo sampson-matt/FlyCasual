@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Content;
 using System.Collections.Generic;
 using Movement;
 using ActionsList;
@@ -11,7 +11,7 @@ namespace Ship
 {
     namespace FirstEdition.TIEStriker
     {
-        public class TIEStriker : GenericShip, TIE
+        public class TIEStriker : GenericShip
         {
             public TIEStriker() : base()
             {
@@ -28,7 +28,11 @@ namespace Ship
                     ),
                     new ShipUpgradesInfo(
                         UpgradeType.Modification
-                    )
+                    ),
+                    tags: new List<Tags>
+                    {
+                        Tags.Tie
+                    }
                 );
 
                 IconicPilots = new Dictionary<Faction, System.Type> {

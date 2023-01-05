@@ -7,10 +7,11 @@ using Movement;
 using Ship;
 using UnityEngine;
 using Upgrade;
+using Content;
 
 namespace Ship.SecondEdition.TIESeBomber
 {
-    public class TIESeBomber : GenericShip, TIE
+    public class TIESeBomber : GenericShip
     {
         public TIESeBomber() : base()
         {
@@ -37,7 +38,11 @@ namespace Ship.SecondEdition.TIESeBomber
                     UpgradeType.Device,
                     UpgradeType.Device,
                     UpgradeType.Modification
-                )
+                ),
+                tags: new List<Tags>
+                {
+                    Tags.Tie
+                }
             );
 
             ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(BarrelRollAction), typeof(TargetLockAction)));

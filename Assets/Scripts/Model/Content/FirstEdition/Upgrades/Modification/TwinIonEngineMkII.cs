@@ -12,15 +12,11 @@ namespace UpgradesList.FirstEdition
                 "Twin Ion Engine Mk. II",
                 UpgradeType.Modification,
                 cost: 1,
-                abilityType: typeof(Abilities.FirstEdition.TwinIonEngineMkIIAbility)
+                abilityType: typeof(Abilities.FirstEdition.TwinIonEngineMkIIAbility),
+                restriction: new TagRestriction(Content.Tags.Tie)
             );
 
             ImageUrl = ImageUrls.GetImageUrl(this, "twin-ion-engine-mkii");
-        }
-
-        public override bool IsAllowedForShip(GenericShip ship)
-        {
-            return ship is TIE;
         }
     }
 }

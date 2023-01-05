@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Movement;
 using ActionsList;
-using Editions;
+using Content;
 using Actions;
 using Arcs;
 using Upgrade;
@@ -12,7 +12,7 @@ namespace Ship
 {
     namespace FirstEdition.TIEFighter
     {
-        public class TIEFighter : GenericShip, TIE
+        public class TIEFighter : GenericShip
         {
 
             public TIEFighter() : base()
@@ -31,6 +31,10 @@ namespace Ship
                     new ShipUpgradesInfo(
                         UpgradeType.Modification
                     ),
+                    tags: new List<Tags>
+                    {
+                        Tags.Tie
+                    },
                     factionsAll: new List<Faction>() { Faction.Imperial, Faction.Rebel }
                 );
 

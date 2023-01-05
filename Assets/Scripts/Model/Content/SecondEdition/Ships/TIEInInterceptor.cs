@@ -10,7 +10,7 @@ namespace Ship
 {
     namespace SecondEdition.TIEInterceptor
     {
-        public class TIEInterceptor : FirstEdition.TIEInterceptor.TIEInterceptor, TIE
+        public class TIEInterceptor : FirstEdition.TIEInterceptor.TIEInterceptor
         {
             public TIEInterceptor() : base()
             {

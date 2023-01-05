@@ -65,7 +65,7 @@ namespace Abilities.SecondEdition
             if (curToDamage.Owner.PlayerNo != HostShip.Owner.PlayerNo)
                 return;
 
-            if (!(curToDamage is TIE))
+            if (!(curToDamage.ShipInfo as ShipCardInfo).Tags.Contains(Tags.Tie))
                 return;
 
             // If the defender is at range one of us we register our trigger to prevent damage.

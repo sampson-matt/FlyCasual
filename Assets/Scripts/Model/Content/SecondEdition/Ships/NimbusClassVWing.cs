@@ -8,13 +8,13 @@ using Arcs;
 using Movement;
 using Ship;
 using SubPhases;
-using Tokens;
+using Content;
 using UnityEngine;
 using Upgrade;
 
 namespace Ship.SecondEdition.NimbusClassVWing
 {
-    public class NimbusClassVWing : GenericShip, TIE
+    public class NimbusClassVWing : GenericShip
     {
         public NimbusClassVWing() : base()
         {
@@ -29,12 +29,16 @@ namespace Ship.SecondEdition.NimbusClassVWing
                     new ActionInfo(typeof(TargetLockAction)),
                     new ActionInfo(typeof(BarrelRollAction), ActionColor.Red),
                     new ActionInfo(typeof(BoostAction))
-                ),
+                ),                
                 new ShipUpgradesInfo(
                     UpgradeType.Astromech,
                     UpgradeType.Modification,
                     UpgradeType.Configuration
-                )
+                ),
+                tags: new List<Tags>
+                {
+                    Tags.Tie
+                }
             );
 
             ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(BoostAction), typeof(TargetLockAction)));

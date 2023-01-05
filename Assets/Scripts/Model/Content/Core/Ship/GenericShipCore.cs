@@ -15,8 +15,6 @@ namespace Ship
     {
         void ModifyPilotSkill(ref int pilotSkill);
     }
-
-    public interface TIE { } //marker interface for ships that counts as "TIEs", ie. Twin Ion Engine MkII
     public interface AWing { } //marker interface for ships that counts as "A-Wing", ie. Starbird Slash
 
     public interface IHotacShip

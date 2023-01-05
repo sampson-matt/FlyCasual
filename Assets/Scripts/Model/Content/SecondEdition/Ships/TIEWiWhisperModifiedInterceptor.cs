@@ -5,10 +5,11 @@ using Arcs;
 using Movement;
 using UnityEngine;
 using Upgrade;
+using Content;
 
 namespace Ship.SecondEdition.TIEWiWhisperModifiedInterceptor
 {
-    public class TIEWiWhisperModifiedInterceptor : GenericShip, TIE
+    public class TIEWiWhisperModifiedInterceptor : GenericShip
     {
         public TIEWiWhisperModifiedInterceptor() : base()
         {
@@ -32,7 +33,11 @@ namespace Ship.SecondEdition.TIEWiWhisperModifiedInterceptor
                     UpgradeType.Tech,
                     UpgradeType.Tech,
                     UpgradeType.Configuration     
-                )
+                ),
+                tags: new List<Tags>
+                {
+                    Tags.Tie
+                }
             );
 
             ShipInfo.ArcInfo.Arcs.Add(new ShipArcInfo(ArcType.Bullseye, 3));

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Content;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,7 +20,7 @@ namespace Ship
 
         public ShipActionsInfo ActionIcons { get; set; }
         public ShipUpgradesInfo UpgradeIcons { get; set; }
-
+        public List<Tags> Tags { get; }
         public List<Faction> FactionsAll { get; set; }
 
         public Faction SubFaction { get; set; }
@@ -28,7 +28,7 @@ namespace Ship
         public string Description { get; set; }
         public string AbilityText { get; set; }
 
-        public ShipCardInfo(string shipName, BaseSize baseSize, Faction faction, ShipArcsInfo arcInfo, int agility, int hull, int shields, ShipActionsInfo actionIcons, ShipUpgradesInfo upgradeIcons, Faction subFaction = Faction.None, List<Faction> factionsAll = null, string description = null, string abilityText = "")
+        public ShipCardInfo(string shipName, BaseSize baseSize, Faction faction, ShipArcsInfo arcInfo, int agility, int hull, int shields, ShipActionsInfo actionIcons, ShipUpgradesInfo upgradeIcons, List<Tags> tags = null ,Faction subFaction = Faction.None, List<Faction> factionsAll = null, string description = null, string abilityText = "")
         {
             ShipName = shipName;
             BaseSize = baseSize;
@@ -44,6 +44,8 @@ namespace Ship
 
             ActionIcons = actionIcons;
             UpgradeIcons = upgradeIcons;
+
+            Tags = tags ?? new List<Tags>();
 
             FactionsAll = (factionsAll != null) ? factionsAll : new List<Faction>() { faction };
 

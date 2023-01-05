@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Content;
 using System.Collections.Generic;
 using Movement;
 using ActionsList;
@@ -11,7 +11,7 @@ namespace Ship
 {
     namespace FirstEdition.TIEAggressor
     {
-        public class TIEAggressor : GenericShip, TIE
+        public class TIEAggressor : GenericShip
         {
 
             public TIEAggressor() : base()
@@ -32,7 +32,11 @@ namespace Ship
                         UpgradeType.Missile,
                         UpgradeType.Missile,
                         UpgradeType.Modification
-                    )
+                    ),
+                    tags: new List<Tags>
+                    {
+                        Tags.Tie
+                    }
                 );
 
                 IconicPilots = new Dictionary<Faction, System.Type> {

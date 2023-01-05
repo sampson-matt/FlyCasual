@@ -13,7 +13,7 @@ namespace Ship
 {
     namespace SecondEdition.TIESfFighter
     {
-        public class TIESfFighter : FirstEdition.TIESfFighter.TIESfFighter, TIE
+        public class TIESfFighter : FirstEdition.TIESfFighter.TIESfFighter
         {
             public TIESfFighter() : base()
             {

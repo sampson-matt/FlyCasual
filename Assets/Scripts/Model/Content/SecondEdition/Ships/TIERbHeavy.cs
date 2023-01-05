@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Content;
 using System.Collections.Generic;
 using Actions;
 using ActionsList;
@@ -10,7 +10,7 @@ using Upgrade;
 
 namespace Ship.SecondEdition.TIERbHeavy
 {
-    public class TIERbHeavy : GenericShip, TIE
+    public class TIERbHeavy : GenericShip
     {
         public TIERbHeavy() : base()
         {
@@ -33,7 +33,11 @@ namespace Ship.SecondEdition.TIERbHeavy
                     UpgradeType.Modification,
                     UpgradeType.Modification,
                     UpgradeType.Configuration
-                )
+                ),
+                tags: new List<Tags>
+                {
+                    Tags.Tie
+                }
             );
 
             ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(RotateArcAction), typeof(CalculateAction), ActionColor.Red));

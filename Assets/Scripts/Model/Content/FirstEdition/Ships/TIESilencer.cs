@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Content;
 using System.Collections.Generic;
 using Movement;
 using ActionsList;
@@ -11,7 +11,7 @@ namespace Ship
 {
     namespace FirstEdition.TIESilencer
     {
-        public class TIESilencer : GenericShip, TIE
+        public class TIESilencer : GenericShip
         {
             public TIESilencer() : base()
             {
@@ -32,6 +32,10 @@ namespace Ship
                         UpgradeType.Sensor,
                         UpgradeType.Tech
                     ),
+                    tags: new List<Tags>
+                    {
+                        Tags.Tie
+                    },
                     subFaction: Faction.FirstOrder
                 );
 

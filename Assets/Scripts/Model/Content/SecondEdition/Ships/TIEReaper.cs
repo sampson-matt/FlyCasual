@@ -10,7 +10,7 @@ namespace Ship
 {
     namespace SecondEdition.TIEReaper
     {
-        public class TIEReaper : FirstEdition.TIEReaper.TIEReaper, TIE
+        public class TIEReaper : FirstEdition.TIEReaper.TIEReaper
         {
             public TIEReaper() : base()
             {

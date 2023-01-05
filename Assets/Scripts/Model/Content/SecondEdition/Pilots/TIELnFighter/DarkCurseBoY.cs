@@ -2,6 +2,7 @@
 using Ship;
 using Content;
 using System.Collections.Generic;
+using System;
 
 namespace Ship
 {
@@ -50,6 +51,14 @@ namespace Abilities.SecondEdition
         {
             Combat.Attacker.OnTryAddAvailableDiceModification += UseDarkCurseRestriction;
             Combat.Attacker.OnTryAddDiceModificationOpposite += UseDarkCurseRestriction;
+            Combat.Attacker.OnAttackFinish += RemoveDarkCursePilotAbility;
+        }
+
+        private void RemoveDarkCursePilotAbility(GenericShip ship)
+        {
+            Combat.Attacker.OnTryAddAvailableDiceModification -= UseDarkCurseRestriction;
+            Combat.Attacker.OnTryAddDiceModificationOpposite -= UseDarkCurseRestriction;
+            Combat.Attacker.OnAttackFinish -= RemoveDarkCursePilotAbility;
         }
 
         private void UseDarkCurseRestriction(GenericShip ship, ActionsList.GenericAction diceModification, ref bool canBeUsed)

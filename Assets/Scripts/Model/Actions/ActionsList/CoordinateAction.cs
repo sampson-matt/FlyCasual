@@ -14,6 +14,7 @@ namespace Actions
     {
         public int MaxTargets { get; set; }
         public bool SameShipTypeLimit { get; set; }
+        public bool BornForThisLimit { get; set; }
         public bool TargetLowerInitiave { get; set; }
         public bool SameActionLimit { get; set; }
         public bool TreatCoordinatedActionAsRed { get; set; }
@@ -189,6 +190,7 @@ namespace ActionsList
                 && ship.CanBeCoordinated
                 && (!CoordinateActionData.TargetLowerInitiave || ship.PilotInfo.Initiative<HostShip.PilotInfo.Initiative)
                 && (!CoordinateActionData.SameShipTypeLimit || Selection.MultiSelectedShips.Count == 0 || ship.ShipInfo.ShipName == Selection.MultiSelectedShips.First().ShipInfo.ShipName)
+                && (!CoordinateActionData.BornForThisLimit || Selection.MultiSelectedShips.Count == 0 || Selection.MultiSelectedShips.First().ShipAbilities.Any(n => n.GetType() == typeof(Abilities.SecondEdition.BornForThisAbility)) ||Selection.MultiSelectedShips.First().ShipId == ship.ShipId)
                 && CoordinateActionData.CoordinateProvider.CallCheckCanCoordinate(ship);
         }
 

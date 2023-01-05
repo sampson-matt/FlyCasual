@@ -33,6 +33,7 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent
                 );
                 ShipInfo.Shields++;
+                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 ShipAbilities.Add(new Abilities.SecondEdition.BornForThisAbility());
 
                 PilotNameCanonical = "oddball-soc";

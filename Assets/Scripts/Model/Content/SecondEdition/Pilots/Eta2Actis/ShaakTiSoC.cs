@@ -5,6 +5,8 @@ using System;
 using Actions;
 using ActionsList;
 using Upgrade;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship.SecondEdition.Eta2Actis
 {
@@ -19,6 +21,10 @@ namespace Ship.SecondEdition.Eta2Actis
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.ShaakTiSoCAbility),
+                tags: new List<Tags>
+                {
+                    Tags.SoC
+                },
                 extraUpgradeIcon: UpgradeType.Talent
             );
             PilotNameCanonical = "shaakti-soc";

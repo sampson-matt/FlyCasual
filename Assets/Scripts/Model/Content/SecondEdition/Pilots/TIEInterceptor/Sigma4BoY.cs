@@ -78,7 +78,7 @@ namespace Abilities.SecondEdition
                 new BoostAction(),
                 CleanUp,
                 descriptionShort: Name,
-                descriptionLong: "After you perform a Barrel Roll action, you may spend a charge to perform Boost action"
+                descriptionLong: "After you perform a Barrel Roll action, you may spend a charge to perform a Boost action"
             );
         }
 

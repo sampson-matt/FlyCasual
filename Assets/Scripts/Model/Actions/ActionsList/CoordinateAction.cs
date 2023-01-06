@@ -17,6 +17,8 @@ namespace Actions
         public bool BornForThisLimit { get; set; }
         public bool TargetLowerInitiave { get; set; }
         public bool SameActionLimit { get; set; }
+
+        public Func<GenericShip, int> GetAiPriority;
         public bool TreatCoordinatedActionAsRed { get; set; }
         public GenericShip CoordinateProvider { get; private set; }
         public GenericAction FirstChosenAction { get; set; }
@@ -68,6 +70,8 @@ namespace ActionsList
                 subphase.MaxToSelect = CoordinateActionData.MaxTargets;
                 subphase.WhenDone = CoordinateTargets;
                 subphase.CoordinateActionData = CoordinateActionData;
+
+                subphase.GetAiPriority += CoordinateActionData.GetAiPriority;
 
                 subphase.DescriptionShort = "Coordinate Action";
                 subphase.DescriptionLong = "Select one or more other ships.\nThey will each perform an action.";

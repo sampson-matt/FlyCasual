@@ -7,6 +7,8 @@ using ActionsList;
 using Upgrade;
 using Content;
 using System.Collections.Generic;
+using Tokens;
+using System.Linq;
 
 namespace Ship.SecondEdition.Eta2Actis
 {
@@ -80,8 +82,28 @@ namespace Abilities.SecondEdition
         {
             coordinateActionData.MaxTargets = 2;
             coordinateActionData.BornForThisLimit = true;
+
+            coordinateActionData.GetAiPriority = GetAiPriority;
             
             HostShip.OnCheckCoordinateModeModification -= SetCustomCoordinateMode;
+        }
+
+        private int GetAiPriority(GenericShip ship)
+        {
+            int result = 0;
+
+            result += NeedTokenPriority(ship);
+            result += ship.PilotInfo.Cost + ship.UpgradeBar.GetUpgradesOnlyFaceup().Sum(n => n.UpgradeInfo.Cost);
+
+            return result;
+        }       
+
+        private int NeedTokenPriority(GenericShip ship)
+        {
+            if (!ship.Tokens.HasToken(typeof(FocusToken))) return 100;
+            if (ship.ActionBar.HasAction(typeof(EvadeAction)) && !ship.Tokens.HasToken(typeof(EvadeToken))) return 50;
+            if (ship.ActionBar.HasAction(typeof(TargetLockAction)) && !ship.Tokens.HasToken(typeof(BlueTargetLockToken), '*')) return 50;
+            return 0;
         }
     }
 }

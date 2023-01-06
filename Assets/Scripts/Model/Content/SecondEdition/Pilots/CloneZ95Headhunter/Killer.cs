@@ -17,7 +17,7 @@ namespace Ship
             {
                 PilotInfo = new PilotCardInfo(
                     "\"Killer\"",
-                    3,
+                    2,
                     25,
                     pilotTitle: "Dependable Closer",
                     isLimited: true,

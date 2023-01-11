@@ -69,6 +69,36 @@ namespace Ship
                 AddLinkedAction(new LinkedActionInfo(typeof(CalculateAction), typeof(BoostAction)));
             }
         }
+
+        public void SwitchToOrganicActions()
+        {
+            RemoveActions(typeof(CalculateAction));
+            AddActions(new ActionInfo(typeof(FocusAction)));
+
+            if (LinkedActions.Any(a => a.ActionType == typeof(BoostAction) && a.ActionLinkedType == typeof(CalculateAction)))
+            {
+                RemoveLinkedAction(typeof(BoostAction), typeof(CalculateAction));
+                AddLinkedAction(new LinkedActionInfo(typeof(BoostAction), typeof(FocusAction)));
+            }
+
+            if (LinkedActions.Any(a => a.ActionType == typeof(BarrelRollAction) && a.ActionLinkedType == typeof(CalculateAction)))
+            {
+                RemoveLinkedAction(typeof(BarrelRollAction), typeof(CalculateAction));
+                AddLinkedAction(new LinkedActionInfo(typeof(BarrelRollAction), typeof(FocusAction)));
+            }
+
+            if (LinkedActions.Any(a => a.ActionType == typeof(CalculateAction) && a.ActionLinkedType == typeof(BarrelRollAction)))
+            {
+                RemoveLinkedAction(typeof(CalculateAction), typeof(BarrelRollAction));
+                AddLinkedAction(new LinkedActionInfo(typeof(FocusAction), typeof(BarrelRollAction)));
+            }
+
+            if (LinkedActions.Any(a => a.ActionType == typeof(CalculateAction) && a.ActionLinkedType == typeof(BoostAction)))
+            {
+                RemoveLinkedAction(typeof(CalculateAction), typeof(BoostAction));
+                AddLinkedAction(new LinkedActionInfo(typeof(FocusAction), typeof(BoostAction)));
+            }
+        }
     }
 
     public class ShipActionBar

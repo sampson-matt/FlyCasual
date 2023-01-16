@@ -34,7 +34,6 @@ namespace Abilities.SecondEdition
 {
     public class DurgeSeparatistAbility : GenericAbility
     {
-        private bool PreventDestruction;
         public override void ActivateAbility()
         {
             HostShip.OnDamageWasSuccessfullyDealt += RegisterAbility;
@@ -95,7 +94,6 @@ namespace Abilities.SecondEdition
             if (cardsToDiscard.Count > 0 && remainingDamage < HostShip.ShipInfo.Hull)
             {
                 Messages.ShowInfo(HostShip.PilotInfo.PilotName + " has prevented his own destruction");
-                PreventDestruction = true;
                 HostShip.IsDestroyed = false;
                 foreach(GenericDamageCard card in cardsToDiscard)
                 {

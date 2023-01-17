@@ -25,7 +25,6 @@ namespace Ship
                     pilotTitle: "A Difficult Man",
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-                ShipInfo.Shields = 0;
 
                 PilotNameCanonical = "PoeDameron-scavengedyt1300";
 

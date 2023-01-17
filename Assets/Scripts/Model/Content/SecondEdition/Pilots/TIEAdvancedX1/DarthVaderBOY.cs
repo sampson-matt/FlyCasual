@@ -1,5 +1,5 @@
 ﻿using Abilities.SecondEdition;
-using ActionsList;
+using System;
 using Ship;
 using Content;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace Ship
                     6,
                     73,
                     isLimited: true,
-                    abilityType: typeof(DarthVaderDefenderAbility),
+                    abilityType: typeof(DarthVaderBoYAbility),
                     force: 3,
                     tags: new List<Tags>
                     {
@@ -32,6 +32,48 @@ namespace Ship
                 PilotNameCanonical = "darthvader-boy";
                 ModelInfo.SkinName = "Blue";
             }
+        }
+    }
+}
+
+namespace Abilities.SecondEdition
+{
+    public class DarthVaderBoYAbility : GenericAbility
+    {
+        public override void ActivateAbility()
+        {
+            AddDiceModification(
+                HostShip.PilotInfo.PilotName,
+                IsAvailable,
+                GetAiPriority,
+                DiceModificationType.Change,
+                count: 1,
+                sidesCanBeSelected: new List<DieSide>() { DieSide.Blank },
+                sideCanBeChangedTo: DieSide.Success,
+                payAbilityCost: SpendForce
+            );
+        }
+
+        public override void DeactivateAbility()
+        {
+            RemoveDiceModification();
+        }
+
+        private bool IsAvailable()
+        {
+            return Combat.AttackStep == CombatStep.Attack &&
+                Combat.DiceRollAttack.Blanks > 0 &&
+                HostShip.State.Force > 0;
+        }
+
+        private int GetAiPriority()
+        {
+            return 45;
+        }
+
+        private void SpendForce(Action<bool> callback)
+        {
+            HostShip.State.SpendForce(1, delegate { callback(true); });
         }
     }
 }

@@ -67,7 +67,7 @@ namespace Upgrade
 
             int MinRangeUpdated = WeaponInfo.MinRange;
             int MaxRangeUpdated = WeaponInfo.MaxRange;
-            HostShip.CallUpdateWeaponRange(this, ref MinRangeUpdated, ref MaxRangeUpdated);
+            HostShip.CallUpdateWeaponRange(this, ref MinRangeUpdated, ref MaxRangeUpdated, targetShip);
 
             if (!State.IsFaceup) return false;
 

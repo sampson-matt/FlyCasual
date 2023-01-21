@@ -103,7 +103,7 @@ namespace Abilities.SecondEdition
             Rules.DistanceBonus.OnCheckAllowRangeThreeBonus -= PreventRangeThreeBonus;
 
             Messages.ShowInfo($"{HostShip.PilotInfo.PilotName}: Range 3 bonus is prevented");
-            isActive = true;
+            isActive = false;
         }
 
         private void PreventRangeOneBonus(ref bool isActive)

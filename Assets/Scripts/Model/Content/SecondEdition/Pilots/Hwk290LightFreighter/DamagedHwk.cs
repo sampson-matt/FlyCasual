@@ -7,7 +7,7 @@ using Movement;
 using Arcs;
 using System;
 using Mods.ModsList;
-using Ship;
+using Tokens;
 
 namespace Ship
 {
@@ -27,7 +27,7 @@ namespace Ship
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
                 ShipInfo.ActionIcons.RemoveActions(typeof(BoostAction));
                 DialInfo.ChangeManeuverComplexity(new ManeuverHolder(ManeuverSpeed.Speed4, ManeuverDirection.Forward, ManeuverBearing.Straight), MovementComplexity.Complex);
-                ShipInfo.ArcInfo = new ShipArcsInfo(ArcType.None, 0);
+                ShipInfo.ArcInfo = new ShipArcsInfo(ArcType.Front, 0);
             }
         }
     }
@@ -42,11 +42,23 @@ namespace Abilities.SecondEdition
         public override void ActivateAbility()
         {
              Phases.Events.OnSetupEnd += DealDamage;
+            Phases.Events.OnRoundStart += CheckDisabledWeapons;
         }
 
         public override void DeactivateAbility()
         {
             Phases.Events.OnSetupEnd -= DealDamage;
+            Phases.Events.OnRoundStart -= CheckDisabledWeapons;
+        }
+
+        private void CheckDisabledWeapons()
+        {
+            RegisterAbilityTrigger(TriggerTypes.OnRoundStart, AssignWeaponsDisabledTrigger);
+        }
+
+        private void AssignWeaponsDisabledTrigger(object sender, System.EventArgs e)
+        {
+            HostShip.Tokens.AssignToken(typeof(WeaponsDisabledToken), Triggers.FinishTrigger);
         }
 
         private void DealDamage()

@@ -26,6 +26,10 @@ namespace Ship
                 );
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
                 ShipInfo.ActionIcons.RemoveActions(typeof(BoostAction));
+                ShipInfo.ActionIcons.RemoveActions(typeof(RotateArcAction));
+                ShipInfo.ActionIcons.RemoveLinkedAction(typeof(FocusAction), typeof(RotateArcAction));
+                ShipInfo.ActionIcons.RemoveLinkedAction(typeof(TargetLockAction), typeof(RotateArcAction));
+                ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(FocusAction)));
                 DialInfo.ChangeManeuverComplexity(new ManeuverHolder(ManeuverSpeed.Speed4, ManeuverDirection.Forward, ManeuverBearing.Straight), MovementComplexity.Complex);
                 ShipInfo.ArcInfo = new ShipArcsInfo(ArcType.Front, 0);
             }

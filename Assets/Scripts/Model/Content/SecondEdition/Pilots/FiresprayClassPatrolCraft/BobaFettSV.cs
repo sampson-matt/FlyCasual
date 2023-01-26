@@ -15,7 +15,7 @@ namespace Ship
                     91,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.BobaFettScumAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew },
                     seImageNumber: 149
                 );
 

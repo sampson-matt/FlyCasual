@@ -72,7 +72,7 @@ namespace Abilities.SecondEdition
         private void UpdateChewbaccaChargesOnDamageDealt(GenericShip shipTakingDamage)
         {
             var distanceInfo = new DistanceInfo(HostShip, shipTakingDamage);
-            if (shipTakingDamage.Owner.PlayerNo == HostShip.Owner.PlayerNo &&
+            if (Tools.IsFriendly(shipTakingDamage, HostShip) &&
                 distanceInfo.Range <= 3)
             {
                 if (this.HostUpgrade.State.Charges != UpgradesList.SecondEdition.ChewbaccaResistance.ChewbaccaFullChargeValue)

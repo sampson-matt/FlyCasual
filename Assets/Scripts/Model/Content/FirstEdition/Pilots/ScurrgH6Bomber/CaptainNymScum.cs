@@ -48,7 +48,7 @@ namespace Abilities.FirstEdition
 
         private void CheckObstructionBonus(GenericShip ship)
         {
-            if (Combat.Defender.Owner.PlayerNo != HostShip.Owner.PlayerNo) return;
+            if (!Tools.IsFriendly(Combat.Defender, HostShip)) return;
 
             if (Combat.AttackStep != CombatStep.Defence) return;
 
@@ -101,7 +101,7 @@ namespace Abilities.FirstEdition
 
         private void CheckIgnoreTimedBombs(GenericShip detonatedShip)
         {
-            if (BombsManager.CurrentDevice.HostShip.Owner.PlayerNo == HostShip.Owner.PlayerNo)
+            if (Tools.IsFriendly(BombsManager.CurrentDevice.HostShip, HostShip))
             {
                 RegisterAbilityTrigger(TriggerTypes.OnCheckSufferBombDetonation, AskToIgnoreTimedBomb);
             }

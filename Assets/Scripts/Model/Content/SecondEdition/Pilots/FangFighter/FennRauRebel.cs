@@ -55,7 +55,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship)
         {
-            if (Tools.IsSameTeam(HostShip, ship)
+            if (Tools.IsFriendly(HostShip, ship)
                 && BoardState.IsInRange(HostShip, ship, 1, 2)
                 && ship.Tokens.GetNonLockRedTokens().Count>=1
                 && HasEnemyInFrontAtR1(ship))

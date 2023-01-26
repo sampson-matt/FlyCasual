@@ -32,7 +32,7 @@ namespace Abilities.SecondEdition
     {
         protected override void RegisterJanOrsAbility()
         {
-            if (Combat.Attacker.Owner.PlayerNo == HostShip.Owner.PlayerNo && Combat.Attacker.ShipId != HostShip.ShipId
+            if (Tools.IsFriendly(Combat.Attacker, HostShip) && Combat.Attacker.ShipId != HostShip.ShipId
                 && Combat.ChosenWeapon.WeaponType == WeaponTypes.PrimaryWeapon)
             {
                 DistanceInfo distanceInfo = new DistanceInfo(Combat.Attacker, HostShip);

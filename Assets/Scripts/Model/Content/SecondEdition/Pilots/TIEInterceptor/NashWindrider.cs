@@ -63,7 +63,7 @@ namespace Abilities.SecondEdition
             DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
             return HostShip.State.Charges >= 1
                 && Phases.CurrentPhase is MainPhases.CombatPhase
-                && Tools.IsSameTeam(HostShip, ship)
+                && Tools.IsFriendly(HostShip, ship)
                 && ship.ShipInfo.BaseSize == BaseSize.Small
                 && distInfo.Range <= 3
                 && !ship.IsAttackPerformed;

@@ -56,7 +56,7 @@ namespace Abilities.SecondEdition
                 // Allow friendly by team type
                 if (blockers.Contains(JamIsNotAllowedReasons.FriendlyShip))
                 {
-                    if (Tools.IsSameTeam(jamSource, jamTarget)) blockers.Remove(JamIsNotAllowedReasons.FriendlyShip);
+                    if (Tools.IsFriendly(jamSource, jamTarget)) blockers.Remove(JamIsNotAllowedReasons.FriendlyShip);
                 }
 
                 // Allow this ship by team type and range

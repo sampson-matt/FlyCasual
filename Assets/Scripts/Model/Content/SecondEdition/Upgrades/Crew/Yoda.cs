@@ -59,7 +59,7 @@ namespace Abilities.SecondEdition
             if (HostShip.State.Force > 0
                 && ship != HostShip
                 && ship.GetLastManeuverColor() == Movement.MovementComplexity.Purple 
-                && ship.Owner == HostShip.Owner
+                && Tools.IsFriendly(ship, HostShip)
                 && ship.GetRangeToShip(HostShip) <= 2)
             {
                 RegisterAbilityTrigger(TriggerTypes.OnMovementFinish, delegate { AskToRecoverForce(ship); });
@@ -72,7 +72,7 @@ namespace Abilities.SecondEdition
             if (HostShip.State.Force > 0
                 && action.HostShip != HostShip
                 && action.Color == ActionColor.Purple 
-                && action.HostShip.Owner == HostShip.Owner
+                && Tools.IsFriendly(action.HostShip, HostShip)
                 && action.HostShip.GetRangeToShip(HostShip) <= 2)
             {
                 RegisterAbilityTrigger(TriggerTypes.OnActionIsPerformed, delegate { AskToRecoverForce(action.HostShip); });

@@ -48,7 +48,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship, bool flag)
         {
-            if (!Tools.IsSameTeam(HostShip, ship) || Tools.IsSameShip(HostShip, ship)) return;
+            if (!Tools.IsFriendly(HostShip, ship) || Tools.IsSameShip(HostShip, ship)) return;
 
             DistanceInfo distanceInfo = new DistanceInfo(HostShip, ship);
             if (distanceInfo.Range > 2) return;

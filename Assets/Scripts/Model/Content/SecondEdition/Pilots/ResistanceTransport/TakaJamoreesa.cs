@@ -80,7 +80,7 @@ namespace Abilities.SecondEdition
 
         private int GetAiPriority(GenericShip ship)
         {
-            int teamModifier = (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo) ? 1 : 10;
+            int teamModifier = (Tools.IsSameTeam(ship, HostShip)) ? 1 : 10;
             int tokensModifier = (teamModifier == 1) ? 0 : ship.Tokens.GetAllTokens().Count(n => n.TokenColor == Tokens.TokenColors.Green) * 10;
             int shipCostPriority = (teamModifier == 1) ? 200 - ship.PilotInfo.Cost : 200 + ship.PilotInfo.Cost;
             return (shipCostPriority + tokensModifier) * teamModifier;

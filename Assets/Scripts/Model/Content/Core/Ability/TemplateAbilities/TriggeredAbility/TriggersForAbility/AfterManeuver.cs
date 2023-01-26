@@ -61,7 +61,7 @@ namespace Abilities
                 && (Complexity == MovementComplexity.None || ship.AssignedManeuver.ColorComplexity == Complexity)
                 && (OnlyIfFullyExecuted == false || (OnlyIfFullyExecuted && ship.CheckSuccessOfManeuver()))
                 && (OnlyIfPartialExecuted == false || (OnlyIfPartialExecuted && ship.IsBumped))
-                && (OnlyIfMovedThroughFriendlyShip == false || (OnlyIfMovedThroughFriendlyShip && ship.ShipsMovedThrough.Any(n => n.Owner.PlayerNo == Ability.HostShip.Owner.PlayerNo)))
+                && (OnlyIfMovedThroughFriendlyShip == false || (OnlyIfMovedThroughFriendlyShip && ship.ShipsMovedThrough.Any(n => Tools.IsFriendly(n, Ability.HostShip))))
                 && BearingIsCorrect()
                 && ((HasToken == null) || (Ability.HostShip.Tokens.HasToken((HasToken), '*')))
             )

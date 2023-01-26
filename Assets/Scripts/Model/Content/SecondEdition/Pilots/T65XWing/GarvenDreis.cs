@@ -77,7 +77,7 @@ namespace Abilities.FirstEdition
         {
             foreach (GenericShip friendlyShip in HostShip.Owner.Ships.Values)
             {
-                if (friendlyShip.ShipId != HostShip.ShipId)
+                if (friendlyShip.ShipId != HostShip.ShipId && Tools.IsFriendly(friendlyShip, HostShip))
                 {
                     DistanceInfo distInfo = new DistanceInfo(HostShip, friendlyShip);
                     if (distInfo.Range >= 1 && distInfo.Range <= 3) return true;

@@ -88,7 +88,7 @@ namespace ActionsList.FirstEdition
         {
             //Filter other friendly ships range 1
             DistanceInfo distanceInfo = new DistanceInfo(HostShip, ship);
-            return ship.Owner.PlayerNo == HostShip.Owner.PlayerNo &&
+            return Tools.IsFriendly(ship, HostShip) &&
                     ship != HostShip &&
                     InRange(distanceInfo);
         }

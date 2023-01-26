@@ -55,7 +55,7 @@ namespace Abilities.SecondEdition
 
             return
                 Combat.AttackStep == CombatStep.Defence
-                && Combat.Defender.Owner == HostShip.Owner
+                && Tools.IsFriendly(Combat.Defender, HostShip)
                 && ((HostShip.SectorsInfo.IsShipInSector(Combat.Defender, Arcs.ArcType.Left) && rangeLeft >= 0 && rangeLeft <= 2)
                     || (HostShip.SectorsInfo.IsShipInSector(Combat.Defender, Arcs.ArcType.Right) && rangeRight >= 0 && rangeRight <= 2))
                 && (Combat.Defender.PilotInfo.IsLimited || Combat.Defender.UpgradeBar.GetInstalledUpgrades(UpgradeType.Talent).Any(u => u is Dedicated))

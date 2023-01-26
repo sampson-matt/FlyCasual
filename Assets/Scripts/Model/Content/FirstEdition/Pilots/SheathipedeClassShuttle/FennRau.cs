@@ -48,7 +48,7 @@ namespace Abilities.FirstEdition
 
         private void CheckAbility(GenericShip activatedShip)
         {
-            if (activatedShip.Owner.PlayerNo == HostShip.Owner.PlayerNo) return;
+            if (Tools.IsSameTeam(activatedShip, HostShip)) return;
 
             if (HostShip.Tokens.HasToken(typeof(StressToken))) return;
 

@@ -57,7 +57,7 @@ namespace Abilities.FirstEdition
 
         protected bool CheckAnyOtherFriendlyShipsPresent()
         {
-            return HostShip.Owner.Ships.Values.Any(friendly => friendly.ShipId != HostShip.ShipId && !friendly.IsDestroyed);
+            return HostShip.Owner.Ships.Values.Any(friendly => friendly.ShipId != HostShip.ShipId && Tools.IsFriendly(friendly, HostShip) && !friendly.IsDestroyed);
         }
 
         protected void RegisterTriggerSingleFriendlyCheckCommon(string text, TriggerTypes eventType)

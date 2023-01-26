@@ -40,7 +40,7 @@ namespace Abilities.FirstEdition
         {
             foreach (var ship in HostShip.Owner.Ships)
             {
-                if (ship.Value.ShipId != HostShip.ShipId)
+                if (ship.Value.ShipId != HostShip.ShipId && Tools.IsFriendly(ship.Value, HostShip))
                 {
                     if (ship.Value.UpgradeBar.GetUpgradesOnlyFaceup().Any(n => n.UpgradeInfo.Name == "IG-2000"))
                     {
@@ -57,7 +57,7 @@ namespace Abilities.FirstEdition
         {
             foreach (var ship in HostShip.Owner.Ships)
             {
-                if (ship.Value.ShipId != HostShip.ShipId)
+                if (ship.Value.ShipId != HostShip.ShipId && Tools.IsFriendly(ship.Value, HostShip))
                 {
                     if (ship.Value.UpgradeBar.GetUpgradesOnlyFaceup().Any(n => n.UpgradeInfo.Name == "IG-2000"))
                     {

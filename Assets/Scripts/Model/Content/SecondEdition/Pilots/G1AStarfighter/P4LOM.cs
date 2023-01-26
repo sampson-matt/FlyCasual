@@ -115,7 +115,7 @@ namespace Abilities.SecondEdition
             // AI should stress the most expensive ship enemy ship in range or the least expensive friendly.
             int cost = ship.PilotInfo.Cost + ship.UpgradeBar.GetUpgradesOnlyFaceup().Sum(n => n.UpgradeInfo.Cost);
 
-            if (HostShip.Owner.PlayerNo == ship.Owner.PlayerNo)
+            if (Tools.IsSameTeam(HostShip, ship))
             {
                 // we're on the same team!
                 return 100 - cost;

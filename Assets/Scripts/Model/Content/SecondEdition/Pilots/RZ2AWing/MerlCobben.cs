@@ -55,7 +55,7 @@ namespace Abilities.SecondEdition
         {
             bool result = false;
 
-            if (Tools.IsSameTeam(Combat.Attacker, HostShip))
+            if (Tools.IsFriendly(Combat.Attacker, HostShip))
             {
                 if (new DistanceInfo(Combat.Attacker, HostShip).Range < 3)
                 {

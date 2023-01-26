@@ -68,12 +68,12 @@ namespace Abilities.SecondEdition
         private bool IsInFriendlyBullseyeInRange(GenericShip enemyShip)
         {
             if (HostUpgrade.State.Charges == 0) return false;
-            if (enemyShip.Owner.PlayerNo == HostShip.Owner.PlayerNo) return false;
+            if (Tools.IsSameTeam(enemyShip, HostShip)) return false;
 
             foreach (GenericShip friendlyShip in HostShip.Owner.Ships.Values)
             {
                 DistanceInfo distInfo = new DistanceInfo(HostShip, friendlyShip);
-                if (distInfo.Range <= 3 && friendlyShip.SectorsInfo.IsShipInSector(enemyShip, ArcType.Bullseye))
+                if (distInfo.Range <= 3 && friendlyShip.SectorsInfo.IsShipInSector(enemyShip, ArcType.Bullseye) && Tools.IsFriendly(friendlyShip, HostShip))
                 {
                     return true;
                 }
@@ -112,7 +112,7 @@ namespace Abilities.SecondEdition
         {
             DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
             return distInfo.Range <= 3
-                && ship.Owner.PlayerNo == HostShip.Owner.PlayerNo
+                && Tools.IsFriendly(ship, HostShip)
                 && ship.SectorsInfo.IsShipInSector(LastMovedShip, ArcType.Bullseye);
         }
 

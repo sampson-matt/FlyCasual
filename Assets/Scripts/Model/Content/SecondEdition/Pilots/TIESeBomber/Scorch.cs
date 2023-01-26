@@ -92,7 +92,7 @@ namespace Abilities.SecondEdition
 
             if (Combat.DiceRollAttack.RegularSuccesses == 0) return false;
 
-            if (Combat.Attacker.Owner != HostShip.Owner) return false;
+            if (!Tools.IsFriendly(Combat.Attacker, HostShip)) return false;
 
             DistanceInfo positionInfo = new DistanceInfo(HostShip, Combat.Attacker);
             if (positionInfo.Range > 1) return false;

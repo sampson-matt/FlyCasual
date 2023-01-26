@@ -44,7 +44,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility()
         {
-            if (Combat.Defender.Owner == HostShip.Owner
+            if (Tools.IsFriendly(Combat.Defender, HostShip)
                 && Combat.Defender != HostShip
                 && HostShip.SectorsInfo.IsShipInSector(Combat.Attacker, ArcType.Bullseye)
                 && new BoardTools.DistanceInfo(HostShip, Combat.Attacker).Range <= 2)

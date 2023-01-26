@@ -48,7 +48,7 @@ namespace Abilities.SecondEdition
         private void RegisterAskChangeManeuver(GenericShip ship)
         {
             if (HostShip.State.Force > 0
-                && ship.Owner == HostShip.Owner
+                && Tools.IsFriendly(ship, HostShip)
                 && new BoardTools.DistanceInfo(ship, HostShip).Range < 3)
             {
                 TargetShip = ship;

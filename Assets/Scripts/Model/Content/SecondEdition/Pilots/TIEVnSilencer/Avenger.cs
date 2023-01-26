@@ -42,7 +42,7 @@ namespace Abilities.SecondEdition
 
         protected void RegisterOnDestroyedFriendly(GenericShip ship, bool isFled)
         {
-            if (ship.Owner == HostShip.Owner)
+            if (Tools.IsFriendly(ship, HostShip))
             {
                 RegisterAbilityTrigger(TriggerTypes.OnShipIsDestroyed, PerformAction);
             }

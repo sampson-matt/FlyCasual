@@ -63,6 +63,7 @@ namespace Abilities.SecondEdition
                     && HostShip.Owner.Ships.Values.Any(
                         n => ActionsHolder.HasTargetLockOn(n, Selection.AnotherShip)
                         && n.ShipAbilities.Any(a => a is NetworkedCalculationsAbility)
+                        && Tools.IsFriendly(n, HostShip)
                     )
                 )
                 {

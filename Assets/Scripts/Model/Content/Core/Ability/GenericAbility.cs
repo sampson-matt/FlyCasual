@@ -355,13 +355,13 @@ namespace Abilities
         {
             bool result = false;
 
-            if (targetTypes.Contains(TargetTypes.Enemy) && ship.Owner.PlayerNo != hostShip.Owner.PlayerNo) result = true;
+            if (targetTypes.Contains(TargetTypes.Enemy) && !Tools.IsSameTeam(ship, hostShip)) result = true;
 
             if (targetTypes.Contains(TargetTypes.This) && ship.ShipId == hostShip.ShipId) result = true;
 
             if (targetTypes.Contains(TargetTypes.OtherAny) && ship.ShipId != hostShip.ShipId) result = true;
 
-            if (targetTypes.Contains(TargetTypes.OtherFriendly) && ship.Owner.PlayerNo == hostShip.Owner.PlayerNo && ship.ShipId != hostShip.ShipId) result = true;
+            if (targetTypes.Contains(TargetTypes.OtherFriendly) && Tools.IsFriendly(ship, hostShip) && ship.ShipId != hostShip.ShipId) result = true;
 
             return result;
         }

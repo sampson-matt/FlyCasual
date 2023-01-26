@@ -45,7 +45,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(ref int maxDiceRerollCount)
         {
-            if (Combat.Defender.Owner.PlayerNo != HostShip.Owner.PlayerNo) return;
+            if (!Tools.IsFriendly(Combat.Defender, HostShip)) return;
 
             DistanceInfo distInfo = new DistanceInfo(HostShip, Combat.Defender);
             if (distInfo.Range > 2) return;

@@ -140,7 +140,7 @@ namespace Abilities.SecondEdition
 
         private int GetAiPriority(GenericShip ship)
         {
-            int modifier = (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo) ? 1 : 5;
+            int modifier = (Tools.IsSameTeam(ship, HostShip)) ? 1 : 5;
             return ship.PilotInfo.Cost * modifier;
         }
 

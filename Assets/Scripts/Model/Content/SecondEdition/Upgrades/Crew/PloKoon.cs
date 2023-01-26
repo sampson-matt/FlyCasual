@@ -132,7 +132,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            if (!Tools.IsSameTeam(HostShip, ship)) return false;
+            if (!Tools.IsFriendly(HostShip, ship)) return false;
 
             DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
             if (distInfo.Range == 0

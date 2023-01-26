@@ -40,7 +40,7 @@ namespace Abilities.FirstEdition
         {
             foreach (KeyValuePair<string, GenericShip> entry in HostShip.Owner.Ships)
             {
-                if (entry.Value != HostShip)
+                if (entry.Value != HostShip && Tools.IsFriendly(entry.Value, HostShip))
                 {
                     entry.Value.OnGenerateAvailableAttackPaymentList += AddSharaBeyPilotPayment;
                     entry.Value.OnGenerateDiceModifications += AddSharaBeyActionEffect;
@@ -52,7 +52,7 @@ namespace Abilities.FirstEdition
         {
             foreach (KeyValuePair<string, GenericShip> entry in HostShip.Owner.Ships)
             {
-                if (entry.Value != HostShip)
+                if (entry.Value != HostShip && Tools.IsFriendly(entry.Value, HostShip))
                 {
                     entry.Value.OnGenerateAvailableAttackPaymentList -= AddSharaBeyPilotPayment;
                 }

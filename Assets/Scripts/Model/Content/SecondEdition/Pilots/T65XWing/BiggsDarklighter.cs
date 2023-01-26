@@ -62,7 +62,7 @@ namespace Abilities.SecondEdition
                 return false;
 
             // Is the defender on our team and not us? If not return.
-            if (curToDamage.Owner.PlayerNo != HostShip.Owner.PlayerNo || curToDamage.ShipId == HostShip.ShipId)
+            if (!Tools.IsFriendly(curToDamage, HostShip) || curToDamage.ShipId == HostShip.ShipId)
                 return false;
 
             // Is the defender at range 1 and is there a hit/crit result?

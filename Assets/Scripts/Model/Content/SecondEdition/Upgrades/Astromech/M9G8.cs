@@ -82,7 +82,7 @@ namespace ActionsList
         {
             return Combat.AttackStep == CombatStep.Attack
                 && ActionsHolder.HasTargetLockOn(GrantedBy, HostShip)
-                && Combat.Attacker.Owner.PlayerNo == GrantedBy.Owner.PlayerNo;
+                && Tools.IsSameTeam(Combat.Attacker, GrantedBy);
         }
 
         public override int GetDiceModificationPriority()
@@ -119,7 +119,7 @@ namespace ActionsList
         {
             return Combat.AttackStep == CombatStep.Attack
                 && ActionsHolder.HasTargetLockOn(GrantedBy, HostShip)
-                && Combat.Defender.Owner.PlayerNo == GrantedBy.Owner.PlayerNo;
+                && Tools.IsSameTeam(Combat.Defender, GrantedBy);
         }
 
         public override int GetDiceModificationPriority()

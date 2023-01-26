@@ -52,7 +52,7 @@ namespace Abilities.SecondEdition
 
         protected void RegisterGarSaxonAbility()
         {
-            if (Combat.Attacker.Owner.PlayerNo == HostShip.Owner.PlayerNo 
+            if (Tools.IsFriendly(Combat.Attacker, HostShip) 
                 && Combat.Attacker.ShipId != HostShip.ShipId 
                 && Combat.ChosenWeapon.WeaponType == WeaponTypes.PrimaryWeapon 
                 && Combat.Defender.SectorsInfo.IsShipInSector(Combat.Attacker, Arcs.ArcType.Rear))

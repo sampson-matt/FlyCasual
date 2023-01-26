@@ -47,7 +47,7 @@ namespace Abilities.SecondEdition
         private void RegisterAbility(GenericShip ship, GenericToken token)
         {
             if (token is WeaponsDisabledToken
-                && ship.Owner == HostShip.Owner
+                && Tools.IsFriendly(ship, HostShip)
                 && !ship.IsStressed
                 && ship != HostShip
                 && HostShip.State.Charges > 0)

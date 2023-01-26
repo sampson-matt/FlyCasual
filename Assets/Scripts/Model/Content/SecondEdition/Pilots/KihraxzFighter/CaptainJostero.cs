@@ -47,7 +47,7 @@ namespace Abilities.SecondEdition
                 return;
 
             // Make sure the opposing ship is an enemy.
-            if (damaged.Owner == HostShip.Owner)
+            if (Tools.IsSameTeam(damaged, HostShip))
                 return;
 
             // If the ship is defending we're not interested.

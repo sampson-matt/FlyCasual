@@ -126,7 +126,7 @@ namespace Abilities.SecondEdition
         {
             return Combat.Defender.Tokens
                 .GetTokens<RedTargetLockToken>('*')
-                .Count(token => (token.OtherTargetLockTokenOwner as GenericShip)?.Owner == HostShip.Owner);
+                .Count(token => Tools.IsFriendly(token.OtherTargetLockTokenOwner as GenericShip, HostShip));
         }
 
         private int GetAiPriority()

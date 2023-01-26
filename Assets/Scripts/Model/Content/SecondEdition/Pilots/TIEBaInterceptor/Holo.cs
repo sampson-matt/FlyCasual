@@ -128,7 +128,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return FilterTargetsByRange(ship, 0, 2) && ship.Owner.PlayerNo == HostShip.Owner.PlayerNo && ship.ShipId != HostShip.ShipId;
+            return FilterTargetsByRange(ship, 0, 2) && Tools.IsFriendly(ship, HostShip) && ship.ShipId != HostShip.ShipId;
         }
 
         private int GetAiPriority(GenericShip ship)

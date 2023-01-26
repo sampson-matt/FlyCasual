@@ -43,7 +43,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship, ref bool canAttack)
         {
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo)
+            if (Tools.IsFriendly(ship, HostShip))
             {
                 DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
                 if (distInfo.Range < 2) canAttack = true;

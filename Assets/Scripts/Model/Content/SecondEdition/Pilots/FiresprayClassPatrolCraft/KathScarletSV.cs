@@ -45,7 +45,7 @@ namespace Abilities.SecondEdition
         {
             if (Combat.ChosenWeapon.WeaponType != WeaponTypes.PrimaryWeapon) return;
 
-            if (Combat.Defender.ShipsBumped.Any(s => s.Owner.PlayerNo == HostShip.Owner.PlayerNo && !s.PilotInfo.IsLimited))
+            if (Combat.Defender.ShipsBumped.Any(s => Tools.IsFriendly(s, HostShip) && !s.PilotInfo.IsLimited))
             {
                 Messages.ShowInfo("A non-limited friendly ship bumping the defender gives " + HostShip.PilotInfo.PilotName + " +1 attack die");
                 count++;

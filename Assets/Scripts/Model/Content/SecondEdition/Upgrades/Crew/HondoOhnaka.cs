@@ -100,7 +100,7 @@ namespace Abilities.SecondEdition
                 }
                 else
                 {
-                    return ship.Owner.PlayerNo == Selection.MultiSelectedShips.First().Owner.PlayerNo;
+                    return Tools.IsFriendly(ship, Selection.MultiSelectedShips.First());
                 }
             }
 

@@ -59,14 +59,14 @@ namespace Abilities.SecondEdition
         {
             return ship.Tokens.GetAllTokens()
                 .Where(n => n is RedTargetLockToken)
-                .Where(n => ((n as RedTargetLockToken).OtherTargetLockTokenOwner as GenericShip).Owner.PlayerNo == HostShip.Owner.PlayerNo)
+                .Where(n => Tools.IsFriendly(((n as RedTargetLockToken).OtherTargetLockTokenOwner as GenericShip), HostShip))
                 .Where(n => ((n as RedTargetLockToken).OtherTargetLockTokenOwner as GenericShip).ShipId != HostShip.ShipId)
                 .Count() != 0;
         }
 
         private bool HasLockOnDefenderAndIsFriendly(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo != HostShip.Owner.PlayerNo) return false;
+            if (!Tools.IsFriendly(ship, HostShip)) return false;
             if (ship.ShipId == HostShip.ShipId) return false;
 
             return ship.Tokens.GetAllTokens()

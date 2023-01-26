@@ -38,7 +38,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship, ref bool result)
         {
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo) result = true;
+            if (Tools.IsFriendly(ship, HostShip)) result = true;
         }
     }
 }

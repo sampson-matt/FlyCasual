@@ -57,7 +57,7 @@ namespace Abilities.SecondEdition
 
         protected override bool CheckRequirements(GenericShip ship)
         {
-            var match = ship.Owner.PlayerNo == HostShip.Owner.PlayerNo
+            var match = Tools.IsFriendly(ship, HostShip)
                 && ship.ShipId != HostShip.ShipId;
             return match;
         }
@@ -128,7 +128,7 @@ namespace ActionsList
             private bool IsLockedByFriendlyKrennicShip()
             {
                 GenericShip friendlyKrennicShip = HostShip.Owner.Ships.Values.FirstOrDefault(n => n.UpgradeBar.GetUpgradesOnlyFaceup().Any(u => u is UpgradesList.SecondEdition.DirectorKrennic));
-                if (friendlyKrennicShip == null)
+                if (friendlyKrennicShip == null || !Tools.IsFriendly(friendlyKrennicShip, HostShip))
                 {
                     return false;
                 }

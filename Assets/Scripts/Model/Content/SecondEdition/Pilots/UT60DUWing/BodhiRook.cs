@@ -43,11 +43,11 @@ namespace Abilities.SecondEdition
 
         private void CanPerformTargetLock(ref bool result, GenericShip ship, ITargetLockable defender)
         {
-            if (ship.Owner.PlayerNo != HostShip.Owner.PlayerNo) return;
+            if (!Tools.IsFriendly(ship, HostShip)) return;
 
             foreach (GenericShip friendlyShip in HostShip.Owner.Ships.Values)
             {
-                if (defender.GetRangeToShip(friendlyShip) < 4)
+                if (defender.GetRangeToShip(friendlyShip) < 4 && Tools.IsFriendly(friendlyShip, HostShip))
                 {
                     result = true;
                     return;

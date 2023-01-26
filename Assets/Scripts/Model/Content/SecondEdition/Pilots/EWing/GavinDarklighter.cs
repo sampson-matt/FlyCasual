@@ -52,7 +52,7 @@ namespace Abilities.SecondEdition
         private bool IsAvailable()
         {
             return Combat.AttackStep == CombatStep.Attack
-                && Combat.Attacker.Owner == HostShip.Owner
+                && Tools.IsFriendly(Combat.Attacker, HostShip)
                 && new ShotInfo(HostShip, Combat.Defender, HostShip.PrimaryWeapons).InPrimaryArc;
         }
     }

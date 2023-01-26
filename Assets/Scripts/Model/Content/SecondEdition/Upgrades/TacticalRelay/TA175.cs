@@ -51,7 +51,7 @@ namespace Abilities.SecondEdition
         private void CheckAbility(GenericShip ship, bool isFled)
         {
 
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo
+            if (Tools.IsFriendly(ship, HostShip)
                 && ship.ActionBar.PrintedActions.Any(n => n is CalculateAction)
                 && Board.CheckInRange(HostShip, ship, 0, 3, RangeCheckReason.UpgradeCard))
             {
@@ -65,7 +65,7 @@ namespace Abilities.SecondEdition
         private void AssignCalculateTokens(GenericShip destroyedShips)
         {
             List<GenericShip> friendlyShipsInRange = Board.GetShipsAtRange(destroyedShips, new Vector2(0, 3), Team.Type.Friendly)
-                .Where(n => n.Owner.PlayerNo == destroyedShips.Owner.PlayerNo)
+                .Where(n => Tools.IsFriendly(n, destroyedShips))
                 .Where(n => n.ShipId != destroyedShips.ShipId)
                 .Where(n => n.ActionBar.PrintedActions.Any(a => a is CalculateAction))
                 .ToList();

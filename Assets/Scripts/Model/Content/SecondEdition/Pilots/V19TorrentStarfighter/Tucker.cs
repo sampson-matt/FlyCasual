@@ -43,7 +43,7 @@ namespace Abilities.SecondEdition
         {
             var range = new BoardTools.DistanceInfo(HostShip, Combat.Attacker).Range;
 
-            if (Combat.Attacker.Owner == HostShip.Owner 
+            if (Tools.IsFriendly(Combat.Attacker, HostShip) 
                 && Combat.Defender.Owner != HostShip.Owner
                 && HostShip.SectorsInfo.IsShipInSector(Combat.Defender, Arcs.ArcType.Front)
                 && range >= 1 && range <= 2)

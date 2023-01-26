@@ -45,7 +45,7 @@ namespace Abilities.FirstEdition
             {
                 if ((defender as GenericShip).ShipId != HostShip.ShipId)
                 {
-                    if ((defender as GenericShip).Owner.PlayerNo == HostShip.Owner.PlayerNo)
+                    if (Tools.IsFriendly((defender as GenericShip), HostShip))
                     {
                         if (!DefenderAlsoHasAbility(defender as GenericShip))
                         {

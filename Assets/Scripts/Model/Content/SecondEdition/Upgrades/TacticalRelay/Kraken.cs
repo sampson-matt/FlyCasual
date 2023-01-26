@@ -81,7 +81,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterSelection(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo != HostShip.Owner.PlayerNo) return false;
+            if (!Tools.IsFriendly(ship, HostShip)) return false;
 
             if (!ship.Tokens.HasToken<CalculateToken>()) return false;
 

@@ -138,7 +138,7 @@ namespace Upgrade
             GenericShip enemyShipToDetonate = null;
             foreach (GenericShip ship in shipsHitMine)
             {
-                if (ship.Owner.PlayerNo != HostShip.Owner.PlayerNo)
+                if (!Tools.IsSameTeam(ship, HostShip))
                 {
                     if (enemyShipToDetonate == null || ship.State.HullCurrent + ship.State.ShieldsCurrent < enemyShipToDetonate.State.HullCurrent + enemyShipToDetonate.State.ShieldsCurrent)
                     {

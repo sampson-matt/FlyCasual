@@ -59,7 +59,7 @@ namespace Abilities.SecondEdition
 
             return
                 Combat.AttackStep == CombatStep.Attack
-                && Combat.Attacker.Owner == HostShip.Owner
+                && Tools.IsFriendly(Combat.Attacker, HostShip)
                 && Combat.ChosenWeapon.WeaponType == WeaponTypes.PrimaryWeapon
                 && ((HostShip.SectorsInfo.IsShipInSector(Combat.Attacker, Arcs.ArcType.Left) && rangeLeft >= 1 && rangeLeft <= 2)
                     || (HostShip.SectorsInfo.IsShipInSector(Combat.Attacker, Arcs.ArcType.Right) && rangeRight >= 1 && rangeRight <= 2));

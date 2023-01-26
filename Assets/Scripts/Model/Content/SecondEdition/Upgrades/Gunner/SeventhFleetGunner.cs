@@ -94,7 +94,7 @@ namespace Abilities.SecondEdition
         private void CheckAbility()
         {
             if (Combat.Attacker.ShipId != HostShip.ShipId
-                && Combat.Attacker.Owner.PlayerNo == HostShip.Owner.PlayerNo
+                && Tools.IsFriendly(Combat.Attacker, HostShip)
                 && Combat.ChosenWeapon.WeaponType == WeaponTypes.PrimaryWeapon
                 && HostUpgrade.State.Charges > 0
             )

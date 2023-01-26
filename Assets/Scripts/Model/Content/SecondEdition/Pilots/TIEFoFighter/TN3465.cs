@@ -53,7 +53,7 @@ namespace Abilities.SecondEdition
 
             if (Combat.Attacker.ShipId == HostShip.ShipId) return false;
 
-            if (Combat.Attacker.Owner.PlayerNo != HostShip.Owner.PlayerNo) return false;
+            if (!Tools.IsFriendly(Combat.Attacker, HostShip)) return false;
 
             DistanceInfo distInfo = new DistanceInfo(HostShip, Combat.Defender);
             if (distInfo.Range > 1) return false;

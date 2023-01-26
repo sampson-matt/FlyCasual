@@ -115,7 +115,7 @@ namespace Abilities.SecondEdition
 
         private bool CanUseBerwerKretBonus(GenericShip ship)
         {
-            return ship.Owner.PlayerNo == HostShip.Owner.PlayerNo
+            return Tools.IsFriendly(ship, HostShip)
                 && ship.ActionBar.HasAction(typeof(CalculateAction))
                 && ActionsHolder.HasTargetLockOn(ship, Combat.Defender);
         }

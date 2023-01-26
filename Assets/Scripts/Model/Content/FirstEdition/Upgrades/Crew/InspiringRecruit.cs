@@ -46,7 +46,7 @@ namespace Abilities.FirstEdition
         {
             if (IsAbilityUsed) return;
             if (!(token is StressToken)) return;
-            if (ship.Owner.PlayerNo != HostShip.Owner.PlayerNo) return;
+            if (!Tools.IsFriendly(ship, HostShip)) return;
 
             BoardTools.DistanceInfo distanceInfo = new BoardTools.DistanceInfo(HostShip, ship);
             if (distanceInfo.Range < 3)

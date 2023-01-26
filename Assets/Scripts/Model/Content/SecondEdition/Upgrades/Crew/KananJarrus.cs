@@ -52,7 +52,7 @@ namespace Abilities.SecondEdition
             {
                 return;
             }
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo && ship.AssignedManeuver.ColorComplexity == Movement.MovementComplexity.Normal)
+            if (Tools.IsFriendly(ship, HostShip) && ship.AssignedManeuver.ColorComplexity == Movement.MovementComplexity.Normal)
             {
                 BoardTools.DistanceInfo distanceInfo = new BoardTools.DistanceInfo(HostShip, ship);
                 if (distanceInfo.Range < 3)

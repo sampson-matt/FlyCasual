@@ -121,7 +121,7 @@ namespace Abilities.SecondEdition
         {
             return HostShip.State.Charges > 0
                 && Combat.AttackStep == CombatStep.Attack
-                && Combat.Attacker.Owner == HostShip.Owner
+                && Tools.IsFriendly(Combat.Attacker, HostShip)
                 && !Combat.ArcForShot.IsTurretArc
                 && HostShip.ArcsInfo.HasShipInTurretArc(Combat.Defender);
         }

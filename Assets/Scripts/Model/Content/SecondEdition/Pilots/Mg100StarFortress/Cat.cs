@@ -48,7 +48,7 @@ namespace Abilities.SecondEdition
             {
                 foreach (var bombHolder in BombsManager.GetBombsOnBoard())
                 {
-                    if (bombHolder.Value.HostShip.Owner.PlayerNo == HostShip.Owner.PlayerNo
+                    if (Tools.IsFriendly(bombHolder.Value.HostShip, HostShip)
                         && BombsManager.IsShipInRange(Combat.Defender, bombHolder.Key, 1))
                     {
                         Messages.ShowInfo(HostShip.PilotInfo.PilotName + " gains +1 attack die");

@@ -47,7 +47,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship)
         {
-            if (ship.Owner == HostShip.Owner && ship.GetLastManeuverColor() == MovementComplexity.Complex)
+            if (Tools.IsFriendly(ship, HostShip) && ship.GetLastManeuverColor() == MovementComplexity.Complex)
             {
                 TargetShip = ship;
                 RegisterAbilityTrigger(TriggerTypes.OnMovementFinish, AskAbility);

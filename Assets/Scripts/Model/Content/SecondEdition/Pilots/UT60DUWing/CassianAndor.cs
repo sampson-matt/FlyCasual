@@ -61,7 +61,7 @@ namespace Abilities.SecondEdition
             foreach (var kv in HostShip.Owner.Ships)
             {
                 GenericShip ship = kv.Value;
-                if (ship.Tokens.HasToken(typeof(StressToken)))
+                if (ship.Tokens.HasToken(typeof(StressToken)) && Tools.IsFriendly(ship, HostShip))
                 {
                     friendlyShipIsStressed = true;
                 }

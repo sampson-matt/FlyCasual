@@ -51,7 +51,7 @@ namespace Abilities.SecondEdition
         private void CheckConditions(GenericAction action)
         {
             if (HostShip.State.Charges >= 2
-                && HostShip.Owner.PlayerNo == Selection.ThisShip.Owner.PlayerNo
+                && Tools.IsFriendly(HostShip, Selection.ThisShip)
                 && Phases.CurrentPhase is MainPhases.ActivationPhase
                 && (Phases.CurrentPhase as MainPhases.ActivationPhase).ActivationShip == Selection.ThisShip
             )

@@ -267,12 +267,12 @@ namespace SubPhases
         {
             int result = 0;
 
-            if (TokenToAssign is CalculateToken && ship.Owner.PlayerNo == Selection.ThisShip.Owner.PlayerNo)
+            if (TokenToAssign is CalculateToken && Tools.IsFriendly(ship, Selection.ThisShip))
             {
                 result = ship.PilotInfo.Cost;
                 if (!ship.Tokens.HasToken<FocusToken>()) result += 100;
             }
-            else if (TokenToAssign is JamToken && ship.Owner.PlayerNo != Selection.ThisShip.Owner.PlayerNo)
+            else if (TokenToAssign is JamToken && !Tools.IsSameTeam(ship, Selection.ThisShip))
             {
                 result = ship.PilotInfo.Cost;
                 if (ship.Tokens.HasTokenByColor(TokenColors.Green) || ship.Tokens.HasToken<BlueTargetLockToken>()) result += 100;

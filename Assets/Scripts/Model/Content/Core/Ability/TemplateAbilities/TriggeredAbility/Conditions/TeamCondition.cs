@@ -24,12 +24,12 @@ namespace Abilities
                 case ShipTypes.This:
                     return args.ShipToCheck.ShipId == args.ShipAbilityHost.ShipId;
                 case ShipTypes.Friendly:
-                    return args.ShipToCheck.Owner.PlayerNo == args.ShipAbilityHost.Owner.PlayerNo;
+                    return Tools.IsFriendly(args.ShipToCheck, args.ShipAbilityHost);
                 case ShipTypes.OtherFriendly:
                     return args.ShipToCheck.Owner.PlayerNo == args.ShipAbilityHost.Owner.PlayerNo
                         && args.ShipToCheck.ShipId != args.ShipAbilityHost.ShipId;
                 case ShipTypes.Enemy:
-                    return args.ShipToCheck.Owner.PlayerNo != args.ShipAbilityHost.Owner.PlayerNo;
+                    return !Tools.IsSameTeam(args.ShipToCheck, args.ShipAbilityHost);
                 case ShipTypes.Any:
                     return true;
                 default:

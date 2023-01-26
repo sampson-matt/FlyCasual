@@ -104,7 +104,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterSelection(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo) return false;
+            if (Tools.IsSameTeam(ship, HostShip)) return false;
 
             DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
             if (distInfo.Range <= 1) return false;

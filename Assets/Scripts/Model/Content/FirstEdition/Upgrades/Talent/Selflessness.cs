@@ -56,7 +56,7 @@ namespace Abilities.FirstEdition
                 return;
 
             // Is the defender on our team and not us? If not return.
-            if (Combat.Defender.Owner.PlayerNo != HostShip.Owner.PlayerNo || Combat.Defender.ShipId == HostShip.ShipId)
+            if (!Tools.IsFriendly(Combat.Defender, HostShip) || Combat.Defender.ShipId == HostShip.ShipId)
                 return;
 
             // If the defender is at range one of us we register our trigger to prevent damage.

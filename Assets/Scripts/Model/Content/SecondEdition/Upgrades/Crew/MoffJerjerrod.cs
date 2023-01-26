@@ -164,7 +164,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return HostShip.Owner.PlayerNo == ship.Owner.PlayerNo && ship.CanPerformAction(new BoostAction() { Color = Actions.ActionColor.Red });
+            return Tools.IsFriendly(HostShip, ship) && ship.CanPerformAction(new BoostAction() { Color = Actions.ActionColor.Red });
         }
 
         private int GetAiPriority(GenericShip ship)

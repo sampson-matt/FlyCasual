@@ -48,7 +48,7 @@ namespace Abilities.SecondEdition
             // To avoid infinite loop
             if (IsAbilityUsed) return;
 
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo) return;
+            if (Tools.IsSameTeam(ship, HostShip)) return;
 
             if (ActionsHolder.HasTargetLockOn(HostShip, ship)) return;
 

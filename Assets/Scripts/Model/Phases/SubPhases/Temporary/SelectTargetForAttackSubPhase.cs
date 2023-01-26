@@ -48,7 +48,7 @@ namespace SubPhases
         {
             bool result = true;
 
-            if (ship.Owner.PlayerNo == Selection.ThisShip.Owner.PlayerNo)
+            if (Tools.IsSameTeam(ship, Selection.ThisShip))
             {
                 result = false;
                 Selection.ThisShip.CallTryAttackSameTeamCheck(ship, ref result);

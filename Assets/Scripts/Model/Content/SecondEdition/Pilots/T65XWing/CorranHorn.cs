@@ -64,6 +64,8 @@ namespace Abilities.SecondEdition
             {
                 if (Tools.IsSameShip(HostShip, friendlyShip)) continue;
 
+                if (!Tools.IsFriendly(HostShip, friendlyShip)) continue;
+
                 if (ActionsHolder.HasTargetLockOn(friendlyShip, HostShip)) return true;
             }
 

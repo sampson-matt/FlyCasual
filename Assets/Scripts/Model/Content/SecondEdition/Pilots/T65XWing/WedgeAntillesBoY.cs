@@ -52,7 +52,7 @@ namespace Abilities.SecondEdition
             foreach (GenericShip friendlyShip in HostShip.Owner.Ships.Values)
             {
                 BoardTools.ShotInfo shotInfo = new BoardTools.ShotInfo(Combat.Defender, friendlyShip, Combat.Defender.PrimaryWeapons);
-                if (shotInfo.InArc && friendlyShip.ShipId != HostShip.ShipId)  friendlyShipInArc = true;
+                if (shotInfo.InArc && friendlyShip.ShipId != HostShip.ShipId && Tools.IsFriendly(friendlyShip, HostShip))  friendlyShipInArc = true;
             }
             if (Combat.ChosenWeapon.WeaponType == WeaponTypes.PrimaryWeapon && friendlyShipInArc)
             {

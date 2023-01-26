@@ -66,6 +66,11 @@ public static partial class Tools
         }
     }
 
+    public static bool IsFriendly(GenericShip ship1, GenericShip ship2)
+    {
+        return IsSameTeam(ship1, ship2);
+    }
+
     public static bool IsSameTeam(GenericShip ship1, GenericShip ship2)
     {
         return ship1.Owner.PlayerNo == ship2.Owner.PlayerNo;
@@ -83,7 +88,7 @@ public static partial class Tools
 
     public static bool IsAnotherFriendly(GenericShip ship1, GenericShip ship2)
     {
-        return IsSameTeam(ship1, ship2) && !IsSameShip(ship1, ship2);
+        return IsFriendly(ship1, ship2) && !IsSameShip(ship1, ship2);
     }
 
     public static bool CheckShipsTeam(GenericShip ship1, GenericShip ship2, TargetTypes targetTypes)

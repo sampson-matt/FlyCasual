@@ -54,7 +54,7 @@ namespace Abilities.SecondEdition
 
         private void RegisterAbility(GenericShip destroyedShip, bool isFled)
         {
-            if (Phases.CurrentPhase is MainPhases.CombatPhase && destroyedShip == Combat.Defender && destroyedShip != HostShip && destroyedShip.Owner == HostShip.Owner)
+            if (Phases.CurrentPhase is MainPhases.CombatPhase && destroyedShip == Combat.Defender && destroyedShip != HostShip && Tools.IsFriendly(destroyedShip,HostShip))
             {
                 if (new BoardTools.DistanceInfo(HostShip, destroyedShip).Range > 3) return;
 
@@ -74,7 +74,7 @@ namespace Abilities.SecondEdition
         {
             if (Combat.AttackStep != CombatStep.Attack) return false;
 
-            if (Combat.Attacker.Owner != HostShip.Owner) return false;
+            if (!Tools.IsFriendly(Combat.Attacker, HostShip)) return false;
             if (!Combat.Defender.IsStressed) return false;
 
             BoardTools.DistanceInfo positionInfo = new BoardTools.DistanceInfo(HostShip, Combat.Attacker);

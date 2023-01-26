@@ -55,7 +55,7 @@ namespace Abilities.SecondEdition
 
         private void CheckDestroyedAbility(GenericShip ship, bool flag)
         {
-            if (Tools.IsSameTeam(HostShip, ship))
+            if (Tools.IsFriendly(HostShip, ship))
             {
                 DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
                 if (distInfo.Range <= 3)

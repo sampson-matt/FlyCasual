@@ -46,7 +46,7 @@ namespace ActionsList
                 {
                     if (CanUseOwnAbility || friendlyShip != HostShip)
                     {
-                        if (friendlyShip.Owner == HostShip.Owner)
+                        if (Tools.IsFriendly(friendlyShip, HostShip))
                         {
                             BoardTools.DistanceInfo positionInfo = new BoardTools.DistanceInfo(HostShip, friendlyShip);
                             if (positionInfo.Range <= MaxFriendlyShipRange)

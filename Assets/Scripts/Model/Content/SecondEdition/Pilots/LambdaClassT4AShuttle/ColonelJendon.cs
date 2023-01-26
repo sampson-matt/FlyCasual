@@ -72,14 +72,17 @@ namespace Abilities.SecondEdition
             savedTargetLockRestrictions = new Dictionary<GenericShip, int[]>();
             foreach (var kv in HostShip.Owner.Ships)
             {
-                GenericShip curship = kv.Value;
+                if(Tools.IsFriendly(kv.Value, HostShip))
+                {
+                    GenericShip curship = kv.Value;
 
-                int[] targetlockRange = new int[2];
-                targetlockRange[0] = curship.TargetLockMinRange;
-                targetlockRange[1] = curship.TargetLockMaxRange;
+                    int[] targetlockRange = new int[2];
+                    targetlockRange[0] = curship.TargetLockMinRange;
+                    targetlockRange[1] = curship.TargetLockMaxRange;
 
-                savedTargetLockRestrictions.Add(curship, targetlockRange);
-                curship.SetTargetLockRange(4, int.MaxValue);
+                    savedTargetLockRestrictions.Add(curship, targetlockRange);
+                    curship.SetTargetLockRange(4, int.MaxValue);
+                }
             }
 
             DecisionSubPhase.ConfirmDecision();
@@ -91,10 +94,13 @@ namespace Abilities.SecondEdition
 
             foreach (var kv in HostShip.Owner.Ships)
             {
-                GenericShip curship = kv.Value;
-                int min = savedTargetLockRestrictions[curship][0];
-                int max = savedTargetLockRestrictions[curship][1];
-                curship.SetTargetLockRange(min, max);
+                if (Tools.IsFriendly(kv.Value, HostShip))
+                {
+                    GenericShip curship = kv.Value;
+                    int min = savedTargetLockRestrictions[curship][0];
+                    int max = savedTargetLockRestrictions[curship][1];
+                    curship.SetTargetLockRange(min, max);
+                }
             }
         }
     }

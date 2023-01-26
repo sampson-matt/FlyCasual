@@ -44,7 +44,7 @@ namespace Abilities.FirstEdition
 
         private void AddSawGerreraPilotAbility(GenericShip ship)
         {
-            if (Combat.Attacker.Owner.PlayerNo != HostShip.Owner.PlayerNo) return;
+            if (!Tools.IsFriendly(Combat.Attacker, HostShip)) return;
 
             if (Combat.Attacker.Tokens.HasToken(typeof(StressToken)) || Combat.Attacker.State.HullCurrent < Combat.Attacker.State.HullMax)
             {

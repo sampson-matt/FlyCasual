@@ -32,7 +32,7 @@ namespace Abilities.SecondEdition
     {
         protected override void CheckPilotAbility()
         {
-            bool friendly = HostShip.Owner.PlayerNo == Combat.Defender.Owner.PlayerNo;
+            bool friendly = Tools.IsFriendly(HostShip, Combat.Defender);
             bool hasForceTokens = HostShip.State.Force > 0;
             // according to the rules reference FAQ, a ship is never in its own arc
             bool inArc = Board.IsShipInArc(HostShip, Combat.Defender) && HostShip != Combat.Defender;

@@ -84,7 +84,7 @@ namespace Abilities.SecondEdition
 
         private bool HasMoreEnemyShipsAtR0ThanFriendly()
         {
-            return (ShipsR0.Count(n => n.Owner.PlayerNo != HostShip.Owner.PlayerNo) > ShipsR0.Count(n => n.Owner.PlayerNo == HostShip.Owner.PlayerNo) - 1);
+            return (ShipsR0.Count(n => !Tools.IsFriendly(n, HostShip)) > ShipsR0.Count(n => Tools.IsSameTeam(n, HostShip)) - 1);
         }
 
         private void DealDamage()

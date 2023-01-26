@@ -44,7 +44,7 @@ namespace Abilities.SecondEdition
         private void RegisterAbility(GenericShip ship, GenericToken token)
         {
             if (HostShip.State.Force > 0 
-                && ship.Owner == HostShip.Owner 
+                && Tools.IsFriendly(ship, HostShip)
                 && token is FocusToken
                 && new BoardTools.DistanceInfo(ship, HostShip).Range < 3)
             {

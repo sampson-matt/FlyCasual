@@ -52,6 +52,7 @@ namespace Abilities.FirstEdition
                 // ...check if there is another firendly ship at range 1
                 var friendlyShipsAtRangeOne = HostShip.Owner.Ships.Values
                     .Where(another => another.ShipId != HostShip.ShipId)
+                    .Where(another => Tools.IsFriendly(another, HostShip))
                     .Where(another => Board.GetRangeOfShips(HostShip, another) <= 1)
                     .ToArray();
                 if (friendlyShipsAtRangeOne.Any())

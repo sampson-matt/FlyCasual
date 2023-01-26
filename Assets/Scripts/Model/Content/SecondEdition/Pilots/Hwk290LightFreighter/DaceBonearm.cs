@@ -52,7 +52,7 @@ namespace Abilities.SecondEdition
         {
             if (HostShip.State.Charges < 3) return;
 
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo) return;
+            if (Tools.IsSameTeam(ship, HostShip)) return;
 
             if (token.GetType() != typeof(IonToken)) return;
 

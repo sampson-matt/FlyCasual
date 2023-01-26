@@ -49,7 +49,7 @@ namespace Abilities.SecondEdition
                 return;
 
             if (ship == HostShip || 
-                (ship.Owner == HostShip.Owner && !ship.PilotInfo.IsLimited && HostShip.GetRangeToShip(ship) <= 2))
+                (Tools.IsFriendly(ship, HostShip) && !ship.PilotInfo.IsLimited && HostShip.GetRangeToShip(ship) <= 2))
             {
                 preventDestruction = true;
                 Messages.ShowInfo(HostName + ": " + ship.PilotInfo.PilotName + " is not removed until the end of the Engagement Phase");

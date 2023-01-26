@@ -52,7 +52,7 @@ namespace Abilities.SecondEdition
         {
             bool result = false;
 
-            if (Combat.AttackStep == CombatStep.Defence && Combat.Defender.Owner.PlayerNo == HostShip.Owner.PlayerNo && HostShip.State.Force > 0)
+            if (Combat.AttackStep == CombatStep.Defence && Tools.IsFriendly(Combat.Defender, HostShip) && HostShip.State.Force > 0)
             {
                 ShotInfoArc arcInfo = new ShotInfoArc(
                     Combat.Defender,

@@ -64,7 +64,7 @@ namespace Abilities.SecondEdition
         {
             HoundsTooth = GetHoundsTooth();
 
-            if (HoundsTooth == null) Triggers.FinishTrigger();
+            if (HoundsTooth == null || !Tools.IsFriendly(HoundsTooth, HostShip)) Triggers.FinishTrigger();
 
             BlueLocks = HoundsTooth.Tokens.GetAllTokens()
                 .Where(n => n is BlueTargetLockToken)

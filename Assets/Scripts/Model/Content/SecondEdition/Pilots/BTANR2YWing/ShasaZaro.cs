@@ -81,7 +81,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return ship.Owner.PlayerNo == HostShip.Owner.PlayerNo
+            return Tools.IsFriendly(ship, HostShip)
                 && HostShip.SectorsInfo.IsShipInSector(ship, Arcs.ArcType.FullRear) 
                 && FilterTargetsByRange(ship, 0, 2);
         }

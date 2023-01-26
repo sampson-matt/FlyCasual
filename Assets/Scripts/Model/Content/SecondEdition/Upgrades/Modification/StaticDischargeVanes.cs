@@ -80,7 +80,7 @@ namespace Abilities.SecondEdition
 
         private int GetAiPriority(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo)
+            if (Tools.IsSameShip(ship, HostShip))
             {
                 return 0;
             }

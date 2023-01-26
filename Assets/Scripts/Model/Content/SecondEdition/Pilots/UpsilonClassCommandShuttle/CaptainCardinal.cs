@@ -60,7 +60,7 @@ namespace Abilities.SecondEdition
 
             GenericShip currentShip = (Combat.AttackStep == CombatStep.Attack) ? Combat.Attacker : Combat.Defender;
 
-            if (currentShip.Owner.PlayerNo != HostShip.Owner.PlayerNo) return false;
+            if (!Tools.IsFriendly(currentShip, HostShip)) return false;
 
             if (currentShip.State.Initiative >= HostShip.State.Initiative) return false;
 

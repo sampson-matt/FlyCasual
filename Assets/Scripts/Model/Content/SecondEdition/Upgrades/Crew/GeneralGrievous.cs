@@ -106,7 +106,7 @@ namespace Abilities.SecondEdition
 
         private void RegisterRecoverAbility(GenericShip destroyedShip, bool isFled)
         {
-            if (destroyedShip.Owner == HostShip.Owner)
+            if (Tools.IsFriendly(destroyedShip, HostShip))
             {
                 RegisterAbilityTrigger(TriggerTypes.OnShipIsDestroyed, RecoverCharge);
             }

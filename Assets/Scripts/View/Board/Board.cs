@@ -406,7 +406,7 @@ namespace BoardTools
             {
                 GenericShip otherShip = kv.Value;
 
-                if (team == Team.Type.Friendly && ship.Owner.Id != otherShip.Owner.Id)
+                if (team == Team.Type.Friendly && !Tools.IsFriendly(ship, otherShip))
                     continue;
 
                 if (team == Team.Type.Enemy && ship.Owner.Id == otherShip.Owner.Id)
@@ -428,7 +428,7 @@ namespace BoardTools
             {
                 GenericShip otherShip = kv.Value;
 
-                if (team == Team.Type.Friendly && ship.Owner.Id != otherShip.Owner.Id)
+                if (team == Team.Type.Friendly && !Tools.IsFriendly(ship, otherShip))
                     continue;
 
                 if (team == Team.Type.Enemy && ship.Owner.Id == otherShip.Owner.Id)
@@ -455,7 +455,7 @@ namespace BoardTools
             {
                 GenericShip othership = kv.Value;
 
-                if (team == Team.Type.Friendly && ship.Owner.Id != othership.Owner.Id)
+                if (team == Team.Type.Friendly && !Tools.IsFriendly(ship, othership))
                     continue;
 
                 if (team == Team.Type.Enemy && ship.Owner.Id == othership.Owner.Id)

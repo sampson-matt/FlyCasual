@@ -79,7 +79,7 @@ namespace Abilities.FirstEdition
             bool shipIsProtected = false;
             if (Selection.AnotherShip.ShipId != HostShip.ShipId)
             {
-                if (Selection.AnotherShip.Owner.PlayerNo == HostShip.Owner.PlayerNo)
+                if (Tools.IsFriendly(Selection.AnotherShip, HostShip))
                 {
                     BoardTools.DistanceInfo positionInfo = new BoardTools.DistanceInfo(Selection.AnotherShip, HostShip);
                     if (positionInfo.Range <= 1)

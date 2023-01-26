@@ -55,7 +55,7 @@ namespace Abilities.SecondEdition
             curToDamage = toDamage;
 
             // Is the defender on our team? If not return.
-            if (curToDamage.Owner.PlayerNo != HostShip.Owner.PlayerNo)
+            if (!Tools.IsFriendly(curToDamage, HostShip))
                 return;
 
             if (!(curToDamage is Ship.SecondEdition.TIELnFighter.TIELnFighter))

@@ -44,7 +44,7 @@ namespace Abilities.SecondEdition
         protected virtual bool IsAvailable()
         {
             if (Combat.AttackStep != CombatStep.Attack) return false;
-            if (Combat.Attacker.Owner != HostShip.Owner) return false;
+            if (!Tools.IsFriendly(Combat.Attacker, HostShip)) return false;
 
             DistanceInfo positionInfo = new DistanceInfo(HostShip, Combat.Attacker);
             if (positionInfo.Range > 2) return false;

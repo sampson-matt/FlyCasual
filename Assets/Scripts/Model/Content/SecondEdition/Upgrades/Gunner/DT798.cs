@@ -107,7 +107,7 @@ namespace Abilities.SecondEdition
             foreach (GenericShip friendlyShip in HostShip.Owner.Ships.Values)
             {
                 ShotInfo shotInfo = new ShotInfo(HostShip, friendlyShip, HostShip.PrimaryWeapons);
-                if (shotInfo.InArc) FriendlyShipsInArc.Add(friendlyShip);
+                if (shotInfo.InArc && Tools.IsFriendly(friendlyShip, HostShip)) FriendlyShipsInArc.Add(friendlyShip);
             }
 
             return FriendlyShipsInArc;

@@ -189,7 +189,7 @@ namespace ActionsList
 
         private bool FilterCoordinateTargets(GenericShip ship)
         {
-            return ship.Owner.PlayerNo == Selection.ThisShip.Owner.PlayerNo
+            return Tools.IsFriendly(ship, Selection.ThisShip)
                 && Board.CheckInRange(CoordinateActionData.CoordinateProvider, ship, 1, 2, RangeCheckReason.CoordinateAction)
                 && ship.CanBeCoordinated
                 && (!CoordinateActionData.TargetLowerInitiave || ship.PilotInfo.Initiative<HostShip.PilotInfo.Initiative)
@@ -285,7 +285,7 @@ namespace SubPhases
 
         private bool FilterCoordinateTargets(GenericShip ship)
         {
-            return ship.Owner.PlayerNo == Selection.ThisShip.Owner.PlayerNo
+            return Tools.IsFriendly(ship, Selection.ThisShip)
                 && Board.CheckInRange(Selection.ThisShip, ship, 1, 2, RangeCheckReason.CoordinateAction)
                 && ship.CanBeCoordinated
                 && Selection.ThisShip.CallCheckCanCoordinate(ship);

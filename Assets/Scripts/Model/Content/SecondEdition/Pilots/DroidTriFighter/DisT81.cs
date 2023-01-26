@@ -59,7 +59,7 @@ namespace Abilities.SecondEdition
                 foreach (GenericShip ship in HostShip.Owner.Ships.Values)
                 {
                     ShotInfo shotInfo = new ShotInfo(Combat.Defender, ship, Combat.Defender.PrimaryWeapons);
-                    if (shotInfo.InArc && ship.Tokens.HasToken<CalculateToken>()) return true;
+                    if (shotInfo.InArc && ship.Tokens.HasToken<CalculateToken>() && Tools.IsFriendly(ship, HostShip)) return true;
                 }
             }
             else if (Combat.AttackStep == CombatStep.Defence)
@@ -67,7 +67,7 @@ namespace Abilities.SecondEdition
                 foreach (GenericShip ship in HostShip.Owner.Ships.Values)
                 {
                     ShotInfo shotInfo = new ShotInfo(Combat.Attacker, ship, Combat.Attacker.PrimaryWeapons);
-                    if (shotInfo.InArc && ship.Tokens.HasToken<CalculateToken>()) return true;
+                    if (shotInfo.InArc && ship.Tokens.HasToken<CalculateToken>() && Tools.IsFriendly(ship, HostShip)) return true;
                 }
             }
             return false;

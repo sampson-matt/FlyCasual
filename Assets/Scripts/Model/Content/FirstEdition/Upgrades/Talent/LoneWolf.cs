@@ -65,7 +65,7 @@ namespace ActionsList
 
             foreach (var friendlyShip in HostShip.Owner.Ships)
             {
-                if (friendlyShip.Value.ShipId != HostShip.ShipId)
+                if (friendlyShip.Value.ShipId != HostShip.ShipId && Tools.IsFriendly(friendlyShip.Value, HostShip))
                 {
                     BoardTools.DistanceInfo distanceInfo = new BoardTools.DistanceInfo(HostShip, friendlyShip.Value);
                     if (distanceInfo.Range < 3)

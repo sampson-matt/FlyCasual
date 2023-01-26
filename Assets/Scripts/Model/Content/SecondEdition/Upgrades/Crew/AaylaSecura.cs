@@ -56,7 +56,7 @@ namespace Abilities.SecondEdition
         private bool IsAvailable()
         {
             return Combat.AttackStep == CombatStep.Defence
-                && Combat.Defender.Owner == HostShip.Owner
+                && Tools.IsFriendly(Combat.Defender, HostShip)
                 && Combat.CurrentDiceRoll.Blanks > 0
                 && HostShip.SectorsInfo.IsShipInSector(Combat.Attacker, Arcs.ArcType.Bullseye)
                 && HostShip.GetRangeToShip(Combat.Defender) < 3;

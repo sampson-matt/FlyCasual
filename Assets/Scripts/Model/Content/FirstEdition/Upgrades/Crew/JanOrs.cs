@@ -47,7 +47,7 @@ namespace Abilities.FirstEdition
         private void RegisterJanOrsCrewAbility(GenericShip ship, GenericToken token)
         {
             if (token is FocusToken
-                && ship.Owner == HostShip.Owner
+                && Tools.IsFriendly(ship, HostShip)
                 && !IsAbilityUsed)
             {
                 BoardTools.DistanceInfo positionInfo = new BoardTools.DistanceInfo(ship, HostShip);

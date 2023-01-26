@@ -42,7 +42,7 @@ namespace Abilities.SecondEdition
         private void RegisterValenRudorAbility(GenericShip ship)
         {
             var distanceInfo = new DistanceInfo(HostShip, Combat.Defender);
-            if (distanceInfo.Range <= 1 && Combat.Defender.Owner == HostShip.Owner)
+            if (distanceInfo.Range <= 1 && Tools.IsFriendly(Combat.Defender, HostShip))
             {
                 RegisterAbilityTrigger(TriggerTypes.OnAttackFinish, PerformFreeAction);
             }

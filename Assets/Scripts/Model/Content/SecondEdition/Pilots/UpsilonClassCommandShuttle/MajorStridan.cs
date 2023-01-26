@@ -41,7 +41,7 @@ namespace Abilities.SecondEdition
 
         private void CheckRangeModification(GenericShip anotherShip, int minRange, int maxRange, RangeCheckReason reason, ref bool isInRange)
         {
-            if ((anotherShip.Owner.PlayerNo == HostShip.Owner.PlayerNo)
+            if ((Tools.IsFriendly(anotherShip, HostShip))
                 && (reason == RangeCheckReason.CoordinateAction || reason == RangeCheckReason.UpgradeCard)
                 && (minRange >= 0 || maxRange <= 1)
             )

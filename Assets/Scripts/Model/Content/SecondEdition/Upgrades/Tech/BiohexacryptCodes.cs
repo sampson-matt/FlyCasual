@@ -59,7 +59,7 @@ namespace Abilities.SecondEdition
         private bool CanBeCoordinatedIgnoringRange(GenericAction action, GenericShip target)
         {
             return action is CoordinateAction
-                && target.Owner.PlayerNo == HostShip.Owner.PlayerNo
+                && Tools.IsFriendly(target, HostShip)
                 && target.CanBeCoordinated;
         }
 

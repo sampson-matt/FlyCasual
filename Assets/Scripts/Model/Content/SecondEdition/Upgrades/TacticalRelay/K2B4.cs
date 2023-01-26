@@ -52,7 +52,7 @@ namespace Abilities.SecondEdition
 
         private void CheckRelayAbility(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo && ship.Tokens.HasToken(typeof(Tokens.CalculateToken)))
+            if (Tools.IsFriendly(ship, HostShip) && ship.Tokens.HasToken(typeof(Tokens.CalculateToken)))
             {
                 DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
                 if (distInfo.Range < 4)

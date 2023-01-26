@@ -88,7 +88,7 @@ namespace Abilities.SecondEdition
 
         private void CanPerformTargetLock(ref bool result, GenericShip ship, ITargetLockable defender)
         {
-            if (ship.Owner.PlayerNo != HostShip.Owner.PlayerNo) return;
+            if (!Tools.IsFriendly(ship, HostShip)) return;
 
             if (defender.GetRangeToShip(HostShip) < 4)
             {
@@ -100,7 +100,7 @@ namespace Abilities.SecondEdition
         private void CanPerformJam(ref List<JamIsNotAllowedReasons> blockers, GenericShip jamSource, ITargetLockable jamTarget)
         {
             if (blockers.Contains(JamIsNotAllowedReasons.NotInRange)
-                && Tools.IsSameTeam(jamSource, HostShip)
+                && Tools.IsFriendly(jamSource, HostShip)
                 && jamTarget.GetRangeToShip(HostShip) < 2)
             {
                 blockers.Remove(JamIsNotAllowedReasons.NotInRange);

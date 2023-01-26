@@ -85,7 +85,7 @@ namespace Abilities.SecondEdition
         private bool AiDecidesUse()
         {
             var shipsAtRange = BoardTools.Board.GetShipsAtRange(Combat.Defender, new Vector2(0, 1));
-            var friendlies = shipsAtRange.Where(ship => ship.Owner.PlayerNo == Combat.Attacker.Owner.PlayerNo);
+            var friendlies = shipsAtRange.Where(ship => Tools.IsSameTeam(ship, Combat.Attacker));
             var enemies = shipsAtRange.Where(ship => ship.Owner.PlayerNo != Combat.Attacker.Owner.PlayerNo);
             var friendliesCount = friendlies.Count();
             var enemiesCount = enemies.Count();

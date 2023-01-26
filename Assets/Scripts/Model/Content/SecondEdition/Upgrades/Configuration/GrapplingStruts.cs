@@ -119,6 +119,8 @@ namespace Abilities.SecondEdition
                 {
                     if (friendlyShip.ShipId == HostShip.ShipId) continue;
 
+                    if (!Tools.IsFriendly(friendlyShip, HostShip)) continue;
+
                     if (friendlyShip.ObstaclesLanded.Contains(obstacle)) friendlyShipsInRangeOfObstacle++;
                 }
 

@@ -84,7 +84,7 @@ namespace Abilities.SecondEdition
                 || (
                     e.DamageType == DamageTypes.BombDetonation
                     && (e.Source as GenericUpgrade).UpgradeInfo.SubType == UpgradeSubType.Bomb
-                    && (e.Source as GenericUpgrade).HostShip.Owner.PlayerNo == HostShip.Owner.PlayerNo
+                    && Tools.IsFriendly((e.Source as GenericUpgrade).HostShip, HostShip)
                 )
             );
         }

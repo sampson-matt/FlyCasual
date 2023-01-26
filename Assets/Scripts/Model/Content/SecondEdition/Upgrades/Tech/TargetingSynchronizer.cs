@@ -41,7 +41,7 @@ namespace Abilities.SecondEdition
         private void CheckAbility(GenericShip ship, GenericSpecialWeapon weapon, ref List<Type> tokenTypes, bool isSilent)
         {
             if (tokenTypes.Contains(typeof(BlueTargetLockToken))
-                && ship.Owner.PlayerNo == HostShip.Owner.PlayerNo
+                && Tools.IsFriendly(ship, HostShip)
                 && IsInRangeFromOneToTwo(HostShip, ship)
                 && ActionsHolder.HasTargetLockOn(HostShip, Selection.AnotherShip)
             )

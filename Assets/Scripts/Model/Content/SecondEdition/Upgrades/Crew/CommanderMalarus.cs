@@ -85,7 +85,7 @@ namespace Abilities.SecondEdition
         private bool IsAvailable()
         {
             return Combat.AttackStep == CombatStep.Attack
-                && Combat.Attacker.Owner.PlayerNo == HostShip.Owner.PlayerNo
+                && Tools.IsFriendly(Combat.Attacker, HostShip)
                 && Board.CheckInRange(HostShip, Combat.Attacker, 0, 1, RangeCheckReason.UpgradeCard)
                 && Combat.ChosenWeapon.WeaponType == WeaponTypes.PrimaryWeapon
                 && Combat.DiceRollAttack.HasResult(DieSide.Blank)

@@ -57,7 +57,7 @@ namespace Abilities.SecondEdition
             foreach (GenericShip friendlyShip in HostShip.Owner.Ships.Values)
             {
                 DistanceInfo distInfo = new DistanceInfo(HostShip, friendlyShip);
-                if (distInfo.Range <= 3)
+                if (distInfo.Range <= 3 && Tools.IsFriendly(HostShip, friendlyShip))
                 {
                     if (friendlyShip.SectorsInfo.IsShipInSector(Combat.Defender, Arcs.ArcType.Bullseye)) count++;
                 }

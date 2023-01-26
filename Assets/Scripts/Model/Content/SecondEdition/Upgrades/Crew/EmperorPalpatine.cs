@@ -61,7 +61,7 @@ namespace Abilities.SecondEdition
         private bool IsAvailable()
         {
             GenericShip activeShip = Combat.AttackStep == CombatStep.Attack ? Combat.Attacker : Combat.Defender;
-            return activeShip.Owner == HostShip.Owner
+            return Tools.IsFriendly(activeShip, HostShip)
                 && activeShip != HostShip                
                 && HostShip.State.Force > 0;
         }

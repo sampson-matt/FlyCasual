@@ -124,7 +124,7 @@ namespace Abilities.SecondEdition
         private bool FilterAbilityTargets(GenericShip ship)
         {
             var range = new DistanceInfo(HostShip, ship).Range;
-            return ship.Owner == HostShip.Owner && range == 1;
+            return Tools.IsFriendly(ship, HostShip) && range == 1;
         }
     }
 }

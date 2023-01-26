@@ -48,7 +48,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship)
         {
-            if (Tools.IsSameTeam(Combat.Defender, HostShip)
+            if (Tools.IsFriendly(Combat.Defender, HostShip)
                 && IsRangeFrom0To3()
                 && IsAttackerInArc()
             )

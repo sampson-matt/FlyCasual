@@ -54,7 +54,7 @@ namespace Abilities.SecondEdition
             var rangeLeft = HostShip.SectorsInfo.RangeToShipBySector(Combat.Attacker, Arcs.ArcType.Left);
             var rangeRight = HostShip.SectorsInfo.RangeToShipBySector(Combat.Attacker, Arcs.ArcType.Right);
 
-            if (Combat.Attacker.Owner == HostShip.Owner
+            if (Tools.IsFriendly(Combat.Attacker, HostShip)
                 && !HostShip.IsStrained
                 && ((HostShip.SectorsInfo.IsShipInSector(Combat.Attacker, Arcs.ArcType.Left) && rangeLeft >= 1 && rangeLeft <= 2)
                     || (HostShip.SectorsInfo.IsShipInSector(Combat.Attacker, Arcs.ArcType.Right) && rangeRight >= 1 && rangeRight <= 2)))

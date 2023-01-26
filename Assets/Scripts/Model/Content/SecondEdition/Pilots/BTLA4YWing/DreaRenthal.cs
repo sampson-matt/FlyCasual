@@ -65,7 +65,7 @@ namespace Abilities.SecondEdition
             public override bool IsDiceModificationAvailable()
             {
                 bool result = false;
-                if (Combat.Attacker.Owner.PlayerNo == HostShip.Owner.PlayerNo && !Combat.Attacker.PilotInfo.IsLimited && Board.IsShipInArc(HostShip, Combat.Defender))
+                if (Tools.IsFriendly(Combat.Attacker, HostShip) && !Combat.Attacker.PilotInfo.IsLimited && Board.IsShipInArc(HostShip, Combat.Defender))
                 {
                     return true;
                 }

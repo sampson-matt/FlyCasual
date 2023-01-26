@@ -80,7 +80,7 @@ namespace Abilities.SecondEdition
                 if (Combat.DiceRollDefence.Successes > 0
                     && Combat.Attacker == HostShip
                     && HostShip.Tokens.HasToken<Tokens.CalculateToken>()
-                    && HostShip.Owner == CaptainSearShip.Owner
+                    && Tools.IsFriendly(HostShip, CaptainSearShip)
                     && Combat.ChosenWeapon.WeaponType == WeaponTypes.PrimaryWeapon
                     && HostShip.SectorsInfo.IsShipInSector(Combat.Defender, ArcType.Bullseye)
                     && new BoardTools.DistanceInfo(CaptainSearShip, HostShip).Range <= 3

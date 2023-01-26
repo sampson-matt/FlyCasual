@@ -54,7 +54,7 @@ namespace Abilities.FirstEdition
 
         private void CheckThreatTrackerAbility(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo) return;
+            if (Tools.IsFriendly(ship, HostShip)) return;
 
             ShotInfo shotInfo = new ShotInfo(HostShip, ship, HostShip.PrimaryWeapons);
             if (!shotInfo.InArc || shotInfo.Range >= 3) return;

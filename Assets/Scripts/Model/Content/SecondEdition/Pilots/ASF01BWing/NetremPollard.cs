@@ -92,7 +92,7 @@ namespace Abilities.SecondEdition
         private bool FilterTargets(GenericShip ship)
         {
             DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
-            return (distInfo.Range <= 1 && !ship.IsStressed && Tools.IsSameTeam(HostShip, ship));
+            return (distInfo.Range <= 1 && !ship.IsStressed && Tools.IsFriendly(HostShip, ship));
         }
 
         private int GetAiPriority(GenericShip ship)

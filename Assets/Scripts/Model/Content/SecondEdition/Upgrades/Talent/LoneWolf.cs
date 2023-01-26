@@ -62,7 +62,7 @@ namespace Abilities.SecondEdition
 
             foreach (var friendlyShip in HostShip.Owner.Ships)
             {
-                if (friendlyShip.Value != HostShip)
+                if (friendlyShip.Value != HostShip && Tools.IsFriendly(friendlyShip.Value, HostShip))
                 {
                     BoardTools.DistanceInfo distanceInfo = new BoardTools.DistanceInfo(HostShip, friendlyShip.Value);
                     if (distanceInfo.Range < 3)

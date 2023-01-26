@@ -95,6 +95,7 @@ namespace Abilities.SecondEdition
                     var range = t.GetRangeToShip(f);
                     return f.TargetLockMinRange <= range && f.TargetLockMaxRange >= range;
                 }))
+                .Where(f => Tools.IsFriendly(f, HostShip))
                 .ToArray();
             if (friendlies.Length == 0)
             {

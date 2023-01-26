@@ -84,7 +84,7 @@ namespace Abilities.SecondEdition
                 !IsAbilityUsed 
                 && HostShip.State.Force > 0
                 && Combat.AttackStep == CombatStep.Attack
-                && Combat.Defender.Owner == HostShip.Owner
+                && Tools.IsFriendly(Combat.Defender, HostShip)
                 && new BoardTools.DistanceInfo(HostShip, Combat.Defender).Range < 3
                 && !Combat.Attacker.SectorsInfo.IsShipInSector(Combat.Defender, Arcs.ArcType.Bullseye);
         }

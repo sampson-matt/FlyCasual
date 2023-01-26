@@ -295,7 +295,7 @@ namespace SubPhases
         {
             int result = 0;
 
-            if (ship.Owner.PlayerNo != Selection.ThisShip.Owner.PlayerNo)
+            if (!Tools.IsSameTeam(ship, Selection.ThisShip))
             {
                 ShotInfo shotInfo = new ShotInfo(Selection.ThisShip, ship, Selection.ThisShip.PrimaryWeapons);
                 if (shotInfo.IsShotAvailable) result += 1000;

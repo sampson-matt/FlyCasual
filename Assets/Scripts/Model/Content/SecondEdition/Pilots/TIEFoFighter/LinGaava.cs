@@ -99,7 +99,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterSelection(GenericShip ship)
         {
-            return Tools.IsSameTeam(ship, HostShip) && 
+            return Tools.IsFriendly(ship, HostShip) && 
                 ship.ShipId != HostShip.ShipId &&
                 (ship.GetType().IsSubclassOf(typeof(Ship.SecondEdition.TIEFoFighter.TIEFoFighter)) || ship.GetType().IsSubclassOf(typeof(Ship.SecondEdition.TIESfFighter.TIESfFighter))) && 
                 !ship.UpgradeBar.GetUpgradesAll().Any(n => n.HasType(UpgradeType.Modification));

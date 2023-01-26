@@ -49,12 +49,15 @@ namespace Abilities.FirstEdition
 
             foreach (var shipHolder in HostShip.Owner.Ships)
             {
-                foreach (var upgrade in shipHolder.Value.UpgradeBar.GetUpgradesOnlyFaceup())
+                if (Tools.IsFriendly(shipHolder.Value, HostShip))
                 {
-                    if (upgrade.GetType() == typeof(UpgradesList.FirstEdition.PhantomII))
+                    foreach (var upgrade in shipHolder.Value.UpgradeBar.GetUpgradesOnlyFaceup())
                     {
-                        result = upgrade.HostShip;
-                        break;
+                        if (upgrade.GetType() == typeof(UpgradesList.FirstEdition.PhantomII))
+                        {
+                            result = upgrade.HostShip;
+                            break;
+                        }
                     }
                 }
             }

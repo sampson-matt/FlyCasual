@@ -64,7 +64,7 @@ namespace Abilities.FirstEdition
                 {
                     if (Combat.Defender.ShipId != HostShip.ShipId)
                     {
-                        if (Combat.Defender.Owner.PlayerNo == HostShip.Owner.PlayerNo)
+                        if (Tools.IsFriendly(Combat.Defender, HostShip))
                         {
                             if (HostShip.Tokens.HasToken(typeof(ReinforceForeToken)) || HostShip.Tokens.HasToken(typeof(ReinforceAftToken)))
                             {

@@ -39,7 +39,7 @@ namespace Abilities.FirstEdition
 
         private void CheckOperationsSpecialistAbility()
         {
-            if (Combat.Attacker.Owner.PlayerNo == HostShip.Owner.PlayerNo && BoardTools.Board.GetRangeOfShips(HostShip, Combat.Attacker) <= 2)
+            if (Tools.IsFriendly(Combat.Attacker, HostShip) && BoardTools.Board.GetRangeOfShips(HostShip, Combat.Attacker) <= 2)
             {
                 RegisterAbilityTrigger(TriggerTypes.OnAttackMissed, (s, e) => OperationsSpecialistEffect(Combat.Attacker));
             }

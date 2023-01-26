@@ -44,7 +44,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship)
         {
-            if (Tools.IsSameTeam(HostShip, ship) && HostShip.State.Initiative > ship.State.Initiative)
+            if (Tools.IsFriendly(HostShip, ship) && HostShip.State.Initiative > ship.State.Initiative)
             {
                 DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
                 if (distInfo.Range <= 3) RegisterAbilityTrigger(TriggerTypes.OnMovementFinish, AskToUseGorransAbility);

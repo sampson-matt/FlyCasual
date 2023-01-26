@@ -52,7 +52,7 @@ namespace Abilities.SecondEdition
 
         private void ApplySetupFilter(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo != HostShip.Owner.PlayerNo) return;
+            if (!Tools.IsFriendly(ship, HostShip)) return;
 
             SetupSubPhase setupSubPhase = Phases.CurrentSubPhase as SetupSubPhase;
             setupSubPhase.SetupFilter = LieutenantDormitzRestrictions;

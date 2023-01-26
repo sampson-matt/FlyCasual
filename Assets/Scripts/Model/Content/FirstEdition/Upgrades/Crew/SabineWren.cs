@@ -60,7 +60,7 @@ namespace Abilities.FirstEdition
 
         private bool IsBombFriendly(GenericBomb bomb)
         {
-            return bomb.HostShip.Owner.PlayerNo == HostShip.Owner.PlayerNo;
+            return Tools.IsFriendly(bomb.HostShip, HostShip);
         }
 
         private bool IsAtLeastOneEnemyInRange(GenericBomb bomb, GenericDeviceGameObject bombObject)

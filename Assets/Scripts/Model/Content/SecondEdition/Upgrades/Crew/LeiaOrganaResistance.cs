@@ -59,7 +59,7 @@ namespace Abilities.SecondEdition
 
         private void TryRegisterAbility(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo
+            if (Tools.IsFriendly(ship, HostShip)
                 && HostShip.State.Force > 0
                 && Selection.ThisShip.RevealedManeuver.ColorComplexity != MovementComplexity.Easy
             )

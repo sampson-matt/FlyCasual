@@ -45,13 +45,13 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility()
         {
-            if (Combat.Defender.Owner.PlayerNo != HostShip.Owner.PlayerNo) return;
+            if (!Tools.IsFriendly(Combat.Defender, HostShip)) return;
 
             DistanceInfo distInfo = new DistanceInfo(HostShip, Combat.Defender);
             if (distInfo.Range > 3) return;
 
             BombsAndMinesInRangeCount = 0;
-            foreach (var bombHolder in BombsManager.GetBombsOnBoard().Where(n => n.Value.HostShip.Owner.PlayerNo == HostShip.Owner.PlayerNo))
+            foreach (var bombHolder in BombsManager.GetBombsOnBoard().Where(n => Tools.IsFriendly(n.Value.HostShip, HostShip)))
             {
                 //January 2020 errata: This ability now only works with bombs
                 if (bombHolder.Value.UpgradeInfo.SubType != UpgradeSubType.Bomb)

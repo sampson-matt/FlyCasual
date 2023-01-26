@@ -46,8 +46,8 @@ namespace Abilities.SecondEdition
 
         protected void TryRegisterAbility(GenericShip ship)
         {
-            if (Tools.IsSameTeam(ship, HostShip)
-                && Board.IsShipBetweenRange(HostShip, ship, 0, 3)
+            if (Tools.IsFriendly(ship, HostShip)
+                && Board.IsShipBetweenRange(HostShip, ship, 0, 2)
                 && (Combat.Defender != null)
                 && Tools.IsSameShip(ship, Combat.Defender)
                 && !IsAlreadyRegistered

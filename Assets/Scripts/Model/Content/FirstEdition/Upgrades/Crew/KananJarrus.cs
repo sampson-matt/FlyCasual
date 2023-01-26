@@ -45,7 +45,7 @@ namespace Abilities.FirstEdition
 
         private void CheckAbility(GenericShip ship)
         {
-            if (!IsAbilityUsed && ship.Owner.PlayerNo == HostShip.Owner.PlayerNo && ship.AssignedManeuver.ColorComplexity == Movement.MovementComplexity.Normal)
+            if (!IsAbilityUsed && Tools.IsFriendly(ship, HostShip) && ship.AssignedManeuver.ColorComplexity == Movement.MovementComplexity.Normal)
             {
                 BoardTools.DistanceInfo distanceInfo = new BoardTools.DistanceInfo(HostShip, ship);
                 if (distanceInfo.Range < 3)

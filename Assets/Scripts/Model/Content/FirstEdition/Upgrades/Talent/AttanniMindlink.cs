@@ -65,7 +65,7 @@ namespace Abilities.FirstEdition
             {
                 if (HasAttanniMinklink(friendlyShip.Value))
                 {
-                    if (friendlyShip.Value.ShipId != HostShip.ShipId)
+                    if (friendlyShip.Value.ShipId != HostShip.ShipId && Tools.IsFriendly(friendlyShip.Value, HostShip))
                     {
                         if (!friendlyShip.Value.Tokens.HasToken(tokenType))
                         {

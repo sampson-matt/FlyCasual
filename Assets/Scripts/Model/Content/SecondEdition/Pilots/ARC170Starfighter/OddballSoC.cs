@@ -117,7 +117,7 @@ namespace Abilities.SecondEdition
             GenericShip activeShip = Combat.Defender;
             return Combat.AttackStep == CombatStep.Defence
                 && !HostShip.IsStrained
-                && activeShip.Owner == HostShip.Owner
+                && Tools.IsFriendly(activeShip, HostShip)
                 && activeShip != HostShip
                 && Board.IsShipBetweenRange(HostShip, activeShip, 0, 2)
                 && HostShip.Tokens.HasToken(typeof(EvadeToken));
@@ -139,7 +139,7 @@ namespace Abilities.SecondEdition
             return Combat.AttackStep == CombatStep.Defence
                 && Combat.CurrentDiceRoll.Focuses > 0
                 && !HostShip.IsStrained
-                && activeShip.Owner == HostShip.Owner
+                && Tools.IsFriendly(activeShip, HostShip)
                 && activeShip != HostShip
                 && Board.IsShipBetweenRange(HostShip, activeShip, 0, 2)
                 && HostShip.Tokens.HasToken(typeof(FocusToken));

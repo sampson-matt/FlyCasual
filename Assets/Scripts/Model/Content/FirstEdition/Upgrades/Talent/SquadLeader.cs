@@ -102,7 +102,7 @@ namespace SubPhases
         private bool FilterAbilityTargets(GenericShip ship)
         {
             BoardTools.DistanceInfo distanceInfo = new BoardTools.DistanceInfo(SquadLeaderOwner, ship);
-            return (ship.State.Initiative < SquadLeaderOwner.State.Initiative) && (distanceInfo.Range <= 2) && (ship.Owner.PlayerNo == SquadLeaderOwner.Owner.PlayerNo) && (ship.ShipId != SquadLeaderOwner.ShipId);
+            return (ship.State.Initiative < SquadLeaderOwner.State.Initiative) && (distanceInfo.Range <= 2) && (Tools.IsFriendly(ship, SquadLeaderOwner)) && (ship.ShipId != SquadLeaderOwner.ShipId);
         }
 
         private int GetAiAbilityPriority(GenericShip ship)

@@ -55,7 +55,7 @@ namespace Abilities.FirstEdition
         private bool FilterAbilityTargets(GenericShip ship)
         {
             BoardTools.DistanceInfo distanceInfo = new BoardTools.DistanceInfo(HostShip, ship);
-            return (distanceInfo.Range == 1) && (ship.Owner == HostShip.Owner) && (ship.ShipId != HostShip.ShipId);
+            return (distanceInfo.Range == 1) && (Tools.IsFriendly(ship, HostShip)) && (ship.ShipId != HostShip.ShipId);
         }
 
         private int GetAiAbilityPriority(GenericShip ship)

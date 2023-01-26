@@ -73,7 +73,7 @@ namespace Abilities.SecondEdition
         {
             bool result = false;
 
-            if (ship.PilotInfo.PilotName == "Anakin Skywalker" && ship.Owner.PlayerNo == HostShip.Owner.PlayerNo)
+            if (ship.PilotInfo.PilotName == "Anakin Skywalker" && Tools.IsFriendly(ship, HostShip))
             {
                 DistanceInfo distanceInfo = new DistanceInfo(HostShip, ship);
                 if (distanceInfo.Range <= 3)
@@ -97,7 +97,7 @@ namespace Abilities.SecondEdition
                 DistanceInfo distInfo = new DistanceInfo(ship, anotherShip);
                 if (distInfo.Range <= 1)
                 {
-                    if (ship.Owner.PlayerNo == anotherShip.Owner.PlayerNo)
+                    if (Tools.IsFriendly(ship, anotherShip))
                     {
                         anotherFriendlyShipsInRange++;
                     }

@@ -46,7 +46,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo) return;
+            if (Tools.IsSameTeam(ship, HostShip)) return;
 
             DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
             if (distInfo.Range == 1 || distInfo.Range == 2)

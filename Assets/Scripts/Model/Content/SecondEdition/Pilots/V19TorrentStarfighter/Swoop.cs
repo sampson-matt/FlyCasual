@@ -41,7 +41,7 @@ namespace Abilities.SecondEdition
 
         private void RegisterTrigger(GenericShip ship)
         {
-            if (ship.Owner == HostShip.Owner
+            if (Tools.IsFriendly(ship, HostShip)
                 && (ship.ShipInfo.BaseSize == BaseSize.Small || ship.ShipInfo.BaseSize == BaseSize.Medium)
                 && (ship.AssignedManeuver.Speed == 3 || ship.AssignedManeuver.Speed == 4)
                 && new BoardTools.DistanceInfo(ship, HostShip).Range <= 1)

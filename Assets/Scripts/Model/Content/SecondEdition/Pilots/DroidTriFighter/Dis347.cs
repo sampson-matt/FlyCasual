@@ -99,7 +99,7 @@ namespace Abilities.SecondEdition
 
             foreach (GenericShip friendlyShip in HostShip.Owner.Ships.Values)
             {
-                if (ActionsHolder.HasTargetLockOn(friendlyShip, ship))
+                if (ActionsHolder.HasTargetLockOn(friendlyShip, ship) && Tools.IsFriendly(friendlyShip, HostShip))
                 {
                     DistanceInfo distInfo = new DistanceInfo(HostShip, ship);
                     if (distInfo.Range >= 1 && distInfo.Range <= 3)

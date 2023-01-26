@@ -86,7 +86,7 @@ namespace Abilities.FirstEdition
 
         protected virtual bool CheckRequirements(GenericShip ship)
         {
-            var match = ship.Owner.PlayerNo == HostShip.Owner.PlayerNo
+            var match = Tools.IsFriendly(ship,HostShip)
                 && ship.State.ShieldsMax <= 3
                 && ship.SubFaction == Faction.Imperial;
             return match;
@@ -105,7 +105,7 @@ namespace Abilities.FirstEdition
         {
             if (ship.ShipId == Combat.Attacker.ShipId)
             {
-                var onRangePrototypeAttacked = Combat.Attacker.Owner.PlayerNo == HostShip.Owner.PlayerNo
+                var onRangePrototypeAttacked = Tools.IsFriendly(Combat.Attacker, HostShip)
                     && Combat.Attacker.Tokens.HasToken<OptimizedPrototype>()
                     && Combat.ChosenWeapon.WeaponType == WeaponTypes.PrimaryWeapon
                     && BoardTools.Board.GetRangeOfShips(Combat.Attacker, HostShip) <= 2;

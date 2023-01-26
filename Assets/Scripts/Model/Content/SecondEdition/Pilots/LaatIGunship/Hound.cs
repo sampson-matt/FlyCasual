@@ -44,7 +44,7 @@ namespace Abilities.SecondEdition
         private void CheckAbility(GenericShip ship, GenericToken token)
         {
             if ((token is DepleteToken || token is StrainToken) 
-                && ship.Owner == HostShip.Owner 
+                && Tools.IsFriendly(ship, HostShip)
                 && ship != HostShip 
                 && ship.ShipBase.Size == BaseSize.Small
                 && HostShip.Tokens.CountTokensByType(token.GetType()) == 0

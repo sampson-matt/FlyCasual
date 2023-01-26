@@ -41,7 +41,7 @@ namespace Abilities.FirstEdition
         private void CaptainYorrPilotAbility(GenericShip ship, GenericToken token)
         {
             if (token is StressToken
-                && ship.Owner == HostShip.Owner
+                && Tools.IsFriendly(ship, HostShip)
                 && ship != HostShip
                 && HostShip.Tokens.CountTokensByType(typeof(StressToken)) <= 2)
             {

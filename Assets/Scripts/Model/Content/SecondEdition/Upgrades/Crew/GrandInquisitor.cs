@@ -49,7 +49,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo) return;
+            if (Tools.IsSameTeam(ship, HostShip)) return;
             if (HostShip.State.Force == 0) return;
             //skip if crew is owned by the AI, because it is hard to calculate correct priority of red action
             if (HostShip.Owner.PlayerType == Players.PlayerType.Ai) return;

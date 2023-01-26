@@ -125,7 +125,7 @@ namespace Abilities.SecondEdition
             // Only for real ships
             if (ship is GenericRemote) return;
 
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo) return;
+            if (Tools.IsSameTeam(ship, HostShip)) return;
 
             if (ship.RemotesOverlapped.Contains(HostShip) || ship.RemotesMovedThrough.Contains(HostShip))
             {

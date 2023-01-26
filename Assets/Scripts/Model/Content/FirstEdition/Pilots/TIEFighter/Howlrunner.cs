@@ -46,7 +46,7 @@ namespace Abilities.FirstEdition
             if (Combat.AttackStep != CombatStep.Attack) return false;
 
             if (Combat.Attacker == HostShip) return false;
-            if (Combat.Attacker.Owner != HostShip.Owner) return false;
+            if (!Tools.IsFriendly(Combat.Attacker, HostShip)) return false;
 
             if (Combat.ChosenWeapon.WeaponType != WeaponTypes.PrimaryWeapon) return false;
 

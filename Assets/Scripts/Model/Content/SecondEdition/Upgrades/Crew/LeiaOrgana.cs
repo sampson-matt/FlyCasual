@@ -87,7 +87,7 @@ namespace Abilities.SecondEdition
 
         private void CheckReduceComplexity(GenericShip ship)
         {
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo && ship.AssignedManeuver.ColorComplexity == MovementComplexity.Complex)
+            if (Tools.IsFriendly(ship, HostShip) && ship.AssignedManeuver.ColorComplexity == MovementComplexity.Complex)
             {
                 ship.AssignedManeuver.ColorComplexity = GenericMovement.ReduceComplexity(ship.AssignedManeuver.ColorComplexity);
             }

@@ -41,7 +41,7 @@ namespace Abilities.FirstEdition
         {
             if (BoardTools.Board.IsOffTheBoard(ship)) return;
 
-            if (ship.Owner.PlayerNo == HostShip.Owner.PlayerNo
+            if (Tools.IsFriendly(ship, HostShip)
                 && ship.AssignedManeuver.Speed == 1
                 && !ship.IsBumped
                 && (HostShip.Tokens.HasToken<FocusToken>() || HostShip.Tokens.HasToken<EvadeToken>())

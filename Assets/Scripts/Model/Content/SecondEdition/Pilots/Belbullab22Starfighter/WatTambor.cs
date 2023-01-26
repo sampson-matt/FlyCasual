@@ -52,8 +52,8 @@ namespace Abilities.SecondEdition
         private int GetNumberOfDiceToModify()
         {
             var count = Roster.AllShips.Values
-                .Where(ship => 
-                    ship.Owner == HostShip.Owner 
+                .Where(ship =>
+                    Tools.IsFriendly(ship, HostShip)
                     && ship.Tokens.HasToken<Tokens.CalculateToken>() 
                     && new DistanceInfo(Combat.Defender, ship).Range == 1)
                 .Count();

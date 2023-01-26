@@ -72,7 +72,7 @@ namespace Abilities.SecondEdition
                     foreach (GenericShip friendlyShip in Combat.Defender.Owner.Ships.Values)
                     {
                         ShotInfo shotInfo = new ShotInfo(friendlyShip, Combat.Attacker, friendlyShip.PrimaryWeapons);
-                        if (shotInfo.InArcByType(ArcType.SingleTurret)) return true;
+                        if (shotInfo.InArcByType(ArcType.SingleTurret) && Tools.IsFriendly(friendlyShip, HostShip)) return true;
                     }
                 }
                 return false;

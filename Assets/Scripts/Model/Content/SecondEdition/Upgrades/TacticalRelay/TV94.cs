@@ -76,7 +76,7 @@ namespace Abilities.SecondEdition
         {
             if (Combat.AttackStep != CombatStep.Attack) return false;
 
-            if (Combat.Attacker.Owner.PlayerNo != HostShip.Owner.PlayerNo) return false;
+            if (!Tools.IsFriendly(Combat.Attacker, HostShip)) return false;
 
             if (Combat.ChosenWeapon.WeaponType != WeaponTypes.PrimaryWeapon) return false;
 

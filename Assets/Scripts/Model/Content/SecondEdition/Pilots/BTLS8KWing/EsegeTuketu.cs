@@ -53,7 +53,7 @@ namespace Abilities.SecondEdition
         private bool IsAvailable()
         {
             GenericShip activeShip = Combat.AttackStep == CombatStep.Attack ? Combat.Attacker : Combat.Defender;
-            return activeShip.Owner == HostShip.Owner
+            return Tools.IsFriendly(activeShip, HostShip)
                 && activeShip != HostShip
                 && Board.IsShipBetweenRange(HostShip, activeShip, 0, 2)
                 && HostShip.Tokens.HasToken(typeof(FocusToken));

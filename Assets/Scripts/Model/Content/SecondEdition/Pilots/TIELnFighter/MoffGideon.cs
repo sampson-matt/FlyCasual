@@ -83,6 +83,7 @@ namespace Abilities.SecondEdition
         {
             HostShip.SpendCharge();
             TargetShip.Tokens.AssignToken(typeof(StrainToken), SelectShipSubPhase.FinishSelection);
+            Selection.ChangeActiveShip(Combat.Attacker);
             Combat.Defender.OnTryAddAvailableDiceModification += PreventDiceModification;
 
         }

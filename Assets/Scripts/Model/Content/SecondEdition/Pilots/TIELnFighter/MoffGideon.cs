@@ -75,7 +75,8 @@ namespace Abilities.SecondEdition
                 HostShip.Owner.PlayerNo,
                 name: HostShip.PilotInfo.PilotName,
                 description: "You may spend a charge token and choose a friendly ship at range 0-1 of the defender to gain a strain token. If you do, defense dice cannot be modified. ",
-                imageSource: HostShip
+                imageSource: HostShip,
+                onSkip: delegate { Selection.ChangeActiveShip(Combat.Attacker); }
             );
         }
 

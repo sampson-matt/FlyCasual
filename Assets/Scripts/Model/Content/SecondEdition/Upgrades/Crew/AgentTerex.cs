@@ -130,7 +130,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return FilterByTargetType(ship, TargetTypes.OtherFriendly, TargetTypes.This)
+            return FilterByTargetType(ship, TargetTypes.AnyFriendly)
                 && FilterTargetsByRange(ship, minRange: 0, maxRange: 3);
         }
 

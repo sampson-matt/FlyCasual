@@ -56,7 +56,7 @@ namespace Abilities.SecondEdition
 
         private void AskAbility(object sender, EventArgs e)
         {
-            var isFriendlyInRange = FilterByTargetType(TargetShip, new List<TargetTypes>() { TargetTypes.OtherFriendly, TargetTypes.This }) && FilterTargetsByRange(TargetShip, 0, 3);
+            var isFriendlyInRange = FilterByTargetType(TargetShip, new List<TargetTypes>() { TargetTypes.AnyFriendly }) && FilterTargetsByRange(TargetShip, 0, 3);
 
             if (isFriendlyInRange && HostShip.State.Force > 0)
             {

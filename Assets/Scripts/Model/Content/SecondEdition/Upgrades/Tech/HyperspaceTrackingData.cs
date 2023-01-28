@@ -207,8 +207,7 @@ namespace Abilities.SecondEdition
 
             return
                 FilterByTargetType(ship, new List<SubPhases.TargetTypes>() {
-                    SubPhases.TargetTypes.OtherFriendly,
-                    SubPhases.TargetTypes.This })
+                    SubPhases.TargetTypes.AnyFriendly })
                 && Board.CheckInRange(HostShip, ship, 0, 2, RangeCheckReason.UpgradeCard);
         }
 

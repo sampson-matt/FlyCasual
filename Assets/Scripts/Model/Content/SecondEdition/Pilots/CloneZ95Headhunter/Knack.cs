@@ -125,7 +125,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return FilterByTargetType(ship, TargetTypes.This, TargetTypes.OtherFriendly)
+            return FilterByTargetType(ship, TargetTypes.AnyFriendly)
                 && FilterTargetsByRange(ship, 0, 1)
                 && !ship.PilotInfo.IsLimited;
         }

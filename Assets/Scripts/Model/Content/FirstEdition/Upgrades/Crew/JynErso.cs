@@ -122,7 +122,7 @@ namespace Abilities.FirstEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return FilterByTargetType(ship, new[] { TargetTypes.OtherFriendly, TargetTypes.This }.ToList()) && FilterTargetsByRange(ship, 1, 2);
+            return FilterByTargetType(ship, new[] { TargetTypes.AnyFriendly }.ToList()) && FilterTargetsByRange(ship, 1, 2);
         }
 
         private int GetAiAbilityPriority(GenericShip ship)

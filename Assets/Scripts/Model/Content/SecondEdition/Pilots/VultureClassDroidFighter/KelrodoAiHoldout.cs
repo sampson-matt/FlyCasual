@@ -96,7 +96,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return FilterByTargetType(ship, TargetTypes.This, TargetTypes.OtherFriendly)
+            return FilterByTargetType(ship, TargetTypes.AnyFriendly)
                 && FilterTargetsByRange(ship, 0, 3)
                 && ship.PilotInfo.PilotName == "Kelrodo-Ai Holdout"
                 && ship.ShipId != HostShip.ShipId;

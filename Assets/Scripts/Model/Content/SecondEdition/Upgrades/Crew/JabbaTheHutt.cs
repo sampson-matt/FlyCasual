@@ -103,7 +103,7 @@ namespace Abilities.SecondEdition
         protected virtual bool FilterAbilityTarget(GenericShip ship)
         {
             return
-                FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.OtherFriendly, TargetTypes.This }) &&
+                FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.AnyFriendly }) &&
                 FilterTargetsByRange(ship, 0, 2) &&
                 ship.UpgradeBar.GetRechargableUpgrades(UpgradeType.Illicit).Any();
         }

@@ -72,7 +72,7 @@ namespace Abilities.SecondEdition
 
         protected virtual bool FilterAbilityTarget(GenericShip ship)
         {
-            return FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.OtherFriendly, TargetTypes.This })
+            return FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.AnyFriendly })
                 && FilterTargetsByRange(ship, 0, 2)
                 && (ship.Tokens.HasToken<FocusToken>() || ship.Tokens.HasToken<EvadeToken>());
         }

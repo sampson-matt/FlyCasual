@@ -49,7 +49,7 @@ namespace Abilities.FirstEdition
         {
             SelectTargetForAbility(
                 GrantFreeFocusToken,
-                (ship) => FilterByTargetType(ship, new[] { TargetTypes.OtherFriendly, TargetTypes.This }.ToList()) && BoardTools.Board.GetRangeOfShips(attacker, ship) <= 2,
+                (ship) => FilterByTargetType(ship, new[] { TargetTypes.AnyFriendly }.ToList()) && BoardTools.Board.GetRangeOfShips(attacker, ship) <= 2,
                 GetAiAbilityPriority,
                 HostShip.Owner.PlayerNo,
                 HostUpgrade.UpgradeInfo.Name,

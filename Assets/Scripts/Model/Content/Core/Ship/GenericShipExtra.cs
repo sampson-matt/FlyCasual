@@ -126,6 +126,8 @@ namespace Ship
 
         public event EventHandlerCheckRange OnCheckRange;
 
+        public event EventHandlerShipRefBool OnCheckIsFriendly;
+
         public event EventHandlerBool OnCheckForceRecurring;
 
         public Func<Direction, bool> FilterUndockDirection { get; set; } = delegate { return true; };
@@ -416,6 +418,12 @@ namespace Ship
         {
             if (OnCheckRange != null) OnCheckRange(anotherShip, minRange, maxRange, reason, ref isInRange);
             return isInRange;
+        }
+
+        public bool CallOnCheckIsFriendly(GenericShip anotherShip, bool isFriendly)
+        {
+            if (OnCheckIsFriendly != null) OnCheckIsFriendly(anotherShip, ref isFriendly);
+            return isFriendly;
         }
 
         // Teams

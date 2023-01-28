@@ -70,7 +70,7 @@ namespace Abilities.FirstEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return FilterByTargetType(ship, TargetTypes.OtherFriendly, TargetTypes.This)
+            return FilterByTargetType(ship, TargetTypes.AnyFriendly)
                 && FilterTargetsByRange(ship, 1, 1) || ship == HostShip;
         }
 

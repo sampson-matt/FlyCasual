@@ -126,7 +126,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return FilterByTargetType(ship, TargetTypes.This, TargetTypes.OtherFriendly) && FilterTargetsByRange(ship, MinRange, MaxRange);
+            return FilterByTargetType(ship, TargetTypes.AnyFriendly) && FilterTargetsByRange(ship, MinRange, MaxRange);
         }
 
         private int GetAiPriority(GenericShip ship)

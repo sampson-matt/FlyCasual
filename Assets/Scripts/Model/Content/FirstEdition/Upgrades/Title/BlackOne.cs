@@ -78,7 +78,7 @@ namespace Abilities.FirstEdition
 
         private bool FilterTargetsOfAbility(GenericShip ship)
         {
-            return FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.This, TargetTypes.OtherFriendly }) && FilterTargetsByRange(ship, 1, 1) && FilterTargetHasRedTargetLock(ship);
+            return FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.AnyFriendly }) && FilterTargetsByRange(ship, 1, 1) && FilterTargetHasRedTargetLock(ship);
         }
 
         private bool FilterTargetHasRedTargetLock(GenericShip ship)

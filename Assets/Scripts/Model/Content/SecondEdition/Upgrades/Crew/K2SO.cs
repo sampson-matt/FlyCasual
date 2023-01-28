@@ -56,7 +56,7 @@ namespace Abilities.SecondEdition
 
         protected bool FilterAbilityTargets(GenericShip ship)
         {
-            return FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.This, TargetTypes.OtherFriendly }) && FilterTargetsByRange(ship, 0, 3);
+            return FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.AnyFriendly }) && FilterTargetsByRange(ship, 0, 3);
         }
 
         private void Ability(object sender, EventArgs e)

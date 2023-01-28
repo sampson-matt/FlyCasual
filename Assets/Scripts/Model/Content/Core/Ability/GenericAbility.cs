@@ -361,6 +361,8 @@ namespace Abilities
 
             if (targetTypes.Contains(TargetTypes.OtherAny) && ship.ShipId != hostShip.ShipId) result = true;
 
+            if (targetTypes.Contains(TargetTypes.AnyFriendly) && Tools.IsFriendly(ship, hostShip)) result = true;
+
             if (targetTypes.Contains(TargetTypes.OtherFriendly) && Tools.IsFriendly(ship, hostShip) && ship.ShipId != hostShip.ShipId) result = true;
 
             return result;

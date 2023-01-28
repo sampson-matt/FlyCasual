@@ -61,7 +61,7 @@ namespace Abilities.SecondEdition
 
         protected override bool FilterAbilityTargets(GenericShip ship)
         {
-            return FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.This, TargetTypes.OtherFriendly }) && FilterTargetsByRange(ship, 0, 3);
+            return FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.AnyFriendly }) && FilterTargetsByRange(ship, 0, 3);
         }
 
         protected override void PerformFreeAction(object sender, System.EventArgs e)

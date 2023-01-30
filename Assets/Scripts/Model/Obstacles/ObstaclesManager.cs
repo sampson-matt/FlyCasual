@@ -50,6 +50,16 @@ namespace Obstacles
                 );
             }
 
+            for (int i = 1; i < 4; i++)
+            {
+                Instance.AllPossibleObstacles.Add(
+                    new Asteroid(
+                        "Pride of Mandalore Rock " + i,
+                        "pomasteroid" + i
+                    )
+                );
+            }
+
             for (int i = 0; i < 3; i++)
             {
                 Instance.AllPossibleObstacles.Add(
@@ -70,6 +80,16 @@ namespace Obstacles
                 );
             }
 
+            for (int i = 1; i < 4; i++)
+            {
+                Instance.AllPossibleObstacles.Add(
+                    new Debris(
+                        "Pride of Mandalore Debris " + i,
+                        "pomdebris" + i
+                    )
+                );
+            }
+
             for (int i = 1; i < 7; i++)
             {
                 Instance.AllPossibleObstacles.Add(
@@ -78,7 +98,7 @@ namespace Obstacles
                         "gascloud" + i
                     )
                 );
-            }
+            }            
 
             Instance.AllPossibleObstacles = Instance.AllPossibleObstacles.OrderBy(n => n.Name).ToList();
         }

@@ -143,7 +143,10 @@ namespace Conditions
         private void RemoveBrokenTrust(GenericShip host)
         {
             Messages.ShowInfo(Host.PilotInfo.PilotName + " removed Broken Trust condition.");
-            Host.Tokens.RemoveCondition(typeof(BrokenTrust));
+            if(Host.Tokens.HasToken(typeof(BrokenTrust)))
+            {
+                Host.Tokens.RemoveCondition(typeof(BrokenTrust));
+            }
             Triggers.FinishTrigger();
         }
 

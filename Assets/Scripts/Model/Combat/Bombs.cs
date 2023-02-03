@@ -8,6 +8,7 @@ using Ship;
 using SubPhases;
 using BoardTools;
 using Remote;
+using Arcs;
 
 namespace Bombs
 {
@@ -136,6 +137,81 @@ namespace Bombs
             }
 
             return result;
+        }
+
+        public static bool IsDeviceInArc(GenericShip ship, GenericDeviceGameObject bombObject, GenericArc Arc, IShipWeapon Weapon)
+        {
+            if (Arc.CannotBeUsedForAttackThisRound)  return false;
+
+            int minRange = Weapon.WeaponInfo.MinRange;
+            int maxRange = Weapon.WeaponInfo.MaxRange;
+
+            ColliderDistanceInfo distInfo = new ColliderDistanceInfo(ship, bombObject);
+
+            Vector3 bombPoint = bombObject.Collider.ClosestPoint(ship.Collider.transform.position);
+            Vector3 shipPoint = ship.Collider.ClosestPoint(bombObject.Collider.transform.position);
+
+            if (distInfo.Range > maxRange) return false;
+
+            if (Arc.Limits != null && Arc.Limits.Count > 0)
+            {
+                float signedAngle = (float)Math.Round(Vector3.SignedAngle(bombPoint-shipPoint, ship.GetFrontFacing(), Vector3.down), 2);
+                if (Arc.Facing != ArcFacing.Rear && Arc.Facing != ArcFacing.FullRear)
+                {
+                    if (signedAngle < Arc.Limits.First().Value || signedAngle > Arc.Limits.Last().Value) return false;
+                }
+                else
+                {
+                    if (signedAngle > Arc.Limits.First().Value && signedAngle < Arc.Limits.Last().Value) return false;
+                }
+            }
+
+            return true;
+            //Dictionary<Collider, bool> originalColliderValues = new Dictionary<Collider, bool>();
+            //foreach (var collider in Board.Objects)
+            //{
+            //    if (collider == null)
+            //    {
+            //        Debug.Log("Collider is null, ignore...");
+            //        continue;
+            //    }
+
+            //    originalColliderValues.Add(collider, collider.enabled);
+            //    collider.enabled = (collider == bombObject.Collider) ? true : false;
+            //}
+
+            ////bool rayIsFound = false;
+            ////RangeHolder MinDistance = null;
+            //foreach (var limit in Arc.Limits)
+            //{
+            //    Vector3 vectorFromDegrees = new Vector3((float)Math.Sin(limit.Value * Mathf.Deg2Rad), 0, (float)Math.Cos(limit.Value * Mathf.Deg2Rad));
+            //    vectorFromDegrees = ship.TransformVector(vectorFromDegrees);
+
+            //    RaycastHit hitInfo = new RaycastHit();
+            //    if (Physics.Raycast(ship.ShipBase.GetGlobalPoint(limit.Key) + new Vector3(0, 0.003f, 0), vectorFromDegrees + new Vector3(0, 0.003f, 0), out hitInfo, Board.BoardIntoWorld(3 * Board.RANGE_1)))
+            //    {
+            //        if (hitInfo.collider == bombObject.Collider)
+            //        {
+            //            //if (!rayIsFound)
+            //            //{
+            //            //    MinDistance = new RangeHolder(ship.ShipBase.GetGlobalPoint(limit.Key), hitInfo.point, ship, Ship2);
+            //            //    rayIsFound = true;
+            //            //}
+            //            //else
+            //            //{
+            //            //    RangeHolder secondRayResult = new RangeHolder(ship.ShipBase.GetGlobalPoint(limit.Key), hitInfo.point, ship, Ship2);
+            //            //    if (secondRayResult.DistanceReal < MinDistance.DistanceReal) MinDistance = new RangeHolder(ship.ShipBase.GetGlobalPoint(limit.Key), hitInfo.point, ship, Ship2);
+            //            //}
+            //            isInArc = true;
+            //        }
+            //    }
+            //}
+
+            //foreach (var collider in Board.Objects)
+            //{
+            //    collider.enabled = originalColliderValues[collider];
+            //}
+            //return isInArc;
         }
 
         public static bool IsShipInRange(GenericShip ship, GenericDeviceGameObject bombObject, int range = 1)

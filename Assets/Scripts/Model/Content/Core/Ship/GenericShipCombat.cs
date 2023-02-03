@@ -603,6 +603,7 @@ namespace Ship
 
             if (Combat.CurrentCriticalHitCard != null)
             {
+                if (this == Combat.Defender) Combat.DamageInfo.IsDefenderDealtFaceUpDamageCard = true;
                 CallOnDamageCardIsDealt(delegate { Damage.DealDrawnCard(callback); });
             }
             else

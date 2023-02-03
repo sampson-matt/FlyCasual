@@ -3,6 +3,7 @@ using Ship;
 using System;
 using UnityEngine;
 using Upgrade;
+using SquadBuilderNS;
 
 namespace UpgradesList.SecondEdition
 {
@@ -22,7 +23,20 @@ namespace UpgradesList.SecondEdition
             );
 
             ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/c4/d5/c4d543bc-bcf0-4c88-b8df-f652210752b9/swz68_backward-tailslide.png";
-        }        
+        }
+        public override bool IsAllowedForSquadBuilderPostCheck(SquadList squadList)
+        {
+            int installedConfigurationUpgrades = HostShip.UpgradeBar.GetInstalledUpgrades(UpgradeType.Configuration).Count;
+            if (installedConfigurationUpgrades == 0)
+            {
+                Messages.ShowError($"{HostShip.PilotInfo.PilotName} has {UpgradeInfo.Name} upgrade, but doesn't have any Configuration upgrades");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
 

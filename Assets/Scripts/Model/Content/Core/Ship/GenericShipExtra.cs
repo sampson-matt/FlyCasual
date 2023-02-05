@@ -130,6 +130,9 @@ namespace Ship
 
         public event EventHandlerBool OnCheckForceRecurring;
 
+        public event EventHandlerBool BeforeForceRecovers;
+        public event EventHandlerBool BeforeChargeRecovers;
+
         public Func<Direction, bool> FilterUndockDirection { get; set; } = delegate { return true; };
 
         public bool IsStrained
@@ -424,6 +427,18 @@ namespace Ship
         {
             if (OnCheckIsFriendly != null) OnCheckIsFriendly(anotherShip, ref isFriendly);
             return isFriendly;
+        }
+
+        public bool CallBeforeForceRecovers(ref bool doesRecover)
+        {
+            if (BeforeForceRecovers != null) BeforeForceRecovers(ref doesRecover);
+            return doesRecover;
+        }
+
+        public bool CallBeforeChargeRecovers(ref bool doesRecover)
+        {
+            if (BeforeChargeRecovers != null) BeforeChargeRecovers(ref doesRecover);
+            return doesRecover;
         }
 
         // Teams

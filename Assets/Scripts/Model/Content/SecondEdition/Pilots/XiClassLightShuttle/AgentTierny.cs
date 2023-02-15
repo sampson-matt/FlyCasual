@@ -24,9 +24,11 @@ namespace Ship
                     extraUpgradeIcon: Upgrade.UpgradeType.Talent,
                     abilityType: typeof(Abilities.SecondEdition.AgentTiernyAbility)
                 );
-
+                ShipInfo.ActionIcons.RemoveActions(typeof(ActionsList.TargetLockAction));                    
+                ShipInfo.ActionIcons.AddActions(new Actions.ActionInfo(typeof(ActionsList.TargetLockAction)));
                 ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/agenttierny.png";
             }
+            
         }
     }
 }

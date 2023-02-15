@@ -29,7 +29,7 @@ namespace Ship.SecondEdition.Eta2Actis
                 },
                 extraUpgradeIcon: UpgradeType.Talent
             );
-            PilotNameCanonical = "shaakti-soc";
+            PilotNameCanonical = "shaakti-siegeofcoruscant";
 
             ModelInfo.SkinName = "Red";
 

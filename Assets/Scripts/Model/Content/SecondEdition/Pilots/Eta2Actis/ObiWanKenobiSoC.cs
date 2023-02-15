@@ -30,7 +30,7 @@ namespace Ship.SecondEdition.Eta2Actis
 
             ModelInfo.SkinName = "Blue";
 
-            PilotNameCanonical = "obiwankenobi-soc";
+            PilotNameCanonical = "obiwankenobi-siegeofcoruscant";
 
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/SiegeOfCoruscant/obiwankenobi-soc.png";
         }

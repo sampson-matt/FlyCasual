@@ -29,7 +29,7 @@ namespace Ship
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(TargetLockAction)));
                 ShipInfo.Hull++;
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
-                PilotNameCanonical = "wampa-boy";
+                PilotNameCanonical = "wampa-battleofyavin";
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/wampa-boy.png";
             }
         }

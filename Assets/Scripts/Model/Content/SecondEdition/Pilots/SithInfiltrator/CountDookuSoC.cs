@@ -27,7 +27,7 @@ namespace Ship.SecondEdition.SithInfiltrator
             ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Title);
             ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(CloakAction), ActionColor.Red), new ActionInfo(typeof(JamAction)));
 
-            PilotNameCanonical = "countdooku-soc";
+            PilotNameCanonical = "countdooku-siegeofcoruscant";
 
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/SiegeOfCoruscant/countdooku-soc.png";
         }

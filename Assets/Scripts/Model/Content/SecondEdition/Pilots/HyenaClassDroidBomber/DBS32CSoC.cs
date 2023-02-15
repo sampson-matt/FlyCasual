@@ -30,7 +30,7 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
             ShipInfo.ActionIcons.RemoveActions(typeof(ReloadAction));
             ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(JamAction), ActionColor.Red));
 
-            PilotNameCanonical = "dbs32c-soc";
+            PilotNameCanonical = "dbs32c-siegeofcoruscant";
 
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/SiegeOfCoruscant/dbs32c-soc.png";
         }

@@ -29,7 +29,7 @@ namespace Ship
                 );
                 ShipAbilities.Add(new Abilities.SecondEdition.BornForThisAbility());
 
-                PilotNameCanonical = "wolffe-soc";
+                PilotNameCanonical = "wolffe-siegeofcoruscant";
 
                 ModelInfo.SkinName = "Wolffe";
 

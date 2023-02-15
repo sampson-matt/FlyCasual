@@ -32,7 +32,7 @@ namespace Ship
                 ShipInfo.Tags.Remove(Tags.Tie);
                 ShipAbilities.Add(new Abilities.SecondEdition.BornForThisAbility());
 
-                PilotNameCanonical = "klick-soc";
+                PilotNameCanonical = "klick-siegeofcoruscant";
 
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/SiegeOfCoruscant/klick-soc.png";
             }

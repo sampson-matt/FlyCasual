@@ -24,7 +24,7 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 pilotTitle: "Siege of Coruscant"
             );
 
-            PilotNameCanonical = "dbs404-soc";
+            PilotNameCanonical = "dbs404-siegeofcoruscant";
 
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/SiegeOfCoruscant/dbs404-soc.png";
         }

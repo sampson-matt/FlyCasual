@@ -36,7 +36,7 @@ namespace Ship
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 ShipAbilities.Add(new Abilities.SecondEdition.BornForThisAbility());
 
-                PilotNameCanonical = "oddball-soc";
+                PilotNameCanonical = "oddball-siegeofcoruscant";
 
                 ModelInfo.SkinName = "Red";
 

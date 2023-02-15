@@ -24,8 +24,6 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent}
                 );
 
-                PilotNameCanonical = "cadbanescum-rogueclassstarfighter";
-
                 ImageUrl = "https://infinitearenas.com/xw2/images/pilots/cadbane.png";
             }
         }

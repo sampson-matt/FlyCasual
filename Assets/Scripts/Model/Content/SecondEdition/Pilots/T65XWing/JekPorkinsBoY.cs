@@ -23,7 +23,7 @@ namespace Ship
                 );
                 ShipAbilities.Add(new HopeAbility());
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/jekporkins-boy.png";
-                PilotNameCanonical = "jekporkins-boy";
+                PilotNameCanonical = "jekporkins-battleofyavin";
                 ModelInfo.SkinName = "Jek Porkins";
             }
         }

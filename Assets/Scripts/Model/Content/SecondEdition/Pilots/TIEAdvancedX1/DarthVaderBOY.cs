@@ -29,7 +29,7 @@ namespace Ship
                 ShipInfo.Shields++;
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/darthvader-boy.png";
-                PilotNameCanonical = "darthvader-boy";
+                PilotNameCanonical = "darthvader-battleofyavin";
                 ModelInfo.SkinName = "Blue";
             }
         }

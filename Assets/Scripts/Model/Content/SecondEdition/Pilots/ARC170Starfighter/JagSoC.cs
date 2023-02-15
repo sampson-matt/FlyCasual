@@ -25,7 +25,7 @@ namespace Ship
                 );
                 ShipAbilities.Add(new Abilities.SecondEdition.BornForThisAbility());
 
-                PilotNameCanonical = "jag-soc";
+                PilotNameCanonical = "jag-siegeofcoruscant";
 
                 ModelInfo.SkinName = "Red";
 

@@ -25,7 +25,7 @@ namespace Ship
                 );
                 ShipInfo.Hull++;
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
-                PilotNameCanonical = "maulermithel-boy";
+                PilotNameCanonical = "maulermithel-battleofyavin";
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/maulermithel-boy.png";
             }
         }

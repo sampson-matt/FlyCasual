@@ -33,7 +33,7 @@ namespace Ship
                 );
                 ShipAbilities.Add(new HopeAbility());
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/lukeskywalker-boy.png";
-                PilotNameCanonical = "lukeskywalker-boy";
+                PilotNameCanonical = "lukeskywalker-battleofyavin";
                 ModelInfo.SkinName = "Luke Skywalker";
             }
         }

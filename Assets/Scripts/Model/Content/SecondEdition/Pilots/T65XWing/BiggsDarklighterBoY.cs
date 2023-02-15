@@ -26,7 +26,7 @@ namespace Ship
                 );
                 ShipAbilities.Add(new HopeAbility());
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/biggsdarklighter-boy.png";
-                PilotNameCanonical = "biggsdarklighter-boy";
+                PilotNameCanonical = "biggsdarklighter-battleofyavin";
                 ModelInfo.SkinName = "Biggs Darklighter";
             }
         }

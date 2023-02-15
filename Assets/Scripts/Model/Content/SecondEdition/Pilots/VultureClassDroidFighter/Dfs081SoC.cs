@@ -24,7 +24,7 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 },
                 pilotTitle: "Siege of Coruscant"
             );
-            PilotNameCanonical = "dfs081-soc";
+            PilotNameCanonical = "dfs081-siegeofcoruscant";
 
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/SiegeOfCoruscant/dfs081-soc.png";
         }

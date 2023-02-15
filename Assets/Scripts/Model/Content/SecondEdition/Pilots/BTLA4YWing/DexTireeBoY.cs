@@ -26,7 +26,7 @@ namespace Ship
                 );
                 ShipAbilities.Add(new HopeAbility());
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/dextiree-boy.png";
-                PilotNameCanonical = "dextiree-boy";
+                PilotNameCanonical = "dextiree-battleofyavin";
             }
         }
     }

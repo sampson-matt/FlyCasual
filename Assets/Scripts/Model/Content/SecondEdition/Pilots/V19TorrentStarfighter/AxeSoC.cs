@@ -29,7 +29,7 @@ namespace Ship.SecondEdition.V19TorrentStarfighter
             ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
             ShipAbilities.Add(new Abilities.SecondEdition.BornForThisAbility());
 
-            PilotNameCanonical = "axe-soc";
+            PilotNameCanonical = "axe-siegeofcoruscant";
 
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/SiegeOfCoruscant/axe-soc.png";
         }

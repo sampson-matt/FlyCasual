@@ -26,7 +26,7 @@ namespace Ship.SecondEdition.DroidTriFighter
                 pilotTitle: "Siege of Coruscant"
             );
 
-            PilotNameCanonical = "phlacarphoccprototype-soc";
+            PilotNameCanonical = "phlacarphoccprototype-siegeofcoruscant";
 
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/SiegeOfCoruscant/phlacarphoccprototype-soc.png";
         }

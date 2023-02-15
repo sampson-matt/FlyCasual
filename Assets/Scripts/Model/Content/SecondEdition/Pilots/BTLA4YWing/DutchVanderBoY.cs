@@ -32,7 +32,7 @@ namespace Ship
                 );
                 ShipAbilities.Add(new HopeAbility());
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/dutchvander-boy.png";
-                PilotNameCanonical = "dutchvander-boy";
+                PilotNameCanonical = "dutchvander-battleofyavin";
             }
         }
     }

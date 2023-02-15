@@ -33,7 +33,7 @@ namespace Ship
                 );
                 ShipAbilities.Add(new HopeAbility());
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/popskrail-boy.png";
-                PilotNameCanonical = "popskrail-boy";
+                PilotNameCanonical = "popskrail-battleofyavin";
             }
         }
     }

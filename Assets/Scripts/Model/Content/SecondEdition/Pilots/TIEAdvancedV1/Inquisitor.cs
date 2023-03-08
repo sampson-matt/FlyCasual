@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship
 {
@@ -15,6 +16,10 @@ namespace Ship
                     38,
                     force: 1,
                     extraUpgradeIcon: UpgradeType.ForcePower,
+                    tags: new List<Tags>
+                    {
+                        Tags.DarkSide
+                    },
                     seImageNumber: 102
                 );
             }

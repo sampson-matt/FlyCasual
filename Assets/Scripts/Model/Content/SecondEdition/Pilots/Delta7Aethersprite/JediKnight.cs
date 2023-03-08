@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Content;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
@@ -14,6 +14,11 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 3,
                 35,
                 force: 1,
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
 

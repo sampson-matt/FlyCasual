@@ -3,6 +3,8 @@ using Ship;
 using SubPhases;
 using System;
 using Upgrade;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship.SecondEdition.Eta2Actis
 {
@@ -17,6 +19,11 @@ namespace Ship.SecondEdition.Eta2Actis
                 true,
                 force: 3,
                 abilityType: typeof(Abilities.SecondEdition.YodaPilotAbility),
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
 

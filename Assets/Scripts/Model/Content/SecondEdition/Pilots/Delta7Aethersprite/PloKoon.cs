@@ -1,6 +1,8 @@
 ﻿using Abilities.Parameters;
 using Tokens;
 using Upgrade;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship.SecondEdition.Delta7Aethersprite
 {
@@ -15,6 +17,11 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.PloKoonAbility),
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
 

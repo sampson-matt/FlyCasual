@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship.SecondEdition.TIEDDefender
 {
@@ -14,6 +15,11 @@ namespace Ship.SecondEdition.TIEDDefender
                 113,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.DarthVaderDefenderAbility),
+                tags: new List<Tags>
+                {
+                    Tags.DarkSide,
+                    Tags.Sith
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower,
                 abilityText: "You may not spend force charges except when attacking. While you perform an attack, you may spend 1 force charge to turn a blank result into a hit.",
                 force: 3

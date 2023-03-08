@@ -5,6 +5,7 @@ using SubPhases;
 using System;
 using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship
 {
@@ -20,6 +21,11 @@ namespace Ship
                     79,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LeiaOrganaPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.LightSide,
+                        Tags.Freighter
+                    },
                     extraUpgradeIcon: UpgradeType.ForcePower,
                     force: 1
                 );

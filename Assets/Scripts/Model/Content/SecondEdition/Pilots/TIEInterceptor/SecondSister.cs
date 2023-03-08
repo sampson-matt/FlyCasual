@@ -2,6 +2,8 @@
 using ActionsList;
 using Ship;
 using Upgrade;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship.SecondEdition.TIEInterceptor
 {
@@ -17,6 +19,10 @@ namespace Ship.SecondEdition.TIEInterceptor
                 pilotTitle: "Manipulative Monster",
                 isLimited: true,
                 abilityType: typeof(SecondSisterAbility),
+                tags: new List<Tags>
+                {
+                    Tags.DarkSide
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
 

@@ -27,7 +27,8 @@ namespace Ship
                     force: 2,
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.LightSide
                     },
                     extraUpgradeIcon: UpgradeType.ForcePower
                 );

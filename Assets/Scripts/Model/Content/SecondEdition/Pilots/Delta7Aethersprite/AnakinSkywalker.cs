@@ -6,7 +6,7 @@ using System.Linq;
 using Upgrade;
 using Team;
 using Tokens;
-using Movement;
+using Content;
 using BoardTools;
 using UnityEngine;
 
@@ -23,6 +23,11 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 true,
                 force: 3,
                 abilityType: typeof(Abilities.SecondEdition.AnakinSkywalkerAbility),
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
 

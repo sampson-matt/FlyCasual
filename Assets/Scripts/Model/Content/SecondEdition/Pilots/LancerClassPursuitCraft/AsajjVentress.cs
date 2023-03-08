@@ -1,6 +1,6 @@
 ﻿using Arcs;
 using BoardTools;
-using Ship;
+using Content;
 using SubPhases;
 using System.Collections.Generic;
 using Tokens;
@@ -20,6 +20,11 @@ namespace Ship
                     70,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.AsajjVentressPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.DarkSide,
+                        Tags.BountyHunter
+                    },
                     force: 2,
                     extraUpgradeIcon: UpgradeType.ForcePower,
                     seImageNumber: 219

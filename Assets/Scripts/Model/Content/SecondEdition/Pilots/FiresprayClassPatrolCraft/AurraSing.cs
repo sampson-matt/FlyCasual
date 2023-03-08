@@ -6,6 +6,7 @@ using Upgrade;
 using SubPhases;
 using BoardTools;
 using Tokens;
+using Content;
 
 namespace Ship
 {
@@ -22,6 +23,11 @@ namespace Ship
                     isLimited: true,
                     force: 1,
                     abilityType: typeof(Abilities.SecondEdition.AuraSingAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.DarkSide,
+                        Tags.BountyHunter
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.ForcePower, UpgradeType.Crew },
                     pilotTitle: "Bane of the Jedi",
                     factionOverride: Faction.Separatists

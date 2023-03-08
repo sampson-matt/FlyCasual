@@ -1,4 +1,4 @@
-﻿using BoardTools;
+﻿using Content;
 using Ship;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +19,11 @@ namespace Ship
                     69,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ReyPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.LightSide,
+                        Tags.Freighter
+                    },
                     force: 2,
                     extraUpgradeIcon: UpgradeType.ForcePower
                 );

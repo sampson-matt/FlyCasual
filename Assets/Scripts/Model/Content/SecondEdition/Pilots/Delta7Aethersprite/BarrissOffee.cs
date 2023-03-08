@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship.SecondEdition.Delta7Aethersprite
 {
@@ -16,6 +17,11 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 true,
                 force: 1,
                 abilityType: typeof(Abilities.SecondEdition.BarrissOffeeAbility),
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower,
                 pilotTitle: "Conflicted Padawan"
             );

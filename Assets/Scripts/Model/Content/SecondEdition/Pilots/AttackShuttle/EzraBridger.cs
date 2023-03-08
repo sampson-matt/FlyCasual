@@ -1,5 +1,7 @@
 ﻿using Ship;
 using Upgrade;
+using System.Collections.Generic;
+using Content;
 
 namespace Ship
 {
@@ -15,6 +17,11 @@ namespace Ship
                     40,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.EzraBridgerPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.LightSide,
+                        Tags.Spectre
+                    },
                     force: 1,
                     extraUpgradeIcon: UpgradeType.ForcePower,
                     seImageNumber: 36

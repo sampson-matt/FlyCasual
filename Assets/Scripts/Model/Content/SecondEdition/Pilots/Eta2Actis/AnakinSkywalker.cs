@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Tokens;
-using UnityEngine;
+using Content;
 using Upgrade;
 
 namespace Ship.SecondEdition.Eta2Actis
@@ -21,6 +21,12 @@ namespace Ship.SecondEdition.Eta2Actis
                 true,
                 force: 3,
                 abilityType: typeof(Abilities.SecondEdition.AnakinSkywalkerActisAbility),
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi,
+                    Tags.DarkSide
+                },
                 extraUpgradeIcon: UpgradeType.Talent
             );
 

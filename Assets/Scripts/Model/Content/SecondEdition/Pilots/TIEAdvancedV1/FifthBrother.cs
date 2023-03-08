@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship
 {
@@ -17,6 +18,10 @@ namespace Ship
                     44,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.FifthBrotherPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.DarkSide
+                    },
                     force: 2,
                     extraUpgradeIcon: UpgradeType.ForcePower
                 );

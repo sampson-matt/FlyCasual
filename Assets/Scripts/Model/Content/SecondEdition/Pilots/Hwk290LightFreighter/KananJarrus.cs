@@ -4,6 +4,7 @@ using SubPhases;
 using System;
 using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship
 {
@@ -19,6 +20,11 @@ namespace Ship
                     42,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KananJarrusHwk290Ability),
+                    tags: new List<Tags>
+                    {
+                        Tags.LightSide,
+                        Tags.Jedi
+                    },
                     extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.ForcePower, UpgradeType.Illicit },
                     force: 1,
                     factionOverride: Faction.Scum,

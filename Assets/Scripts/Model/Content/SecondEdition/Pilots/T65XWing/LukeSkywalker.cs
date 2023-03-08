@@ -1,5 +1,7 @@
 ﻿using Abilities.SecondEdition;
 using Upgrade;
+using System.Collections.Generic;
+using Content;
 
 namespace Ship
 {
@@ -15,6 +17,10 @@ namespace Ship
                     61,
                     isLimited: true,
                     abilityType: typeof(LukeSkywalkerAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.LightSide
+                    },
                     force: 2,
                     extraUpgradeIcon: UpgradeType.ForcePower,
                     seImageNumber: 2

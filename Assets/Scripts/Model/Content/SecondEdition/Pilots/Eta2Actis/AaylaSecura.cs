@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
+using Content;
 
 namespace Ship.SecondEdition.Eta2Actis
 {
@@ -17,6 +18,11 @@ namespace Ship.SecondEdition.Eta2Actis
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.AaylaSecuraActisAbility),
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 extraUpgradeIcon: UpgradeType.Talent
             );
 

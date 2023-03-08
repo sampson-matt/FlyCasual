@@ -25,7 +25,9 @@ namespace Ship.SecondEdition.Eta2Actis
                 abilityType: typeof(Abilities.SecondEdition.ShaakTiSoCAbility),
                 tags: new List<Tags>
                 {
-                    Tags.SoC
+                    Tags.SoC,
+                    Tags.LightSide,
+                    Tags.Jedi
                 },
                 extraUpgradeIcon: UpgradeType.Talent
             );

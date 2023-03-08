@@ -5,6 +5,7 @@ using Upgrade;
 using Ship;
 using Tokens;
 using Actions;
+using Content;
 
 namespace Ship
 {
@@ -23,6 +24,10 @@ namespace Ship
                     isLimited: true,
                     force: 3,
                     abilityType: typeof(Abilities.SecondEdition.MaulAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.DarkSide
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.ForcePower, UpgradeType.Illicit },
                     factionOverride: Faction.Scum
                 );

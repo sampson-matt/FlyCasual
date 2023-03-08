@@ -3,6 +3,7 @@ using SubPhases;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
+using Content;
 
 namespace Ship
 {
@@ -18,6 +19,10 @@ namespace Ship
                     78,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KyloRenPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.DarkSide
+                    },
                     force: 2,
                     extraUpgradeIcon: UpgradeType.ForcePower
                 );

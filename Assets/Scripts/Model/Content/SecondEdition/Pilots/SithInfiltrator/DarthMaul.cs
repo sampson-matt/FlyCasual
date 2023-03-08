@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Ship;
 using Upgrade;
+using Content;
 
 namespace Ship.SecondEdition.SithInfiltrator
 {
@@ -15,6 +16,11 @@ namespace Ship.SecondEdition.SithInfiltrator
                 64,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.DarthMaulPilotAbility),
+                tags: new List<Tags>
+                {
+                    Tags.DarkSide,
+                    Tags.Sith
+                },
                 pilotTitle: "Sith Assassin",
                 force: 3,
                 extraUpgradeIcon: UpgradeType.ForcePower

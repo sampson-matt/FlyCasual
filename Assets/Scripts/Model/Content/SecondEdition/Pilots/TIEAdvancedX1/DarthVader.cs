@@ -4,6 +4,7 @@ using Ship;
 using System;
 using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship
 {
@@ -21,6 +22,11 @@ namespace Ship
                     abilityType: typeof(DarthVaderAbility),
                     force: 3,
                     extraUpgradeIcon: UpgradeType.ForcePower,
+                    tags: new List<Tags>
+                    {
+                        Tags.DarkSide,
+                        Tags.Sith
+                    },
                     seImageNumber: 93
                 );
 

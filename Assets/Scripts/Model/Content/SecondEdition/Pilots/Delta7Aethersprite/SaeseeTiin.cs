@@ -1,7 +1,7 @@
 ﻿using GameModes;
 using Movement;
 using Ship;
-using System;
+using Content;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
@@ -19,6 +19,11 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.SaeseeTiinAbility),
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
 

@@ -18,7 +18,9 @@ namespace Ship.SecondEdition.SithInfiltrator
                 abilityType: typeof(Abilities.SecondEdition.CountDookuCrewAbility),
                 tags: new List<Tags>
                 {
-                    Tags.SoC
+                    Tags.SoC,
+                    Tags.DarkSide,
+                    Tags.Sith
                 },
                 pilotTitle: "Siege of Coruscant",
                 force: 3,

@@ -1,5 +1,5 @@
 ﻿using ActionsList;
-using Ship;
+using Content;
 using SubPhases;
 using System;
 using System.Collections.Generic;
@@ -18,6 +18,11 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.AdiGalliaAbility),
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower,
                 pilotTitle: "Shooting Star"
             );

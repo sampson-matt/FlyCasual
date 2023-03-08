@@ -23,7 +23,9 @@ namespace Ship.SecondEdition.Eta2Actis
                 abilityType: typeof(Abilities.SecondEdition.ObiWanKenobiSoCAbility),
                 tags: new List<Tags>
                 {
-                    Tags.SoC
+                    Tags.SoC,
+                    Tags.Jedi,
+                    Tags.LightSide
                 },
                 extraUpgradeIcon: UpgradeType.Talent
             );

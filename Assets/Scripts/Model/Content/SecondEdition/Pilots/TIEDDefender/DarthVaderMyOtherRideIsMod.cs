@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship
 {
@@ -18,6 +19,11 @@ namespace Ship
                     pilotTitle: "Black Leader",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DarthVaderAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.DarkSide,
+                        Tags.Sith
+                    },
                     force: 3,
                     extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.ForcePower, UpgradeType.Sensor }
                 );

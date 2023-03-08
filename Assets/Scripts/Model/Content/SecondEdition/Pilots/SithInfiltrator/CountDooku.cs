@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Content;
 using Ship;
 using Upgrade;
 using BoardTools;
@@ -19,6 +20,11 @@ namespace Ship.SecondEdition.SithInfiltrator
                 63,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.CountDookuPilotAbility),
+                tags: new List<Tags>
+                {
+                    Tags.DarkSide,
+                    Tags.Sith
+                },
                 pilotTitle: "Darth Tyranus",
                 force: 3,
                 extraUpgradeIcon: UpgradeType.ForcePower

@@ -2,7 +2,7 @@
 using ActionsList;
 using Ship;
 using SubPhases;
-using System.Collections;
+using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -22,6 +22,10 @@ namespace Ship
                     force: 1,
                     abilityText: "Before you reveal your maneuver, you may spend 1 force to barrel roll (this does not count as an action).",
                     abilityType: typeof(AnakinSkywalkerNabooN1StarfighterAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.LightSide
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 

@@ -1,5 +1,5 @@
 ﻿
-using System;
+using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -21,6 +21,11 @@ namespace Ship
                     pilotTitle: "Spectre-6",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.EzraBridgerPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.LightSide,
+                        Tags.Spectre
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.ForcePower},
                     factionOverride: Faction.Rebel
                 );

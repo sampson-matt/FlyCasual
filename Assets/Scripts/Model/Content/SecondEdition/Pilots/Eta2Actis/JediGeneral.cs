@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Upgrade;
+using Content;
 
 namespace Ship.SecondEdition.Eta2Actis
 {
@@ -13,6 +13,11 @@ namespace Ship.SecondEdition.Eta2Actis
                 "Jedi General",
                 4,
                 41,
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 force: 2
             );
 

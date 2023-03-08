@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Tokens;
 using Upgrade;
+using Content;
 
 namespace Ship.SecondEdition.Delta7Aethersprite
 {
@@ -18,6 +19,11 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 true,
                 force: 3,
                 abilityType: typeof(Abilities.SecondEdition.ObiWanKenobiAbility),
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
             

@@ -4,6 +4,7 @@ using SubPhases;
 using System;
 using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship.SecondEdition.Delta7Aethersprite
 {
@@ -18,6 +19,11 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.AhsokaTanoAbility),
+                tags: new List<Tags>
+                {
+                    Tags.LightSide,
+                    Tags.Jedi
+                },
                 extraUpgradeIcon: UpgradeType.ForcePower,
                 pilotTitle: "\"Snips\""
             );

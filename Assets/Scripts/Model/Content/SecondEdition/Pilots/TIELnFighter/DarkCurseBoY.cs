@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Dark Curse\"",
                     6,
-                    35,
+                    34,
                     isLimited: true,
                     extraUpgradeIcon: UpgradeType.Talent,
                     tags: new List<Tags>
@@ -24,6 +24,9 @@ namespace Ship
                     },
                     abilityType: typeof(Abilities.SecondEdition.DarkCurseAbility)
                 );
+
+                PilotNameCanonical = "darkcurse-battleofyavin";
+
                 ShipInfo.Hull++;
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
 

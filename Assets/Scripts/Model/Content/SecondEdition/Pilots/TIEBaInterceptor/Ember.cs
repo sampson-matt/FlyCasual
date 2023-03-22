@@ -19,7 +19,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Ember\"",
                     4,
-                    45,
+                    44,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.EmberAbility)
                 );

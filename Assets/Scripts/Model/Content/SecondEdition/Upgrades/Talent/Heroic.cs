@@ -12,7 +12,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Heroic",
                 UpgradeType.Talent,
-                cost: 2,
+                cost: 1,
                 abilityType: typeof(Abilities.SecondEdition.HeroicAbility),
                 restriction: new FactionRestriction(Faction.Resistance)
             );

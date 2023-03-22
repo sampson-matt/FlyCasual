@@ -13,7 +13,7 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
             PilotInfo = new PilotCardInfo(
                 "DBS-404",
                 4,
-                31,
+                30,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.DBS404SoCAbility),
                 tags: new List<Tags>

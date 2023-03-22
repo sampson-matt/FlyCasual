@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Dalan Oberos",
                     4,
-                    50,
+                    49,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DalanOberosStarviperAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

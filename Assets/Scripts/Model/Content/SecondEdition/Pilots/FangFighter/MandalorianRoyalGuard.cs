@@ -17,7 +17,7 @@ namespace Ship
                 (
                     "Mandalorian Royal Guard",
                     4,
-                    51,
+                    48,
                     pilotTitle: "Selfless Protector",
                     limited: 2,
                     abilityType: typeof(Abilities.SecondEdition.MandalorianRoyalGuardAbility),

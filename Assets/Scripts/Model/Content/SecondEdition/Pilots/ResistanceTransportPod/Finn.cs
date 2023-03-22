@@ -16,7 +16,7 @@ namespace Ship.SecondEdition.ResistanceTransportPod
             PilotInfo = new PilotCardInfo(
                 "Finn",
                 2,
-                32,
+                31,
                 isLimited: true,
                 abilityType: typeof(FinnResistanceTransportPodAbility),
                 extraUpgradeIcon: UpgradeType.Talent

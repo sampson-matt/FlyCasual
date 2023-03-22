@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Taka Jamoreesa",
                     2,
-                    33,
+                    31,
                     isLimited: true,
                     abilityText: "After you jam, you must assign 1 jam token to another ship at range 0-1 of the jammed ship, if able.",
                     abilityType: typeof(TakaJamoreesaAbility)

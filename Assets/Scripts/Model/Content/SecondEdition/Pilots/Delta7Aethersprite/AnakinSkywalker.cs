@@ -19,7 +19,7 @@ namespace Ship.SecondEdition.Delta7Aethersprite
             PilotInfo = new PilotCardInfo(
                 "Anakin Skywalker",
                 6,
-                57,
+                56,
                 true,
                 force: 3,
                 abilityType: typeof(Abilities.SecondEdition.AnakinSkywalkerAbility),

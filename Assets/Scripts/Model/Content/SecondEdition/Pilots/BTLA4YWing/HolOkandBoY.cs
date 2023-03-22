@@ -21,7 +21,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Hol Okand",
                     4,
-                    36,
+                    34,
                     pilotTitle: "Battle of Yavin",
                     isLimited: true,
                     abilityType: typeof(HolOkandBoYAbility),

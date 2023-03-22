@@ -14,7 +14,7 @@ namespace Ship
                 (
                     "Pre Vizsla",
                     3,
-                    59,
+                    61,
                     charges: 2,
                     regensCharges: 1,
                     pilotTitle: "Leader of Death Watch",

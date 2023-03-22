@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.Delta7Aethersprite
             PilotInfo = new PilotCardInfo(
                 "Obi-Wan Kenobi",
                 5,
-                48,
+                47,
                 true,
                 force: 3,
                 abilityType: typeof(Abilities.SecondEdition.ObiWanKenobiAbility),

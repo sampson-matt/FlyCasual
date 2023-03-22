@@ -19,7 +19,7 @@ namespace Ship
                 (
                     "Maul",
                     5,
-                    70,
+                    72,
                     pilotTitle: "Lord of the Shadow Collective",
                     isLimited: true,
                     force: 3,

@@ -3,6 +3,7 @@ using Ship;
 using SubPhases;
 using Movement;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace UpgradesList.SecondEdition
 {
@@ -20,6 +21,22 @@ namespace UpgradesList.SecondEdition
             );
 
             ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/bb/fb/bbfb4727-e2f5-4f23-be9a-3341ea4de7b5/swz80_upgrade_precison-ion-engines.png";
+        }
+
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> initiativeToCost = new Dictionary<int, int>()
+            {
+                {0, 1},
+                {1, 1},
+                {2, 1},
+                {3, 1},
+                {4, 1},
+                {5, 2},
+                {6, 2}
+            };
+
+            UpgradeInfo.Cost = initiativeToCost[ship.PilotInfo.Initiative];
         }
     }
 }

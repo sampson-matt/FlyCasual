@@ -21,7 +21,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Sigma7",
                     4,
-                    45,
+                    43,
                     isLimited: true,
                     charges: 2,
                     abilityType: typeof(Sigma7Ability),
@@ -31,6 +31,9 @@ namespace Ship
                     },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
+
+                PilotNameCanonical = "sigma7-battleofyavin";
+
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(TargetLockAction)));
                 ShipInfo.Hull++;
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);

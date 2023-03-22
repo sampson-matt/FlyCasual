@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
             PilotInfo = new PilotCardInfo(
                 "DBS-32C",
                 3,
-                32,
+                30,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.DBS32CSoCAbility),
                 charges: 2,

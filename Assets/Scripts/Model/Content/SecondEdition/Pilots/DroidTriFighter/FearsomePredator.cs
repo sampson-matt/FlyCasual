@@ -16,7 +16,7 @@ namespace Ship.SecondEdition.DroidTriFighter
             PilotInfo = new PilotCardInfo(
                 "Fearsome Predator",
                 3,
-                36,
+                35,
                 limited: 3,
                 extraUpgradeIcon: UpgradeType.Talent,
                 abilityType: typeof(Abilities.SecondEdition.FearsomePredatorAbility)

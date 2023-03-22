@@ -18,7 +18,7 @@ namespace Ship.SecondEdition.ResistanceTransportPod
             PilotInfo = new PilotCardInfo(
                 "Vi Moradi",
                 1,
-                26,
+                24,
                 isLimited: true,
                 abilityType: typeof(ViMoradiAbility)
             );

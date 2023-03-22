@@ -21,7 +21,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Pops\" Krail",
                     3,
-                    36,
+                    35,
                     pilotTitle: "Battle of Yavin",
                     isLimited: true,
                     abilityType: typeof(PopsKrailBoYAbility),

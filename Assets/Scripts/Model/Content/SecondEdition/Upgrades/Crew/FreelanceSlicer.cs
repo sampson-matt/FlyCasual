@@ -15,7 +15,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Freelance Slicer",
                 UpgradeType.Crew,
-                cost: 3,
+                cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.FreelanceSlicerCrewAbility),
                 seImageNumber: 42
             );

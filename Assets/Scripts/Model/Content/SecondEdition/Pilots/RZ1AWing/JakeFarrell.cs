@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Jake Farrell",
                     4,
-                    34,
+                    35,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.JakeFarrellAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent },

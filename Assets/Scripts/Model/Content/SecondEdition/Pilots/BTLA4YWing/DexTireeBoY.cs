@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Dex Tiree",
                     2,
-                    34,
+                    31,
                     isLimited: true,
                     abilityType: typeof(DexTireeAbility),
                     tags: new List<Tags>

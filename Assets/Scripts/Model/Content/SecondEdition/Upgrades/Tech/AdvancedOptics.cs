@@ -12,7 +12,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Advanced Optics",
                 UpgradeType.Tech,
-                cost: 5,
+                cost: 4,
                 abilityType: typeof(Abilities.SecondEdition.AdvancedOpticsAbility)
             );
 

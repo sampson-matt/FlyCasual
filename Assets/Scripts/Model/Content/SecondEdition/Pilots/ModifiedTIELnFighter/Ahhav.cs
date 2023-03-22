@@ -11,7 +11,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Ahhav",
                     3,
-                    28,
+                    27,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.AhhavAbility),
                     extraUpgradeIcon: UpgradeType.Talent

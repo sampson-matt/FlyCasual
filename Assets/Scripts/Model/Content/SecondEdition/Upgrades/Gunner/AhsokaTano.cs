@@ -18,7 +18,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Ahsoka Tano",
                 UpgradeType.Gunner,
-                cost: 12,
+                cost: 10,
                 isLimited: true,
                 addForce: 1,
                 abilityType: typeof(Abilities.SecondEdition.AhsokaTanoGunnerAbility),

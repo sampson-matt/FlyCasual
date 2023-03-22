@@ -19,7 +19,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Sigma4",
                     4,
-                    42,
+                    40,
                     isLimited: true,
                     charges: 2,
                     abilityType: typeof(Sigma4Ability),
@@ -29,6 +29,9 @@ namespace Ship
                     },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
+
+                PilotNameCanonical = "sigma4-battleofyavin";
+
                 ShipInfo.Hull++;
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Configuration);

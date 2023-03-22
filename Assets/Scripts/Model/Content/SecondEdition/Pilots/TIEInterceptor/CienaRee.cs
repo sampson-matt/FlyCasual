@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.TIEInterceptor
             PilotInfo = new PilotCardInfo(
                 "Ciena Ree",
                 6,
-                48,
+                47,
                 isLimited: true,
                 abilityType: typeof(CienaReeAbility),
                 extraUpgradeIcon: UpgradeType.Talent

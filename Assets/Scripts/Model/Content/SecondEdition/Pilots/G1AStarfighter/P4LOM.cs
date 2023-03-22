@@ -19,7 +19,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "4-LOM",
                     3,
-                    47,
+                    45,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.P4LOMAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

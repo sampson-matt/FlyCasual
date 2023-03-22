@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Esege Tuketu",
                     3,
-                    43,
+                    42,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.EsegeTuketuAbility),
                     seImageNumber: 63

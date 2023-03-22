@@ -13,7 +13,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "BT-1",
                 UpgradeType.Gunner,
-                cost: 2,
+                cost: 3,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.BT1Ability),
                 restriction: new FactionRestriction(Faction.Scum, Faction.Imperial),

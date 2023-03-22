@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Lowhhrick",
                     3,
-                    50,
+                    49,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.LowhhrickAbility),
                     extraUpgradeIcon: UpgradeType.Talent,

@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.V19TorrentStarfighter
             PilotInfo = new PilotCardInfo(
                 "\"Axe\"",
                 3,
-                28,
+                26,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.AxeAbility),
                 extraUpgradeIcon: UpgradeType.Talent

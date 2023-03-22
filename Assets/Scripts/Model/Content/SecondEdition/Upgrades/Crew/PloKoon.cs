@@ -7,6 +7,7 @@ using SubPhases;
 using BoardTools;
 using System.Linq;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace UpgradesList.SecondEdition
 {
@@ -31,8 +32,22 @@ namespace UpgradesList.SecondEdition
             );
 
             ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/9a/a5/9aa5ef62-7c41-425d-9f27-01369d3e1571/swz70_a1_plo-koon_upgrade.png";
-        }        
+        }
+
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<BaseSize, int> sizeToCost = new Dictionary<BaseSize, int>()
+            {
+                {BaseSize.Small, 8},
+                {BaseSize.Medium, 8},
+                {BaseSize.Large, 9 },
+            };
+
+            UpgradeInfo.Cost = sizeToCost[ship.ShipInfo.BaseSize];
+        }
     }
+
+
 }
 
 namespace Abilities.SecondEdition

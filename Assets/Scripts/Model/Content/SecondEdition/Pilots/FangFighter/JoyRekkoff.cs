@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Joy Rekkoff",
                     4,
-                    47,
+                    46,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.JoyRekkoffAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },

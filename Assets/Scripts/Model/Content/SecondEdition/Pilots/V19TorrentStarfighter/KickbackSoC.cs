@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.V19TorrentStarfighter
             PilotInfo = new PilotCardInfo(
                 "\"Kickback\"",
                 4,
-                34,
+                33,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.KickbackSoCAbility),
                 tags: new List<Tags>

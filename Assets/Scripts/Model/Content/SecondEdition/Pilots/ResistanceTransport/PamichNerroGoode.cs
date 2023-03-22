@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.ResistanceTransport
             PilotInfo = new PilotCardInfo(
                 "Pammich Nerro Goode",
                 3,
-                33,
+                31,
                 isLimited: true,
                 abilityType: typeof(PammichNerroGoodeAbility)
             );

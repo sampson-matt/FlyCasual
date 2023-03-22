@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Rook Kast",
                 UpgradeType.Crew,
-                cost: 9,
+                cost: 7,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
                 addAction: new ActionInfo(typeof(TargetLockAction), ActionColor.Red),

@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Burnout Thrusters",
                 UpgradeType.Modification,
-                cost: 6,
+                cost: 4,
                 restrictions: new UpgradeCardRestrictions(
                     new BaseSizeRestriction(BaseSize.Small, BaseSize.Medium),
                     new FactionRestriction(Faction.Scum)

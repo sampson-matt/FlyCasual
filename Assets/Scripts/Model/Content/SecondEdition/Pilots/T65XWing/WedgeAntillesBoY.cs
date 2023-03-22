@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Wedge Antilles",
                     5,
-                    48,
+                    49,
                     isLimited: true,
                     tags: new List<Tags>
                     {

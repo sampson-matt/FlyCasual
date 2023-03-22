@@ -19,7 +19,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "PZ-4CO",
                 UpgradeType.Crew,
-                cost: 5,
+                cost: 3,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Resistance),
                 addAction: new ActionInfo(typeof(CalculateAction)),

@@ -15,7 +15,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Notorious",
                 UpgradeType.Talent,
-                cost: 4,
+                cost: 5,
                 isLimited: true,
                 restriction: new UpgradePresentRestriction(UpgradeType.Illicit),
                 abilityType: typeof(Abilities.SecondEdition.NotoriousAbility),

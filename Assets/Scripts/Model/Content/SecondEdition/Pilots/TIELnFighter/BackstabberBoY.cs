@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Backstabber\"",
                     5,
-                    30,
+                    36,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BackstabberAbility),
                     tags: new List<Tags>
@@ -23,6 +23,9 @@ namespace Ship
                     },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
+
+                PilotNameCanonical = "backstabber-battleofyavin";
+
                 ShipInfo.Hull++;
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/BattleOfYavin/backstabber-boy.png";

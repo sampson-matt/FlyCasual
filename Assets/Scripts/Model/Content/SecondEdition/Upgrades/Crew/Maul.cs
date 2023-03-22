@@ -1,7 +1,7 @@
 ﻿using Ship;
 using Upgrade;
 using ActionsList;
-using Actions;
+using Content;
 using SquadBuilderNS;
 using UnityEngine;
 
@@ -88,17 +88,17 @@ namespace Abilities.SecondEdition
 
         public override void ActivateAbilityForSquadBuilder()
         {
-            HostShip.OnForceAlignmentEquipCheck += AllowDarkSideUpgrades;
+            HostShip.OnUpgradeEquipTagCheck += AllowDarkSideUpgrades;
         }
 
         public override void DeactivateAbilityForSquadBuilder()
         {
-            HostShip.OnForceAlignmentEquipCheck -= AllowDarkSideUpgrades;
+            HostShip.OnUpgradeEquipTagCheck -= AllowDarkSideUpgrades;
         }
 
-        private void AllowDarkSideUpgrades(ForceAlignment alignment, ref bool result)
+        private void AllowDarkSideUpgrades(Tags tag, ref bool result)
         {
-            if (alignment == ForceAlignment.Dark) result = true;
+            if (tag == Tags.DarkSide) result = true;
         }
 
         private void RegisterAbilityShield()

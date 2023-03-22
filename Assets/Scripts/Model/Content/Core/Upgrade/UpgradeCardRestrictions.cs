@@ -154,7 +154,7 @@ namespace Upgrade
 
         public override bool IsAllowedForShip(GenericShip ship)
         {
-            return (ship.PilotInfo as PilotCardInfo).Tags.Contains(Tag) || (ship.ShipInfo as ShipCardInfo).Tags.Contains(Tag);
+            return ship.CanEquipTagRestrictedUpgrade(Tag);
         }
     }
 

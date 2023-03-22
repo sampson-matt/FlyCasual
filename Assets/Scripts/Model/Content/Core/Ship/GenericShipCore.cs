@@ -413,7 +413,7 @@ namespace Ship
 
         public bool CanEquipTagRestrictedUpgrade(Tags tag)
         {
-            var result = ((PilotInfo as PilotCardInfo).Tags.Contains(tag));
+            var result = (PilotInfo as PilotCardInfo).Tags.Contains(tag) || (ShipInfo as ShipCardInfo).Tags.Contains(tag);
 
             OnUpgradeEquipTagCheck?.Invoke(tag, ref result);
 

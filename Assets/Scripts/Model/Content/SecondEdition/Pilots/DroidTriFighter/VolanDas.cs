@@ -4,6 +4,7 @@ using SubPhases;
 using System.Linq;
 using Movement;
 using Upgrade;
+using System.Collections.Generic;
 
 namespace Ship.SecondEdition.DroidTriFighter
 {
@@ -16,7 +17,7 @@ namespace Ship.SecondEdition.DroidTriFighter
                 5,
                 40,
                 true,
-                extraUpgradeIcon: UpgradeType.Talent,
+                extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                 abilityType: typeof(Abilities.SecondEdition.VolanDasAbility),
                 affectedByStandardized: false
             );

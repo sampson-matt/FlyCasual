@@ -39,6 +39,8 @@ namespace Ship.SecondEdition.DroidTriFighter
             ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(BarrelRollAction), typeof(EvadeAction), ActionColor.Red));
             ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(BoostAction), typeof(CalculateAction), ActionColor.Red));
 
+            DefaultUpgrades.Add(typeof(UpgradesList.SecondEdition.InterceptBoosterAttached));
+
             IconicPilots = new Dictionary<Faction, System.Type> {
                 { Faction.Separatists, typeof(SeparatistInterceptor) }
             };

@@ -30,7 +30,7 @@ namespace Ship
                         UpgradeType.Title,
                         UpgradeType.Modification,
                         UpgradeType.Crew,
-                        UpgradeType.Crew
+                        UpgradeType.Crew,
                         UpgradeType.Sensor,
                         UpgradeType.Illicit
                     )

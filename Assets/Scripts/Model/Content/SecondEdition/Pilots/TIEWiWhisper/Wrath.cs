@@ -21,7 +21,7 @@ namespace Ship
                     49,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.WrathPilotAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent }
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }
                 );
 
                 ImageUrl = "https://i.imgur.com/AOPpXkq.png";

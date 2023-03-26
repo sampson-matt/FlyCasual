@@ -1,5 +1,5 @@
 ﻿using Arcs;
-using BoardTools;
+using System.Collections.Generic;
 using Ship;
 using SubPhases;
 using System;
@@ -20,7 +20,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DalanOberosKimogilaAbility),
                     charges: 2,
-                    extraUpgradeIcon: UpgradeType.Talent,
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent },
                     seImageNumber: 208
                 );
 

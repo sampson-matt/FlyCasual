@@ -1,4 +1,5 @@
 ﻿using Upgrade;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -12,7 +13,7 @@ namespace Ship
                     "Cartel Executioner",
                     3,
                     41,
-                    extraUpgradeIcon: UpgradeType.Talent,
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent },
                     seImageNumber: 209
                 );
 

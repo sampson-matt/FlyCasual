@@ -1,6 +1,7 @@
 ﻿using Ship;
 using SubPhases;
 using Upgrade;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -16,7 +17,7 @@ namespace Ship
                     48,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ToraniKuldaAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent },
                     seImageNumber: 207
                 );
 

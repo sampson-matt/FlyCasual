@@ -17,6 +17,7 @@ namespace Actions
         public bool BornForThisLimit { get; set; }
         public bool TargetLowerInitiave { get; set; }
         public bool SameActionLimit { get; set; }
+        public bool canCoordinateAllied { get; set; }
 
         public Func<GenericShip, int> GetAiPriority;
         public bool TreatCoordinatedActionAsRed { get; set; }
@@ -54,6 +55,7 @@ namespace ActionsList
                     Phases.CurrentSubPhase.CallBack
                 );
                 subphase.HostAction = this;
+                subphase.CoordinateActionData = CoordinateActionData;
                 subphase.Start();
             }
             else
@@ -189,7 +191,7 @@ namespace ActionsList
 
         private bool FilterCoordinateTargets(GenericShip ship)
         {
-            return Tools.IsFriendly(ship, Selection.ThisShip)
+            return (Tools.IsFriendly(ship, Selection.ThisShip) || (Tools.IsSameTeam(ship, Selection.ThisShip) && CoordinateActionData.canCoordinateAllied))
                 && Board.CheckInRange(CoordinateActionData.CoordinateProvider, ship, 1, 2, RangeCheckReason.CoordinateAction)
                 && ship.CanBeCoordinated
                 && (!CoordinateActionData.TargetLowerInitiave || ship.PilotInfo.Initiative<HostShip.PilotInfo.Initiative)
@@ -242,6 +244,8 @@ namespace SubPhases
 
     public class CoordinateTargetSubPhase : SelectShipSubPhase
     {
+        public CoordinateActionData CoordinateActionData;
+
         public override void Prepare()
         {
             PrepareByParameters(
@@ -285,7 +289,7 @@ namespace SubPhases
 
         private bool FilterCoordinateTargets(GenericShip ship)
         {
-            return Tools.IsFriendly(ship, Selection.ThisShip)
+            return (Tools.IsFriendly(ship, Selection.ThisShip) || (Tools.IsSameTeam(ship, Selection.ThisShip) && CoordinateActionData.canCoordinateAllied))
                 && Board.CheckInRange(Selection.ThisShip, ship, 1, 2, RangeCheckReason.CoordinateAction)
                 && ship.CanBeCoordinated
                 && Selection.ThisShip.CallCheckCanCoordinate(ship);

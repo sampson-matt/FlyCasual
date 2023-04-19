@@ -39,7 +39,7 @@ namespace Editions
         public override string PathToCampaignSetup { get { return "CampaignSetup";  } }
         public override string PathToElitePilotUpgrades { get { return "ElitePilotUpgrades"; } }
 
-        public override string RootUrlForImages { get { return "https://squadbuilder.fantasyflightgames.com/card_images/"; } }
+        public override string RootUrlForImages { get { return "https://raw.githubusercontent.com/CrazyVulcan/x-wing2.0-project-goldenrod/main/src/images/En/"; } }
         public override Vector2 UpgradeCardSize { get { return new Vector2(418, 300); } }
         public override Vector2 UpgradeCardCompactOffset { get { return new Vector2(168, 2); } }
         public override Vector2 UpgradeCardCompactSize { get { return new Vector2(237, 296); } }
@@ -332,13 +332,13 @@ namespace Editions
 
         public override string GetPilotImageUrl(GenericShip ship, string filename)
         {
-            return (ship.PilotInfo.SEImageNumber == 0) ? null : RootUrlForImages + "Card_Pilot_" + ship.PilotInfo.SEImageNumber + ".png";
+            return  RootUrlForImages + "pilots/" + ship.PilotNameCanonical + ".png";
         }
 
         public override string GetUpgradeImageUrl(GenericUpgrade upgrade, string filename = null)
         {
             return RootUrlForImages
-                + "Card_Upgrade_" + upgrade.UpgradeInfo.SEImageNumber
+                + "upgrades/" + upgrade.NameCanonical
                 + ((upgrade.IsSecondSide)?"b":"")
                 + ".png";
         }

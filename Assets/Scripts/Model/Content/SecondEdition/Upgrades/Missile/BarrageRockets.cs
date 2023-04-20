@@ -25,8 +25,7 @@ namespace UpgradesList.SecondEdition
                     charges: 5,
                     requiresToken: typeof(FocusToken)
                 ),
-                abilityType: typeof(Abilities.SecondEdition.BarrageRocketsAbility),
-                seImageNumber: 36
+                abilityType: typeof(Abilities.SecondEdition.BarrageRocketsAbility)
             );
         }        
     }

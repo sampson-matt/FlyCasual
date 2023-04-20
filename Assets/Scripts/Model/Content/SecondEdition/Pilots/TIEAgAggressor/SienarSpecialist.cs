@@ -9,8 +9,7 @@
                 PilotInfo = new PilotCardInfo(
                     "Sienar Specialist",
                     2,
-                    26,
-                    seImageNumber: 130
+                    26
                 );
             }
         }

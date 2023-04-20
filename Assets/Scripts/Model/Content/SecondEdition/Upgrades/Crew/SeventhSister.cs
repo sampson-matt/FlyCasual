@@ -20,8 +20,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Imperial),
                 addForce: 1,
-                abilityType: typeof(Abilities.SecondEdition.SeventhSisterCrewAbility),
-                seImageNumber: 121
+                abilityType: typeof(Abilities.SecondEdition.SeventhSisterCrewAbility)
             );
 
             Avatar = new AvatarInfo(

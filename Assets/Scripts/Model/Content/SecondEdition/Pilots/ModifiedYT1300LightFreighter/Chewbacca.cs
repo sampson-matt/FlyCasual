@@ -20,8 +20,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ChewbaccaRebelPilotAbility),
                     charges: 1,
                     regensCharges: 1,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 71
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

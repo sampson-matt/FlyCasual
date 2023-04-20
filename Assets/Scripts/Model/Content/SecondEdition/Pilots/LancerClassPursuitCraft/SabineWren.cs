@@ -14,8 +14,7 @@ namespace Ship
                     57,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.SabineWrenLancerPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 220
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 PilotNameCanonical = "sabinewren-lancerclasspursuitcraft";

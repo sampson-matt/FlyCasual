@@ -14,8 +14,7 @@ namespace UpgradesList.SecondEdition
                 "Trajectory Simulator",
                 UpgradeType.Sensor,
                 cost: 6,
-                abilityType: typeof(Abilities.SecondEdition.TrajectorySimulatorAbility),
-                seImageNumber: 26
+                abilityType: typeof(Abilities.SecondEdition.TrajectorySimulatorAbility)
             );
         }        
     }

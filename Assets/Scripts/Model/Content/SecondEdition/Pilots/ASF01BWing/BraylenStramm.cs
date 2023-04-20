@@ -18,8 +18,7 @@ namespace Ship
                     52,
                     isLimited: true,
                     abilityType: typeof(BraylenStrammAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 23
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Dark Blue";

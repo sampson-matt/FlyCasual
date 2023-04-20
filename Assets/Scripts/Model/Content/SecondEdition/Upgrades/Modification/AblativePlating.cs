@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                 cost: 4,
                 restriction: new BaseSizeRestriction(BaseSize.Medium, BaseSize.Large),
                 abilityType: typeof(Abilities.SecondEdition.AblativePlatingAbility),
-                charges: 2,
-                seImageNumber: 68
+                charges: 2
             );
         }
     }

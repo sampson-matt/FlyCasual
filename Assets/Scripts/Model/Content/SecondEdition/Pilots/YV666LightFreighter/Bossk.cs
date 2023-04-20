@@ -15,8 +15,7 @@ namespace Ship
                     63,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BosskPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 210
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

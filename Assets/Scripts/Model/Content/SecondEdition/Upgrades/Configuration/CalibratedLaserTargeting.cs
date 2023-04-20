@@ -15,10 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 0,
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.Delta7Aethersprite.Delta7Aethersprite)),
                 abilityType: typeof(Abilities.SecondEdition.CalibratedLaserTargetingAbility)
-                //seImageNumber: ??
             );
-            
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/4a/32/4a32d934-9d57-433c-8fb6-ce6c1cb52224/swz34_calibrated-laser-targeting.png";
         }
 
         public void UpdateCost(GenericShip ship)

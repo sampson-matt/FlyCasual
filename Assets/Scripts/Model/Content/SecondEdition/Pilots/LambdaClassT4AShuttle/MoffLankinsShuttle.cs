@@ -15,9 +15,11 @@ namespace Ship
                     "Moff Lankin's Shuttle",
                     1,
                     0,
-                    abilityType: typeof(Abilities.SecondEdition.MoffLankinsShuttleAbility),
-                    seImageNumber: 145
+                    abilityType: typeof(Abilities.SecondEdition.MoffLankinsShuttleAbility)
                 );
+
+                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/omicrongrouppilot.png";
+
                 RequiredMods = new List<Type>() { typeof(HotacEliteImperialPilotsModSE) };
             }
         }

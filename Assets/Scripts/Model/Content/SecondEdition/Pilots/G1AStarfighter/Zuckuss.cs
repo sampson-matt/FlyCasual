@@ -14,8 +14,7 @@ namespace Ship
                     43,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.ZuckussAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 202
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

@@ -13,8 +13,7 @@ namespace UpgradesList.SecondEdition
                 "Swarm Tactics",
                 UpgradeType.Talent,
                 cost: 3,
-                abilityType: typeof(Abilities.FirstEdition.SwarmTacticsAbility),
-                seImageNumber: 17
+                abilityType: typeof(Abilities.FirstEdition.SwarmTacticsAbility)
             );
         }
 

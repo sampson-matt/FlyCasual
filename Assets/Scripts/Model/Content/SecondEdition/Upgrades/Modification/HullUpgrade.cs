@@ -12,8 +12,7 @@ namespace UpgradesList.SecondEdition
                 "Hull Upgrade",
                 UpgradeType.Modification,
                 cost: 3,
-                addHull: 1,
-                seImageNumber: 73
+                addHull: 1
             );
         }
 

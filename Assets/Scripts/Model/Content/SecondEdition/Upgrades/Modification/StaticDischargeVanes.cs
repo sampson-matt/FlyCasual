@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 "Static Discharge Vanes",
                 UpgradeType.Modification,
                 cost: 5,
-                abilityType: typeof(Abilities.SecondEdition.StaticDischargeVanesAbility),
-                seImageNumber: 76
+                abilityType: typeof(Abilities.SecondEdition.StaticDischargeVanesAbility)
             );
         }
     }

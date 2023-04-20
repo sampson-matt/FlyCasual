@@ -12,8 +12,7 @@ namespace Ship
                     "Bounty Hunter",
                     2,
                     62,
-                    extraUpgradeIcon: UpgradeType.Crew,
-                    seImageNumber: 154
+                    extraUpgradeIcon: UpgradeType.Crew
                 );
 
                 ModelInfo.SkinName = "Mandalorian Mercenary";

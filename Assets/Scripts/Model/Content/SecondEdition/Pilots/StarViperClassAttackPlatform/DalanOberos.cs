@@ -18,8 +18,7 @@ namespace Ship
                     49,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DalanOberosStarviperAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 179
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 PilotNameCanonical = "dalanoberos-starviperclassattackplatform";

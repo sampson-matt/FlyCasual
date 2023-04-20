@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Talent,
                 cost: 1,
                 abilityType: typeof(Abilities.SecondEdition.RuthlessAbility),
-                restriction: new FactionRestriction(Faction.Imperial),
-                seImageNumber: 13
+                restriction: new FactionRestriction(Faction.Imperial)
             );
         }        
     }

@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 5,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.MagvaYarroCrewAbility),
-                seImageNumber: 89
+                abilityType: typeof(Abilities.SecondEdition.MagvaYarroCrewAbility)
             );
 
             Avatar = new AvatarInfo(

@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                 cost: 5,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.CassianAndorCrewAbility),
-                seImageNumber: 81
+                abilityType: typeof(Abilities.SecondEdition.CassianAndorCrewAbility)
             );
 
             Avatar = new AvatarInfo(

@@ -15,8 +15,7 @@ namespace Ship
                     27,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LandoCalrissianScumPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 226
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 PilotNameCanonical = "landocalrissian-escapecraft";

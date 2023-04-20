@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                 cost: 6,
                 charges: 2,
                 cannotBeRecharged: true,
-                subType: UpgradeSubType.Mine,
-                seImageNumber: 66
+                subType: UpgradeSubType.Mine
             );
 
             bombPrefabPath = "Prefabs/Bombs/ProximityMine";

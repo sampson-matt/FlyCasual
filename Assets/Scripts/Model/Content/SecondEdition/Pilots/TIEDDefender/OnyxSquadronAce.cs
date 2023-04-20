@@ -13,8 +13,7 @@ namespace Ship
                     "Onyx Squadron Ace",
                     4,
                     71,
-                    extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Sensor },
-                    seImageNumber: 125
+                    extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Sensor }
                 );
             }
         }

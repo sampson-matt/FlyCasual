@@ -17,8 +17,7 @@ namespace Ship
                     40,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CountdownAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 118
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

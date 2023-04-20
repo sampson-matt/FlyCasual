@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Title,
                 cost: 0,
                 restriction: new ShipRestriction(typeof(Ship.FirstEdition.Aggressor.Aggressor)),
-                abilityType: typeof(Abilities.FirstEdition.Ig2000Ability),
-                seImageNumber: 149
+                abilityType: typeof(Abilities.FirstEdition.Ig2000Ability)
             );
         }        
     }

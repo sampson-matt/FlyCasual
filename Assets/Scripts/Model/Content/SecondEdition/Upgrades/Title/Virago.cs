@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                 addSlot: new UpgradeSlot(UpgradeType.Modification),
                 addShields: 1,
                 charges: 2,
-                abilityType: typeof(Abilities.SecondEdition.ViragoAbility),
-                seImageNumber: 155
+                abilityType: typeof(Abilities.SecondEdition.ViragoAbility)
             );
         }
     }

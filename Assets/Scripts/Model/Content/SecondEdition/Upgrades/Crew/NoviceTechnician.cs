@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 "Novice Technician",
                 UpgradeType.Crew,
                 cost: 2,
-                abilityType: typeof(Abilities.SecondEdition.NoviceTechnicianCrewAbility),
-                seImageNumber: 45
+                abilityType: typeof(Abilities.SecondEdition.NoviceTechnicianCrewAbility)
             );
 
             Avatar = new AvatarInfo(

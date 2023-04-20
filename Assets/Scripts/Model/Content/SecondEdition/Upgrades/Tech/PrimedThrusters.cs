@@ -13,11 +13,8 @@ namespace UpgradesList.SecondEdition
                 "Primed Thrusters",
                 UpgradeType.Tech,
                 cost: 8,
-                abilityType: typeof(Abilities.SecondEdition.PrimedThrustersAbility)//,
-                                                                                   //seImageNumber: 69
+                abilityType: typeof(Abilities.SecondEdition.PrimedThrustersAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/86/a1/86a1115b-eb55-491b-84e4-67e2b6124999/swz19_a1_primed-thrusters.png";
         }
         
         public void UpdateCost(GenericShip ship)

@@ -18,8 +18,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.NdruSuhlakAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
-                    factionOverride: Faction.Scum,
-                    seImageNumber: 169
+                    factionOverride: Faction.Scum
                 );
 
                 ModelInfo.SkinName = "N'dru Suhlak";

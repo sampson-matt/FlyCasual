@@ -18,8 +18,7 @@ namespace Ship
                     73,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LeeboAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 78
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

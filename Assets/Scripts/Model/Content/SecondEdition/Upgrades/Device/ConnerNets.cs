@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 cost: 3,
                 charges: 1,
                 cannotBeRecharged: true,
-                subType: UpgradeSubType.Mine,
-                seImageNumber: 64
+                subType: UpgradeSubType.Mine
             );
 
             bombPrefabPath = "Prefabs/Bombs/ConnerNets";

@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                 cost: 6,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Imperial),
-                abilityType: typeof(Abilities.SecondEdition.DeathTroopersAbility),
-                seImageNumber: 113
+                abilityType: typeof(Abilities.SecondEdition.DeathTroopersAbility)
             );
 
             Avatar = new AvatarInfo(

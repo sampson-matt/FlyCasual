@@ -11,8 +11,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Gand Findsman",
                     1,
-                    41,
-                    seImageNumber: 203
+                    41
                 );
             }
         }

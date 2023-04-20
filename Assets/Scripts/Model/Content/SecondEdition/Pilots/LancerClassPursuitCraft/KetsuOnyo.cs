@@ -14,8 +14,7 @@ namespace Ship
                     66,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.KetsuOnyoPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 218
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

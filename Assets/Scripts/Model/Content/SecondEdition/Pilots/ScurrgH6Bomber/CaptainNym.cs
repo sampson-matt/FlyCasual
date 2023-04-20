@@ -20,8 +20,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.CaptainNymScumAbiliity),
                     charges: 1,
                     regensCharges: 1,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 204
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

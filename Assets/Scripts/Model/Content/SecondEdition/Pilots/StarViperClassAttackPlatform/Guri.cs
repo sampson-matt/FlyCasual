@@ -17,8 +17,7 @@ namespace Ship
                     59,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.GuriAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 178
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

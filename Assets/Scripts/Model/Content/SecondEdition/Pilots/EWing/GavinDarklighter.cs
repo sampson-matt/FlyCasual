@@ -17,8 +17,7 @@ namespace Ship
                     55,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.GavinDarklighterAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 51
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

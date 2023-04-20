@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 restrictions: new UpgradeCardRestrictions(
                     new BaseSizeRestriction(BaseSize.Small),
                     new ActionBarRestriction(typeof(BoostAction), ActionColor.White)
-                ),
-                seImageNumber: 2
+                )
             );
         }
     }

@@ -22,8 +22,7 @@ namespace Ship
                     45,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.P4LOMAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 201
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

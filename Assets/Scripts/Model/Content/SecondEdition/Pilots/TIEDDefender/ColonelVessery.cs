@@ -15,8 +15,7 @@ namespace Ship
                     79,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.ColonelVesseryAbility),
-                    extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Sensor },
-                    seImageNumber: 123
+                    extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Sensor }
                 );
             }
         }

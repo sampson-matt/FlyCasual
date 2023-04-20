@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 5,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.FirstEdition.LattsRazziCrewAbility),
-                seImageNumber: 135
+                abilityType: typeof(Abilities.FirstEdition.LattsRazziCrewAbility)
             );
 
             Avatar = new AvatarInfo(

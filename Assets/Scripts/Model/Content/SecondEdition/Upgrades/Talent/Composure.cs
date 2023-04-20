@@ -14,8 +14,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Talent,
                 cost: 1,
                 abilityType: typeof(Abilities.SecondEdition.ComposureAbility),
-                restriction: new ActionBarRestriction(typeof(FocusAction)),
-                seImageNumber: 156
+                restriction: new ActionBarRestriction(typeof(FocusAction))
             );
         }        
     }

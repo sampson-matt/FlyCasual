@@ -23,8 +23,7 @@ namespace UpgradesList.SecondEdition
                     new FactionRestriction(Faction.Imperial),
                     new ActionBarRestriction(typeof(CoordinateAction))
                 ),
-                abilityType: typeof(Abilities.SecondEdition.CienaReeCrewAbility),
-                seImageNumber: 111
+                abilityType: typeof(Abilities.SecondEdition.CienaReeCrewAbility)
             );
 
             Avatar = new AvatarInfo(

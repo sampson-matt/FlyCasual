@@ -20,8 +20,7 @@ namespace Ship
                     37,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.RoarkGarnetAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 44
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

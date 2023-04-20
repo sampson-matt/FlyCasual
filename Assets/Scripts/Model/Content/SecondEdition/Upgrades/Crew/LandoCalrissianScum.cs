@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 cost: 6,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.LandoCalrissianScumAbility),
-                seImageNumber: 159
+                abilityType: typeof(Abilities.SecondEdition.LandoCalrissianScumAbility)
             );
 
             Avatar = new AvatarInfo(

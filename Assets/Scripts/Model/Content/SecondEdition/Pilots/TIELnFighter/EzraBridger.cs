@@ -16,8 +16,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.EzraBridgerPilotAbility),
                     force: 1,
                     extraUpgradeIcon: UpgradeType.ForcePower,
-                    factionOverride: Faction.Rebel,
-                    seImageNumber: 46
+                    factionOverride: Faction.Rebel
                 );
 
                 PilotNameCanonical = "ezrabridger-tielnfighter";

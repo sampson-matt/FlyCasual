@@ -332,7 +332,7 @@ namespace Editions
 
         public override string GetPilotImageUrl(GenericShip ship, string filename)
         {
-            return  RootUrlForImages + "pilots/" + ship.PilotNameCanonical + ".png";
+            return RootUrlForImages + "pilots/" + ship.PilotNameCanonical + ".png";
         }
 
         public override string GetUpgradeImageUrl(GenericUpgrade upgrade, string filename = null)

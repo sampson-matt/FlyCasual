@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Gunner,
                 cost: 10,
                 abilityType: typeof(Abilities.SecondEdition.VeteranTurretGunnerAbility),
-                restriction: new ActionBarRestriction(typeof(RotateArcAction)),
-                seImageNumber: 52
+                restriction: new ActionBarRestriction(typeof(RotateArcAction))
             );
 
             Avatar = new AvatarInfo(

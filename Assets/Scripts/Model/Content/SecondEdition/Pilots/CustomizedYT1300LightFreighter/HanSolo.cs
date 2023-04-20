@@ -18,8 +18,7 @@ namespace Ship
                     49,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.HanSoloScumPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 222
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

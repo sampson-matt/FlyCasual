@@ -18,8 +18,7 @@ namespace Ship
                     34,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TomaxBrenAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 107
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "White Death";

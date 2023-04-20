@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Configuration,
                 cost: 0,
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.UT60DUWing.UT60DUWing)),
-                abilityType: typeof(Abilities.SecondEdition.PivotWingOpenAbility),
-                seImageNumber: 107
+                abilityType: typeof(Abilities.SecondEdition.PivotWingOpenAbility)
             );
 
             AnotherSide = typeof(PivotWingClosed);
@@ -29,15 +28,14 @@ namespace UpgradesList.SecondEdition
         public PivotWingClosed() : base()
         {
             IsHidden = true;
-            NameCanonical = "pivotwing-anotherside";
+            NameCanonical = "pivotwing-side";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Pivot Wing (Closed)",
                 UpgradeType.Configuration,
                 cost: 0,
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.UT60DUWing.UT60DUWing)),
-                abilityType: typeof(Abilities.SecondEdition.PivotWingClosedAbility),
-                seImageNumber: 107
+                abilityType: typeof(Abilities.SecondEdition.PivotWingClosedAbility)
             );
 
             IsSecondSide = true;

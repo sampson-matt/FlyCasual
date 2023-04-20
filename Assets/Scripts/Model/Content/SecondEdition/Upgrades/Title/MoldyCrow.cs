@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.Hwk290LightFreighter.Hwk290LightFreighter)),
                 addArc: new ShipArcInfo(ArcType.Front, 3),
-                abilityType: typeof(Abilities.SecondEdition.MoldyCrowAbility),
-                seImageNumber: 104
+                abilityType: typeof(Abilities.SecondEdition.MoldyCrowAbility)
             );
         }        
     }

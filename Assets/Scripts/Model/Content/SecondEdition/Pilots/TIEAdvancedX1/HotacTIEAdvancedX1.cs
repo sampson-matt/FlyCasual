@@ -14,9 +14,11 @@ namespace Ship
                     "Hotac Tie Advanced X1",
                     1,
                     0,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Pilot},
-                    seImageNumber: 98
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Pilot}
                 );
+
+                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/tempestsquadronpilot.png";
+
                 RequiredMods = new List<Type>() { typeof(HotacEliteImperialPilotsModSE) };
             }
         }

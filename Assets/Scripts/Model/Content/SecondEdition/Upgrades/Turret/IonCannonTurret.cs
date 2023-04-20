@@ -24,8 +24,7 @@ namespace UpgradesList.SecondEdition
                 ),
                 addArc: new ShipArcInfo(ArcType.SingleTurret),
                 addAction: new ActionInfo(typeof(RotateArcAction)),
-                abilityType: typeof(Abilities.SecondEdition.IonDamageAbilityTurret),
-                seImageNumber: 32
+                abilityType: typeof(Abilities.SecondEdition.IonDamageAbilityTurret)
             );
         }        
     }

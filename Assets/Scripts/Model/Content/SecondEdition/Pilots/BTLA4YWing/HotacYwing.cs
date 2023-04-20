@@ -18,9 +18,11 @@ namespace Ship
                     "Hotac Y-Wing",
                     2,
                     0,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Init },
-                    seImageNumber: 18
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Init }
                 );
+
+                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/graysquadronbomber.png";
+
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ProtectAction)));
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) }; 
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Missile);

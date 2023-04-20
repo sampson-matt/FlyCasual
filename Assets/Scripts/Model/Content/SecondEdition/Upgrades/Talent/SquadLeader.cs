@@ -17,9 +17,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Talent,
                 cost: 4,
                 isLimited: true,
-                addAction: new ActionInfo(typeof(CoordinateAction), ActionColor.Red),
-                //abilityType: typeof(Abilities.SecondEdition.SquadLeaderAbility),
-                seImageNumber: 16
+                addAction: new ActionInfo(typeof(CoordinateAction), ActionColor.Red)
             );
         }
 

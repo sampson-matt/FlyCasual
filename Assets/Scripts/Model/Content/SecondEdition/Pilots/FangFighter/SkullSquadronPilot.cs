@@ -13,8 +13,7 @@ namespace Ship
                     "Skull Squadron Pilot",
                     4,
                     46,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },
-                    seImageNumber: 159
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
 
                 ModelInfo.SkinName = "Skull Squadron Pilot";

@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.JumpMaster5000.JumpMaster5000)),
                 addSlot: new UpgradeSlot(UpgradeType.Astromech),
                 forbidSlot: UpgradeType.Crew,
-                abilityType: typeof(Abilities.SecondEdition.PunishingOneAbility),
-                seImageNumber: 152
+                abilityType: typeof(Abilities.SecondEdition.PunishingOneAbility)
             );
         }        
     }

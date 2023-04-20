@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 18,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Imperial),
-                abilityType: typeof(Abilities.SecondEdition.AdmiralSloaneCrewAbility),
-                seImageNumber: 109
+                abilityType: typeof(Abilities.SecondEdition.AdmiralSloaneCrewAbility)
             );
 
             Avatar = new AvatarInfo(

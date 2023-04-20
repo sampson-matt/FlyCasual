@@ -20,8 +20,7 @@ namespace UpgradesList.SecondEdition
                 type: UpgradeType.Device,
                 cost: 4,
                 charges: 2,
-                subType: UpgradeSubType.Bomb,
-                seImageNumber: 65
+                subType: UpgradeSubType.Bomb
             );
 
             bombPrefabPath = "Prefabs/Bombs/ProtonBomb";

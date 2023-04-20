@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.ZuckussCrewAbility),
-                seImageNumber: 138
+                abilityType: typeof(Abilities.SecondEdition.ZuckussCrewAbility)
             );
 
             Avatar = new AvatarInfo(

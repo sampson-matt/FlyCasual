@@ -21,8 +21,7 @@ namespace Ship
                     48,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.PrinceXizorAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 180
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 8,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.BosskGunnerAbility),
-                seImageNumber: 139
+                abilityType: typeof(Abilities.SecondEdition.BosskGunnerAbility)
             );
 
             Avatar = new AvatarInfo(

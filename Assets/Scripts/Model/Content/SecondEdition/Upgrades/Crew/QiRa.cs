@@ -16,7 +16,6 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Crew,
                 cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.QiRaAbility),
-                seImageNumber: 161,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum)
             );

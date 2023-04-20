@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.ForcePower,
                 cost: 12,
                 abilityType: typeof(Abilities.SecondEdition.SupernaturalReflexesAbility),
-                restriction: new BaseSizeRestriction(BaseSize.Small),
-                seImageNumber: 22
+                restriction: new BaseSizeRestriction(BaseSize.Small)
             );
         }
 

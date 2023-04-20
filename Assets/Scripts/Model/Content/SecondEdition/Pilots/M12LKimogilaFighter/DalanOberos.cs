@@ -20,8 +20,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DalanOberosKimogilaAbility),
                     charges: 2,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent },
-                    seImageNumber: 208
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }
                 );
 
                 ModelInfo.SkinName = "Dalan Oberos";

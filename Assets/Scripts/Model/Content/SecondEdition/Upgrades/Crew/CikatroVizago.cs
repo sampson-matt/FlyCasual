@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                 cost: 1,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.CikatroVizagoAbility),
-                seImageNumber: 131
+                abilityType: typeof(Abilities.SecondEdition.CikatroVizagoAbility)
             );
 
             Avatar = new AvatarInfo(

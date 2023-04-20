@@ -12,8 +12,7 @@ namespace UpgradesList.SecondEdition
                 "Stealth Device",
                 UpgradeType.Modification,
                 cost: 3,
-                abilityType: typeof(Abilities.SecondEdition.StealthDeviceAbility),
-                seImageNumber: 77
+                abilityType: typeof(Abilities.SecondEdition.StealthDeviceAbility)
             );
         }
 

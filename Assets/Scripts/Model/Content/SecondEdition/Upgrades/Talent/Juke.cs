@@ -14,8 +14,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Talent,
                 cost: 6,
                 abilityType: typeof(Abilities.FirstEdition.JukeAbility),
-                restriction: new BaseSizeRestriction(BaseSize.Small, BaseSize.Medium),
-                seImageNumber: 8
+                restriction: new BaseSizeRestriction(BaseSize.Small, BaseSize.Medium)
             );
         }
     }

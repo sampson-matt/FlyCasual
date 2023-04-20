@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Gunner,
                 cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.VeteranTailGunnerAbility),
-                restriction: new ArcRestriction(ArcType.Rear),
-                seImageNumber: 51
+                restriction: new ArcRestriction(ArcType.Rear)
             );
 
             Avatar = new AvatarInfo(

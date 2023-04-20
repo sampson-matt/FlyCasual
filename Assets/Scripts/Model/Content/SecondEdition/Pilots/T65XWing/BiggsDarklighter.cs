@@ -17,8 +17,7 @@ namespace Ship
                     3,
                     46,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.BiggsDarklighterAbility),
-                    seImageNumber: 7
+                    abilityType: typeof(Abilities.SecondEdition.BiggsDarklighterAbility)
                 );
 
                 ModelInfo.SkinName = "Biggs Darklighter";

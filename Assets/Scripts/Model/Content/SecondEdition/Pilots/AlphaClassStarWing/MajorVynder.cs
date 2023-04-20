@@ -15,8 +15,7 @@ namespace Ship
                     39,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.MajorVynderAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 135
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

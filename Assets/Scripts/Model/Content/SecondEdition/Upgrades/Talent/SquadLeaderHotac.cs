@@ -17,10 +17,10 @@ namespace UpgradesList.SecondEdition
                 "Squad Leader Hotac",
                 UpgradeType.Talent,
                 cost: 4,
-                addAction: new ActionInfo(typeof(CoordinateAction), ActionColor.White),
-                //abilityType: typeof(Abilities.SecondEdition.SquadLeaderAbility),
-                seImageNumber: 16
+                addAction: new ActionInfo(typeof(CoordinateAction), ActionColor.White)
             );
+
+            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/squadleader.png";
         }
 
         public void UpdateCost(GenericShip ship)

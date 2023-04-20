@@ -18,8 +18,7 @@ namespace Ship
                     41,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.JanOrsAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 42
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

@@ -16,8 +16,7 @@ namespace Ship
                     36,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.MajorRhymerAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 109
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

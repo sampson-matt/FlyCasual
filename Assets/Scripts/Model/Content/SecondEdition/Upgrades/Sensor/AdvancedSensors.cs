@@ -14,8 +14,7 @@ namespace UpgradesList.SecondEdition
                 "Advanced Sensors",
                 UpgradeType.Sensor,
                 cost: 10,
-                abilityType: typeof(Abilities.SecondEdition.AdvancedSensorsAbility),
-                seImageNumber: 23
+                abilityType: typeof(Abilities.SecondEdition.AdvancedSensorsAbility)
             );
         }
 

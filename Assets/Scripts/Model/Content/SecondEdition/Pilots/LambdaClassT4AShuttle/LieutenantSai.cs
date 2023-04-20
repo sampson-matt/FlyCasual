@@ -16,8 +16,7 @@ namespace Ship
                     3,
                     45,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.LieutenantSaiAbility),
-                    seImageNumber: 144
+                    abilityType: typeof(Abilities.SecondEdition.LieutenantSaiAbility)
                 );
             }
         }

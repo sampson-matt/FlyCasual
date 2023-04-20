@@ -17,8 +17,7 @@ namespace Ship
                     4,
                     isLimited: true,
                     extraUpgradeIcon: UpgradeType.Illicit,
-                    factionOverride: Faction.Scum,
-                    seImageNumber: 171
+                    factionOverride: Faction.Scum
                 );
 
                 ModelInfo.SkinName = "Nashtah Pup";

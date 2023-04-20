@@ -12,8 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Patrol Leader",
                     2,
-                    67,
-                    seImageNumber: 148
+                    67
                 );
             }
         }

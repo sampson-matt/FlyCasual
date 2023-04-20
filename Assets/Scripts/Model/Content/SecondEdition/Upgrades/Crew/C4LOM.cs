@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.C4LOMAbility),
-                seImageNumber: 128
+                abilityType: typeof(Abilities.SecondEdition.C4LOMAbility)
             );
 
             Avatar = new AvatarInfo(

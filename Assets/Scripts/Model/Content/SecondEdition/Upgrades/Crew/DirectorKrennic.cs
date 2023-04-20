@@ -22,8 +22,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 addAction: new ActionInfo(typeof(TargetLockAction)),
                 restriction: new FactionRestriction(Faction.Imperial),
-                abilityType: typeof(Abilities.SecondEdition.DirectorKrennicAbility),
-                seImageNumber: 114
+                abilityType: typeof(Abilities.SecondEdition.DirectorKrennicAbility)
             );
 
             Avatar = new AvatarInfo(

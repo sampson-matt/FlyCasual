@@ -19,8 +19,7 @@ namespace Ship
                     78,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LandoCalrissianRebelPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 70
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 PilotNameCanonical = "landocalrissian-modifiedyt1300lightfreighter";

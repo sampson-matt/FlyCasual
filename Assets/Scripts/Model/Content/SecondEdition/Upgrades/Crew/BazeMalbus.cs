@@ -20,8 +20,7 @@ namespace UpgradesList.SecondEdition
                 cost: 3,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.BazeMalbusCrewAbility),
-                seImageNumber: 79
+                abilityType: typeof(Abilities.SecondEdition.BazeMalbusCrewAbility)
             );
 
             Avatar = new AvatarInfo(

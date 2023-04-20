@@ -17,8 +17,7 @@ namespace Ship
                     65,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KrassisTrelixAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew },
-                    seImageNumber: 153
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew }
                 );
 
                 ModelInfo.SkinName = "Krassis Trelix";

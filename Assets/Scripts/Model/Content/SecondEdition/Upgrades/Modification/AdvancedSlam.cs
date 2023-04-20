@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Modification,
                 cost: 3,
                 abilityType: typeof(Abilities.SecondEdition.AdvancedSlamAbility),
-                restriction: new ActionBarRestriction(typeof(SlamAction)),
-                seImageNumber: 69
+                restriction: new ActionBarRestriction(typeof(SlamAction))
             );
         }
     }

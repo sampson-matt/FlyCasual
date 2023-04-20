@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Crew,
                 cost: 4,
                 isLimited: true,
-                abilityType: typeof(Abilities.SecondEdition.InformantAbility),
-                seImageNumber: 44
+                abilityType: typeof(Abilities.SecondEdition.InformantAbility)
             );
 
             Avatar = new AvatarInfo(

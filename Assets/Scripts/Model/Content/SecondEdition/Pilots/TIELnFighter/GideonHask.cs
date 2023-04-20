@@ -19,8 +19,7 @@ namespace Ship
                     27,
                     isLimited: true,
                     abilityType: typeof(ScourgeAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 84
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Inferno";

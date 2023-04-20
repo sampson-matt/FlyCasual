@@ -18,8 +18,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TelTrevuraAbility),
                     charges: 1,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 216
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

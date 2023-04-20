@@ -17,8 +17,7 @@ namespace Ship
                     2,
                     66,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.ChopperPilotAbility),
-                    seImageNumber: 75
+                    abilityType: typeof(Abilities.SecondEdition.ChopperPilotAbility)
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

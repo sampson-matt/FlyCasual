@@ -14,9 +14,10 @@ namespace Ship
                     "Blade Squadron Veteran",
                     3,
                     41,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 25
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
+
+                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/bladesquadronveteran.png";
 
                 ModelInfo.SkinName = "Blue";
             }

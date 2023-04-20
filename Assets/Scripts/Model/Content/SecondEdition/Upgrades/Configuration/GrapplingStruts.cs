@@ -34,7 +34,7 @@ namespace UpgradesList.SecondEdition
         public GrapplingStrutsOpen() : base()
         {
             IsHidden = true;
-            NameCanonical = "grapplingstruts-anotherside";
+            NameCanonical = "grapplingstruts-side";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Grappling Struts (Open)",

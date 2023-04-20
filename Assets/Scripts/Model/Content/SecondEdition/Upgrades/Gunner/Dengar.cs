@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Scum),
                 abilityType: typeof(Abilities.SecondEdition.DengarGunnerAbility),
                 charges: 1,
-                regensCharges: true,
-                seImageNumber: 141
+                regensCharges: true
             );
 
             Avatar = new AvatarInfo(

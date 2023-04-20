@@ -18,9 +18,11 @@ namespace Ship
                     "Hotac X-Wing",
                     2,
                     0,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Init},
-                    seImageNumber: 11
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Init}
                 );
+
+                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/bluesquadronescort.png";
+
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ProtectAction)));
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
             }

@@ -25,8 +25,7 @@ namespace UpgradesList.SecondEdition
                         typeof(Ship.SecondEdition.SheathipedeClassShuttle.SheathipedeClassShuttle)
                     )
                 ),
-                abilityType: typeof(Abilities.SecondEdition.PhantomAbility),
-                seImageNumber: 106
+                abilityType: typeof(Abilities.SecondEdition.PhantomAbility)
             );
         }        
     }

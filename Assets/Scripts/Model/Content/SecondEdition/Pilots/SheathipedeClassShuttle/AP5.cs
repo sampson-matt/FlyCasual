@@ -20,8 +20,7 @@ namespace Ship
                     32,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.AP5PilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 41
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

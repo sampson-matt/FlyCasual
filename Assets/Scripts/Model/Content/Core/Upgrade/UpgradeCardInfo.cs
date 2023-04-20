@@ -27,7 +27,6 @@ namespace Upgrade
         public int Charges { get; private set; }
         public int RegensChargesCount { get; private set; }
         public bool CannotBeRecharged { get; private set; }
-        public int SEImageNumber { get; private set; }
         public UpgradeCardRestrictions Restrictions { get; private set; }
         public SpecialWeaponInfo WeaponInfo { get; private set; }
         public List<ActionInfo> AddedActions { get; private set; }
@@ -58,7 +57,6 @@ namespace Upgrade
             bool regensCharges = false,
             int regensChargesCount = 0,
             bool cannotBeRecharged = false,
-            int seImageNumber = 0,
             SpecialWeaponInfo weaponInfo = null,
             ShipArcInfo addArc = null,
             ArcType removeArc = ArcType.None,
@@ -83,7 +81,6 @@ namespace Upgrade
             Cost = cost;
             Charges = charges;
             CannotBeRecharged = cannotBeRecharged;
-            SEImageNumber = seImageNumber;
             WeaponInfo = weaponInfo;
             IsSolitary = isSolitary;
             IsStandardazed = isStandardazed;

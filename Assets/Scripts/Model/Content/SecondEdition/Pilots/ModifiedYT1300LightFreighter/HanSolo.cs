@@ -20,8 +20,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.HanSoloRebelPilotAbility),
                     charges: 1,
                     regensCharges: 1,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 69
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 PilotNameCanonical = "hansolo-modifiedyt1300lightfreighter";

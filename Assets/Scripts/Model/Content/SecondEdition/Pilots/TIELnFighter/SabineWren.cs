@@ -18,8 +18,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.SabineWrenPilotAbility),
                     extraUpgradeIcon: UpgradeType.Talent,
-                    factionOverride: Faction.Rebel,
-                    seImageNumber: 47
+                    factionOverride: Faction.Rebel
                 );
 
                 PilotNameCanonical = "sabinewren-tielnfighter";

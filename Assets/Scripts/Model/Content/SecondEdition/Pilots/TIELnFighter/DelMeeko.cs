@@ -19,8 +19,7 @@ namespace Ship
                     27,
                     isLimited: true,
                     abilityType: typeof(DelMeekoAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 85
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Inferno";

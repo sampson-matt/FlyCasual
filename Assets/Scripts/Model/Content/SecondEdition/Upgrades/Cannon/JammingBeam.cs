@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                     minRange: 1,
                     maxRange: 2
                 ),
-                abilityType: typeof(Abilities.SecondEdition.JammingBeamAbility),
-                seImageNumber: 29
+                abilityType: typeof(Abilities.SecondEdition.JammingBeamAbility)
             );
         }        
     }

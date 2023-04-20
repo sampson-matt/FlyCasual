@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Modification,
                 cost: 4,
                 restriction: new ActionBarRestriction(typeof(BoostAction), ActionColor.Red),
-                addAction: new ActionInfo(typeof(BoostAction)),
-                seImageNumber: 72
+                addAction: new ActionInfo(typeof(BoostAction))
             );
         }
 

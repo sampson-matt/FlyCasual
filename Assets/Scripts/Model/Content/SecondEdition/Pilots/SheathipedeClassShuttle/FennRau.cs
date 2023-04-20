@@ -16,8 +16,7 @@ namespace Ship
                     46,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.FennRauRebelAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 38
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 PilotNameCanonical = "fennrau-sheathipedeclassshuttle";

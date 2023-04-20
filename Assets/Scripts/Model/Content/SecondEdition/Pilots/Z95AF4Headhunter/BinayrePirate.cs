@@ -13,8 +13,7 @@ namespace Ship
                     1,
                     22,
                     extraUpgradeIcon: UpgradeType.Illicit,
-                    factionOverride: Faction.Scum,
-                    seImageNumber: 173
+                    factionOverride: Faction.Scum
                 );
 
                 ModelInfo.SkinName = "Binayre Pirate";

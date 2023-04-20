@@ -14,8 +14,7 @@ namespace Ship
                     61,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.IG88BAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 198
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

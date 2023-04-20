@@ -14,8 +14,7 @@ namespace Ship
                     "Green Squadron Pilot",
                     3,
                     30,
-                    extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent },
-                    seImageNumber: 21
+                    extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent }
                 );
                 
                 ModelInfo.SkinName = "Green";

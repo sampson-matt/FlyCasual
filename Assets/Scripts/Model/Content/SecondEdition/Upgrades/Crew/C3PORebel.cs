@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
                 addAction: new ActionInfo(typeof(CalculateAction)),
-                abilityType: typeof(Abilities.SecondEdition.C3P0RebelCrewAbility),
-                seImageNumber: 80
+                abilityType: typeof(Abilities.SecondEdition.C3P0RebelCrewAbility)
             );
 
             Avatar = new AvatarInfo(

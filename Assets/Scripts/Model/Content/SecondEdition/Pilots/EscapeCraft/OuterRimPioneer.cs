@@ -17,8 +17,7 @@ namespace Ship
                     26,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.OuterRimPioneerAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 227
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ShipAbilities.Add(new Abilities.SecondEdition.CoPilotAbility());

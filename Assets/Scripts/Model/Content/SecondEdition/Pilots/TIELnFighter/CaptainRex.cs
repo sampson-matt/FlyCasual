@@ -16,8 +16,7 @@ namespace Ship
                     25,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CaptainRexPilotAbility),
-                    factionOverride: Faction.Rebel,
-                    seImageNumber: 48
+                    factionOverride: Faction.Rebel
                 );
 
                 ModelInfo.ModelName = "TIE Fighter Rebel";

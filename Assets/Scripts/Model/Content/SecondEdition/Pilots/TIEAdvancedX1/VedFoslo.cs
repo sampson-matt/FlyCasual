@@ -18,8 +18,7 @@ namespace Ship
                     42,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.VedFosloAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 95
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

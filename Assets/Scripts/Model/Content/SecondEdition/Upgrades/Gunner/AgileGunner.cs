@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 "Agile Gunner",
                 UpgradeType.Gunner,
                 cost: 3,
-                abilityType: typeof(Abilities.SecondEdition.AgileGunnerAbility),
-                seImageNumber: 162
+                abilityType: typeof(Abilities.SecondEdition.AgileGunnerAbility)
             );
 
             Avatar = new AvatarInfo(

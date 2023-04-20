@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 cost: 3,
                 abilityType: typeof(Abilities.SecondEdition.DebrisGambit),
                 restriction: new BaseSizeRestriction(BaseSize.Small, BaseSize.Medium),
-                addAction: new ActionInfo(typeof(EvadeAction), ActionColor.Red),
-                seImageNumber: 3
+                addAction: new ActionInfo(typeof(EvadeAction), ActionColor.Red)
             );
         }
     }

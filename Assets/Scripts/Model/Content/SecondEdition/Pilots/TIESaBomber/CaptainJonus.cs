@@ -18,8 +18,7 @@ namespace Ship
                     44,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CaptainJonusAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 108
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

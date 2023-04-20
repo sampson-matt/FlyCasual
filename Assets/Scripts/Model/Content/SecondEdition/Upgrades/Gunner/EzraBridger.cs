@@ -20,8 +20,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 addForce: 1,
                 abilityType: typeof(Abilities.SecondEdition.EzraBridgerGunnerAbility),
-                restriction: new FactionRestriction(Faction.Rebel),
-                seImageNumber: 96
+                restriction: new FactionRestriction(Faction.Rebel)
             );
 
             Avatar = new AvatarInfo(

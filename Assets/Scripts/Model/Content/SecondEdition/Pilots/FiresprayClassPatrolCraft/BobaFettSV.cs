@@ -15,8 +15,7 @@ namespace Ship
                     87,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.BobaFettScumAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },
-                    seImageNumber: 149
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
 
                 ModelInfo.SkinName = "Boba Fett";

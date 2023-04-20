@@ -18,8 +18,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KananJarrusPilotAbility),
                     force: 2,
-                    extraUpgradeIcon: UpgradeType.ForcePower,
-                    seImageNumber: 74
+                    extraUpgradeIcon: UpgradeType.ForcePower
                 );
             }
         }

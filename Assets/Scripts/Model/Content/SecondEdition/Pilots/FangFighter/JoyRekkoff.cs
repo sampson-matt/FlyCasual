@@ -18,8 +18,7 @@ namespace Ship
                     46,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.JoyRekkoffAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },
-                    seImageNumber: 157
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
                 ModelInfo.SkinName = "Zealous Recruit";
             }

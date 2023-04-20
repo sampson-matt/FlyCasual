@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 3,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.BT1Ability),
-                restriction: new FactionRestriction(Faction.Scum, Faction.Imperial),
-                seImageNumber: 140
+                restriction: new FactionRestriction(Faction.Scum, Faction.Imperial)
             );
 
             Avatar = new AvatarInfo(

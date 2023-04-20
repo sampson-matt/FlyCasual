@@ -17,8 +17,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.DengarPilotAbility),
                     charges: 1,
                     regensCharges: 1,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 214
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

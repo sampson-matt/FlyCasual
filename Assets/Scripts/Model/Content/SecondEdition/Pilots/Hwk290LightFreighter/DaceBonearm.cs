@@ -24,8 +24,7 @@ namespace Ship
                     charges: 3,
                     regensCharges: 1,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
-                    factionOverride: Faction.Scum,
-                    seImageNumber: 174
+                    factionOverride: Faction.Scum
                 );
             }
         }

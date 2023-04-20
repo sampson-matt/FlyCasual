@@ -20,8 +20,7 @@ namespace UpgradesList.SecondEdition
                     requiresToken: typeof(BlueTargetLockToken),
                     charges: 1
                 ),
-                abilityType: typeof(Abilities.SecondEdition.AdvProtonTorpedoesAbility),
-                seImageNumber: 33
+                abilityType: typeof(Abilities.SecondEdition.AdvProtonTorpedoesAbility)
             );
 
             NameCanonical = "advprotontorpedoes";

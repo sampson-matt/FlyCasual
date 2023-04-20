@@ -19,9 +19,11 @@ namespace Ship
                     "Hotac A-Wing",
                     3,
                     5,
-                    extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Init, UpgradeType.Pilot, UpgradeType.Modification },
-                    seImageNumber: 21
+                    extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Init, UpgradeType.Pilot, UpgradeType.Modification }
                 );
+
+                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/greensquadronpilot.png";
+
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ProtectAction)));
                 ModelInfo.SkinName = "Green";
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };

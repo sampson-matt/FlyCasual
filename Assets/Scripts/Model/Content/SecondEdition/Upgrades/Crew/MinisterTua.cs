@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                 cost: 7,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Imperial),
-                abilityType: typeof(Abilities.SecondEdition.MinisterTuaCrewAbility),
-                seImageNumber: 119
+                abilityType: typeof(Abilities.SecondEdition.MinisterTuaCrewAbility)
             );
 
             Avatar = new AvatarInfo(

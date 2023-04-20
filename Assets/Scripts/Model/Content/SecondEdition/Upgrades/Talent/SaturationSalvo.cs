@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Talent,
                 cost: 3,
                 abilityType: typeof(Abilities.SecondEdition.SaturationSalvoAbility),
-                restriction: new ActionBarRestriction(typeof(ReloadAction)),
-                seImageNumber: 14
+                restriction: new ActionBarRestriction(typeof(ReloadAction))
             );
         }        
     }

@@ -23,8 +23,7 @@ namespace Ship
                         Tags.DarkSide
                     },
                     force: 2,
-                    extraUpgradeIcon: UpgradeType.ForcePower,
-                    seImageNumber: 99
+                    extraUpgradeIcon: UpgradeType.ForcePower
                 );
             }
         }

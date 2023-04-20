@@ -14,8 +14,7 @@ namespace Ship
                     68,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.FennRauScumAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 155
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
                 ModelInfo.SkinName = "Zealous Recruit";
             }

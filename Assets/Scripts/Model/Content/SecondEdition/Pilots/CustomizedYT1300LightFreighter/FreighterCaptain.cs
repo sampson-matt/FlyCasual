@@ -12,8 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Freighter Captain",
                     1,
-                    41,
-                    seImageNumber: 225
+                    41
                 );
             }
         }

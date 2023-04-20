@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 "Freelance Slicer",
                 UpgradeType.Crew,
                 cost: 2,
-                abilityType: typeof(Abilities.SecondEdition.FreelanceSlicerCrewAbility),
-                seImageNumber: 42
+                abilityType: typeof(Abilities.SecondEdition.FreelanceSlicerCrewAbility)
             );
 
             Avatar = new AvatarInfo(

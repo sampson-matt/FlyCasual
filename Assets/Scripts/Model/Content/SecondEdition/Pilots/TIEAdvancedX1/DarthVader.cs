@@ -26,8 +26,7 @@ namespace Ship
                     {
                         Tags.DarkSide,
                         Tags.Sith
-                    },
-                    seImageNumber: 93
+                    }
                 );
 
                 ModelInfo.SkinName = "Blue";

@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Sensor,
                 cost: 6,
                 abilityType: typeof(Abilities.SecondEdition.CollisionDetectorAbility),
-                charges: 2,
-                seImageNumber: 24
+                charges: 2
             );
         }        
     }

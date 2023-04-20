@@ -12,8 +12,8 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo("Munitions Failsafe",
                 UpgradeType.Modification,
                 cost: 1,
-                abilityType: typeof(Abilities.SecondEdition.MunitionsFailsafeAbility),
-                seImageNumber: 74);
+                abilityType: typeof(Abilities.SecondEdition.MunitionsFailsafeAbility)
+            );
         }
     }
 }

@@ -13,8 +13,7 @@ namespace UpgradesList.SecondEdition
                 "Heightened Perception",
                 UpgradeType.ForcePower,
                 cost: 3,
-                abilityType: typeof(Abilities.SecondEdition.HeightenedPerception),
-                seImageNumber: 19
+                abilityType: typeof(Abilities.SecondEdition.HeightenedPerception)
             );
         }
 

@@ -11,11 +11,8 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Starkiller Base Pilot",
                     2,
-                    58 //,
-                    //seImageNumber: 120
+                    58
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/41f6d936f14a058ed1c5e6ac12de37c2.png";
             }
         }
     }

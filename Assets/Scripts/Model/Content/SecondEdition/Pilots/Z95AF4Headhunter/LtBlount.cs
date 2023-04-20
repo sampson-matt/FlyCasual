@@ -18,8 +18,7 @@ namespace Ship
                     28,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LtBlountAbiliity),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 28
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

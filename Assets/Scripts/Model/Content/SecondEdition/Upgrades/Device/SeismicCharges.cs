@@ -23,8 +23,7 @@ namespace UpgradesList.SecondEdition
                 type: UpgradeType.Device,
                 charges: 2,
                 cost: 3,
-                subType: UpgradeSubType.Bomb,
-                seImageNumber: 67
+                subType: UpgradeSubType.Bomb
             );
 
             bombPrefabPath = "Prefabs/Bombs/SeismicCharge";

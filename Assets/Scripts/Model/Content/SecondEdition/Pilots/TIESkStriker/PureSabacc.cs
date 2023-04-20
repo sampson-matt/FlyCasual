@@ -14,8 +14,7 @@ namespace Ship
                     42,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.PureSabaccAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 119
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

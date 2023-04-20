@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Crew,
                 cost: 4,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.L337CrewAbility),
-                seImageNumber: 158
+                abilityType: typeof(Abilities.SecondEdition.L337CrewAbility)
             );
 
             Avatar = new AvatarInfo(
@@ -46,8 +45,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Configuration,
                 cost: 4,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.L337sProgrammingAbility),
-                seImageNumber: 158
+                abilityType: typeof(Abilities.SecondEdition.L337sProgrammingAbility)
             );
 
             AnotherSide = typeof(L337Crew);

@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                 cost: 10,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.HanSoloRebelGunnerAbility),
-                seImageNumber: 97
+                abilityType: typeof(Abilities.SecondEdition.HanSoloRebelGunnerAbility)
             );
 
             Avatar = new AvatarInfo(

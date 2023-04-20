@@ -12,8 +12,7 @@ namespace Ship
                     "Gamma Squadron Ace",
                     3,
                     29,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 111
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Gamma Squadron";

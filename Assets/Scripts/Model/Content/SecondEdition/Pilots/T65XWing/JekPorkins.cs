@@ -16,8 +16,7 @@ namespace Ship
                     42,
                     isLimited: true,
                     abilityType: typeof(JekPorkinsAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 5
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Jek Porkins";

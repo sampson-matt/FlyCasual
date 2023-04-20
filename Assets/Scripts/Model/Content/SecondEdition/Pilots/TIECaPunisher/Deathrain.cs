@@ -13,8 +13,7 @@ namespace Ship
                     4,
                     44,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.DeathrainAbility),
-                    seImageNumber: 140
+                    abilityType: typeof(Abilities.SecondEdition.DeathrainAbility)
                 );
             }
         }

@@ -17,8 +17,7 @@ namespace Ship
                     70,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CaptainOicunnAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 146
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 0,
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.AlphaClassStarWing.AlphaClassStarWing)),
                 addSlot: new UpgradeSlot(UpgradeType.Cannon),
-                abilityType: typeof(Abilities.SecondEdition.Xg1AssaultConfigurationAbility),
-                seImageNumber: 126
+                abilityType: typeof(Abilities.SecondEdition.Xg1AssaultConfigurationAbility)
             );
         }        
     }

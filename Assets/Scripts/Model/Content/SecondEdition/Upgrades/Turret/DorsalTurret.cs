@@ -23,8 +23,7 @@ namespace UpgradesList.SecondEdition
                 ),
                 addArc: new ShipArcInfo(ArcType.SingleTurret),
                 addAction: new ActionInfo(typeof(RotateArcAction)),
-                abilityType: typeof(Abilities.SecondEdition.DorsalTurretAbility),
-                seImageNumber: 31
+                abilityType: typeof(Abilities.SecondEdition.DorsalTurretAbility)
             );
         }        
     }

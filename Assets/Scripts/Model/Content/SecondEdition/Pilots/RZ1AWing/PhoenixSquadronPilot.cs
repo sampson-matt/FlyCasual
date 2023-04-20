@@ -14,8 +14,7 @@ namespace Ship
                     "Phoenix Squadron Pilot",
                     1,
                     28,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 22
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Phoenix Squadron";

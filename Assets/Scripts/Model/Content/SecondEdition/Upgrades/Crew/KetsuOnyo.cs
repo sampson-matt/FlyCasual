@@ -15,7 +15,6 @@ namespace UpgradesList.SecondEdition
             UpgradeType.Crew,
                 cost: 3,
                 abilityType: typeof(Abilities.SecondEdition.KetsuOnyoAbility),
-                seImageNumber: 134,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum)
             );

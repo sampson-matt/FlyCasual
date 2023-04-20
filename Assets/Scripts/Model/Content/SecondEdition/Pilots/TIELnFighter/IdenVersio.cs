@@ -24,8 +24,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(IdenVersioAbility),
                     charges: 1,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 83
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Inferno";

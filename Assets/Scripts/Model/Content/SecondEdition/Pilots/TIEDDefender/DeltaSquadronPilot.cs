@@ -12,7 +12,6 @@ namespace Ship
                     "Delta Squadron Pilot",
                     1,
                     67,
-                    seImageNumber: 126,
                     extraUpgradeIcon: UpgradeType.Sensor
                 );
             }

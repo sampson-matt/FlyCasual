@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 1,
                 isLimited: true,
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.YV666LightFreighter.YV666LightFreighter)),
-                abilityType: typeof(Abilities.SecondEdition.HoundsToothAbility),
-                seImageNumber: 148
+                abilityType: typeof(Abilities.SecondEdition.HoundsToothAbility)
             );
         }        
     }

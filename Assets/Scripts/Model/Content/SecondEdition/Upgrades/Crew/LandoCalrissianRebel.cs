@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.LandoCalrissianRebelAbility),
-                seImageNumber: 87
+                abilityType: typeof(Abilities.SecondEdition.LandoCalrissianRebelAbility)
             );
 
             Avatar = new AvatarInfo(

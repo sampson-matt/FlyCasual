@@ -15,8 +15,7 @@ namespace Ship
                     48,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KadSolusAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },
-                    seImageNumber: 158
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
 
                 ModelInfo.SkinName = "Skull Squadron Pilot";

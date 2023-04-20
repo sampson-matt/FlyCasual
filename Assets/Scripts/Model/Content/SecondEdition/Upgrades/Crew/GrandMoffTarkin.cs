@@ -25,7 +25,6 @@ namespace UpgradesList.SecondEdition
                     new ActionBarRestriction(typeof(TargetLockAction))
                     ),
                 abilityType: typeof(Abilities.SecondEdition.GrandMoffTarkinAbility),
-                seImageNumber: 117,
                 charges: 2,
                 regensCharges: true
             );

@@ -24,8 +24,7 @@ namespace Ship
                     40,
                     isLimited: true,
                     abilityType: typeof(DutchVanderAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },
-                    seImageNumber: 14
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
             }
         }

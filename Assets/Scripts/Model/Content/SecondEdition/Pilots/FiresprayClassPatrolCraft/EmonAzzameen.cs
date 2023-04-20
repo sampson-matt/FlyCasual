@@ -16,8 +16,7 @@ namespace Ship
                     69,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.EmonAzzameenAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew },
-                    seImageNumber: 150
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew }
                 );
             }
         }

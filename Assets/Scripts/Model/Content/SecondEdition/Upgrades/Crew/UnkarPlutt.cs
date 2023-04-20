@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.UnkarPluttCrewAbility),
-                seImageNumber: 137
+                abilityType: typeof(Abilities.SecondEdition.UnkarPluttCrewAbility)
             );
 
             Avatar = new AvatarInfo(

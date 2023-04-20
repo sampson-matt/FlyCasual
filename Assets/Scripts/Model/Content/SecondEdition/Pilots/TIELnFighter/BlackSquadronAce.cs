@@ -13,8 +13,7 @@ namespace Ship
                     "Black Squadron Ace",
                     3,
                     24,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 90
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

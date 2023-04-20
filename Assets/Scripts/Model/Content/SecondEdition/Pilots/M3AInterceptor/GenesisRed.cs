@@ -18,8 +18,7 @@ namespace Ship
                     31,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.GenesisRedAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 184
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

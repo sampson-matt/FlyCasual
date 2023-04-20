@@ -21,8 +21,7 @@ namespace Ship
                     46,
                     isLimited: true,
                     abilityType: typeof(GarvenDreisAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 4
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 PilotNameCanonical = "garvendreis-t65xwing";

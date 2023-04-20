@@ -14,8 +14,7 @@ namespace UpgradesList.SecondEdition
                 "Marksmanship",
                 UpgradeType.Talent,
                 cost: 1,
-                abilityType: typeof(Abilities.SecondEdition.MarksmanshipAbility),
-                seImageNumber: 10
+                abilityType: typeof(Abilities.SecondEdition.MarksmanshipAbility)
             );
         }        
     }

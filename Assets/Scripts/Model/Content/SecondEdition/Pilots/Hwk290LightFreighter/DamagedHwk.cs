@@ -21,9 +21,11 @@ namespace Ship
                     "Rebel Operative",
                     1,
                     0,
-                    abilityType: typeof(Abilities.SecondEdition.DamagedHawkAbility),
-                    seImageNumber: 45
+                    abilityType: typeof(Abilities.SecondEdition.DamagedHawkAbility)
                 );
+
+                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/rebelscout.png";
+
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
                 ShipInfo.ActionIcons.RemoveActions(typeof(BoostAction));
                 ShipInfo.ActionIcons.RemoveActions(typeof(RotateArcAction));

@@ -17,8 +17,7 @@ namespace Ship
                     59,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CorranHornAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 50
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Green";

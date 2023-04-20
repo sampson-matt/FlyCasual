@@ -16,8 +16,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.MoraloEvalAbility),
                     charges: 2,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 211
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Crimson";

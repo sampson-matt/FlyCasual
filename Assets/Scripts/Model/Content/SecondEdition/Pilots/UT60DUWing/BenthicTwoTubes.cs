@@ -14,8 +14,7 @@ namespace Ship
                     45,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.BenthicTwoTubesAbility),
-                    extraUpgradeIcon: UpgradeType.Illicit,
-                    seImageNumber: 58
+                    extraUpgradeIcon: UpgradeType.Illicit
                 );
 
                 ModelInfo.SkinName = "Partisan";

@@ -16,8 +16,7 @@ namespace Ship
                     3,
                     41,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.CaptainJosteroAbility),
-                    seImageNumber: 194
+                    abilityType: typeof(Abilities.SecondEdition.CaptainJosteroAbility)
                 );
             }
         }

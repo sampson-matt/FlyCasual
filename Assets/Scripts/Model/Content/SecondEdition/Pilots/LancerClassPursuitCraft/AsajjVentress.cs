@@ -26,8 +26,7 @@ namespace Ship
                         Tags.BountyHunter
                     },
                     force: 2,
-                    extraUpgradeIcon: UpgradeType.ForcePower,
-                    seImageNumber: 219
+                    extraUpgradeIcon: UpgradeType.ForcePower
                 );
 
                 ModelInfo.SkinName = "Asajj";

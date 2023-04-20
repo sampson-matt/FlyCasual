@@ -16,8 +16,7 @@ namespace Ship
                     33,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.ZebOrreliosPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 40
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 PilotNameCanonical = "zeborrelios-sheathipedeclassshuttle";

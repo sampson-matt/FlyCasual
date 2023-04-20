@@ -18,8 +18,7 @@ namespace Ship
                     28,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.QuinnJastAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 186
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

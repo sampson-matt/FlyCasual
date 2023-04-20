@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 3,
                 isLimited: true,
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.VT49Decimator.VT49Decimator)),
-                abilityType: typeof(Abilities.SecondEdition.DauntlessAbility),
-                seImageNumber: 123
+                abilityType: typeof(Abilities.SecondEdition.DauntlessAbility)
             );
         }        
     }

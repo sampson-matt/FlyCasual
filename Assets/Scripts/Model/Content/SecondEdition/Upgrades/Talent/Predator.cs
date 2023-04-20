@@ -14,8 +14,7 @@ namespace UpgradesList.SecondEdition
                 "Predator",
                 UpgradeType.Talent,
                 cost: 2,
-                abilityType: typeof(Abilities.SecondEdition.PredatorAbility),
-                seImageNumber: 12
+                abilityType: typeof(Abilities.SecondEdition.PredatorAbility)
             );
         }        
     }

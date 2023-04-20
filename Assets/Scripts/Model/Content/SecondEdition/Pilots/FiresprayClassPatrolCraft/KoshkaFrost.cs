@@ -15,8 +15,7 @@ namespace Ship
                     69,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KoshkaFrostAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew },
-                    seImageNumber: 152
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew }
                 );
             }
         }

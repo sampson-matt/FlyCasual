@@ -20,8 +20,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Illicit,
                 cost: 4,
                 charges: 1,
-                restriction: new BaseSizeRestriction(BaseSize.Medium, BaseSize.Large), 
-                seImageNumber: 62,
+                restriction: new BaseSizeRestriction(BaseSize.Medium, BaseSize.Large),
                 abilityType: typeof(Abilities.SecondEdition.RiggedCargoChuteAbility)
             );
         }        

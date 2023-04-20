@@ -14,8 +14,7 @@ namespace Ship
                     3,
                     23,
                     extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Illicit },
-                    factionOverride: Faction.Scum,
-                    seImageNumber: 172
+                    factionOverride: Faction.Scum
                 );
 
                 ModelInfo.SkinName = "Black Sun";

@@ -27,7 +27,6 @@ namespace Ship
         public List<UpgradeType> ExtraUpgrades { get; private set; }
         public Faction Faction { get; private set; }
         public ForceAlignment ForceAlignment { get; private set; }
-        public int SEImageNumber { get; private set; }
         public List<Tags> Tags { get; }
         public bool AffectedByStandardized { get; }
 
@@ -48,7 +47,6 @@ namespace Ship
             bool affectedByStandardized = true,
             Faction factionOverride = Faction.None,
             ForceAlignment forceAlignmentOverride = ForceAlignment.None,
-            int seImageNumber = 0,
             string abilityText = ""
         )
         {
@@ -74,8 +72,6 @@ namespace Ship
             RegensCharges = regensCharges;
 
             Cost = cost;
-
-            SEImageNumber = seImageNumber;
 
             ExtraUpgrades = new List<UpgradeType>();
             if (extraUpgradeIcon != UpgradeType.None) ExtraUpgrades.Add(extraUpgradeIcon);

@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.GreedoGunnerAbility),
                 restriction: new FactionRestriction(Faction.Scum),
-                charges: 1,
-                seImageNumber: 142
+                charges: 1
             );
 
             Avatar = new AvatarInfo(

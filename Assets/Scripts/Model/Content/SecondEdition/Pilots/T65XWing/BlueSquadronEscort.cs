@@ -13,8 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Blue Squadron Escort",
                     2,
-                    38,
-                    seImageNumber: 11
+                    38
                 );
 
                 ModelInfo.SkinName = "Blue";

@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                     minRange: 1,
                     maxRange: 3
                 ),
-                abilityType: typeof(Abilities.SecondEdition.IonDamageAbility),
-                seImageNumber: 28
+                abilityType: typeof(Abilities.SecondEdition.IonDamageAbility)
             );
         }        
     }

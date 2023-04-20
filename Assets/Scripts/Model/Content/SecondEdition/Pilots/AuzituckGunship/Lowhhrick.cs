@@ -16,8 +16,7 @@ namespace Ship
                     49,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.LowhhrickAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 32
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Lowhhrick";

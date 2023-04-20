@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 "Hotshot Gunner",
                 UpgradeType.Gunner,
                 cost: 6,
-                abilityType: typeof(Abilities.SecondEdition.HotshotGunnerAbility),
-                seImageNumber: 49
+                abilityType: typeof(Abilities.SecondEdition.HotshotGunnerAbility)
             );
 
             Avatar = new AvatarInfo(

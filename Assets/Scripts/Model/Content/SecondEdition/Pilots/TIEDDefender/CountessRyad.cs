@@ -18,8 +18,7 @@ namespace Ship
                     78,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CountessRyadAbility),
-                    extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Sensor },
-                    seImageNumber: 124
+                    extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Sensor }
                 );
 
                 ModelInfo.SkinName = "Crimson";

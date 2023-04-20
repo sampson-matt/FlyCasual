@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.TobiasBeckettAbility),
-                seImageNumber: 160
+                abilityType: typeof(Abilities.SecondEdition.TobiasBeckettAbility)
             );
 
             Avatar = new AvatarInfo(

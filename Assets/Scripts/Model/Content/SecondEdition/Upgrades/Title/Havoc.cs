@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                     new UpgradeSlot(UpgradeType.Astromech)
                 },
                 forbidSlot: UpgradeType.Crew,
-                restriction: new ShipRestriction(typeof(Ship.FirstEdition.ScurrgH6Bomber.ScurrgH6Bomber)),
-                seImageNumber: 147
+                restriction: new ShipRestriction(typeof(Ship.FirstEdition.ScurrgH6Bomber.ScurrgH6Bomber))
             );
         }        
     }

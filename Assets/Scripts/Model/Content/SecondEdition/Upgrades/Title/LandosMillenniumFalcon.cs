@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                     new FactionRestriction(Faction.Scum),
                     new ShipRestriction(typeof(Ship.SecondEdition.CustomizedYT1300LightFreighter.CustomizedYT1300LightFreighter))
                 ),
-                abilityType: typeof(Abilities.SecondEdition.LandosMilleniumFalconAbility),
-                seImageNumber: 164
+                abilityType: typeof(Abilities.SecondEdition.LandosMilleniumFalconAbility)
             );
         }        
     }

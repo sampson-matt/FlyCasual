@@ -18,8 +18,7 @@ namespace Ship
                     3,
                     42,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.EsegeTuketuAbility),
-                    seImageNumber: 63
+                    abilityType: typeof(Abilities.SecondEdition.EsegeTuketuAbility)
                 );
             }
         }

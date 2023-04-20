@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 "Feedback Array",
                 UpgradeType.Illicit,
                 cost: 3,
-                abilityType: typeof(Abilities.SecondEdition.FeedbackArrayAbility),
-                seImageNumber: 60
+                abilityType: typeof(Abilities.SecondEdition.FeedbackArrayAbility)
             );
         }        
     }

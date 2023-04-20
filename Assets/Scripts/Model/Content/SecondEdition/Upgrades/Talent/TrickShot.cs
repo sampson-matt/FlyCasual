@@ -12,8 +12,7 @@ namespace UpgradesList.SecondEdition
                 "Trick Shot",
                 UpgradeType.Talent,
                 cost: 4,
-                abilityType: typeof(Abilities.SecondEdition.TrickShotAbility),
-                seImageNumber: 18
+                abilityType: typeof(Abilities.SecondEdition.TrickShotAbility)
             );
         }        
     }

@@ -16,8 +16,7 @@ namespace Ship
                     2,
                     41,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.L337Ability),
-                    seImageNumber: 224
+                    abilityType: typeof(Abilities.SecondEdition.L337Ability)
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

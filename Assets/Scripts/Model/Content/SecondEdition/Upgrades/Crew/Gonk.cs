@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Crew,
                 cost: 5,
                 abilityType: typeof(Abilities.SecondEdition.GonkCrewAbility),
-                charges: 1,
-                seImageNumber: 43
+                charges: 1
             );
 
             Avatar = new AvatarInfo(

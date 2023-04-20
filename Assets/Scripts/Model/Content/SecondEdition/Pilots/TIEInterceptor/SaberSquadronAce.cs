@@ -14,8 +14,7 @@ namespace Ship
                     "Saber Squadron Ace",
                     4,
                     36,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 105
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Red Stripes";

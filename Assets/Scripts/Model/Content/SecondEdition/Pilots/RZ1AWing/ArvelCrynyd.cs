@@ -24,8 +24,7 @@ namespace Ship
                     32,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ArvelCrynydAbility),
-                    extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent },
-                    seImageNumber: 20
+                    extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent }
                 );
             }
         }

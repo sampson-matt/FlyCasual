@@ -14,8 +14,7 @@ namespace Ship
                     72,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.HeraSyndullaAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 73
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 PilotNameCanonical = "herasyndulla-vcx100lightfreighter";

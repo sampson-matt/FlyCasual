@@ -19,8 +19,7 @@ namespace Ship
                     tags: new List<Tags>
                     {
                         Tags.DarkSide
-                    },
-                    seImageNumber: 102
+                    }
                 );
             }
         }

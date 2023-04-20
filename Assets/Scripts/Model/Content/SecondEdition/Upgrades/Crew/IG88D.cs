@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
                 addAction: new ActionInfo(typeof(CalculateAction)),
-                abilityType: typeof(Abilities.SecondEdition.Ig88DCrewAbility),
-                seImageNumber: 132
+                abilityType: typeof(Abilities.SecondEdition.Ig88DCrewAbility)
             );
 
             Avatar = new AvatarInfo(

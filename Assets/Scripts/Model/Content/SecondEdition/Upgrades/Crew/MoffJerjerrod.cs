@@ -23,8 +23,7 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.MoffJerjerrodAbility),
                 charges: 2,
-                regensCharges: true,
-                seImageNumber: 120
+                regensCharges: true
             );
 
             Avatar = new AvatarInfo(

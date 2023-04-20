@@ -15,8 +15,7 @@ namespace Ship
                     5,
                     50,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.RedlineAbility),
-                    seImageNumber: 139
+                    abilityType: typeof(Abilities.SecondEdition.RedlineAbility)
                 );
             }
         }

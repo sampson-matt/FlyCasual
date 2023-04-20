@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                     new ShipRestriction(typeof(Ship.SecondEdition.FiresprayClassPatrolCraft.FiresprayClassPatrolCraft)),
                     new FactionRestriction(Faction.Scum)
                 ),
-                abilityType: typeof(Abilities.SecondEdition.SlaveIAbility),
-                seImageNumber: 154
+                abilityType: typeof(Abilities.SecondEdition.SlaveIAbility)
             );
         }        
     }

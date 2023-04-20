@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 "Skilled Bombardier",
                 UpgradeType.Gunner,
                 cost: 2,
-                abilityType: typeof(Abilities.SecondEdition.SkilledBombardierAbility),
-                seImageNumber: 50
+                abilityType: typeof(Abilities.SecondEdition.SkilledBombardierAbility)
             );
 
             Avatar = new AvatarInfo(

@@ -19,8 +19,7 @@ namespace Ship
                     51,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.EchoAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 132
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Echo";

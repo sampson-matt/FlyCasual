@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 "Sense",
                 UpgradeType.ForcePower,
                 cost: 7,
-                abilityType: typeof(Abilities.SecondEdition.SenseAbility),
-                seImageNumber: 21
+                abilityType: typeof(Abilities.SecondEdition.SenseAbility)
             );
         }        
     }

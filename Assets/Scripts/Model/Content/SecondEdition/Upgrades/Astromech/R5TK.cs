@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 0,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.R5TKAbility),
-                restriction: new FactionRestriction(Faction.Scum),
-                seImageNumber: 145
+                restriction: new FactionRestriction(Faction.Scum)
             );
         }
     }

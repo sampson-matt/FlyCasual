@@ -12,8 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Kashyyyk Defender",
                     1,
-                    44,
-                    seImageNumber: 33
+                    44
                 );
             }
         }

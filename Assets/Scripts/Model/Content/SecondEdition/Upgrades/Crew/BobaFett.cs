@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.BobaFettCrewAbility),
-                seImageNumber: 129
+                abilityType: typeof(Abilities.SecondEdition.BobaFettCrewAbility)
             );
 
             Avatar = new AvatarInfo(

@@ -12,8 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Lothal Rebel",
                     2,
-                    68,
-                    seImageNumber: 76
+                    68
                 );
             }
         }

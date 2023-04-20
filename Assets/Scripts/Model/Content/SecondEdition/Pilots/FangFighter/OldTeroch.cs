@@ -20,8 +20,7 @@ namespace Ship
                     56,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.OldTerochAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },
-                    seImageNumber: 156
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
                 ModelInfo.SkinName = "Zealous Recruit";
             }

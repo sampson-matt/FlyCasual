@@ -19,8 +19,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TorkilMuxAbility),
                     extraUpgradeIcon: UpgradeType.Illicit,
-                    factionOverride: Faction.Scum,
-                    seImageNumber: 176
+                    factionOverride: Faction.Scum
                 );
             }
         }

@@ -19,8 +19,7 @@ namespace Ship
                     48,
                     isLimited: true,
                     abilityType: typeof(MagvaYarroPilotAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
-                    seImageNumber: 57
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }
                 );
 
                 ModelInfo.SkinName = "Partisan";

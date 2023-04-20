@@ -20,8 +20,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KaatoLeeachosAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
-                    factionOverride: Faction.Scum,
-                    seImageNumber: 170
+                    factionOverride: Faction.Scum
                 );
 
                 ModelInfo.SkinName = "Kaa'to Leeachos";

@@ -16,8 +16,7 @@ namespace Ship
                     41,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TurrPhennirAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 104
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Red Stripes";

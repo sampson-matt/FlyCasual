@@ -19,8 +19,7 @@ namespace Ship
                     42,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ViktorHelAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 193
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

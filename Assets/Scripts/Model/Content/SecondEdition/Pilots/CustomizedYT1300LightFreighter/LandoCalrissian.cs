@@ -17,8 +17,7 @@ namespace Ship
                     43,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LandoCalrissianScumPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 223
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

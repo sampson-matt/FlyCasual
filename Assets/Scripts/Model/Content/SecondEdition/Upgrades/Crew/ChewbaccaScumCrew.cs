@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 cost: 3,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.ChewbaccaScumCrewAbility),
-                seImageNumber: 157
+                abilityType: typeof(Abilities.SecondEdition.ChewbaccaScumCrewAbility)
             );
 
             Avatar = new AvatarInfo(

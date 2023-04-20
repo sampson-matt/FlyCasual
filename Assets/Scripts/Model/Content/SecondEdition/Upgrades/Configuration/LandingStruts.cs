@@ -34,7 +34,7 @@ namespace UpgradesList.SecondEdition
         public LandingStrutsOpen() : base()
         {
             IsHidden = true;
-            NameCanonical = "landingstruts-anotherside";
+            NameCanonical = "landingstruts-side";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Landing Struts (Open)",

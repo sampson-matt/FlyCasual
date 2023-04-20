@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                     requiresToken: typeof(BlueTargetLockToken),
                     charges: 3
                 ),
-                abilityType: typeof(Abilities.SecondEdition.IonDamageAbility),
-                seImageNumber: 40
+                abilityType: typeof(Abilities.SecondEdition.IonDamageAbility)
             );
         }
     }

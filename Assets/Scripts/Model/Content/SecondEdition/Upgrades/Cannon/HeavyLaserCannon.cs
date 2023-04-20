@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                     maxRange: 3,
                     arc: ArcType.Bullseye
                 ),
-                abilityType: typeof(Abilities.SecondEdition.HeavyLaserCannonAbility),
-                seImageNumber: 27
+                abilityType: typeof(Abilities.SecondEdition.HeavyLaserCannonAbility)
             );
         }        
     }

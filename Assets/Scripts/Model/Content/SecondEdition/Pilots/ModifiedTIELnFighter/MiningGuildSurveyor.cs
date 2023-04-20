@@ -12,13 +12,8 @@ namespace Ship
                     "Mining Guild Surveyor",
                     2,
                     23,
-                    extraUpgradeIcon: UpgradeType.Talent //,
-                    // seImageNumber: 92
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                // Ability
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/bf/da/bfda499f-603a-41c7-b2ee-50ffeeddb384/swz23_mining-guild-surveyor.png";
             }
         }
     }

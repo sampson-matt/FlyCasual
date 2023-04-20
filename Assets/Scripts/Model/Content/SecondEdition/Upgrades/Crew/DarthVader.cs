@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Imperial),
                 addForce: 1,
-                abilityType: typeof(Abilities.SecondEdition.DarthVaderCrewAbility),
-                seImageNumber: 112
+                abilityType: typeof(Abilities.SecondEdition.DarthVaderCrewAbility)
             );
 
             Avatar = new AvatarInfo(

@@ -22,8 +22,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 addForce: 1,                
                 restriction: new FactionRestriction(Faction.Imperial),
-                abilityType: typeof(Abilities.SecondEdition.EmperorPalpatineCrewAbility),
-                seImageNumber: 115
+                abilityType: typeof(Abilities.SecondEdition.EmperorPalpatineCrewAbility)
             );
 
             Avatar = new AvatarInfo(

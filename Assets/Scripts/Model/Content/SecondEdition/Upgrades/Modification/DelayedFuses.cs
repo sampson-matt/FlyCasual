@@ -14,9 +14,8 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo("Delayed Fuses",
                 UpgradeType.Modification,
                 cost: 1,
-                abilityType: typeof(Abilities.SecondEdition.DelayedFusesAbility),
-                seImageNumber: 74);
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/93/70/93702f17-5771-4460-8d22-b99566061306/swz41_delayed-fuses.png";
+                abilityType: typeof(Abilities.SecondEdition.DelayedFusesAbility)
+            );
         }
         
     }

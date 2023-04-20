@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 addSlot: new UpgradeSlot(UpgradeType.Cannon),
                 addAction: new ActionInfo(typeof(BarrelRollAction)),
-                restriction: new ShipRestriction(typeof(Ship.SecondEdition.G1AStarfighter.G1AStarfighter)),
-                seImageNumber: 151
+                restriction: new ShipRestriction(typeof(Ship.SecondEdition.G1AStarfighter.G1AStarfighter))
             );
         }
     }

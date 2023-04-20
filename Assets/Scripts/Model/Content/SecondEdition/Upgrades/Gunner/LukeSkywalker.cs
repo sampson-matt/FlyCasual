@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 addForce: 1,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.LukeSkywalkerGunnerAbility),
-                seImageNumber: 98
+                abilityType: typeof(Abilities.SecondEdition.LukeSkywalkerGunnerAbility)
             );
 
             Avatar = new AvatarInfo(

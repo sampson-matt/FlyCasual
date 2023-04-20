@@ -12,8 +12,7 @@ namespace UpgradesList.SecondEdition
                 "Inertial Dampeners",
                 UpgradeType.Illicit,
                 cost: 3,
-                abilityType: typeof(Abilities.SecondEdition.InertialDampenersAbility),
-                seImageNumber: 61
+                abilityType: typeof(Abilities.SecondEdition.InertialDampenersAbility)
             );
         }
 

@@ -20,8 +20,7 @@ namespace Ship
                     30,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ConstableZuvioAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 161
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

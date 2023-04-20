@@ -15,8 +15,7 @@ namespace Ship
                     2,
                     27,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.InaldraAbilitySE),
-                    seImageNumber: 187
+                    abilityType: typeof(Abilities.SecondEdition.InaldraAbilitySE)
                 );
             }
         }

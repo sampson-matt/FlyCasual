@@ -14,8 +14,7 @@ namespace Ship
                     33,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.ZebOrreliosPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 37
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

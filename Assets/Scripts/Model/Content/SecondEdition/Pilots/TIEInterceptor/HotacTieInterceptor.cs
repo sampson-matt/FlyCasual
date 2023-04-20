@@ -16,9 +16,11 @@ namespace Ship
                     "Hotac Interceptor Pilot",
                     1,
                     0,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Pilot, UpgradeType.Torpedo, UpgradeType.Modification, UpgradeType.Init },
-                    seImageNumber: 106
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent, UpgradeType.Pilot, UpgradeType.Pilot, UpgradeType.Torpedo, UpgradeType.Modification, UpgradeType.Init }
                 );
+
+                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/alphasquadronpilot.png";
+
                 RequiredMods = new List<Type>() { typeof(HotacEliteImperialPilotsModSE) };
             }
         }

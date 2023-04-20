@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Talent,
                 cost: 4,
                 restriction: new ActionBarRestriction(typeof(BarrelRollAction), ActionColor.Red),
-                addAction: new ActionInfo(typeof(BarrelRollAction)),
-                seImageNumber: 5
+                addAction: new ActionInfo(typeof(BarrelRollAction))
             );
         }
 

@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                     requiresToken: typeof(FocusToken),
                     charges: 1,
                     arc: ArcType.Bullseye
-                ),
-                seImageNumber: 41
+                )
             );
         }
     }

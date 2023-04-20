@@ -17,8 +17,7 @@ namespace Ship
                     42,
                     isLimited: true,
                     abilityType: typeof(EdrioTwoTubesAbility),
-                    extraUpgradeIcon: UpgradeType.Illicit,
-                    seImageNumber: 9
+                    extraUpgradeIcon: UpgradeType.Illicit
                 );
 
                 ModelInfo.SkinName = "Partisan";

@@ -12,8 +12,7 @@ namespace UpgradesList.SecondEdition
                 "Outmaneuver",
                 UpgradeType.Talent,
                 cost: 6,
-                abilityType: typeof(Abilities.SecondEdition.OutmaneuverAbilitySE),
-                seImageNumber: 11
+                abilityType: typeof(Abilities.SecondEdition.OutmaneuverAbilitySE)
             );
         }        
     }

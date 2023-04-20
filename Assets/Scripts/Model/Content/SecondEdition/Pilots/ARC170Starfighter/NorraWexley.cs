@@ -17,8 +17,7 @@ namespace Ship
                     53,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.NorraWexleyAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 65
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

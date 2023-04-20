@@ -11,8 +11,7 @@ namespace UpgradesList.SecondEdition
                 "Intimidation",
                 UpgradeType.Talent,
                 cost: 3,
-                abilityType: typeof(Abilities.SecondEdition.IntimidationAbility),
-                seImageNumber: 7
+                abilityType: typeof(Abilities.SecondEdition.IntimidationAbility)
             );
         }        
     }

@@ -15,8 +15,7 @@ namespace Ship
                     1,
                     28,
                     extraUpgradeIcon: UpgradeType.Illicit,
-                    factionOverride: Faction.Scum,
-                    seImageNumber: 177
+                    factionOverride: Faction.Scum
                 );
             }
         }

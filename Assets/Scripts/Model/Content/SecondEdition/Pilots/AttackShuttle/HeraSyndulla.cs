@@ -15,8 +15,7 @@ namespace Ship
                     38,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.HeraSyndullaAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 34
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

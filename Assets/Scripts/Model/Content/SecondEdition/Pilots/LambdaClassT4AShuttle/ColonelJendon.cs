@@ -18,8 +18,7 @@ namespace Ship
                     cost: 49,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ColonelJendonAbility),
-                    charges: 2,
-                    seImageNumber: 143
+                    charges: 2
                 );
             }
         }

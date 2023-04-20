@@ -19,8 +19,7 @@ namespace Ship
                     33,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.AirenCrackenAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 27
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

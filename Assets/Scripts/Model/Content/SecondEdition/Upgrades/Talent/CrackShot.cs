@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Talent,
                 cost: 3,
                 abilityType: typeof(Abilities.SecondEdition.CrackShotAbility),
-                charges: 1,
-                seImageNumber: 1
+                charges: 1
             );
         }        
     }

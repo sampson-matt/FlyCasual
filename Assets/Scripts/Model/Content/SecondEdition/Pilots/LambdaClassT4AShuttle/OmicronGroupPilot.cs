@@ -9,8 +9,7 @@
                 PilotInfo = new PilotCardInfo(
                     "Omicron Group Pilot",
                     1,
-                    41,
-                    seImageNumber: 145
+                    41
                 );
             }
         }

@@ -20,8 +20,7 @@ namespace UpgradesList.SecondEdition
                     charges: 2,
                     requiresToken: typeof(BlueTargetLockToken)
                 ),
-                abilityType: typeof(Abilities.SecondEdition.ProtonTorpedoesAbility),
-                seImageNumber: 35
+                abilityType: typeof(Abilities.SecondEdition.ProtonTorpedoesAbility)
             );
         }        
     }

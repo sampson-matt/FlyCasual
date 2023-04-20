@@ -22,9 +22,11 @@ namespace Ship
                     "Hotac HWK",
                     3,
                     0,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Illicit, UpgradeType.Init, UpgradeType.Pilot },
-                    seImageNumber: 45
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Illicit, UpgradeType.Init, UpgradeType.Pilot }
                 );
+
+                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/rebelscout.png";
+
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ProtectAction)));
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
             }

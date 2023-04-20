@@ -25,8 +25,7 @@ namespace UpgradesList.SecondEdition
                 cost: 3,
                 charges: 2,
                 abilityType: typeof(Abilities.SecondEdition.BombletGeneratorAbility),
-                subType: UpgradeSubType.Bomb,
-                seImageNumber: 63
+                subType: UpgradeSubType.Bomb
             );
 
             bombPrefabPath = "Prefabs/Bombs/Bomblet";

@@ -20,8 +20,7 @@ namespace Ship
                     32,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KyleKatarnAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 43
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

@@ -20,8 +20,7 @@ namespace Ship
                     44,
                     isLimited: true,
                     abilityType: typeof(HeffTobberAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 59
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Blue";

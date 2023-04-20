@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
                 abilityType: typeof(Abilities.SecondEdition.KananJarrusCrewAbility),
-                addForce: 1,
-                seImageNumber: 86
+                addForce: 1
             );
 
             Avatar = new AvatarInfo(

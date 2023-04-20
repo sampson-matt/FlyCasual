@@ -21,8 +21,7 @@ namespace Ship
                     36,
                     isLimited: true,
                     abilityType: typeof(HortonSalmAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },
-                    seImageNumber: 15
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
 
                 ModelInfo.SkinName = "Gray";

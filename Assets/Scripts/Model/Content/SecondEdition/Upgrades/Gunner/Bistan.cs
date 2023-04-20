@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                 cost: 8,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.BistanGunnerAbility),
-                restriction: new FactionRestriction(Faction.Rebel),
-                seImageNumber: 95
+                restriction: new FactionRestriction(Faction.Rebel)
             );
 
             Avatar = new AvatarInfo(

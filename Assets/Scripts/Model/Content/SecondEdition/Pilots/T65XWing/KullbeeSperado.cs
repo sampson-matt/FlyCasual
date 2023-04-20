@@ -16,8 +16,7 @@ namespace Ship
                     42,
                     isLimited: true,
                     abilityType: typeof(KullbeeSperadoAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
-                    seImageNumber: 6
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }
                 );
 
                 ModelInfo.SkinName = "Partisan";

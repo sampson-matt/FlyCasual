@@ -17,8 +17,7 @@ namespace Ship
                     67,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KathScarletAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew },
-                    seImageNumber: 151
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew }
                 );
 
                 ModelInfo.SkinName = "Kath Scarlet";

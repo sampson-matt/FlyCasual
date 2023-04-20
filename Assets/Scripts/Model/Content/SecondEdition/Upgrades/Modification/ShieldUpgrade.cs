@@ -12,8 +12,7 @@ namespace UpgradesList.SecondEdition
                 "Shield Upgrade",
                 UpgradeType.Modification,
                 cost: 4,
-                addShields: 1,
-                seImageNumber: 75
+                addShields: 1
             );
         }
 

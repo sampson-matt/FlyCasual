@@ -22,8 +22,7 @@ namespace Ship
                     64,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.IG88AAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 197
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Green";

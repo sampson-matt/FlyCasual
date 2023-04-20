@@ -21,8 +21,7 @@ namespace Ship
                     55,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LattsRazziPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 212
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

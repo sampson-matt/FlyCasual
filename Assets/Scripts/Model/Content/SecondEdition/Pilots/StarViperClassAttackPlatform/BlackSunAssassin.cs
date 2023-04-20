@@ -12,8 +12,7 @@ namespace Ship
                     "Black Sun Assassin",
                     3,
                     47,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 181
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Black Sun Assassin";

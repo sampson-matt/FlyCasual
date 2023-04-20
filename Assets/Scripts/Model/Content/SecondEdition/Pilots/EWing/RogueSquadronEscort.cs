@@ -15,8 +15,7 @@ namespace Ship
                     "Rogue Squadron Escort",
                     4,
                     51,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 52
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

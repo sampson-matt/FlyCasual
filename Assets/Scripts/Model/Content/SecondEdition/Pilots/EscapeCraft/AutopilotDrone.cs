@@ -18,8 +18,7 @@ namespace Ship
                     1,
                     11,
                     isLimited: true,
-                    charges: 3,
-                    seImageNumber: 229
+                    charges: 3
                 );
 
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Crew);

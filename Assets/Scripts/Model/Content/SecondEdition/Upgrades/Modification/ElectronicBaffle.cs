@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 "Electronic Baffle",
                 UpgradeType.Modification,
                 cost: 2,
-                abilityType: typeof(Abilities.SecondEdition.ElectronicBaffleAbility),
-                seImageNumber: 71
+                abilityType: typeof(Abilities.SecondEdition.ElectronicBaffleAbility)
             );
         }
     }

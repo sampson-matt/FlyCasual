@@ -17,8 +17,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KavilAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit, UpgradeType.Modification },
-                    factionOverride: Faction.Scum,
-                    seImageNumber: 165
+                    factionOverride: Faction.Scum
                 );
             }
         }

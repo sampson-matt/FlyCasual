@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                     new FactionRestriction(Faction.Rebel),
                     new ShipRestriction(typeof(Ship.SecondEdition.VCX100LightFreighter.VCX100LightFreighter))
                 ),
-                abilityType: typeof(Abilities.SecondEdition.GhostAbility),
-                seImageNumber: 102
+                abilityType: typeof(Abilities.SecondEdition.GhostAbility)
             );
         }        
     }

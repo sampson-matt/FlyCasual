@@ -14,8 +14,7 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.Elusive),
                 restriction: new BaseSizeRestriction(BaseSize.Small, BaseSize.Medium),
-                charges: 1,
-                seImageNumber: 4
+                charges: 1
             );
         }        
     }

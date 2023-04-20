@@ -14,8 +14,7 @@ namespace Ship
                     1,
                     27,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.SunnyBounderAbility),
-                    seImageNumber: 188
+                    abilityType: typeof(Abilities.SecondEdition.SunnyBounderAbility)
                 );
             }
         }

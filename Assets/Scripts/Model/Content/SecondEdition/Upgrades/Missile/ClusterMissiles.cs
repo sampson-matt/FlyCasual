@@ -23,8 +23,7 @@ namespace UpgradesList.SecondEdition
                     requiresToken: typeof(BlueTargetLockToken),
                     charges: 4
                 ),
-                abilityType: typeof(Abilities.SecondEdition.CluseterMissilesAbility),
-                seImageNumber: 37
+                abilityType: typeof(Abilities.SecondEdition.CluseterMissilesAbility)
             );
         }        
     }

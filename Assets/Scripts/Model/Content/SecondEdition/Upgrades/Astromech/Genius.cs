@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.GeniusAbility),
-                restriction: new FactionRestriction(Faction.Scum),                
-                seImageNumber: 143
+                restriction: new FactionRestriction(Faction.Scum)
             );
         }
     }

@@ -14,8 +14,7 @@ namespace UpgradesList.SecondEdition
                 "Deadman's Switch",
                 UpgradeType.Illicit,
                 cost: 2,
-                abilityType: typeof(Abilities.SecondEdition.DeadmansSwitchAbility),
-                seImageNumber: 59
+                abilityType: typeof(Abilities.SecondEdition.DeadmansSwitchAbility)
             );
         }        
     }

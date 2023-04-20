@@ -204,7 +204,6 @@ namespace UpgradesList.SecondEdition
         public SwivelWingHarkUp() : base()
         {
             IsHidden = true;
-            NameCanonical = "SwivelWing-anotherside";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Swivel Wing (Up)",

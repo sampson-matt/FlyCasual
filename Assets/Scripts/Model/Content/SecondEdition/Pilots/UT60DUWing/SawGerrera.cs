@@ -20,8 +20,7 @@ namespace Ship
                     52,
                     isLimited: true,
                     abilityType: typeof(SawGerreraPilotAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
-                    seImageNumber: 55
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }
                 );
 
                 ModelInfo.SkinName = "Partisan";

@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 cost: 1,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.ChopperCrewAbility),
-                seImageNumber: 83
+                abilityType: typeof(Abilities.SecondEdition.ChopperCrewAbility)
             );
 
             Avatar = new AvatarInfo(

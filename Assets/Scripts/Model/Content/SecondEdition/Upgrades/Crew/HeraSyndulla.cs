@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 4,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.HeraSyndullaCrewAbility),
-                seImageNumber: 84
+                abilityType: typeof(Abilities.SecondEdition.HeraSyndullaCrewAbility)
             );
 
             Avatar = new AvatarInfo(

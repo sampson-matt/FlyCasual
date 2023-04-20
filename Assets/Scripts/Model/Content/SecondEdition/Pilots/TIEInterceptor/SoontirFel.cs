@@ -18,8 +18,7 @@ namespace Ship
                     54,
                     isLimited: true,
                     abilityType: typeof(SoontirFelAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 103
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Red Stripes";

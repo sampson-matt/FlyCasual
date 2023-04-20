@@ -16,8 +16,7 @@ namespace Ship
                     77,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.RexlerBrathAbility),
-                    extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Sensor },
-                    seImageNumber: 122
+                    extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Sensor }
                 );
             }
         }

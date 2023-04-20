@@ -22,8 +22,7 @@ namespace Ship
                     50,
                     isLimited: true,
                     abilityType: typeof(CassianAndorAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 56
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

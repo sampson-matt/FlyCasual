@@ -14,8 +14,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Talent,
                 cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.SelflessAbility),
-                restriction: new FactionRestriction(Faction.Rebel),
-                seImageNumber: 15
+                restriction: new FactionRestriction(Faction.Rebel)
             );
         }        
     }

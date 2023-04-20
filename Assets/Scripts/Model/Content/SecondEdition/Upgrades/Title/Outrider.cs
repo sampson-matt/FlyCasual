@@ -22,8 +22,7 @@ namespace UpgradesList.SecondEdition
                     new FactionRestriction(Faction.Rebel),
                     new ShipRestriction(typeof(Ship.SecondEdition.YT2400LightFreighter.YT2400LightFreighter))
                 ),
-                abilityType: typeof(Abilities.SecondEdition.OutriderAbility),
-                seImageNumber: 105
+                abilityType: typeof(Abilities.SecondEdition.OutriderAbility)
             );
         }        
     }

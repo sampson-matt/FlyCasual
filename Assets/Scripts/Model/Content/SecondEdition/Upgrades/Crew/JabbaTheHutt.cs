@@ -23,8 +23,7 @@ namespace UpgradesList.SecondEdition
                 charges: 4,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
-                abilityType: typeof(Abilities.SecondEdition.JabbaTheHuttAbility),
-                seImageNumber: 133
+                abilityType: typeof(Abilities.SecondEdition.JabbaTheHuttAbility)
             );
 
             Avatar = new AvatarInfo(

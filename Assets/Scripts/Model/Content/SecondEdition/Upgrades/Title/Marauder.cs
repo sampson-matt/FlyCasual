@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                     new ShipRestriction(typeof(Ship.SecondEdition.FiresprayClassPatrolCraft.FiresprayClassPatrolCraft)),
                     new FactionRestriction(Faction.Scum)
                 ),
-                abilityType: typeof(Abilities.SecondEdition.MarauderAbility),
-                seImageNumber: 150
+                abilityType: typeof(Abilities.SecondEdition.MarauderAbility)
             );
         }        
     }

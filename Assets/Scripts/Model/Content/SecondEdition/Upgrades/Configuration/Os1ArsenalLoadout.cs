@@ -20,8 +20,7 @@ namespace UpgradesList.SecondEdition
                     new UpgradeSlot(UpgradeType.Torpedo),
                     new UpgradeSlot(UpgradeType.Missile)
                 },
-                abilityType: typeof(Abilities.SecondEdition.Os1ArsenalLoadoutAbility),
-                seImageNumber: 125
+                abilityType: typeof(Abilities.SecondEdition.Os1ArsenalLoadoutAbility)
             );
         }        
     }

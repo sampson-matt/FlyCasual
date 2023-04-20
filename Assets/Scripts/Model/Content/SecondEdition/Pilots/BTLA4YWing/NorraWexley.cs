@@ -19,8 +19,7 @@ namespace Ship
                     39,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.NorraWexleyAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification },
-                    seImageNumber: 13
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
 
                 PilotNameCanonical = "norrawexley-btla4ywing";

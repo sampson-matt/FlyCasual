@@ -13,8 +13,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.R5AstromechAbility),
                 restriction: new FactionRestriction(Faction.Rebel),
-                charges: 3,
-                seImageNumber: 101
+                charges: 3
             );
         }
     }

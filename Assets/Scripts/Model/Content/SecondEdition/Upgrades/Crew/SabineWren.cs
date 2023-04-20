@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 cost: 3,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.SabineWrenCrewAbility),
-                seImageNumber: 92
+                abilityType: typeof(Abilities.SecondEdition.SabineWrenCrewAbility)
             );
 
             Avatar = new AvatarInfo(

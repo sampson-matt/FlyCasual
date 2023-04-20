@@ -12,8 +12,7 @@ namespace UpgradesList.SecondEdition
                 "Perceptive Copilot",
                 UpgradeType.Crew,
                 cost: 8,
-                abilityType: typeof(Abilities.FirstEdition.ReconSpecialistAbility),
-                seImageNumber: 46
+                abilityType: typeof(Abilities.FirstEdition.ReconSpecialistAbility)
             );
         }        
     }

@@ -14,8 +14,7 @@ namespace Ship
                     33,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.LieutenantKarsabiAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 136
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

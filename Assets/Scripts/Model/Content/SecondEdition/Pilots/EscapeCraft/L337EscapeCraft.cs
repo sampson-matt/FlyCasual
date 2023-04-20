@@ -17,8 +17,7 @@ namespace Ship
                     25,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.L337Ability),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 228
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 PilotNameCanonical = "l337-escapecraft";

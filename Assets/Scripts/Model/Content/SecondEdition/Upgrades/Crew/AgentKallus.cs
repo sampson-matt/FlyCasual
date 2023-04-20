@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                 cost: 5,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Imperial),
-                abilityType: typeof(Abilities.SecondEdition.AgentKallusAbility),
-                seImageNumber: 110
+                abilityType: typeof(Abilities.SecondEdition.AgentKallusAbility)
             );
 
             Avatar = new AvatarInfo(

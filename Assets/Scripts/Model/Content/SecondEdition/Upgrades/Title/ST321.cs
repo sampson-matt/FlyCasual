@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 cost: 3,
                 isLimited: true,
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.LambdaClassT4AShuttle.LambdaClassT4AShuttle)),
-                abilityType: typeof(Abilities.SecondEdition.ST321Ability),
-                seImageNumber: 124
+                abilityType: typeof(Abilities.SecondEdition.ST321Ability)
             );
         }        
     }

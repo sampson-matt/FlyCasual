@@ -19,8 +19,7 @@ namespace Ship
                     75,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.RearAdmiralCharaneauAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 147
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

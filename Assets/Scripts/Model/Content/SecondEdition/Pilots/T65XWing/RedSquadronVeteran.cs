@@ -12,8 +12,7 @@ namespace Ship
                     "Red Squadron Veteran",
                     3,
                     40,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 10
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

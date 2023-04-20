@@ -14,8 +14,7 @@ namespace Ship
                     "Partisan Renegade",
                     1,
                     43,
-                    extraUpgradeIcon: UpgradeType.Illicit,
-                    seImageNumber: 61
+                    extraUpgradeIcon: UpgradeType.Illicit
                 );
 
                 ModelInfo.SkinName = "Partisan";

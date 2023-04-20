@@ -19,9 +19,11 @@ namespace Ship
                     "Hotac B-Wing",
                     3,
                     5,
-                    extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Init, UpgradeType.Pilot },
-                    seImageNumber: 25
+                    extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Init, UpgradeType.Pilot }
                 );
+
+                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/bladesquadronveteran.png";
+
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ProtectAction)));
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);

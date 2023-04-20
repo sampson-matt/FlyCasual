@@ -18,8 +18,7 @@ namespace Ship
                     27,
                     isLimited: true,
                     abilityType: typeof(SeynMaranaAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 86
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
 
                 ModelInfo.SkinName = "Inferno";

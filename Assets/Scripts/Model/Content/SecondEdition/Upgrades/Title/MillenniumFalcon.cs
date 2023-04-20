@@ -22,8 +22,7 @@ namespace UpgradesList.SecondEdition
                     new FactionRestriction(Faction.Rebel)
                 ),
                 addAction: new ActionInfo(typeof(EvadeAction)),
-                abilityType: typeof(Abilities.SecondEdition.MilleniumFalconAbility),
-                seImageNumber: 103
+                abilityType: typeof(Abilities.SecondEdition.MilleniumFalconAbility)
             );
         }        
     }

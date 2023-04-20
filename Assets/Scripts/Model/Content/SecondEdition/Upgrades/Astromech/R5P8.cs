@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.R5P8Ability),
                 restriction: new FactionRestriction(Faction.Scum),
-                charges: 3,
-                seImageNumber: 144
+                charges: 3
             );
         }
     }

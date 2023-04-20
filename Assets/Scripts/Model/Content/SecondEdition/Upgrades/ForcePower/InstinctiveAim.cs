@@ -13,8 +13,7 @@ namespace UpgradesList.SecondEdition
                 "Instinctive Aim",
                 UpgradeType.ForcePower,
                 cost: 1,
-                abilityType: typeof(Abilities.SecondEdition.InstinctiveAimAbility),
-                seImageNumber: 20
+                abilityType: typeof(Abilities.SecondEdition.InstinctiveAimAbility)
             );
         }        
     }

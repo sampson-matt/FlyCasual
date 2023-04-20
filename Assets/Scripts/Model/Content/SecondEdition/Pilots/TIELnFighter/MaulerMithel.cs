@@ -14,8 +14,7 @@ namespace Ship
                     28,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.MaulerMithelAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 80
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

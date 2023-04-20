@@ -22,8 +22,7 @@ namespace UpgradesList.SecondEdition
                     requiresToken: typeof(BlueTargetLockToken),
                     charges: 2
                 ),
-                abilityType: typeof(Abilities.SecondEdition.HomingMissilesAbility),
-                seImageNumber: 39
+                abilityType: typeof(Abilities.SecondEdition.HomingMissilesAbility)
             );
         }        
     }

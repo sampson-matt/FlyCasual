@@ -18,8 +18,7 @@ namespace Ship
                     4,
                     47,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.CaptainKagiAbility),
-                    seImageNumber: 142
+                    abilityType: typeof(Abilities.SecondEdition.CaptainKagiAbility)
                 );
             }
         }

@@ -23,8 +23,7 @@ namespace Ship
                         Tags.Spectre
                     },
                     force: 1,
-                    extraUpgradeIcon: UpgradeType.ForcePower,
-                    seImageNumber: 36
+                    extraUpgradeIcon: UpgradeType.ForcePower
                 );
             }
         }

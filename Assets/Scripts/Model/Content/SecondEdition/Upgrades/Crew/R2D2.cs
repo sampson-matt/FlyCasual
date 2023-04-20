@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 cost: 8,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.R2D2CrewAbility),
-                seImageNumber: 91
+                abilityType: typeof(Abilities.SecondEdition.R2D2CrewAbility)
             );
 
             Avatar = new AvatarInfo(

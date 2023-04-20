@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Crew,
                 cost: 1,
                 restriction: new FactionRestriction(Faction.Imperial),
-                abilityType: typeof(Abilities.SecondEdition.IsbSlicerAbility),
-                seImageNumber: 118
+                abilityType: typeof(Abilities.SecondEdition.IsbSlicerAbility)
             );
 
             Avatar = new AvatarInfo(

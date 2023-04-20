@@ -9,8 +9,7 @@
                 PilotInfo = new PilotCardInfo(
                     "Cartel Spacer",
                     1,
-                    26,
-                    seImageNumber: 190
+                    26
                 );
             }
         }

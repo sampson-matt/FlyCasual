@@ -15,8 +15,7 @@ namespace Ship
                     2,
                     31,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit, UpgradeType.Modification },
-                    factionOverride: Faction.Scum,
-                    seImageNumber: 167
+                    factionOverride: Faction.Scum
                 );
 
                 ModelInfo.SkinName = "Gray";

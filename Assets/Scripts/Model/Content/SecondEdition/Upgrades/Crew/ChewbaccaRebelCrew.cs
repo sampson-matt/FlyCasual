@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Rebel),
                 charges: 2,
                 regensCharges: true,
-                abilityType: typeof(Abilities.SecondEdition.ChewbaccaRebelCrewAbility),
-                seImageNumber: 82
+                abilityType: typeof(Abilities.SecondEdition.ChewbaccaRebelCrewAbility)
             );
 
             Avatar = new AvatarInfo(

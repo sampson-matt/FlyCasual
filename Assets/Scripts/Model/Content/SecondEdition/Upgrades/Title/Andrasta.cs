@@ -21,8 +21,7 @@ namespace UpgradesList.SecondEdition
                 restrictions: new UpgradeCardRestrictions(
                     new ShipRestriction(typeof(Ship.SecondEdition.FiresprayClassPatrolCraft.FiresprayClassPatrolCraft)),
                     new FactionRestriction(Faction.Scum)
-                ),
-                seImageNumber: 146
+                )
             );
         }        
     }

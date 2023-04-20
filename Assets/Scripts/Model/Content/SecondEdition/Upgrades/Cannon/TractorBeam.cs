@@ -18,8 +18,7 @@ namespace UpgradesList.SecondEdition
                     minRange: 1,
                     maxRange: 3
                 ),
-                abilityType: typeof(Abilities.SecondEdition.TractorBeamAbility),
-                seImageNumber: 30
+                abilityType: typeof(Abilities.SecondEdition.TractorBeamAbility)
             );
         }        
     }

@@ -14,8 +14,7 @@ namespace UpgradesList.SecondEdition
                 "Seasoned Navigator",
                 UpgradeType.Crew,
                 cost: 3,
-                abilityType: typeof(Abilities.SecondEdition.SeasonedNavigatorAbility),
-                seImageNumber: 47
+                abilityType: typeof(Abilities.SecondEdition.SeasonedNavigatorAbility)
             );
 
             Avatar = new AvatarInfo(

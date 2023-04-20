@@ -18,8 +18,7 @@ namespace Ship
                     3,
                     39,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.ZertikStromAbility),
-                    seImageNumber: 96
+                    abilityType: typeof(Abilities.SecondEdition.ZertikStromAbility)
                 );
             }
         }

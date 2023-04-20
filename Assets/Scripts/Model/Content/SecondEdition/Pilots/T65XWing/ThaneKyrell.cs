@@ -20,8 +20,7 @@ namespace Ship
                     45,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ThaneKyrellAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 3
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

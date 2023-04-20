@@ -17,8 +17,7 @@ namespace UpgradesList.SecondEdition
                 cost: 3,
                 isLimited: true,
                 charges: 2,
-                restriction: new BaseSizeRestriction(BaseSize.Small, BaseSize.Medium), 
-                seImageNumber: 57,
+                restriction: new BaseSizeRestriction(BaseSize.Small, BaseSize.Medium),
                 abilityType: typeof(Abilities.SecondEdition.CloakingDeviceAbility)
             );
         }        

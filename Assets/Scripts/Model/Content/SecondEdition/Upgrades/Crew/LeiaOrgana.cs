@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Rebel),
                 charges: 3,
                 regensCharges: true,
-                abilityType: typeof(Abilities.SecondEdition.LeiaOrganaAbility),
-                seImageNumber: 88
+                abilityType: typeof(Abilities.SecondEdition.LeiaOrganaAbility)
             );
 
             Avatar = new AvatarInfo(

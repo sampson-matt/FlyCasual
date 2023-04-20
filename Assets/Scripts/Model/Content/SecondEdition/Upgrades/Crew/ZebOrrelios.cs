@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 1,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.SecondEdition.ZebOrreliosCrewAbility),
-                seImageNumber: 94
+                abilityType: typeof(Abilities.SecondEdition.ZebOrreliosCrewAbility)
             );
 
             Avatar = new AvatarInfo(

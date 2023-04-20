@@ -18,8 +18,7 @@ namespace Ship
                     41,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LeevanTenzaAbility),
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
-                    seImageNumber: 8
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }
                 );
 
                 ModelInfo.SkinName = "Partisan";

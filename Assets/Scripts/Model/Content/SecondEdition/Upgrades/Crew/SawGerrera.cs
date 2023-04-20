@@ -15,8 +15,7 @@ namespace UpgradesList.SecondEdition
                 cost: 9,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel),
-                abilityType: typeof(Abilities.FirstEdition.SawGerreraCrewAbility),
-                seImageNumber: 93
+                abilityType: typeof(Abilities.FirstEdition.SawGerreraCrewAbility)
             );
 
             Avatar = new AvatarInfo(

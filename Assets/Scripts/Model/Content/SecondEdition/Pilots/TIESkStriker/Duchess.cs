@@ -16,8 +16,7 @@ namespace Ship
                     5,
                     44,
                     isLimited: true,
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 117
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

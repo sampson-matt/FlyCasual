@@ -22,8 +22,7 @@ namespace Ship
                         Tags.LightSide
                     },
                     force: 2,
-                    extraUpgradeIcon: UpgradeType.ForcePower,
-                    seImageNumber: 2
+                    extraUpgradeIcon: UpgradeType.ForcePower
                 );
 
                 ModelInfo.SkinName = "Luke Skywalker";

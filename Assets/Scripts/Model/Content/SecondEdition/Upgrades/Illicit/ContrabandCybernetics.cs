@@ -12,8 +12,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Illicit,
                 cost: 3,
                 abilityType: typeof(Abilities.SecondEdition.ContrabandCyberneticsAbility),
-                charges: 1,
-                seImageNumber: 58
+                charges: 1
             );
         }        
     }

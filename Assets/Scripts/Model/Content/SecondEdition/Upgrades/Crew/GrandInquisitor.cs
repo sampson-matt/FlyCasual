@@ -19,8 +19,7 @@ namespace UpgradesList.SecondEdition
                 addForce: 1,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Imperial),
-                abilityType: typeof(Abilities.SecondEdition.GrandInquisitorCrewAbility),
-                seImageNumber: 116
+                abilityType: typeof(Abilities.SecondEdition.GrandInquisitorCrewAbility)
             );
 
             Avatar = new AvatarInfo(

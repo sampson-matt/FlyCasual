@@ -16,8 +16,7 @@ namespace UpgradesList.SecondEdition
                 UpgradeType.Modification,
                 cost: 2,
                 restriction: new BaseSizeRestriction(BaseSize.Medium, BaseSize.Large),
-                abilityType: typeof(Abilities.SecondEdition.TacticalScramblerAbility),
-                seImageNumber: 78
+                abilityType: typeof(Abilities.SecondEdition.TacticalScramblerAbility)
             );
         }
     }

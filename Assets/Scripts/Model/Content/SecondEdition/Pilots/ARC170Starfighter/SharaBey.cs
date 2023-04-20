@@ -18,8 +18,7 @@ namespace Ship
                     49,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.SharaBeyAbility),
-                    extraUpgradeIcon: UpgradeType.Talent,
-                    seImageNumber: 67
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

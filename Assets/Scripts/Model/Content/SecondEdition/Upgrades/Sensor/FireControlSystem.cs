@@ -13,8 +13,7 @@ namespace UpgradesList.SecondEdition
                 "Fire-Control System",
                 UpgradeType.Sensor,
                 cost: 2,
-                abilityType: typeof(Abilities.SecondEdition.FireControlSystemAbility),
-                seImageNumber: 25
+                abilityType: typeof(Abilities.SecondEdition.FireControlSystemAbility)
             );
         }        
     }

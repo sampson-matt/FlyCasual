@@ -9,6 +9,8 @@ namespace SquadBuilderNS
 {
     public class SquadBuilderPilotsView
     {
+        private float FromLeft = 0;
+
         public void ShowAvailablePilots(Faction faction, string shipName, Boolean isCampaign = false)
         {
             PilotPanelSquadBuilder.WaitingToLoad = 0;
@@ -52,6 +54,7 @@ namespace SquadBuilderNS
             contentTransform.localPosition = new Vector3(0, contentTransform.localPosition.y, contentTransform.localPosition.z);
             contentTransform.GetComponent<RectTransform>().sizeDelta = new Vector2(pilotsCount * (SquadBuilderView.PILOT_CARD_WIDTH + SquadBuilderView.DISTANCE_MEDIUM) + 2 * SquadBuilderView.DISTANCE_MEDIUM, 0);
 
+            FromLeft = 25f;
             foreach (PilotRecord pilot in AllPilotsFiltered)
             {
                 ShowAvailablePilot(pilot);
@@ -63,6 +66,14 @@ namespace SquadBuilderNS
             GameObject prefab = (GameObject)Resources.Load("Prefabs/SquadBuilder/PilotPanel", typeof(GameObject));
             Transform contentTransform = GameObject.Find("UI/Panels/SelectPilotPanel/Panel/Scroll View/Viewport/Content").transform;
             GameObject newPilotPanel = MonoBehaviour.Instantiate(prefab, contentTransform);
+
+            if (pilotRecord.Instance.PilotInfo.IsStandardLayout)
+            {
+                newPilotPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(722f, 418f);
+            }
+
+            newPilotPanel.transform.localPosition = new Vector3(FromLeft, newPilotPanel.GetComponent<RectTransform>().sizeDelta.y / 2f);
+            FromLeft += newPilotPanel.GetComponent<RectTransform>().sizeDelta.x + 25f;
 
             GenericShip newShip = (GenericShip)Activator.CreateInstance(Type.GetType(pilotRecord.PilotTypeName));
             Edition.Current.AdaptShipToRules(newShip);

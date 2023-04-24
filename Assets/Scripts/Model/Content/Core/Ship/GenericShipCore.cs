@@ -77,6 +77,7 @@ namespace Ship
         public ShipUpgradeBar UpgradeBar { get; protected set; }
         public ShipActionBar ActionBar { get; protected set; }
         public List<Type> DefaultUpgrades { get; protected set; }
+        public List<Type> MustHaveUpgrades { get; protected set; }
 
         public TokensManager Tokens { get; protected set; }
 
@@ -111,6 +112,7 @@ namespace Ship
             ActionBar = new ShipActionBar(this);
             Ai = new CustomizedAi(this);
             DefaultUpgrades = new List<Type>();
+            MustHaveUpgrades = new List<Type>();
 
             TargetLockMinRange = 0;
             TargetLockMaxRange = 3;

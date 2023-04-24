@@ -28,6 +28,7 @@ namespace Ship
         public Faction Faction { get; private set; }
         public ForceAlignment ForceAlignment { get; private set; }
         public List<Tags> Tags { get; }
+        public bool IsStandardLayout { get; }
         public bool AffectedByStandardized { get; }
 
         public PilotCardInfo(string pilotName,
@@ -44,6 +45,7 @@ namespace Ship
             UpgradeType extraUpgradeIcon = UpgradeType.None,
             List<UpgradeType> extraUpgradeIcons = null,
             List<Tags> tags = null,
+            bool isStandardLayout = false,
             bool affectedByStandardized = true,
             Faction factionOverride = Faction.None,
             ForceAlignment forceAlignmentOverride = ForceAlignment.None,
@@ -78,6 +80,8 @@ namespace Ship
             if (extraUpgradeIcons != null) ExtraUpgrades.AddRange(extraUpgradeIcons);
 
             Tags = tags ?? new List<Tags>();
+
+            IsStandardLayout = isStandardLayout;
 
             AffectedByStandardized = affectedByStandardized;
 

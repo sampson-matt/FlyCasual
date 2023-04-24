@@ -62,6 +62,12 @@ namespace SquadBuilderNS
             RandomSquads.SetRandomAiSquad();
         }
 
+        public void UpdateClearButtonVisibility(GenericShip ship)
+        {
+            GameObject target = GameObject.Find("UI/Panels/ShipSlotsPanel/TopPanel").transform.Find("ClearButton").gameObject;
+            target.SetActive(!ship.PilotInfo.IsStandardLayout);
+        }
+
         public void UpdateSquadCost(string panelName)
         {
             Text targetText = GameObject.Find("UI/Panels/" + panelName + "/ControlsPanel/SquadCostText").GetComponent<Text>();
@@ -235,6 +241,7 @@ namespace SquadBuilderNS
 
         public void ShowPilotWithSlots()
         {
+            UpdateClearButtonVisibility(Global.SquadBuilder.CurrentShip.Instance);
             UpdateSquadCost("ShipSlotsPanel");
             PilotWithSlotsView.GeneratePilotWithSlotsPanels();
         }

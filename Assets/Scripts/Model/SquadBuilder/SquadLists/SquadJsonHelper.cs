@@ -107,18 +107,21 @@ namespace SquadBuilderNS
             pilotJson.AddField("ship", shipHolder.Instance.ShipTypeCanonical);
 
             Dictionary<string, JSONObject> upgradesDict = new Dictionary<string, JSONObject>();
-            foreach (var installedUpgrade in shipHolder.Instance.UpgradeBar.GetUpgradesAll())
+            if (!shipHolder.Instance.PilotInfo.IsStandardLayout)
             {
-                string slotName = Edition.Current.UpgradeTypeToXws(installedUpgrade.UpgradeInfo.UpgradeTypes[0]);
-                if (!upgradesDict.ContainsKey(slotName))
+                foreach (var installedUpgrade in shipHolder.Instance.UpgradeBar.GetUpgradesAll())
                 {
-                    JSONObject upgrade = new JSONObject();
-                    upgrade.Add(installedUpgrade.NameCanonical);
-                    upgradesDict.Add(slotName, upgrade);
-                }
-                else
-                {
-                    upgradesDict[slotName].Add(installedUpgrade.NameCanonical);
+                    string slotName = Edition.Current.UpgradeTypeToXws(installedUpgrade.UpgradeInfo.UpgradeTypes[0]);
+                    if (!upgradesDict.ContainsKey(slotName))
+                    {
+                        JSONObject upgrade = new JSONObject();
+                        upgrade.Add(installedUpgrade.NameCanonical);
+                        upgradesDict.Add(slotName, upgrade);
+                    }
+                    else
+                    {
+                        upgradesDict[slotName].Add(installedUpgrade.NameCanonical);
+                    }
                 }
             }
             JSONObject upgradesDictJson = new JSONObject(upgradesDict);
@@ -257,6 +260,19 @@ namespace SquadBuilderNS
 
                                     if (!wasSuccess) break;
                                 }
+                            }
+                        }
+
+                        if (newShipInstance.PilotInfo.IsStandardLayout)
+                        {
+                            foreach (Type upgradeType in newShipInstance.MustHaveUpgrades)
+                            {
+                                bool upgradeInstalledSucessfully = newShip.InstallUpgrade(upgradeType.ToString());
+                                if (!upgradeInstalledSucessfully)
+                                {
+                                    Messages.ShowError("Cannot install upgrade: " + upgradeType.ToString());
+                                }
+
                             }
                         }
 

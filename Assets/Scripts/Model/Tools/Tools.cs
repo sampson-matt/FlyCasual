@@ -46,7 +46,7 @@ public static partial class Tools
             result = result.Substring(0, result.IndexOf("("));
         }
 
-        string[] signsToReplace = new string[] { " ", "\"", "/", "'", "-" };
+        string[] signsToReplace = new string[] { " ", "\"", "/", "'", "-", "’" };
         foreach (var sign in signsToReplace)
         {
             result = result.Replace(sign, "");

@@ -1,12 +1,12 @@
 ﻿using Abilities.SecondEdition;
-using ActionsList;
+using Arcs;
 using Ship;
 using SubPhases;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Content;
-using Tokens;
 using UnityEngine;
 using Upgrade;
 
@@ -14,31 +14,32 @@ namespace Ship
 {
     namespace SecondEdition.BTLA4YWing
     {
-        public class DutchVanderBoYSL : BTLA4YWing
+        public class PopsKrailBoYSL : BTLA4YWing
         {
-            public DutchVanderBoYSL() : base()
+            public PopsKrailBoYSL() : base()
             {
                 PilotInfo = new PilotCardInfo(
-                    "\"Dutch\" Vander",
-                    4,
-                    61,
+                    "\"Pops\" Krail",
+                    3,
+                    45,
+                    pilotTitle: "Battle of Yavin",
                     isLimited: true,
-                    abilityType: typeof(DutchVanderBoYAbility),
+                    abilityType: typeof(PopsKrailBoYAbility),
                     tags: new List<Tags>
                     {
                         Tags.BoY
                     },
-                    extraUpgradeIcon: UpgradeType.Modification,
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Modification },
                     isStandardLayout: true
                 );
                 ShipAbilities.Add(new HopeAbility());
 
                 MustHaveUpgrades.Add(typeof(UpgradesList.SecondEdition.IonCannonTurret));
                 MustHaveUpgrades.Add(typeof(UpgradesList.SecondEdition.AdvProtonTorpedoes));
-                MustHaveUpgrades.Add(typeof(UpgradesList.SecondEdition.TargetingAstromech));
+                MustHaveUpgrades.Add(typeof(UpgradesList.SecondEdition.R4Astromech));
 
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/d/d4/Dutchvander-battleofyavin.png";
-                PilotNameCanonical = "dutchvander-battleofyavin-sl";
+                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/9/9b/Popskrail-battleofyavin.png";
+                PilotNameCanonical = "popskrail-battleofyavin-sl";
             }
         }
     }

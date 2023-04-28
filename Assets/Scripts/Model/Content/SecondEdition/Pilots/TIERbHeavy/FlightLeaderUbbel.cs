@@ -19,8 +19,6 @@ namespace Ship
                     isLimited: true,
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images.squarespace-cdn.com/content/v1/5ce432b1f9d2be000134d8ae/c4b1a1ef-76b0-4da2-a06e-eb8e04fe0d84/SWZ97_FlightLeaderUbbellegal+%281%29.png";
             }
         }
     }

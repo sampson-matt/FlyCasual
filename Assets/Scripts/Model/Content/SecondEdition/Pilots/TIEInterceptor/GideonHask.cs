@@ -21,8 +21,6 @@ namespace Ship
                 );
 
                 PilotNameCanonical = "gideonhask-tieininterceptor";
-
-                ImageUrl = "https://i.imgur.com/AF5bPjw.png";
             }
         }
     }

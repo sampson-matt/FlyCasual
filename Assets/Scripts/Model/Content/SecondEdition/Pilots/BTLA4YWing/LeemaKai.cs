@@ -26,8 +26,6 @@ namespace Ship.SecondEdition.BTLA4YWing
                 },
                 factionOverride: Faction.Scum
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/f5/ce/f5ce6adb-194d-458f-a6df-f84a6cc57d33/swz85_pilot_leemakai.png";
         }
     }
 }

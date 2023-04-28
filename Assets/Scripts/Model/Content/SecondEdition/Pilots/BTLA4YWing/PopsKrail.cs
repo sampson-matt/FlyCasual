@@ -27,8 +27,6 @@ namespace Ship
                     abilityType: typeof(PopsKrailAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Modification }
                 );
-
-                ImageUrl = "https://images.squarespace-cdn.com/content/v1/5ce432b1f9d2be000134d8ae/bec9574e-4585-4b27-8988-bf27c2548a7f/SWZ97_PopsKraillegal.png";
             }
         }
     }

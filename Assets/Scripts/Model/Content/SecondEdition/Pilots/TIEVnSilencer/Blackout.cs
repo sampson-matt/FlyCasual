@@ -16,8 +16,6 @@ namespace Ship
                     abilityType: typeof(Abilities.FirstEdition.TestPilotBlackoutAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/c5659b210e13b4e11fdd5f1396f2847c.png";
             }
         }
     }

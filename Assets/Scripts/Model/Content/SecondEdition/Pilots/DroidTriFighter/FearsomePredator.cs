@@ -21,8 +21,6 @@ namespace Ship.SecondEdition.DroidTriFighter
                 extraUpgradeIcon: UpgradeType.Talent,
                 abilityType: typeof(Abilities.SecondEdition.FearsomePredatorAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/91/bb/91bb3546-290e-4131-895e-a77d79ebbc99/swz81_fearsome-predator_cutout.png";
         }
     }
 }

@@ -26,8 +26,6 @@ namespace Ship.SecondEdition.Eta2Actis
                 },
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/5b/fb/5bfbf23b-29c5-47c9-a6ba-1a2a7ddba319/swz79_yoda.png";
         }
     }
 }

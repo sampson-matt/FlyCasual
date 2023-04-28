@@ -19,8 +19,6 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Tech,
                     factionOverride: Faction.Scum
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/e6/7f/e67f3145-67ad-4175-8a48-b92d87e58c28/swz85_pilot_jinatasecurityofficer.png";
             }
         }
     }

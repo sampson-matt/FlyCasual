@@ -23,8 +23,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.KazudaXionoAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Astromech }
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/16/42/164202d5-47a5-44ea-a96b-49c795005ca8/swz63_a1_card_kazuda-xiono.png";
             }
         }
     }

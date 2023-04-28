@@ -21,8 +21,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Red";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/06/ec/06ecf59a-74bb-425b-9b5e-0d90a76d3261/swz33_jag.png";
             }
         }
     }

@@ -22,7 +22,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.HawkAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/a0/d0/a0d0bfa8-544c-4872-8f6e-ef5fc3329c3a/swz70_a1_hawk_ship.png";
             }
         }
     }

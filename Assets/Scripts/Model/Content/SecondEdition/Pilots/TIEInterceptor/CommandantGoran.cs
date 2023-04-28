@@ -22,8 +22,6 @@ namespace Ship.SecondEdition.TIEInterceptor
             );
 
             ModelInfo.SkinName = "Skystrike Academy";
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/94/37/94377171-95d9-40e5-99be-8f8d6e52eb28/swz84_pilot_commandantgoran.png";
         }
     }
 }

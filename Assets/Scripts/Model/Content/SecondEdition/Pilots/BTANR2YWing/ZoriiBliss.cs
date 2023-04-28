@@ -25,7 +25,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ZoriiBlissAbility)
                 );
 
-                ImageUrl = "https://i.imgur.com/gzY2RZJ.png";
+                ModelInfo.SkinName = "Red";
             }
         }
     }

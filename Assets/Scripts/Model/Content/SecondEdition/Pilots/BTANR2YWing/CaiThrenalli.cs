@@ -18,9 +18,9 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.CaiThrenalliAbility)
                 );
 
-                PilotNameCanonical = "caithrenalli-btanr2ywing";
+                ModelInfo.SkinName = "Red";
 
-                ImageUrl = "https://i.imgur.com/quuZGXf.png";
+                PilotNameCanonical = "caithrenalli-btanr2ywing";
             }
         }
     }

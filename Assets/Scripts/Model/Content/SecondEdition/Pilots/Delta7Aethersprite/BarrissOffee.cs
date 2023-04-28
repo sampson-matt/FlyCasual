@@ -27,8 +27,6 @@ namespace Ship.SecondEdition.Delta7Aethersprite
             );
 
             ModelInfo.SkinName = "Blue";
-
-            ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/f8f58005da18d7041b1ec2374701465c.png";
         }
     }
 }

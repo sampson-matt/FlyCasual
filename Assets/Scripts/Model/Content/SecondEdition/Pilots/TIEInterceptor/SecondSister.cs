@@ -25,8 +25,6 @@ namespace Ship.SecondEdition.TIEInterceptor
                 },
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
-
-            ImageUrl = "https://images.squarespace-cdn.com/content/v1/5ce432b1f9d2be000134d8ae/f542f260-755f-48ff-84bf-7d8486ffd6b7/SWZ97_SecondSisterlegal.png";
         }
     }
 }

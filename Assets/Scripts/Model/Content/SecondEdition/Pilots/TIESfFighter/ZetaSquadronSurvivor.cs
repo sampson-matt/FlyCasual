@@ -13,8 +13,6 @@ namespace Ship
                     2,
                     32
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/848db1993150bda19217e2c14b3c3df6.png";
             }
         }
     }

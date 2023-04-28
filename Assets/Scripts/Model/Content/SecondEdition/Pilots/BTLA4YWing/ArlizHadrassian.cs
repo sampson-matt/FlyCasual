@@ -28,8 +28,6 @@ namespace Ship.SecondEdition.BTLA4YWing
             );
 
             ModelInfo.SkinName = "Gray";
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/14/35/1435fe85-32d8-4fb3-8e80-e4d68add15ef/swz85_pilot_arlizhadrassian.png";
         }
     }
 }

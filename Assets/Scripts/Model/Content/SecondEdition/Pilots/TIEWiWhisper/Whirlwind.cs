@@ -23,8 +23,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.WhirlwindPilotAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }
                 );
-
-                ImageUrl = "https://i.imgur.com/vaWIuzX.png";
             }
         }
     }

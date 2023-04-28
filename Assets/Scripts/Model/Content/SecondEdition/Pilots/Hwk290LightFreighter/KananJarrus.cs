@@ -31,8 +31,6 @@ namespace Ship
                     forceAlignmentOverride: ForceAlignment.Light
                 );
 
-                ImageUrl = "https://i.imgur.com/yDkh3To.png";
-
                 ModelInfo.SkinName = "Black";
 
                 PilotNameCanonical = "kananjarrus-hwk290lightfreighter";

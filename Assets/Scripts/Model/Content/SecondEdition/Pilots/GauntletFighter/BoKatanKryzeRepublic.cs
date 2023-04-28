@@ -29,8 +29,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Dark Blue";
-
-                ImageUrl = "https://i.imgur.com/QCUreef.png";
             }
         }
     }

@@ -19,7 +19,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.JunoEclipseAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-                ImageUrl = "https://images.squarespace-cdn.com/content/v1/5ce432b1f9d2be000134d8ae/44389529-87de-42a0-962c-97d223fb597b/SWZ97_JunoEclipselegal.png";
             }            
         }
     }

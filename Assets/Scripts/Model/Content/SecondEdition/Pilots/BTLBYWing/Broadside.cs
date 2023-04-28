@@ -23,8 +23,6 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Astromech },
                     abilityType: typeof(Abilities.SecondEdition.BroadsideAbility)
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/1e/11/1e117608-f88d-490d-a84e-949b48b7af93/swz48_pilot-broadside.png";
             }
         }
     }

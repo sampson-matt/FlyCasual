@@ -26,8 +26,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Skystrike Academy";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/be/1b/be1bc184-02e3-4b23-9006-6c299ec2a7a6/swz84_pilot_nashwindrider.png";
             }
         }
     }

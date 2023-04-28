@@ -19,8 +19,6 @@ namespace Ship
                     2,
                     22
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/7thskycorpspilot.png";
             }
         }
     }

@@ -21,8 +21,6 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Crew, UpgradeType.Device },
                     abilityType: typeof(Abilities.SecondEdition.DGS047Ability)
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/27/e8/27e89f93-eaa8-40bc-b62f-d8d009e54b82/swz71_card_dgs047.png";
             }
         }
     }

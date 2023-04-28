@@ -23,8 +23,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.MornaKeeAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/53/16/53162173-c0c4-423e-8bbe-d5d0be9554cb/swz66_morna-kee.png";
             }
         }
     }

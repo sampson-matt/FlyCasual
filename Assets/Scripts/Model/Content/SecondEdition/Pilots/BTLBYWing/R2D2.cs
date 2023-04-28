@@ -24,8 +24,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.R2D2PilotAbility)
                 );
 
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/b5/43/b543af57-7466-4c68-8a21-427b00e7cbd6/swz48_pilot-r2-d2.png";
-
                 ShipInfo.ActionIcons.SwitchToDroidActions();
             }
         }

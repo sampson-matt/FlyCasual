@@ -19,8 +19,6 @@ namespace Ship.SecondEdition.DroidTriFighter
                 extraUpgradeIcon: UpgradeType.Talent,
                 abilityType: typeof(Abilities.SecondEdition.PhlacArphoccPrototypeAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/57/f7/57f74986-1cbf-4745-9792-360153f75719/swz81_phlac-prototype_cutout.png";
         }
     }
 }

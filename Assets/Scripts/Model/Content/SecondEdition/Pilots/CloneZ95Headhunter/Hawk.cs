@@ -25,8 +25,6 @@ namespace Ship
                 );
 
                 PilotNameCanonical = "hawk-clonez95headhunter";
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/hawk-clonez95headhunter.png";
             }
         }
     }

@@ -24,8 +24,6 @@ namespace Ship.SecondEdition.ASF01BWing
             );
 
             ModelInfo.SkinName = "Red";
-
-            ImageUrl = "https://i.imgur.com/tDMmS4S.png";
         }
     }
 }

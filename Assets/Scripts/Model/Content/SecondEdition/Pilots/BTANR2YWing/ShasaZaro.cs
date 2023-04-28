@@ -24,7 +24,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ShasaZaroAbility)
                 );
 
-                ImageUrl = "https://i.imgur.com/AL8m0H5.png";
+                ModelInfo.SkinName = "Red";
             }
         }
     }

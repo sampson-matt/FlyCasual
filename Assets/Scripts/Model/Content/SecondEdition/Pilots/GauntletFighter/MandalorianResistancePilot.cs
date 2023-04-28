@@ -24,8 +24,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Blue";
-
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/a/a6/Mandalorianresistancepilot.png";
             }
         }
     }

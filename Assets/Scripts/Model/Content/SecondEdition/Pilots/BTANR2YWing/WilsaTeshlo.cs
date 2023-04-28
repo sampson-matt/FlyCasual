@@ -22,7 +22,8 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.WilsaTeshloAbility)
                 );
-                ImageUrl = "https://i.imgur.com/m8nrMvg.png";
+
+                ModelInfo.SkinName = "Orange";
             }
         }
     }

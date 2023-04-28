@@ -23,9 +23,7 @@ namespace Ship
                     factionOverride: Faction.Separatists
                 );
 
-                PilotNameCanonical = "bobafett-separatists";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/17/5d/175d51c6-6a7a-4f59-b8c1-44417a746187/swz82_a1_boba-fett.png";
+                PilotNameCanonical = "bobafett-separatistalliance";
 
                 ModelInfo.SkinName = "Jango Fett";
             }

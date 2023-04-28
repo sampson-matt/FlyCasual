@@ -16,8 +16,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.JophSeastrikerAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/90/fc/90fc30fb-db99-46cb-8761-89b6536286eb/swz25_joph_a1.png";
             }
         }
     }

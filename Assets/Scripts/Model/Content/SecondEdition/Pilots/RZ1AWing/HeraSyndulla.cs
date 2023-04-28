@@ -22,8 +22,6 @@ namespace Ship
                 PilotNameCanonical = "herasyndulla-rz1awing";
 
                 ModelInfo.SkinName = "Hera Syndulla";
-
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/d/dc/Herasyndullaawing.png";
             }
         }
     }

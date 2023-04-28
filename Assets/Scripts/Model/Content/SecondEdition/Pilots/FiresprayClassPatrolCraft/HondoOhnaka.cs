@@ -27,8 +27,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Jango Fett";
-
-                ImageUrl = "https://images.squarespace-cdn.com/content/v1/5ce432b1f9d2be000134d8ae/f0da444b-7695-43ad-b637-e7918f33a83c/SWZ97_HondoOhnakalegal.png";
             }
         }
     }

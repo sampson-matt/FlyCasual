@@ -22,8 +22,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.VenisaDozaAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/venisadoza.png";
             }
         }
     }

@@ -23,8 +23,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Cobalt";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/48/7e/487e95ce-b13c-4d39-97f6-8e28e633d07f/swz66_paige-tico.png";
             }
         }
     }

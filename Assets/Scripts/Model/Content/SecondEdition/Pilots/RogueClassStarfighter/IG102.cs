@@ -30,8 +30,6 @@ namespace Ship
                 oldAbility.DeactivateAbility();
                 ShipAbilities.Remove(oldAbility);
                 ShipAbilities.Add(new NetworkedCalculationsAbility());
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/ig102.png";
             }
         }
     }

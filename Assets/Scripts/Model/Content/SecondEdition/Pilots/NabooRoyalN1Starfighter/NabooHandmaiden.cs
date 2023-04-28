@@ -26,7 +26,6 @@ namespace Ship
                     abilityType: typeof(NabooHandmaidenAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/ad/b6/adb64448-5777-4fd3-8311-293207d7103b/swz40_naboo-handmaiden.png";
             }
         }
     }

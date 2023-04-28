@@ -20,8 +20,6 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Astromech },
                     abilityType: typeof(Abilities.SecondEdition.MatchstickAbility)
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/b2/2d/b22dd819-8ac1-4767-b870-0212bb2601fa/swz48_pilot-matchstick.png";
             }
         }
     }

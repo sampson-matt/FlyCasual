@@ -17,8 +17,6 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TN3465Ability)
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/333cbf0da8849edb38c4e93944d8fe57.png";
             }
         }
     }

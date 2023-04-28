@@ -28,8 +28,6 @@ namespace Ship.SecondEdition.Delta7Aethersprite
             );
 
             ModelInfo.SkinName = "Mace Windu";
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/de/33/de3326f7-521c-4f50-8599-483db5f32d6d/swz32_mace-windu.png";
         }
     }
 }

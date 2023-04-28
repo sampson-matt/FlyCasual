@@ -26,8 +26,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Red";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/27/9a/279ac02a-e274-4bcb-9570-d469cd12936e/swz66_ronith-blario.png";
             }
         }
     }

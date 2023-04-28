@@ -24,7 +24,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.CorusKapellimAbility)
                 );
 
-                ImageUrl = "https://i.imgur.com/0uhUP03.png";
+                ModelInfo.SkinName = "Blue";
             }
         }
     }

@@ -20,8 +20,6 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Cannon, UpgradeType.Cannon },
                     abilityType: typeof(Abilities.SecondEdition.GeonosianPrototypeAbility)
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/46/92/469279ec-b2cc-4168-81e2-f1bc616b0037/swz71_card_prototype.png";
             }
         }
     }

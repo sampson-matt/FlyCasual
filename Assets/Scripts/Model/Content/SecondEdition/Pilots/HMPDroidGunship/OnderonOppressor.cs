@@ -22,8 +22,6 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Crew, UpgradeType.Device },
                     abilityType: typeof(Abilities.SecondEdition.OnderonOppressorAbility)
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/d7/74/d774cd1d-eadc-4cf4-bf7f-f8169f9d14a3/swz71_card_oppressor.png";
             }
         }
     }

@@ -26,8 +26,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.SliderAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent}
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/slider.png";
             }
         }
     }

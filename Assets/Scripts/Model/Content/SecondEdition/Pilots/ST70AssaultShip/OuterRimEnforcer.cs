@@ -17,8 +17,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Red Stripes";
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/outerrimenforcer.png";
             }
         }
     }

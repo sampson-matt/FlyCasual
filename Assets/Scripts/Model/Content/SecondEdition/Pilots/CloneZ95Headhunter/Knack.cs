@@ -27,8 +27,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.KnackAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent}
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/knack.png";
             }
         }
     }

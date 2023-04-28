@@ -23,8 +23,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.TheMandalorianAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://i.imgur.com/Ncx2wka.png";
             }
         }
     }

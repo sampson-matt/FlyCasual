@@ -24,8 +24,6 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent,
                     abilityType: typeof(Abilities.SecondEdition.LieutenantLeHuseAbility)
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/b823438eb2b32a407bf6a757a4ecb7d5.png";
             }
         }
     }

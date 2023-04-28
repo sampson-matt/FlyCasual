@@ -25,8 +25,6 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
 
-                ImageUrl = "https://images.squarespace-cdn.com/content/v1/5ce432b1f9d2be000134d8ae/bbede7a9-748c-4269-8d6c-cdab20cc7029/SWZ97_TorPhunlegal.png";
-
                 ModelInfo.SkinName = "Skull Squadron Pilot";
             }
         }

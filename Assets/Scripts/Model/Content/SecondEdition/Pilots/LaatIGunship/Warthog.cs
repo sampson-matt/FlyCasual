@@ -19,7 +19,6 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.WarthogAbility)
                 );
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/63/a5/63a5a158-1bb9-43f9-a461-a4778edb212d/swz70_a1_warthog_ship.png";
             }
         }
     }

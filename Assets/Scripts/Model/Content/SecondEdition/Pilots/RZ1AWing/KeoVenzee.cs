@@ -26,8 +26,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Blue";
-
-                ImageUrl = "https://i.imgur.com/DFRzYC6.png";
             }
         }
     }

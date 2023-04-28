@@ -28,8 +28,6 @@ namespace Ship
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/q90.png";
             }
         }
     }

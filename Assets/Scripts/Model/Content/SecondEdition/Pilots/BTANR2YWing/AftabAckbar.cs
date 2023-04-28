@@ -21,7 +21,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.AftabAckbarAbility)
                 );
 
-                ImageUrl = "https://i.imgur.com/j59sl9p.png";
+                ModelInfo.SkinName = "Red";
             }
         }
     }

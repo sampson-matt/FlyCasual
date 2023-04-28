@@ -19,8 +19,6 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LieutenantRivasAbility)
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/7188ec2eb699261dbd47a15df6164f4c.png";
             }
         }
     }

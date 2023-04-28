@@ -24,8 +24,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.BoostAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent}
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/boost.png";
             }
         }
     }

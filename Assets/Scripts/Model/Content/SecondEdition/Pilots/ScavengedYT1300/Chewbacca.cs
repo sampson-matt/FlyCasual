@@ -22,8 +22,6 @@ namespace Ship
                 );
 
                 PilotNameCanonical = "chewbacca-scavengedyt1300";
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/422fc30e0e10445e80b304ef2d96dc06.png";
             }
         }
     }

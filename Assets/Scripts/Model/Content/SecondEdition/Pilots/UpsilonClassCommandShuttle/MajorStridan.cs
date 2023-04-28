@@ -18,8 +18,6 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.MajorStridanAbility)
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/8420beca035dedf1596c7c99255fb2e7.png";
             }
         }
     }

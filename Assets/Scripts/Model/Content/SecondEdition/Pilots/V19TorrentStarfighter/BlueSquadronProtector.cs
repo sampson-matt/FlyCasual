@@ -15,8 +15,6 @@ namespace Ship.SecondEdition.V19TorrentStarfighter
                 26,
                 extraUpgradeIcon: UpgradeType.Talent
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/51/18/5118d916-b09f-47a1-a4dd-0df667267d1b/swz32_blue-sqd-protector.png";
         }
     }
 }

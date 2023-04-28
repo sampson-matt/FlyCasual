@@ -23,8 +23,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.KlickAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/d6/ba/d6baed95-5960-4615-9949-faf5a5c0d96f/swz80_ship_klick.png";
             }
         }
     }

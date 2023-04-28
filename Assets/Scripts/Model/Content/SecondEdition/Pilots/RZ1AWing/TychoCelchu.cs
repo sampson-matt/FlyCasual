@@ -21,8 +21,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.TychoCelchuAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }
                 );
-
-                ImageUrl = "https://images.squarespace-cdn.com/content/v1/5ce432b1f9d2be000134d8ae/790214c2-924a-4066-894a-ac71d59cc82b/SWZ97_TychoCelchulegal.png";
             }
         }
     }

@@ -22,8 +22,6 @@ namespace Ship
                     regensCharges: 1,
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/c9/f5/c9f5de03-e3e2-45b9-a86e-10ba74d1baed/swz23_a1_captain-seevor.png";
             }
         }
     }

@@ -21,8 +21,6 @@ namespace Ship.SecondEdition.DroidTriFighter
                 extraUpgradeIcon: UpgradeType.Talent,
                 abilityType: typeof(Abilities.SecondEdition.DisT81Ability)
             );
-
-            ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/c/c2/DIS-T81.png";
         }
     }
 }

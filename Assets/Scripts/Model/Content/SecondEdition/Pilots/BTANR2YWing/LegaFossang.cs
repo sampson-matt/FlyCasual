@@ -22,7 +22,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.LegaFossangAbility)
                 );
 
-                ImageUrl = "https://i.imgur.com/SIFbsBi.png";
+                ModelInfo.SkinName = "Blue";
             }
         }
     }

@@ -19,8 +19,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ContrailAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/b0/bc/b0bcccdb-fd02-4ab1-847b-66bae01e7ddc/swz80_ship_contrail.png";
             }
         }
     }

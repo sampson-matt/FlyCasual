@@ -26,8 +26,6 @@ namespace Ship
                 PilotNameCanonical = "ezrabridger-rz1awing-phoenixsquadronmod";
 
                 ModelInfo.SkinName = "Phoenix Squadron";
-
-                ImageUrl = "https://i.imgur.com/AbHl6vG.png";
             }
         }
     }

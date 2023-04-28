@@ -25,8 +25,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "CIS Light";
-
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/1/1f/Previzsla.png";
             }
         }
     }

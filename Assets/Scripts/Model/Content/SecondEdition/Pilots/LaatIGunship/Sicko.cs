@@ -24,7 +24,6 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.SickoAbility)
                 );
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/sicko.png";
             }
         }
     }

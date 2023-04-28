@@ -17,8 +17,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.JarekYeagerAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Astromech }
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/cc580fd073ea51094b881e37775ef1f0.png";
             }
         }
     }

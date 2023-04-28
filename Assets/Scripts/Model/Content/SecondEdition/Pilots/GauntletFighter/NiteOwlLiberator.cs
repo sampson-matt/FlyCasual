@@ -22,8 +22,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Blue";
-
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/7/76/Niteowlliberator.png";
             }
         }
     }

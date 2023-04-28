@@ -22,8 +22,6 @@ namespace Ship
                     regensCharges: 1,
                     abilityType: typeof(Abilities.SecondEdition.LieutenantTavsonPilotAbility)
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/20fbf3ed79c50d2082cdb44caac26064.png";
             }
         }
     }

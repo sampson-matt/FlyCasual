@@ -25,8 +25,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Yellow Edges";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/50/1e/501ea754-bb34-499e-aec9-1f65f941666a/swz84_ship_vultskerris.png";
             }
         }
     }

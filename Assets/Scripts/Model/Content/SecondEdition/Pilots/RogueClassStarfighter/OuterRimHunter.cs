@@ -14,8 +14,6 @@ namespace Ship
                     3,
                     35
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/outerrimhunter.png";
             }
         }
     }

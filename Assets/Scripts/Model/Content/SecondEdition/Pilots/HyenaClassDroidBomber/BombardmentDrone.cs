@@ -19,8 +19,6 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Sensor, UpgradeType.Device, UpgradeType.Device },
                 pilotTitle: "Time on Target"
             );
-            
-            ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/099422de35fb5ad2c2d238237e7dfe2c.png";
         }
     }
 }

@@ -22,8 +22,6 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.HoloAbility)
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/ee53482be8e59ff44f272e76c4e8123d.png";
             }
         }
     }

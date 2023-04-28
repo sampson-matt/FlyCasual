@@ -28,8 +28,6 @@ namespace Ship
                     }
                 );
                 ModelInfo.SkinName = "Skull Squadron Pilot";
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/mandalorianroyalguard.png";
             }
         }
     }

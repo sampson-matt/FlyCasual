@@ -23,8 +23,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.DriftAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent}
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/drift.png";
             }
         }
     }

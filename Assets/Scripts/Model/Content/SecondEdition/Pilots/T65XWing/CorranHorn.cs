@@ -27,8 +27,6 @@ namespace Ship
 
                 PilotNameCanonical = "corranhorn-t65xwing";
 
-                ImageUrl = "https://i.imgur.com/0lxticA.png";
-
                 ModelInfo.SkinName = "Green";
             }
         }

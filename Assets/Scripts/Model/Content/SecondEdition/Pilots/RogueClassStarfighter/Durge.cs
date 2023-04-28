@@ -19,8 +19,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.DurgeAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent}
                 );
-
-                ImageUrl = "https://images.squarespace-cdn.com/content/v1/5ce432b1f9d2be000134d8ae/9e694fa9-2526-4309-9c51-ad78603548bb/SWZ97_Durge2legal.png";
             }
         }
     }

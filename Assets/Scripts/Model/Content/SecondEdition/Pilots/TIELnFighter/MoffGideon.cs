@@ -30,8 +30,6 @@ namespace Ship
                     regensCharges: 1,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/moffgideon.png";
             }
         }
     }

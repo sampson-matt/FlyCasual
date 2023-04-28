@@ -23,8 +23,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.CadBaneScumAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent}
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/cadbane.png";
             }
         }
     }

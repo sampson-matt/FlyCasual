@@ -29,8 +29,6 @@ namespace Ship.SecondEdition.Eta2Actis
             );
 
             ModelInfo.SkinName = "Red";
-
-            ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/kitfisto.png";
         }
     }
 }

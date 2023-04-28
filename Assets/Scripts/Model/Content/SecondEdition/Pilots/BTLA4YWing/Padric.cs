@@ -29,8 +29,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Gray";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/df/43/df43e318-057c-4c0e-9419-104687ed1ef2/swz85_ship_padric.png";
             }
         }
     }

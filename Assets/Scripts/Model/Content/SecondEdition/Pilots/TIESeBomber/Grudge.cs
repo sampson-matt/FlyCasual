@@ -19,8 +19,6 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.GrudgePilotAbility)
                 );
-
-                ImageUrl = "https://i.imgur.com/f24aFJJ.png";
             }
         }
     }

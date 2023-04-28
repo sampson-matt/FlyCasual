@@ -24,8 +24,6 @@ namespace Ship
                     charges: 2,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }
                 );
-
-                ImageUrl = "https://i.imgur.com/KXRxwN1.png";
             }
         }
     }

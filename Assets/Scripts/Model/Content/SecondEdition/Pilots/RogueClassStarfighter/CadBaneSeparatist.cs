@@ -28,8 +28,6 @@ namespace Ship
                 );
 
                 PilotNameCanonical = "cadbane-separatistalliance";
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/cadbane-separatistalliance.png";
             }
         }
     }

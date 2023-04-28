@@ -20,8 +20,6 @@ namespace Ship
                     24,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent}
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/reapersquadronscout.png";
             }
         }
     }

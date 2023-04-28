@@ -19,8 +19,6 @@ namespace Ship
                     abilityType: typeof(DineeEllbergerAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/48/69/4869e3a3-e56f-4abb-8af3-19bf76c80764/swz40_dinee-ellberger.png";
             }
         }
     }

@@ -22,8 +22,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Green (HoH)";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/d3/66/d3669149-00da-4abf-9e08-9655e10db166/swz68_wrobie-tyce.png";
             }
         }
     }

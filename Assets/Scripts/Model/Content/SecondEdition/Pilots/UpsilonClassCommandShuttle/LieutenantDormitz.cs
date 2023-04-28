@@ -20,8 +20,6 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LieutenantDormitzAbility)
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/e4acd80da2c39e25d4f999cb7c314fe5.png";
             }
         }
     }

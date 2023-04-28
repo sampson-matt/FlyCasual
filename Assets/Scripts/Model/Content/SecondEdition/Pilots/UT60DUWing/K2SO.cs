@@ -25,8 +25,6 @@ namespace Ship
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/56/cb/56cb9ec8-0eff-4c6f-acda-f54413baadc7/swz66_k-2so.png";
             }
         }
     }

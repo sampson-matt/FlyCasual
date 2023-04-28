@@ -21,8 +21,6 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Astromech,
                     abilityType: typeof(Abilities.SecondEdition.GojiAbility)
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/71/ca/71ca5555-2cf9-4d11-8163-c443669897bd/swz48_pilot-goji.png";
             }
         }
     }

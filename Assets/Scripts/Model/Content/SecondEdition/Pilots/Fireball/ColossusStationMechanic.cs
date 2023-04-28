@@ -20,8 +20,6 @@ namespace Ship
                     26,
                     extraUpgradeIcon: UpgradeType.Astromech
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/533ab83e881838eb8006c8f8dcf19145.png";
             }
         }
     }

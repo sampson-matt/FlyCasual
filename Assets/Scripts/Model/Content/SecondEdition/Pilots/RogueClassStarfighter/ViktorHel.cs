@@ -20,8 +20,6 @@ namespace Ship
                 );
 
                 PilotNameCanonical = "viktorhel-rogueclassstarfighter";
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/viktorhel-rogueclassstarfighter.png";
             }
         }
     }

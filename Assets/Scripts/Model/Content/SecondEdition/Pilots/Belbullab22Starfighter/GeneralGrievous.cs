@@ -20,8 +20,6 @@ namespace Ship.SecondEdition.Belbullab22Starfighter
                 pilotTitle: "Ambitious Cyborg",
                 extraUpgradeIcon: UpgradeType.Talent
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/e1/9e/e19e3aaa-4b9f-4a9e-bc8f-46812882ebc7/swz29_grievous.png";
         }
     }
 }

@@ -24,8 +24,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.KillerAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent}
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/killer.png";
             }
         }
     }

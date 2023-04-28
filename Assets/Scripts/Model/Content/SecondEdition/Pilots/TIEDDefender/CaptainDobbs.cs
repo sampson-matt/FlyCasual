@@ -21,8 +21,6 @@ namespace Ship.SecondEdition.TIEDDefender
                 abilityType: typeof(Abilities.SecondEdition.CaptainDobbsAbility),
                 extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Sensor }
             );
-
-            ImageUrl = "https://i.imgur.com/RfgdAPL.png";
         }
     }
 }

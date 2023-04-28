@@ -27,8 +27,6 @@ namespace Ship
                 );
 
                 PilotNameCanonical = "landocalrissian-scavengedyt1300";
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/landocalrissian-scavengedyt1300.png";
             }
         }
     }

@@ -21,8 +21,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.DT798PilotAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/dt798.png";
             }
         }
     }

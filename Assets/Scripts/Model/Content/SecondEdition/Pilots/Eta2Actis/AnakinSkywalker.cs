@@ -33,8 +33,6 @@ namespace Ship.SecondEdition.Eta2Actis
             ModelInfo.SkinName = "Yellow";
 
             PilotNameCanonical = "anakinskywalker-eta2actis";
-
-            ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/a/a0/Anakin_eta-2.png";
         }
     }
 }

@@ -22,8 +22,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Red";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/0e/a9/0ea93e07-5308-434d-b1ef-28b4cb8cc9d9/swz22_greer_sonnel.png";
             }
         }
     }

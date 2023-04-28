@@ -28,8 +28,6 @@ namespace Ship
                 ShipInfo.ActionIcons.SwitchToDroidActions();
 
                 PilotNameCanonical = "chopper-gauntletfighter";
-
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/4/45/Choppergauntlet.png";
             }
         }
     }

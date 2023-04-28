@@ -27,8 +27,6 @@ namespace Ship
                     charges: 3,
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images.squarespace-cdn.com/content/v1/5ce432b1f9d2be000134d8ae/cab18bcf-9835-49d1-840b-82cc8f5ac976/SWZ97_DoctorAphralegal.png";
             }
         }
     }

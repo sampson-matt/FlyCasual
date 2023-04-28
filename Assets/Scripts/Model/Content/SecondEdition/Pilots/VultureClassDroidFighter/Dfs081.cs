@@ -15,8 +15,6 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 abilityType: typeof(Abilities.SecondEdition.Dfs081Ability),
                 pilotTitle: "Preservation Programming"
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/b4/04/b4044057-fae9-4638-b758-14339c1ce98a/swz29_dfs-081.png";
         }
     }
 }

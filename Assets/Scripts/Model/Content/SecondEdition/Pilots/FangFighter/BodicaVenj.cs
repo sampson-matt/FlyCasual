@@ -29,8 +29,6 @@ namespace Ship
                     factionOverride: Faction.Rebel
                 );
                 ModelInfo.SkinName = "Bodica Venj";
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/bodicavenj.png";
             }
         }
     }

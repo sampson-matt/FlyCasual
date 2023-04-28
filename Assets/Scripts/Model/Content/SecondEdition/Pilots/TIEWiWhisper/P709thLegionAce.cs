@@ -15,8 +15,6 @@ namespace Ship
                     44,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }
                 );
-
-                ImageUrl = "https://i.imgur.com/0UHEp9m.png";
             }
         }
     }

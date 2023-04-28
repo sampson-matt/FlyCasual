@@ -16,8 +16,6 @@ namespace Ship
                     abilityType: typeof(Abilities.FirstEdition.NienNunbAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/00a3c393a33b33168bc61e47749e1474.png";
             }
         }
     }

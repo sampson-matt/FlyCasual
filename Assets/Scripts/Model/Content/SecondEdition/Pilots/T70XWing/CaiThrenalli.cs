@@ -20,8 +20,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.CaiThrenalliAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/60/8a/608a4657-6612-417d-bd10-be587c2a208f/swz68_cai-threnalli.png";
             }
         }
     }

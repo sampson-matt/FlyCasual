@@ -20,8 +20,6 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Sensor, UpgradeType.Missile, UpgradeType.Missile },
                 pilotTitle: "Function over Form"
             );
-            
-            ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/254bc7be63cc9f4e629198f8d45f2f9b.png";
         }
     }
 }

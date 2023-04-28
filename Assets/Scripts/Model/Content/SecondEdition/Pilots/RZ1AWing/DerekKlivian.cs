@@ -23,8 +23,6 @@ namespace Ship.SecondEdition.RZ1AWing
             );
 
             ModelInfo.SkinName = "Blue";
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/d3/b1/d3b16ec1-de8e-446c-8fab-b7749a6537c8/swz83_pilot_derekklivian.png";
         }
     }
 }

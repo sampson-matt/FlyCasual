@@ -24,8 +24,6 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent } 
                 );
 
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/e1/64/e1644adc-8d8a-4408-90a1-621e0dd4b0c6/swz68_suralinda-javos.png";
-
                 ModelInfo.SkinName = "Blue";
             }
         }

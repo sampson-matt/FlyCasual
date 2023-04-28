@@ -23,8 +23,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Skystrike Academy";
-
-                ImageUrl = "https://i.imgur.com/5bOPsfP.png";
             }
         }
     }

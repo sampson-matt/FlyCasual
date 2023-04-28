@@ -25,8 +25,6 @@ namespace Ship
                 ModelInfo.SkinName = "Gray";
 
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Title);
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/imperialsupercommando.png";
             }
         }
     }

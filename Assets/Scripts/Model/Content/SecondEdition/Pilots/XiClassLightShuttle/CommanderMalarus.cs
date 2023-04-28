@@ -21,8 +21,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.CommanderMalarusXiClassLightShuttleAbility)
                 );
 
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/85/c4/85c41c14-3071-401b-b3ee-89d048acd9f0/swz69_a1_ship_malarus.png";
-
                 PilotNameCanonical = "commandermalarus-xiclasslightshuttle";
             }
         }

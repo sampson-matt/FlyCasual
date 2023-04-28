@@ -19,8 +19,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ChertekAbility),
                     abilityText: "While you perform a primary attack, if the defender is tractored, you may reroll up to 2 attack dice."
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/cb/32/cb321604-f7ca-4429-9d8f-0da43b7b5d5f/swz47_cards-chertek.png";
             }
         }
     }

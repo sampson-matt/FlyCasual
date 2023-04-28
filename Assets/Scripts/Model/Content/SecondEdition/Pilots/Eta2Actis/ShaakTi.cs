@@ -29,8 +29,6 @@ namespace Ship.SecondEdition.Eta2Actis
             );
 
             ModelInfo.SkinName = "Red";
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/fa/6a/fa6afe10-be85-46ee-93e6-0637b3ce34b0/swz79_shaak-ti.png";
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.TezaNaszAbility)
                 );
 
-                ImageUrl = "https://i.imgur.com/qyerxjI.png";
+                ModelInfo.SkinName = "Red";
             }
         }
     }

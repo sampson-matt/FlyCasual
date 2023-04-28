@@ -27,8 +27,6 @@ namespace Ship
                 ModelInfo.SkinName = "Poe Dameron (RoS)";
 
                 PilotNameCanonical = "poedameron-swz68";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/76/66/76668017-6298-4471-b1cc-d388d5fc11b8/swz68_poe-dameron.png";
             }
         }
     }

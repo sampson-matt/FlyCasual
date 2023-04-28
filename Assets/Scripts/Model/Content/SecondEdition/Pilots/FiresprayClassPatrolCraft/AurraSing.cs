@@ -34,8 +34,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Jango Fett";
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/aurrasing.png";
             }
         }
     }

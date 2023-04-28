@@ -26,8 +26,6 @@ namespace Ship.SecondEdition.Hwk290LightFreighter
                 regensCharges: 1
             );
 
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/12/d5/12d5d473-b2ec-419b-a5ec-eb57060684bb/swz85_pilot_gamutkey.png";
-
             ModelInfo.SkinName = "Black";
         }
     }

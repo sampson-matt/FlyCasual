@@ -10,15 +10,13 @@ namespace Ship.SecondEdition.SithInfiltrator
         public O66()
         {
             PilotInfo = new PilotCardInfo(
-                "O-66",
+                "0-66",
                 3,
                 47,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.O66PilotAbility),
                 extraUpgradeIcon: UpgradeType.Talent
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/c4/a7/c4a7f563-fae2-4dd2-a0bb-fa0fd697d2a5/swz30_0-66.png";
 
             ShipInfo.ActionIcons.SwitchToDroidActions();
         }

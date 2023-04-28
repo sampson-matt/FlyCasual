@@ -43,7 +43,7 @@ namespace Ship.SecondEdition.TIERbHeavy
             ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(RotateArcAction), typeof(CalculateAction), ActionColor.Red));
 
             IconicPilots = new Dictionary<Faction, System.Type> {
-                { Faction.Imperial, typeof(CardiaAcademyPilot) }
+                { Faction.Imperial, typeof(FlightLeaderUbbel) }
             };
 
             ModelInfo = new ShipModelInfo(

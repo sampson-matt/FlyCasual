@@ -24,8 +24,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.LieutenantGalekAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/lieutenantgalek.png";
             }
         }
     }

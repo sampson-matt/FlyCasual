@@ -25,8 +25,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.LinGaavaAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/lingaava.png";
             }
         }
     }

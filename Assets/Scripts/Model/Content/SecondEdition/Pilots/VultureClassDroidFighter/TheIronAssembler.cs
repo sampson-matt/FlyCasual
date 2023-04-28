@@ -20,8 +20,6 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 abilityType: typeof(Abilities.SecondEdition.TheIronAssemblerAbility),
                 pilotTitle: "Scintilla Scavenger"
             );
-
-            ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/theironassembler.png";
         }
     }
 }

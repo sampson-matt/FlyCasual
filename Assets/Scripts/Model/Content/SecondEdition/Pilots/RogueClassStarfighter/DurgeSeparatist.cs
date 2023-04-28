@@ -22,9 +22,7 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent},
                     factionOverride: Faction.Separatists
                 );
-                PilotNameCanonical = "Durge-separatistalliance";
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/durge-separatistalliance.png";
+                PilotNameCanonical = "durge-separatistalliance";
             }
         }
     }

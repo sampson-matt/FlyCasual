@@ -23,8 +23,6 @@ namespace Ship
 
                 RequiredMods = new List<Type>() { typeof(PhoenixSquadronModSE) };
                 PilotNameCanonical = "herasyndulla-ut60duwing-phoenixsquadronmod";
-
-                ImageUrl = "https://i.imgur.com/GdRl4Zt.png";
             }
         }
     }

@@ -19,8 +19,6 @@ namespace Ship.SecondEdition.DroidTriFighter
                 extraUpgradeIcon: UpgradeType.Talent,
                 abilityType: typeof(Abilities.SecondEdition.Dis347Ability)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/8f/96/8f96a822-921a-4c77-ae90-2fe15e196171/swz81_dis-347_cutout.png";
         }
     }
 }

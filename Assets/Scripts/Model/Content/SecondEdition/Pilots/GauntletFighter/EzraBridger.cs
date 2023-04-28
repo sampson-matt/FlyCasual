@@ -33,8 +33,6 @@ namespace Ship
                 ModelInfo.SkinName = "Red";
 
                 PilotNameCanonical = "ezrabridger-gauntletfighter";
-
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/3/3f/Ezra-gauntlet.png";
             }
         }
     }

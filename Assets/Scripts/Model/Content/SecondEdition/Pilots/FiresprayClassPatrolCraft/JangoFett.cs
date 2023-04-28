@@ -22,8 +22,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Jango Fett";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/d4/f0/d4f09efe-f07f-45ad-a82f-8fdc29ec8f75/swz82_a1_jango-fett.png";
             }
         }
     }

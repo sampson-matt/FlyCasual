@@ -19,8 +19,6 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.G4RGORVMAbility)
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/4c/2c/4c2c309f-f9b0-4a93-a3a5-28b43fe981c3/swz66_g4r-g0r_vm.png";
                 ShipInfo.ActionIcons.SwitchToDroidActions();
             }
         }

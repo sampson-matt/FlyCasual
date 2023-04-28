@@ -15,8 +15,6 @@ namespace Ship
                     1,
                     42
                 );
-
-                ImageUrl = "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/2/24/Swz25_blue-sqd_a1.png";
             }
         }
     }

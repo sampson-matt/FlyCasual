@@ -11,14 +11,12 @@ namespace Ship
             public NimiChereen() : base()
             {
                 PilotInfo = new PilotCardInfo(
-                    "Nimi Chereen",
+                    "Nimi Chireen",
                     2,
                     46,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.NimiChereenAbility)
                 );
-
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/b/b5/Nimi_chireen.png";
             }
         }
     }

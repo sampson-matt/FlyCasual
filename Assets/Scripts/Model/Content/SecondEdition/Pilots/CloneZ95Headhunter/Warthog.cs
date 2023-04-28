@@ -25,8 +25,6 @@ namespace Ship
                 );
 
                 PilotNameCanonical = "warthog-clonez95headhunter";
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/warthog-clonez95headhunter.png";
             }
         }
     }

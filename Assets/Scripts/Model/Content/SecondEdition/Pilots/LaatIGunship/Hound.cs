@@ -20,8 +20,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.HoundAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/61/ee/61ee228d-9369-4a23-9cb6-3068c0920f10/swz70_a1_hound_ship.png";
             }
         }
     }

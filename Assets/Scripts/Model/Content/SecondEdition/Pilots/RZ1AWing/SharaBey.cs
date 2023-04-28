@@ -24,8 +24,6 @@ namespace Ship
                 PilotNameCanonical = "sharabey-rz1awing";
 
                 ModelInfo.SkinName = "Red";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/7e/9a/7e9a07c1-934f-4229-b70f-c54f1c0a60de/swz83_pilot_sharabey.png";
             }
         }
     }

@@ -18,8 +18,6 @@ namespace Ship.SecondEdition.V19TorrentStarfighter
                 true,
                 abilityType: typeof(Abilities.SecondEdition.SwoopAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/c3/9f/c39f4623-a983-4fea-98aa-c11b37e867c0/swz32_swoop.png";
         }
     }
 }

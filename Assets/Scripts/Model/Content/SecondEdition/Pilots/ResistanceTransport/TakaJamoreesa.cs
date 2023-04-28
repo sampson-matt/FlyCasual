@@ -20,8 +20,6 @@ namespace Ship
                     abilityText: "After you jam, you must assign 1 jam token to another ship at range 0-1 of the jammed ship, if able.",
                     abilityType: typeof(TakaJamoreesaAbility)
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/takajamoreesa.png";
             }
         }
     }

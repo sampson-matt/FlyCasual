@@ -23,8 +23,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "CIS Dark";
-
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/e/ed/Deathwatchwarrior.png";
             }
         }
     }

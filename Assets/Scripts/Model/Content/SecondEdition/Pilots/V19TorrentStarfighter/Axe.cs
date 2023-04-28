@@ -20,8 +20,6 @@ namespace Ship.SecondEdition.V19TorrentStarfighter
                 abilityType: typeof(Abilities.SecondEdition.AxeAbility),
                 extraUpgradeIcon: UpgradeType.Talent
             );
-            
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/2c/ee/2ceea646-b5bd-42ce-aeb1-7f38dc88e045/swz32_axe.png";
         }
     }
 }

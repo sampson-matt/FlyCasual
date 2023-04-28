@@ -23,8 +23,6 @@ namespace Ship.SecondEdition.V19TorrentStarfighter
                 regensCharges: 1,
                 extraUpgradeIcon: UpgradeType.Talent
             );
-            
-            ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/slammer.png";
         }
     }
 }

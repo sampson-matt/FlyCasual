@@ -15,7 +15,7 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 
-                ImageUrl = "https://i.imgur.com/7zFI7ZH.png";
+                ModelInfo.SkinName = "Blue";
             }
         }
     }

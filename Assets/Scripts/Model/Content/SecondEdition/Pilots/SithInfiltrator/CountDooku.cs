@@ -29,8 +29,6 @@ namespace Ship.SecondEdition.SithInfiltrator
                 force: 3,
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/3d/83/3d83b84f-e7d4-46b3-83ae-4d49245ae50d/swz30_count-dooku.png";
         }
     }
 }

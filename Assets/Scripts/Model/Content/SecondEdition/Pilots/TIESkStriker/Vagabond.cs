@@ -21,8 +21,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.VagabondAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/98/a8/98a8c9cc-53b2-4b57-ac0b-96da7c064740/swz66_vagabond.png";
             }
         }
     }

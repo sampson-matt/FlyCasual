@@ -19,8 +19,6 @@ namespace Ship.SecondEdition.ResistanceTransport
                 isLimited: true,
                 abilityType: typeof(PammichNerroGoodeAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/8b/2d/8b2da8f2-041a-43e0-a48d-84fc958eb05e/swz45_pammich-goode.png";
         }
     }
 }

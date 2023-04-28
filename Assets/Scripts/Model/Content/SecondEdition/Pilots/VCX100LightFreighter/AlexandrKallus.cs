@@ -11,15 +11,13 @@ namespace Ship
             public AlexandrKallus() : base()
             {
                 PilotInfo = new PilotCardInfo(
-                    "Alexandr Kallus",
+                    "Alexsandr Kallus",
                     4,
                     68,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.AlexandrKallusAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/d0/bf/d0bf7c63-2c2c-4372-8ace-7299d180c774/swz66_alexsandr-kallus.png";
             }
         }
     }

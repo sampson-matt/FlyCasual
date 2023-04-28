@@ -26,9 +26,7 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 
-                PilotNameCanonical = "PoeDameron-scavengedyt1300";
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/poedameron-scavengedyt1300.png";
+                PilotNameCanonical = "poedameron-scavengedyt1300";
             }
         }
     }

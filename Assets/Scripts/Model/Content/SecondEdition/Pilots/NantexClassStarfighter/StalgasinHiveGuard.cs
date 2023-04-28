@@ -13,8 +13,6 @@ namespace Ship
                     3,
                     33
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/02/20/02205574-9881-46ff-99a1-a74ad5bb0137/swz47_cards-hive-guard.png";
             }
         }
     }

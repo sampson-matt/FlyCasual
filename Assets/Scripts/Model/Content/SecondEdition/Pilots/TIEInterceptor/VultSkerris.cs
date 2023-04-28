@@ -22,11 +22,9 @@ namespace Ship
                     regensCharges: -1
                 );
 
-                PilotNameCanonical = "vultskerris-tieinterceptor";
+                PilotNameCanonical = "vultskerris-tieininterceptor";
 
                 ModelInfo.SkinName = "Skystrike Academy";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/fc/c9/fcc90b4b-afb5-4e62-a385-7053fde0d825/swz84_pilot_vultskerris.png";
             }
         }
     }

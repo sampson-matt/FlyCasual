@@ -27,8 +27,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Jango Fett";
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/08/f3/08f343b7-9d01-4e1f-91d8-e6eca0eb4fe0/swz82_a1_zam-wessel.png";
             }
         }
     }

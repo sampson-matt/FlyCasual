@@ -17,8 +17,6 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 abilityType: typeof(Abilities.SecondEdition.Dfs311Ability),
                 pilotTitle: "Scouting Drone"
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/07/b9/07b9dde5-0302-4c31-b54e-92ef136400b1/swz31_dfs-311.png";
         }
     }
 }

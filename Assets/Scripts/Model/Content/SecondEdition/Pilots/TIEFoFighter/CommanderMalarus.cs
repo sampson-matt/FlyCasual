@@ -21,8 +21,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.CommanderMalarusAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/d/d2/Swz26_a1_malarus.png";
             }
         }
     }

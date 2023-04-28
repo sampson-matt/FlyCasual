@@ -26,8 +26,6 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 extraUpgradeIcon: UpgradeType.ForcePower,
                 pilotTitle: "Shooting Star"
             );
-
-            ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/adigallia.png";
         }
     }
 }

@@ -21,8 +21,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Red";
-
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/8/8f/Shadowcollectiveoperator.png";
             }
         }
     }

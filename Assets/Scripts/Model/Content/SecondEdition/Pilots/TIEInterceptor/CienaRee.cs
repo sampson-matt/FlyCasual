@@ -20,8 +20,6 @@ namespace Ship.SecondEdition.TIEInterceptor
                 abilityType: typeof(CienaReeAbility),
                 extraUpgradeIcon: UpgradeType.Talent
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/19/2b/192b0e2b-9b56-4480-bced-13933545bae3/swz84_pilot_cienaree.png";
         }
     }
 }

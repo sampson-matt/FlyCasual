@@ -23,8 +23,6 @@ namespace Ship
                 );
 
                 PilotNameCanonical = "nomlumb-rogueclassstarfighter";
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/nomlumb-rogueclassstarfighter.png";
             }
         }
     }

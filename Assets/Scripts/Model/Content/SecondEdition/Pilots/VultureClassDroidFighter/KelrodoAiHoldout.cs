@@ -35,8 +35,6 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
             DialInfo.ChangeManeuverComplexity(new ManeuverHolder(ManeuverSpeed.Speed3, ManeuverDirection.Right, ManeuverBearing.Turn), MovementComplexity.Complex);
 
             ModelInfo.SkinName = "Gray";
-
-            ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/kelrodoaiholdout.png";
         }
     }
 }

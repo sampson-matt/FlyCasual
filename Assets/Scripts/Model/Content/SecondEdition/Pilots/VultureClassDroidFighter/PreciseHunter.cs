@@ -18,8 +18,6 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 abilityType: typeof(Abilities.SecondEdition.PreciseHunterAbility),
                 pilotTitle: "Pinpoint Protocols"
             );
-            
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/37/0c/370c5cb2-0f0d-4d6f-9358-eb3cad9088dc/swz29_precise-hunter.png";
         }
     }
 }

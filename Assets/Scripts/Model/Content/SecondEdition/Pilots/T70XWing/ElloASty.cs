@@ -19,8 +19,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ElloAstyAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/f77180ae05fd919a0dff2225380246a6.png";
             }
         }
     }

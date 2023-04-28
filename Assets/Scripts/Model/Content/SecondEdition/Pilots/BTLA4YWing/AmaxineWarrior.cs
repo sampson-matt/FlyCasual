@@ -23,8 +23,6 @@ namespace Ship
                     },
                     factionOverride: Faction.Scum
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/52/7d/527dd63a-1c64-4d78-bac3-b7b999accaf9/swz85_pilot_amaxinewarrior.png";
             }
         }
     }

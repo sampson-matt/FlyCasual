@@ -28,8 +28,6 @@ namespace Ship.SecondEdition.Delta7Aethersprite
             );
 
             ModelInfo.SkinName = "Saesee Tiin";
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/77/73/777350cb-614b-48fd-ad8d-d9c867053c6b/swz32_saesee-tiin.png";
         }
     }
 }

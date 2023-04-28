@@ -24,8 +24,6 @@ namespace Ship.SecondEdition.Hwk290LightFreighter
                 regensCharges: 1
             );
 
-            ImageUrl = "https://i.imgur.com/oIZlcvg.png";
-
             ModelInfo.SkinName = "Black";
         }
     }

@@ -20,8 +20,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ZayVersioAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/zayversio.png";
             }
         }
     }

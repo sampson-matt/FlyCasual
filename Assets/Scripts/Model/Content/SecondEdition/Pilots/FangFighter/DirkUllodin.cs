@@ -33,8 +33,6 @@ namespace Ship
                     factionOverride: Faction.Rebel
                 );
                 ModelInfo.SkinName = "Dirk Ullodin";
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/dirkullodin.png";
             }
         }
     }

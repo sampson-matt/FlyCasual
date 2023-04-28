@@ -26,8 +26,6 @@ namespace Ship
                     },
                     abilityType: typeof(Abilities.SecondEdition.AgentTerexPilotAbility)
                 );
-
-                ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/9a/27/9a27c06f-58be-49b7-ab36-63dc2fae3b9a/swz69_a1_ship_terex.png";
             }
         }
     }

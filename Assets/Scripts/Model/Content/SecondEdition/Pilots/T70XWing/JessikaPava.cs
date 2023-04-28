@@ -20,8 +20,6 @@ namespace Ship
                     regensCharges: 1,
                     abilityType: typeof(Abilities.SecondEdition.JessikaPavaAbility)
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/bc26d8864f421f1362473aa4982108ba.png";
             }
         }
     }

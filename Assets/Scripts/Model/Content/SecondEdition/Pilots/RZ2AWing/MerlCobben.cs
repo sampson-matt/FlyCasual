@@ -21,8 +21,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.MerlCobbenAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent } 
                 );
-
-                ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/c/c0/Merl_cobben.png";
             }
         }
     }

@@ -32,8 +32,6 @@ namespace Ship
                         Tags.Tie
                     }
                 );
-
-                ImageUrl = "https://i.imgur.com/6rxtxtb.png";
             }
         }
     }

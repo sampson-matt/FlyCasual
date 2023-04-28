@@ -29,8 +29,6 @@ namespace Ship
                 ModelInfo.SkinName = "CIS Dark";
 
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Title);
-
-                ImageUrl = "https://infinitearenas.com/xw2legacy/images/pilots/garsaxon.png";
             }
         }
     }

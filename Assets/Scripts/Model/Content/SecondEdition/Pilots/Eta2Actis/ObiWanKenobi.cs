@@ -32,8 +32,6 @@ namespace Ship.SecondEdition.Eta2Actis
             ModelInfo.SkinName = "Blue";
 
             PilotNameCanonical = "obiwankenobi-eta2actis";
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/2d/36/2d3610e5-ebc0-4448-8fb3-4b6dcc5f391a/swz79_obi-wan_kenobi.png";
         }
     }
 }

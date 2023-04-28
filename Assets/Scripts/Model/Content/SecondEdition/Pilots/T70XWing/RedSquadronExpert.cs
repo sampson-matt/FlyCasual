@@ -18,8 +18,6 @@ namespace Ship
                 );
 
                 ModelInfo.SkinName = "Red";
-
-                ImageUrl = "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/a/a9/Swz25_red-sqd_a1.png";
             }
         }
     }

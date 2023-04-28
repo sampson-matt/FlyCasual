@@ -26,8 +26,6 @@ namespace Ship
                     force: 2,
                     extraUpgradeIcon: UpgradeType.ForcePower
                 );
-
-                ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/71dbde337b9ff5aab897781d40d8f653.png";
             }
         }
     }

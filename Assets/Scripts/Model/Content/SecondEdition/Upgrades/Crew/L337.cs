@@ -48,6 +48,7 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.L337sProgrammingAbility)
             );
 
+            SelectSideOnSetup = false;
             AnotherSide = typeof(L337Crew);
             IsSecondSide = true;
         }

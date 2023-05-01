@@ -29,7 +29,11 @@ namespace Ship
                     {
                         Tags.BoY
                     },
-                    extraUpgradeIcon: UpgradeType.Talent,
+                    extraUpgradeIcons: new List<UpgradeType>()
+                    {
+                        UpgradeType.Talent,
+                        UpgradeType.Sensor
+                    },
                     isStandardLayout: true
                 );
 
@@ -37,9 +41,6 @@ namespace Ship
 
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(TargetLockAction)));
                 ShipInfo.Hull++;
-                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
-                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
-                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Configuration);
                 AutoThrustersAbility oldAbility = (AutoThrustersAbility)ShipAbilities.First(n => n.GetType() == typeof(AutoThrustersAbility));
                 ShipAbilities.Remove(oldAbility);
                 ShipAbilities.Add(new SensitiveControlsRealAbility());

@@ -1,5 +1,5 @@
 ﻿using Conditions;
-using Ship;
+using Upgrade;
 using Content;
 using Abilities.SecondEdition;
 using System.Collections.Generic;
@@ -18,6 +18,13 @@ namespace Ship
                     5,
                     65,
                     isLimited: true,
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.Talent,
+                        UpgradeType.Talent,
+                        UpgradeType.Torpedo,
+                        UpgradeType.Astromech
+                    },
                     tags: new List<Tags>
                     {
                         Tags.BoY

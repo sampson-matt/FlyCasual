@@ -21,6 +21,11 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(WampaAbility),
                     charges: 1,
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.Talent,
+                        UpgradeType.Talent
+                    },
                     tags: new List<Tags>
                     {
                         Tags.BoY
@@ -30,7 +35,6 @@ namespace Ship
                 );
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(TargetLockAction)));
                 ShipInfo.Hull++;
-                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 PilotNameCanonical = "wampa-battleofyavin-sl";
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/0/0c/Wampa-battleofyavin.png";
 

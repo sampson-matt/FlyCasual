@@ -21,17 +21,21 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(DarthVaderBoYAbility),
                     force: 3,
+                    extraUpgradeIcons: new List<UpgradeType>()
+                    {
+                        UpgradeType.ForcePower,
+                        UpgradeType.Talent,
+                        UpgradeType.Modification
+                    },
                     tags: new List<Tags>
                     {
                         Tags.BoY,
                         Tags.DarkSide,
                         Tags.Sith
                     },
-                    extraUpgradeIcon: UpgradeType.ForcePower,
                     isStandardLayout: true
                 );
                 ShipInfo.Shields++;
-                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/a/a9/Darthvader-battleofyavin.png";
                 PilotNameCanonical = "darthvader-battleofyavin-sl";
                 ModelInfo.SkinName = "Blue";

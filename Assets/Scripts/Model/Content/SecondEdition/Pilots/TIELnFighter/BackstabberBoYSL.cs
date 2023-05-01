@@ -22,14 +22,18 @@ namespace Ship
                     {
                         Tags.BoY
                     },
-                    extraUpgradeIcon: UpgradeType.Talent,
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.Talent,
+                        UpgradeType.Talent,
+                        UpgradeType.Modification
+                    },
                     isStandardLayout: true
                 );
 
                 PilotNameCanonical = "backstabber-battleofyavin-sl";
 
                 ShipInfo.Hull++;
-                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/3/33/Backstabber-battleofyavin.png";
 
                 MustHaveUpgrades.Add(typeof(CrackShot));

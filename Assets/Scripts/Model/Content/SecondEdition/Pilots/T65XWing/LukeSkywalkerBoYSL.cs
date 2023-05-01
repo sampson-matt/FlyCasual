@@ -26,12 +26,18 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(LukeSkywalkerAbility),
                     force: 2,
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.ForcePower,
+                        UpgradeType.Talent,
+                        UpgradeType.Torpedo,
+                        UpgradeType.Astromech
+                    },
                     tags: new List<Tags>
                     {
                         Tags.BoY,
                         Tags.LightSide
                     },
-                    extraUpgradeIcon: UpgradeType.ForcePower,
                     isStandardLayout: true
                 );
                 ShipAbilities.Add(new HopeAbility());

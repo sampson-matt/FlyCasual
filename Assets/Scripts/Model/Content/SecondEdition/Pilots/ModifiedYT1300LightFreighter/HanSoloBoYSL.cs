@@ -24,7 +24,13 @@ namespace Ship
                     {
                         Tags.BoY
                     },
-                    extraUpgradeIcon: UpgradeType.Talent,
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.Crew,
+                        UpgradeType.Illicit,
+                        UpgradeType.Title,
+                        UpgradeType.Configuration
+                    },
                     isStandardLayout: true
                 );
 

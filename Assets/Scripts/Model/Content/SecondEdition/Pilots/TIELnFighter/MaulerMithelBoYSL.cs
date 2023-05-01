@@ -18,15 +18,18 @@ namespace Ship
                     37,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.MaulerMithelBoYAbility),
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.Talent,
+                        UpgradeType.Modification
+                    },
                     tags: new List<Tags>
                     {
                         Tags.BoY
                     },
-                    extraUpgradeIcon: UpgradeType.Talent,
                     isStandardLayout: true
                 );
                 ShipInfo.Hull++;
-                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 PilotNameCanonical = "maulermithel-battleofyavin-sl";
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/4/41/Maulermithel-battleofyavin.png";
 

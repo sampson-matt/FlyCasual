@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Ship;
 using SubPhases;
-using BoardTools;
+using Upgrade;
 using Content;
 
 namespace Ship
@@ -18,6 +18,13 @@ namespace Ship
                     3,
                     56,
                     isLimited: true,
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.Talent,
+                        UpgradeType.Talent,
+                        UpgradeType.Torpedo,
+                        UpgradeType.Astromech
+                    },
                     tags: new List<Tags>
                     {
                         Tags.BoY

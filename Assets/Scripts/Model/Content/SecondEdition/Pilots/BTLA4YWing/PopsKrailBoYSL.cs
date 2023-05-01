@@ -29,7 +29,16 @@ namespace Ship
                     {
                         Tags.BoY
                     },
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Modification },
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.Talent,
+                        UpgradeType.Turret,
+                        UpgradeType.Torpedo,
+                        UpgradeType.Astromech,
+                        UpgradeType.Device,
+                        UpgradeType.Missile,
+                        UpgradeType.Modification
+                    },
                     isStandardLayout: true
                 );
                 ShipAbilities.Add(new HopeAbility());

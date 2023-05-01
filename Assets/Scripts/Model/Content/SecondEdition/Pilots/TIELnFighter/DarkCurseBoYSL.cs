@@ -17,7 +17,11 @@ namespace Ship
                     6,
                     37,
                     isLimited: true,
-                    extraUpgradeIcon: UpgradeType.Talent,
+                    extraUpgradeIcons: new List<UpgradeType>
+                    {
+                        UpgradeType.Talent,
+                        UpgradeType.Modification
+                    },
                     tags: new List<Tags>
                     {
                         Tags.BoY
@@ -29,7 +33,6 @@ namespace Ship
                 PilotNameCanonical = "darkcurse-battleofyavin-SL";
 
                 ShipInfo.Hull++;
-                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
 
                 ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/9/90/Darkcurse-battleofyavin.png";
 

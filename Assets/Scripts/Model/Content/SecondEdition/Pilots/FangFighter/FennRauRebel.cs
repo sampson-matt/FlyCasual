@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
-using Tokens;
+using content;
 
 namespace Ship
 {
@@ -22,6 +22,10 @@ namespace Ship
                     pilotTitle: "Mandalorian Protector",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.FennRauRebelFangAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>
                     {
                         UpgradeType.Talent,

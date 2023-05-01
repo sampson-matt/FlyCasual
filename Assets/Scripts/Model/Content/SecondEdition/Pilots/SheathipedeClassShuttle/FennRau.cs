@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship
 {
@@ -16,6 +17,10 @@ namespace Ship
                     46,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.FennRauRebelAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 

@@ -7,7 +7,7 @@ using Ship;
 using UpgradesList;
 using Abilities.SecondEdition;
 using System.Linq;
-using Abilities;
+using Content;
 
 namespace Ship
 {
@@ -25,6 +25,10 @@ namespace Ship
                     pilotTitle: "Obedient Underling",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CaptainHarkAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent},
                     factionOverride: Faction.Imperial
                 );

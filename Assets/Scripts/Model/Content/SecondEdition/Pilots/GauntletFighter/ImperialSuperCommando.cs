@@ -1,5 +1,5 @@
 ﻿
-using System;
+using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -19,6 +19,10 @@ namespace Ship
                     51,
                     isLimited: true,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent},
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     factionOverride: Faction.Imperial
                 );
 

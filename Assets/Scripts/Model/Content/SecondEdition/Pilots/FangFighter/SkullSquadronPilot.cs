@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Upgrade;
+using Content;
 
 namespace Ship
 {
@@ -13,6 +14,10 @@ namespace Ship
                     "Skull Squadron Pilot",
                     4,
                     46,
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
 

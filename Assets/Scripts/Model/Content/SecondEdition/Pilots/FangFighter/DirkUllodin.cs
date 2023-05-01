@@ -9,6 +9,7 @@ using System.Linq;
 using Upgrade;
 using Arcs;
 using UnityEngine;
+using Content;
 
 namespace Ship
 {
@@ -26,6 +27,10 @@ namespace Ship
                     pilotTitle: "Aspiring Commando",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DirkUllodinAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>
                     {
                         UpgradeType.Modification

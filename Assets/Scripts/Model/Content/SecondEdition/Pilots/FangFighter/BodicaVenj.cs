@@ -1,5 +1,5 @@
 ﻿using Ship;
-using SubPhases;
+using Content;
 using System;
 using System.Collections.Generic;
 using Tokens;
@@ -21,6 +21,10 @@ namespace Ship
                     pilotTitle: "Wrathful Warrior",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BodicaVenjAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>
                     {
                         UpgradeType.Talent,

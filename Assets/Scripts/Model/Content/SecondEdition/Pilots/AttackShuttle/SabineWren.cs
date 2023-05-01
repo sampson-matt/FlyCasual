@@ -1,5 +1,5 @@
 ﻿using ActionsList;
-using Ship;
+using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -17,6 +17,11 @@ namespace Ship
                     41,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.SabineWrenPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian,
+                        Tags.Spectre
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
             }

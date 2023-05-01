@@ -1,5 +1,5 @@
 ﻿
-using System;
+using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -16,6 +16,10 @@ namespace Ship
                     "Shadow Collective Operator",
                     1,
                     52,
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Illicit },
                     factionOverride: Faction.Scum
                 );

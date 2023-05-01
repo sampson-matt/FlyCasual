@@ -1,5 +1,5 @@
 ﻿using Mods.ModsList;
-using System;
+using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -17,6 +17,11 @@ namespace Ship
                     35,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.SabineWrenAWingAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian,
+                        Tags.Spectre
+                    },
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent },
                     abilityText: "While you defend or perform an attack, if the attack range is 1 and you are in the enemy ship's front arc, you may change 1 of your results to a hit or evade result."
                 );

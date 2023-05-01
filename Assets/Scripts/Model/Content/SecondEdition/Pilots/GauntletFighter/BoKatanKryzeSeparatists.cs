@@ -5,6 +5,7 @@ using Ship;
 using BoardTools;
 using SubPhases;
 using Tokens;
+using Content;
 
 namespace Ship
 {
@@ -24,6 +25,10 @@ namespace Ship
                     pilotTitle: "Vizsla's Lieutenant",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BoKatanKryzeSeparatistsAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     factionOverride: Faction.Separatists
                 );

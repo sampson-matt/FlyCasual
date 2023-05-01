@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -18,6 +18,10 @@ namespace Ship
                     52,
                     pilotTitle: "Fanatical Adherent",
                     isLimited: true,
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     factionOverride: Faction.Separatists
                 );

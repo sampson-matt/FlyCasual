@@ -1,6 +1,6 @@
 ﻿using Ship;
 using SubPhases;
-using System;
+using Content;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
@@ -22,6 +22,10 @@ namespace Ship
                     pilotTitle: "Unlikely Ally",
                     limited: 2,
                     abilityType: typeof(Abilities.SecondEdition.ClanWrenVolunteerAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>
                     {
                         UpgradeType.Talent,

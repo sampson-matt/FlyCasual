@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Upgrade;
 using Ship;
 using System.Linq;
+using Content;
 
 namespace Ship
 {
@@ -21,6 +22,10 @@ namespace Ship
                     pilotTitle: "Stoic Super Commando",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.RookKastAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     factionOverride: Faction.Scum
                 );

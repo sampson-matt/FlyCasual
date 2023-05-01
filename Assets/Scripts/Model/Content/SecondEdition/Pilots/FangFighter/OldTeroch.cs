@@ -1,5 +1,5 @@
 ﻿using Arcs;
-using BoardTools;
+using Content;
 using Ship;
 using SubPhases;
 using System.Collections.Generic;
@@ -20,6 +20,10 @@ namespace Ship
                     56,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.OldTerochAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
                 ModelInfo.SkinName = "Zealous Recruit";

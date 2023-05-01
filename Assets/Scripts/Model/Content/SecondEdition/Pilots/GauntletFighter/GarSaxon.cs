@@ -1,5 +1,5 @@
 ﻿
-using System;
+using Content;
 using System.Collections.Generic;
 using Upgrade;
 using Ship;
@@ -22,6 +22,10 @@ namespace Ship
                     pilotTitle: "Treacherous Viceroy",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.GarSaxonAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent},
                     factionOverride: Faction.Imperial
                 );

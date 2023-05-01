@@ -1,7 +1,7 @@
 ﻿using Arcs;
 using BoardTools;
 using Ship;
-using System;
+using Content;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
@@ -21,6 +21,11 @@ namespace Ship
                     55,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TheMandalorianAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian,
+                        Tags.BountyHunter
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
             }

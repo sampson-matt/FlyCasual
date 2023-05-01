@@ -3,7 +3,7 @@ using Content;
 using Ship;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using Content;
 using Tokens;
 using Upgrade;
 
@@ -22,6 +22,10 @@ namespace Ship
                     pilotTitle: "Direct Pressure",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TorPhunAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Tokens;
 using Upgrade;
+using Content;
 
 namespace Ship
 {
@@ -18,6 +19,10 @@ namespace Ship
                     46,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.JoyRekkoffAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Modification }
                 );
                 ModelInfo.SkinName = "Zealous Recruit";

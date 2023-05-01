@@ -1,7 +1,7 @@
 ﻿using Ship;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using Content;
 using Upgrade;
 using BoardTools;
 
@@ -21,6 +21,10 @@ namespace Ship
                     pilotTitle: "Selfless Protector",
                     limited: 2,
                     abilityType: typeof(Abilities.SecondEdition.MandalorianRoyalGuardAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>
                     {
                         UpgradeType.Talent,

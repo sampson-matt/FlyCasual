@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -20,6 +20,10 @@ namespace Ship
                     pilotTitle: "Leader of Death Watch",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.PreVizslaAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     factionOverride: Faction.Separatists
                 );

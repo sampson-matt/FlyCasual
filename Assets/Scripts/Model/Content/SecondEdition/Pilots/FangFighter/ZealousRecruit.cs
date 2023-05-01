@@ -1,4 +1,6 @@
 ﻿using Upgrade;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -12,6 +14,10 @@ namespace Ship
                     "Zealous Recruit",
                     1,
                     41,
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcon: UpgradeType.Modification
                 );
                 ModelInfo.SkinName = "Zealous Recruit";

@@ -8,6 +8,7 @@ using BoardTools;
 using SubPhases;
 using UnityEngine;
 using ActionsList;
+using Content;
 
 namespace Ship
 {
@@ -25,6 +26,10 @@ namespace Ship
                     pilotTitle: "Nite Owl Commander",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BoKatanKryzeRepublicAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Mandalorian
+                    },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }
                 );
 

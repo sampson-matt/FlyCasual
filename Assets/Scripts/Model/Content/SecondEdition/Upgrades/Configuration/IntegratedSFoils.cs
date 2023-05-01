@@ -27,8 +27,6 @@ namespace UpgradesList.SecondEdition
 
             IsSecondSide = true;
             AnotherSide = typeof(IntegratedSFoilsOpen);
-
-            ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/e3b44142faf0f13e541bf674a6c06dbc.png";
         }
     }
 
@@ -45,8 +43,6 @@ namespace UpgradesList.SecondEdition
             );
 
             AnotherSide = typeof(IntegratedSFoilsClosed);
-
-            ImageUrl = "https://squadbuilder.fantasyflightgames.com/card_images/en/49372b4efb974ff673a1b79441186fd5.png";
         }
     }
 }

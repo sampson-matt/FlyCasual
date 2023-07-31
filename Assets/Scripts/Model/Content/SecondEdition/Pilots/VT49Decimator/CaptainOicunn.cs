@@ -19,6 +19,8 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.CaptainOicunnAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
+
+                ImageUrl = "https://github.com/eirikmun/x-wing2.0-project-goldenrod/blob/2.0/src/images/En/pilots/captainoicunn.png";
             }
         }
     }

@@ -19,6 +19,8 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Torpedo, UpgradeType.Missile, UpgradeType.Device },
                 pilotTitle: "Preservation Protocol Not Found"
             );
+
+            ImageUrl = ""https://github.com/eirikmun/x-wing2.0-project-goldenrod/blob/2.0/src/images/En/pilots/dbs404.png";
         }
     }
 }

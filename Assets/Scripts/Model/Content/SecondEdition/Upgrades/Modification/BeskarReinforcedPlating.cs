@@ -43,7 +43,7 @@ namespace Abilities.SecondEdition
         private void RegisterBeskarTrigger(GenericShip ship)
         {
             if (Combat.CurrentCriticalHitCard.IsFaceup
-                && HostShip.State.Charges > 0
+                && HostUpgrade.State.Charges > 0
                 && IsFaceToFaceDefense())
             {
                 RegisterAbilityTrigger(TriggerTypes.OnDamageCardIsDealt, AskUseChewbaccaAbility);
@@ -85,7 +85,7 @@ namespace Abilities.SecondEdition
             {
                 Messages.ShowInfo($"{HostUpgrade.UpgradeInfo.Name}: Faceup damage card is dealt facedown instead");
 
-                HostShip.State.Charges -= 1;
+                HostUpgrade.State.SpendCharge();
                 Combat.CurrentCriticalHitCard.IsFaceup = false;
                 DecisionSubPhase.ConfirmDecision();
             }
@@ -93,7 +93,7 @@ namespace Abilities.SecondEdition
             {
                 Messages.ShowInfo($"{HostUpgrade.UpgradeInfo.Name}: Faceup damage card is discarded instead");
 
-                HostShip.State.Charges -= 2;
+                HostUpgrade.State.SpendCharges(2);
                 Combat.CurrentCriticalHitCard = null;
                 DecisionSubPhase.ConfirmDecision();
             }

@@ -90,8 +90,8 @@ namespace Abilities.SecondEdition
         {
             if (TargetShip != null)
             {
-                TargetShip.Tokens.AssignToken(typeof(Tokens.StrainToken), SelectShipSubPhase.FinishSelection);
-                HostShip.Tokens.RemoveToken(typeof(Tokens.StressToken), delegate { });
+                TargetShip.Tokens.AssignToken(typeof(Tokens.StrainToken), delegate { });
+                HostShip.Tokens.RemoveToken(typeof(Tokens.StressToken), SelectShipSubPhase.FinishSelection);
             }
             else
             {

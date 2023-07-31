@@ -46,12 +46,12 @@ namespace Abilities.SecondEdition
         public override void DeactivateAbility()
         {
             RemoveDiceModification();
-            GenericShip.OnFaceupCritCardReadyToBeDealtGlobal += CheckRecoverForce;
+            GenericShip.OnFaceupCritCardReadyToBeDealtGlobal -= CheckRecoverForce;
         }
 
         private void CheckRecoverForce(GenericShip ship, GenericDamageCard crit, EventArgs e)
         {
-            if (abilityUsed && Combat.Defender != null && (Tools.IsSameShip(Combat.Defender, HostShip) || Tools.IsSameShip(Combat.Attacker, HostShip)) && Combat.CurrentCriticalHitCard.IsFaceup && Combat.CurrentCriticalHitCard.Type == CriticalCardType.Pilot)
+            if (abilityUsed && Combat.Defender != null && (Tools.IsSameShip(Combat.Attacker, HostShip)) && Combat.CurrentCriticalHitCard.IsFaceup && Combat.CurrentCriticalHitCard.Type == CriticalCardType.Pilot)
             {
                 Triggers.RegisterTrigger
                 (
@@ -78,6 +78,8 @@ namespace Abilities.SecondEdition
             bool result = true;
 
             if (Combat.AttackStep != CombatStep.Attack) result = false;
+
+            if (Combat.Attacker != HostShip) result = false;
 
             if (HostShip.State.Force < 1) result = false;
 

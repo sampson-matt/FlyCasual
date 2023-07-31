@@ -21,7 +21,8 @@ namespace UpgradesList.SecondEdition
                 type: UpgradeType.Device,
                 cost: 4,
                 charges: 3,
-                abilityType: typeof(Abilities.SecondEdition.ConcussionBombsAbility)
+                abilityType: typeof(Abilities.SecondEdition.ConcussionBombsAbility),
+                subType: UpgradeSubType.Bomb
             );
 
             ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/00/c6/00c65f3f-e738-4a5d-80a8-6b3aef6e8074/swz71_upgrade_concussion-bomb.png";

@@ -12,9 +12,9 @@ public class Global : MonoBehaviour {
 
     private static bool isAlreadyInitialized;
 
-    public static string CurrentVersion = "v0.19";
-    public static int CurrentVersionInt = 000019000;
-    public static int LatestVersionInt = 000019000;
+    public static string CurrentVersion = "v0.20";
+    public static int CurrentVersionInt = 000020000;
+    public static int LatestVersionInt = 000020000;
 
     public static SquadBuilder SquadBuilder { get; set;}
 

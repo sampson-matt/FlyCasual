@@ -20,7 +20,7 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 
-                ImageUrl = "https://github.com/eirikmun/x-wing2.0-project-goldenrod/blob/2.0/src/images/En/pilots/captainoicunn.png";
+                ImageUrl = "https://raw.githubusercontent.com/eirikmun/x-wing2.0-project-goldenrod/2.0/src/images/En/pilots/captainoicunn.png";
             }
         }
     }

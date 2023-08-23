@@ -28,8 +28,6 @@ namespace UpgradesList.SecondEdition
                 Faction.FirstOrder,
                 new Vector2(239, 1)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/6d/2a/6d2a8204-2de1-4b1e-8980-456501628a24/swz69_malarus_card.png";
         }
     }
 
@@ -50,7 +48,7 @@ namespace UpgradesList.SecondEdition
             AnotherSide = typeof(CommanderMalarus);
             IsSecondSide = true;
 
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/42/ed/42edc96c-938a-4bd4-88de-7be1e449d96b/swz69_malarus-perfected_card.png";
+            NameCanonical = "commandermalarus-sideb";
         }
     }
 }

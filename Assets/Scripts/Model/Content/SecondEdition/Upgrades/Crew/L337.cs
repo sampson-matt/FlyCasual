@@ -39,6 +39,7 @@ namespace UpgradesList.SecondEdition
         public L337sProgramming() : base()
         {
             IsHidden = true; // Hidden in Squad Builder only
+            NameCanonical = "l337-sideb";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "L3-37's Programming",

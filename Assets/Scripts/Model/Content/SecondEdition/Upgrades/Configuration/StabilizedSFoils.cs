@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
         public StabilizedSFoilsClosed() : base()
         {
             IsHidden = true;
-            NameCanonical = "stabilizedsfoils-side";
+            NameCanonical = "stabilizedsfoils-sideb";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Stabilized S-Foils (Closed)",

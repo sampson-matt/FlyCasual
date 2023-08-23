@@ -30,6 +30,8 @@ namespace UpgradesList.SecondEdition
         {
             IsHidden = true;
 
+            NameCanonical = "proudtradition-sideb";
+
             UpgradeInfo = new UpgradeCardInfo(
                 "False Tradition",
                 UpgradeType.Talent,

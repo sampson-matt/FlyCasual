@@ -40,6 +40,7 @@ namespace UpgradesList.SecondEdition
         public DarthSidious() : base()
         {
             IsHidden = true; // Hidden in Squad Builder only
+            NameCanonical = "chancellorpalpatine-sideb";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Darth Sidious",

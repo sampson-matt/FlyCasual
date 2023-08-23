@@ -13,7 +13,7 @@ namespace UpgradesList.SecondEdition
         public IntegratedSFoilsClosed() : base()
         {
             IsHidden = true;
-            NameCanonical = "integratedsfoils-side";
+            NameCanonical = "integratedsfoils-sideb";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Integrated S-Foils (Closed)",

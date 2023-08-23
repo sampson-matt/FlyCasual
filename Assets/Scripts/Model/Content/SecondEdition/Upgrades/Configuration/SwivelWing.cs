@@ -30,7 +30,7 @@ namespace UpgradesList.SecondEdition
         public SwivelWingUp() : base()
         {
             IsHidden = true;
-            NameCanonical = "SwivelWing-side";
+            NameCanonical = "SwivelWing-sideb";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Swivel Wing (Up)",

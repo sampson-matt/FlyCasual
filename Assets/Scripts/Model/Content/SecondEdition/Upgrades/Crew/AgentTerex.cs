@@ -50,6 +50,7 @@ namespace UpgradesList.SecondEdition
 
             AnotherSide = typeof(AgentTerex);
             IsSecondSide = true;
+            NameCanonical = "agentterex-sideb";
 
             Avatar = new AvatarInfo(
                 Faction.FirstOrder,

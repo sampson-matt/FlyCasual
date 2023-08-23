@@ -33,7 +33,7 @@ namespace UpgradesList.SecondEdition
         {
             IsHidden = true;
 
-            NameCanonical = "repulsorliftstabilizers-side";
+            NameCanonical = "repulsorliftstabilizers-sideb";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Repulsorlift Stabilizers (Active)",

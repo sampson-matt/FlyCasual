@@ -28,7 +28,7 @@ namespace UpgradesList.SecondEdition
         public PivotWingClosed() : base()
         {
             IsHidden = true;
-            NameCanonical = "pivotwing-side";
+            NameCanonical = "pivotwing-sideb";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Pivot Wing (Closed)",

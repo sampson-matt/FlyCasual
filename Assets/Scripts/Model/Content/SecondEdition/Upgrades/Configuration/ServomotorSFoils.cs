@@ -12,7 +12,7 @@ namespace UpgradesList.SecondEdition
     {
         public ServomotorSFoilsClosed() : base()
         {
-            NameCanonical = "servomotorsfoils-side";
+            NameCanonical = "servomotorsfoils-sideb";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Servomotor S-Foils (Closed)",

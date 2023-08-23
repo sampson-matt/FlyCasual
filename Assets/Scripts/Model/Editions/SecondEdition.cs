@@ -338,9 +338,7 @@ namespace Editions
         public override string GetUpgradeImageUrl(GenericUpgrade upgrade, string filename = null)
         {
             return RootUrlForImages
-                + "upgrades/" + upgrade.NameCanonical
-                + ((upgrade.IsSecondSide)?"b":"")
-                + ".png";
+                + "upgrades/" + upgrade.NameCanonical + ".png";
         }
 
         public override string FactionToXws(Faction faction)

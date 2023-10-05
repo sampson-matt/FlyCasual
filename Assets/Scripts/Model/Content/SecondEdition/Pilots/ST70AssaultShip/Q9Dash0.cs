@@ -17,7 +17,7 @@ namespace Ship
                 (
                     "Q9-0",
                     5,
-                    53,
+                    52,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.Q9Dash0Ability),
                     extraUpgradeIcon: UpgradeType.Talent,

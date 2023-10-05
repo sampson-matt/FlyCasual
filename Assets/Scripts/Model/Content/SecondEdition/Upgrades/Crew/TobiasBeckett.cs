@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Tobias Beckett",
                 UpgradeType.Crew,
-                cost: 2,
+                cost: 1,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
                 abilityType: typeof(Abilities.SecondEdition.TobiasBeckettAbility)

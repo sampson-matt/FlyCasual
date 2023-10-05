@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Asajj Ventress",
                     4,
-                    68,
+                    66,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.AsajjVentressPilotAbility),
                     tags: new List<Tags>

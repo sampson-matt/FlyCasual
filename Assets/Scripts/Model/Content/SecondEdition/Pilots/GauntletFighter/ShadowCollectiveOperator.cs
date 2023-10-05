@@ -15,7 +15,7 @@ namespace Ship
                 (
                     "Shadow Collective Operator",
                     1,
-                    52,
+                    53,
                     tags: new List<Tags>
                     {
                         Tags.Mandalorian

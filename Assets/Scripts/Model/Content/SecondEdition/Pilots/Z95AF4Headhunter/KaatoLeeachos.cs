@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Ka'ato Leeachos",
                     3,
-                    23,
+                    22,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KaatoLeeachosAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },

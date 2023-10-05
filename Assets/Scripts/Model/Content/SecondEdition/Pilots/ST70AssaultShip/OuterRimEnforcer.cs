@@ -13,7 +13,7 @@ namespace Ship
                 (
                     "Outer Rim Enforcer",
                     2,
-                    47
+                    46
                 );
 
                 ModelInfo.SkinName = "Red Stripes";

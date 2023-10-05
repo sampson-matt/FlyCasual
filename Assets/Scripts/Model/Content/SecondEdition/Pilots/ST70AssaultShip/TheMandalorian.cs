@@ -18,7 +18,7 @@ namespace Ship
                 (
                     "The Mandalorian",
                     5,
-                    55,
+                    52,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TheMandalorianAbility),
                     tags: new List<Tags>

@@ -14,7 +14,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Savage Opress",
                 UpgradeType.Crew,
-                cost: 12,
+                cost: 10,
                 isLimited: true,
                 addForce: 1,
                 restriction: new FactionRestriction(Faction.Scum, Faction.Separatists),

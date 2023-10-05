@@ -20,7 +20,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Doctor Aphra",
                     3,
-                    54,
+                    53,
                     pilotTitle: "Professional Disaster Zone",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DoctorAphraPilotAbility),

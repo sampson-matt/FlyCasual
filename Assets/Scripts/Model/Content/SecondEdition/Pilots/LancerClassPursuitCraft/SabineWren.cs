@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Sabine Wren",
                     3,
-                    57,
+                    56,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.SabineWrenLancerPilotAbility),
                     tags: new List<Tags>

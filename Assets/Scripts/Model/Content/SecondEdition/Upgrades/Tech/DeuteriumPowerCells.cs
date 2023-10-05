@@ -20,6 +20,18 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.DeuteriumPowerCellsAbility)
             );
         }
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> agilityToCost = new Dictionary<int, int>()
+            {
+                {0, 4},
+                {1, 5},
+                {2, 6},
+                {3, 7}
+            };
+
+            UpgradeInfo.Cost = agilityToCost[ship.ShipInfo.Agility];
+        }
     }
 }
 

@@ -18,7 +18,7 @@ namespace Ship
                 (
                     "Jul Jerjerrod",
                     4,
-                    35,
+                    34,
                     isLimited: true,
                     charges: 3,
                     pilotTitle: "Security Commander",

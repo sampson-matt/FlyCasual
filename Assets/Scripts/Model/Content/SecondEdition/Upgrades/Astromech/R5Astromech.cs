@@ -19,7 +19,6 @@ namespace UpgradesList.SecondEdition
                 charges: 2
             );
         }
-
         public void UpdateCost(GenericShip ship)
         {
             Dictionary<int, int> agilityToCost = new Dictionary<int, int>()

@@ -19,6 +19,21 @@ namespace UpgradesList.SecondEdition
 
             ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/75/b9/75b924e8-88e2-4e11-808c-f47f1e2115c2/swz80_upgrade_q7-astromech.png";
         }
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> initiativeToCost = new Dictionary<int, int>()
+            {
+                {0, 2},
+                {1, 2},
+                {2, 2},
+                {3, 2},
+                {4, 3},
+                {5, 3},
+                {6, 3}
+            };
+
+            UpgradeInfo.Cost = initiativeToCost[ship.PilotInfo.Initiative];
+        }
     }
 }
 

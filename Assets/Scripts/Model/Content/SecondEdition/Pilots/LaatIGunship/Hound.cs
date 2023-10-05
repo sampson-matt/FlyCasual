@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Hound\"",
                     2,
-                    48,
+                    47,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.HoundAbility),
                     extraUpgradeIcon: UpgradeType.Talent

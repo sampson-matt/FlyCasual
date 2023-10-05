@@ -16,7 +16,7 @@ namespace Ship
                 (
                     "Mandalorian Resistance Pilot",
                     2,
-                    53,
+                    54,
                     pilotTitle: "Clan Loyalist",
                     isLimited: true,
                     tags: new List<Tags>

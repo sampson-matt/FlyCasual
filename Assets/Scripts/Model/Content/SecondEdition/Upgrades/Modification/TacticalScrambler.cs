@@ -14,7 +14,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Tactical Scrambler",
                 UpgradeType.Modification,
-                cost: 2,
+                cost: 1,
                 restriction: new BaseSizeRestriction(BaseSize.Medium, BaseSize.Large),
                 abilityType: typeof(Abilities.SecondEdition.TacticalScramblerAbility)
             );

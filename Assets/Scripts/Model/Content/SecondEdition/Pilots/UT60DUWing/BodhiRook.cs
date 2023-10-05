@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Bodhi Rook",
                     4,
-                    48,
+                    47,
                     isLimited: true,
                     abilityType: typeof(BodhiRookAbility),
                     extraUpgradeIcon: UpgradeType.Talent

@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Jek Porkins",
                     4,
-                    44,
+                    42,
                     isLimited: true,
                     tags: new List<Tags>
                     {

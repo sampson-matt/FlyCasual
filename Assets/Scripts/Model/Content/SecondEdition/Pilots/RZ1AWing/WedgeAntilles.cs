@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Wedge Antilles",
                     4,
-                    36,
+                    38,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.WedgeAntillesAWingAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent },

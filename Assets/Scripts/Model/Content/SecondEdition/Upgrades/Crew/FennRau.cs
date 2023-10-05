@@ -15,7 +15,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Fenn Rau",
                 UpgradeType.Crew,
-                cost: 8,
+                cost: 6,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Rebel, Faction.Scum),
                 abilityType: typeof(Abilities.SecondEdition.FennRauCrewAbility)

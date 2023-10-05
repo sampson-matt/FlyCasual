@@ -16,7 +16,7 @@ namespace Ship
                 (
                     "\"Chopper\"",
                     2,
-                    51,
+                    54,
                     pilotTitle: "Spectre-3",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ChopperPilotAbility),

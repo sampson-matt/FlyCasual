@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using ActionsList;
 using System;
+using Ship;
 
 namespace UpgradesList.SecondEdition
 {
@@ -17,6 +18,19 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.R5AstromechAbility),
                 charges: 2
             );
+        }
+
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> agilityToCost = new Dictionary<int, int>()
+            {
+                {0, 1},
+                {1, 2},
+                {2, 3},
+                {3, 4}
+            };
+
+            UpgradeInfo.Cost = agilityToCost[ship.ShipInfo.Agility];
         }
     }
 }

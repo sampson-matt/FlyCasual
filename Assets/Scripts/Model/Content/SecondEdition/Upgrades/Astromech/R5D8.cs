@@ -1,4 +1,6 @@
 ﻿using Upgrade;
+using Ship;
+using System.Collections.Generic;
 
 namespace UpgradesList.SecondEdition
 {
@@ -15,6 +17,18 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Rebel),
                 charges: 3
             );
+        }
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> agilityToCost = new Dictionary<int, int>()
+            {
+                {0, 2},
+                {1, 3},
+                {2, 4},
+                {3, 6}
+            };
+
+            UpgradeInfo.Cost = agilityToCost[ship.ShipInfo.Agility];
         }
     }
 }

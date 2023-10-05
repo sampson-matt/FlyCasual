@@ -16,7 +16,7 @@ namespace Ship
                 (
                     "Gar Saxon",
                     3,
-                    59,
+                    61,
                     charges: 2,
                     regensCharges: 1,
                     pilotTitle: "Treacherous Viceroy",

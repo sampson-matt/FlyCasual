@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Major Vermeil",
                     4,
-                    49,
+                    48,
                     isLimited: true,
                     abilityType: typeof(MajorVermeilAbility),
                     extraUpgradeIcon: UpgradeType.Talent

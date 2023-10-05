@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Valen Rudor",
                     3,
-                    24,
+                    23,
                     isLimited: true,
                     abilityType: typeof(ValenRudorAbility),
                     extraUpgradeIcon: UpgradeType.Talent

@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Deathfire\"",
                     2,
-                    31,
+                    29,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DeathfireAbility)
                 );

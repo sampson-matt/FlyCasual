@@ -12,7 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Colonel Vessery",
                     4,
-                    79,
+                    78,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.ColonelVesseryAbility),
                     extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Sensor }

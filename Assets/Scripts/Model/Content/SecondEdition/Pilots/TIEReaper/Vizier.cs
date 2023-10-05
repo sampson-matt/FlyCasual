@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Vizier\"",
                     2,
-                    42,
+                    41,
                     isLimited: true,
                     abilityType: typeof(VizierAbility)
                 );

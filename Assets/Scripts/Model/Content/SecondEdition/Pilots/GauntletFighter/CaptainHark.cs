@@ -21,7 +21,7 @@ namespace Ship
                 (
                     "Captain Hark",
                     3,
-                    51,
+                    53,
                     pilotTitle: "Obedient Underling",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CaptainHarkAbility),

@@ -19,7 +19,7 @@ namespace Ship
                 (
                     "ISB Jingoist",
                     4,
-                    27,
+                    28,
                     limited: 2,
                     abilityType: typeof(Abilities.SecondEdition.IsbJingoistAbility),
                     extraUpgradeIcons: new List<UpgradeType>

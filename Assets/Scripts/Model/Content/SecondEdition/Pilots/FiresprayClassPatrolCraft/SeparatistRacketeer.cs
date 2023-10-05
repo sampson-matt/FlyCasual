@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Separatist Racketeer",
                     2,
-                    63,
+                    62,
                     factionOverride: Faction.Separatists,
                     extraUpgradeIcon: UpgradeType.Crew
                 );

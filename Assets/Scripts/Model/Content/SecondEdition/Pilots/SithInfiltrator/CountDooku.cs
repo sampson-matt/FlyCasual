@@ -17,7 +17,7 @@ namespace Ship.SecondEdition.SithInfiltrator
             PilotInfo = new PilotCardInfo(
                 "Count Dooku",
                 3,
-                63,
+                60,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.CountDookuPilotAbility),
                 tags: new List<Tags>

@@ -22,7 +22,7 @@ namespace Ship
                 (
                     "Bo-Katan Kryze",
                     4,
-                    56,
+                    57,
                     pilotTitle: "Nite Owl Commander",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.BoKatanKryzeRepublicAbility),

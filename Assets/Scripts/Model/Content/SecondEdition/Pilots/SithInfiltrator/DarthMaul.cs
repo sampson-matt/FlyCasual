@@ -13,7 +13,7 @@ namespace Ship.SecondEdition.SithInfiltrator
             PilotInfo = new PilotCardInfo(
                 "Darth Maul",
                 5,
-                64,
+                62,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.DarthMaulPilotAbility),
                 tags: new List<Tags>

@@ -12,7 +12,7 @@ namespace Ship.SecondEdition.SithInfiltrator
             PilotInfo = new PilotCardInfo(
                 "Dark Courier",
                 2,
-                47
+                45
             );
         }
     }

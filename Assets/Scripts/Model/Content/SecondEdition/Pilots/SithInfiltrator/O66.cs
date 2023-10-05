@@ -12,7 +12,7 @@ namespace Ship.SecondEdition.SithInfiltrator
             PilotInfo = new PilotCardInfo(
                 "0-66",
                 3,
-                47,
+                46,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.O66PilotAbility),
                 extraUpgradeIcon: UpgradeType.Talent

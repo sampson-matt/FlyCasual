@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Merl Cobben",
                     1,
-                    33,
+                    34,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.MerlCobbenAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent } 

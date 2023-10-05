@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Nimi Chireen",
                     2,
-                    46,
+                    48,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.NimiChereenAbility)
                 );

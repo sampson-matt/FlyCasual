@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Greer Sonnel",
                     4,
-                    35,
+                    36,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.GreerSonnelAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent }

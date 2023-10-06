@@ -150,6 +150,7 @@ namespace Ship
         public event EventHandlerBool2Ships OnCanAttackBumpedTarget;
         public static event EventHandlerBool2Ships OnCanAttackBumpedTargetGlobal;
 
+        public event EventHandlerShipRefBool OnCanAttackWhileLandedOnObstacle;
         public static event EventHandlerShipRefBool OnCanAttackWhileLandedOnObstacleGlobal;
 
         public event EventHandlerShip OnCombatActivation;
@@ -883,6 +884,8 @@ namespace Ship
         public bool CanAttackWhileLandedOnObstacle()
         {
             bool result = false;
+
+            if (OnCanAttackWhileLandedOnObstacle != null) OnCanAttackWhileLandedOnObstacle(this, ref result);
 
             if (OnCanAttackWhileLandedOnObstacleGlobal != null) OnCanAttackWhileLandedOnObstacleGlobal(this, ref result);
 

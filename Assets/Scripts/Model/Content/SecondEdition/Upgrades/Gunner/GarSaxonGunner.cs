@@ -15,6 +15,11 @@ namespace UpgradesList.SecondEdition
                 "Gar Saxon",
                 UpgradeType.Gunner,
                 cost: 10,
+                isLimited: true,
+                restrictions: new UpgradeCardRestrictions(
+                    new BaseSizeRestriction(BaseSize.Large),
+                    new FactionRestriction(Faction.Scum)
+                ),
                 abilityType: typeof(Abilities.SecondEdition.GarSaxonGunner)
             );
             NameCanonical = "garsaxon-gunner";
@@ -72,7 +77,7 @@ namespace Abilities.SecondEdition
                 );
 
                 subphase.DescriptionShort = HostUpgrade.UpgradeInfo.Name;
-                subphase.DescriptionLong = "Select 1 orange or red token to remove from the defender";
+                subphase.DescriptionLong = "Gar Saxon: Select 1 orange or red token to remove from the defender";
                 subphase.ImageSource = HostUpgrade;
 
                 subphase.DecisionOwner = HostShip.Owner;

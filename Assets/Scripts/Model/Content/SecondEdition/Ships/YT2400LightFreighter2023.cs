@@ -26,9 +26,12 @@ namespace Ship.SecondEdition.YT2400LightFreighter2023
             ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(BarrelRollAction), ActionColor.Red));
             ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(RotateArcAction)));
 
+            ShipInfo.FactionsAll = new List<Faction>() { Faction.Rebel, Faction.Scum };
+
             ShipAbilities.Add(new Abilities.SecondEdition.SensorBlindspot2023());
 
             IconicPilots[Faction.Rebel] = typeof(DashRendar2023);
+            IconicPilots[Faction.Scum] = typeof(Leebo2023ScumLSL);
 
             ManeuversImageUrl = "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/1/11/Maneuver_yt-2400.png";
         }

@@ -25,7 +25,7 @@ namespace Ship
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Crew);
 
                 PilotNameCanonical = "leebo-swz103-sl-rebelalliance";
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/YT2400/leebo.png";
+                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/YT2400/leebo-rebel.png";
             }
         }
     }

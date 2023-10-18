@@ -25,7 +25,7 @@ namespace Ship
                 ShipInfo.ActionIcons.SwitchToDroidActions();
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Crew);
 
-                PilotNameCanonical = "leebo-swz103-sl-scumandvillainy";
+                PilotNameCanonical = "leebo-swz103-lsl-scumandvillainy";
                 ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/YT2400/leebo-scum.png";
             }
         }

@@ -117,7 +117,9 @@ public enum TriggerTypes
     OnBombWasLaunched,
     OnCheckDropOfSecondDevice,
 
-    OnUndockingFinish
+    OnUndockingFinish,
+
+    OnRedTokenGainedFromOverlappingObstacle
 }
 
 public class Trigger

@@ -42,7 +42,8 @@ namespace Obstacles
         private void GetStrain(GenericShip ship, Action callback)
         {
             Messages.ShowErrorToHuman($"{ship.PilotInfo.PilotName} hit a gas cloud during movement and gained a Strain token");
-            ship.Tokens.AssignToken(typeof(StrainToken), callback);
+
+            ship.Tokens.AssignToken(typeof(StrainToken), delegate { ship.CallOnRedTokenGainedFromOverlappingObstacle(ship.Tokens.GetToken(typeof(Tokens.StrainToken)), callback); });
         }
 
         private void StartToRoll(GenericShip ship)
@@ -69,7 +70,7 @@ namespace Obstacles
                 if (side == DieSide.Focus || side == DieSide.Success)
                 {
                     Messages.ShowErrorToHuman($"{ship.PilotInfo.PilotName} gains a Strain token");
-                    ship.Tokens.AssignToken(typeof(StrainToken), callback);
+                    ship.Tokens.AssignToken(typeof(StrainToken), delegate { ship.CallOnRedTokenGainedFromOverlappingObstacle(ship.Tokens.GetToken(typeof(Tokens.StrainToken)), callback); });
                 }
                 else
                 {

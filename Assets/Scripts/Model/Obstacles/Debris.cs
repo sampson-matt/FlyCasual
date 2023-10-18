@@ -18,8 +18,9 @@ namespace Obstacles
         {
             Messages.ShowErrorToHuman(ship.PilotInfo.PilotName + " hit debris during movement, Stress token is assigned");
             ship.Tokens.AssignToken(
-                typeof(Tokens.StressToken), 
-                delegate { StartToRoll(ship); }
+                typeof(Tokens.StressToken),
+                delegate { ship.CallOnRedTokenGainedFromOverlappingObstacle(ship.Tokens.GetToken(typeof(Tokens.StressToken)), delegate { StartToRoll(ship); }); }
+                //delegate { StartToRoll(ship); }
             );
         }
 

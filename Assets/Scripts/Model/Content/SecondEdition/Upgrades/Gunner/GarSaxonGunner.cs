@@ -3,7 +3,7 @@ using Ship;
 using SubPhases;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
+using Arcs;
 
 namespace UpgradesList.SecondEdition
 {
@@ -111,7 +111,7 @@ namespace Abilities.SecondEdition
             return Combat.AttackStep == CombatStep.Attack
                 && Combat.Attacker == HostShip
                 && Combat.ChosenWeapon.WeaponType == WeaponTypes.PrimaryWeapon
-                && (Combat.ShotInfo.InArcByType(Arcs.ArcType.Rear) || Combat.ShotInfo.InArcByType(Arcs.ArcType.Front))
+                && (Combat.Attacker.SectorsInfo.IsShipInSector(Combat.Defender, ArcType.Rear) || Combat.Attacker.SectorsInfo.IsShipInSector(Combat.Defender, ArcType.Front))
                 && (Combat.Defender.Tokens.HasTokenByColor(Tokens.TokenColors.Red) || Combat.Defender.Tokens.HasTokenByColor(Tokens.TokenColors.Orange));
                 
         }
@@ -123,7 +123,8 @@ namespace Abilities.SecondEdition
 
             if (defender is GenericShip)
             {
-                result = BoardTools.Board.IsShipInArcByType(HostShip, defender as GenericShip, Arcs.ArcType.Front) || BoardTools.Board.IsShipInArcByType(HostShip, defender as GenericShip, Arcs.ArcType.Rear);
+                
+                result = HostShip.SectorsInfo.IsShipInSector(defender as GenericShip, ArcType.Front) || HostShip.SectorsInfo.IsShipInSector(defender as GenericShip, ArcType.Rear);
             }
 
             return;

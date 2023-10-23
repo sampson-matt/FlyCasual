@@ -45,10 +45,10 @@ namespace Abilities.SecondEdition
         private bool IsAvailable()
         {
             return Combat.AttackStep == CombatStep.Attack
-                && Tools.IsFriendly(Combat.Attacker, HostShip)
+                && Tools.IsAnotherFriendly(Combat.Attacker, HostShip)
                 && Combat.Attacker.State.Initiative <= 4
                 && Combat.CurrentDiceRoll.Focuses > 0
-                && IsInRangeFromOneToThree(HostShip, Combat.Defender)
+                && IsInRangeFromOneToThree(HostShip, Combat.Attacker)
                 && ActionsHolder.HasTargetLockOn(HostShip, Combat.Defender);
         }
 
@@ -70,7 +70,7 @@ namespace Abilities.SecondEdition
         private bool IsInRangeFromOneToThree(GenericShip ship1, GenericShip ship2)
         {
             DistanceInfo distInfo = new DistanceInfo(ship1, ship2);
-            return (distInfo.Range == 1 || distInfo.Range == 2);
+            return (distInfo.Range >= 1 && distInfo.Range <= 3);
         }
 
         public override void DeactivateAbility()

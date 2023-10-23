@@ -84,7 +84,7 @@ namespace Abilities.SecondEdition
         private void DoRemoveJamTokens(int count, Action callback)
         {
             Messages.ShowInfo($"{HostShip.PilotInfo.PilotName}: {count} Jam token(s) are removed");
-
+            DecisionSubPhase.ConfirmDecisionNoCallback();
             List<GenericToken> tokensToRemove = HostShip.Tokens.GetAllTokens().Where( n => n is JamToken).Take(count).ToList();
             HostShip.Tokens.RemoveTokens(tokensToRemove, callback);
         }
@@ -122,7 +122,7 @@ namespace Abilities.SecondEdition
                     AlwaysUseByDefault,
                     delegate
                     {
-                        DecisionSubPhase.ConfirmDecisionNoCallback();
+                        //DecisionSubPhase.ConfirmDecisionNoCallback();
                         DoGetFocusTokens(count);
                     },
                     showAlwaysUseOption: true,

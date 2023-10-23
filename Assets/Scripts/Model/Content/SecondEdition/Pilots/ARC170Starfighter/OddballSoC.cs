@@ -125,7 +125,7 @@ namespace Abilities.SecondEdition
 
         private void PayEvadeCost(Action<bool> callback)
         {
-            if (HostShip.Tokens.HasToken(typeof(FocusToken)))
+            if (HostShip.Tokens.HasToken(typeof(EvadeToken)))
             {
                 HostShip.Tokens.AssignToken(typeof(StrainToken), delegate { });
                 HostShip.Tokens.RemoveToken(typeof(EvadeToken), () => callback(true));

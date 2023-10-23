@@ -88,7 +88,7 @@ namespace Abilities.SecondEdition
 
         private void payForce(Action<bool> callback)
         {
-            if (HostShip.State.Force > 1)
+            if (HostShip.State.Force > 0)
             {
                 HostShip.State.SpendForce(1, delegate {
                     abilityUsed = true;

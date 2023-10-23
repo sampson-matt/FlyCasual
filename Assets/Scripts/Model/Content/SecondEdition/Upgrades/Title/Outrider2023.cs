@@ -20,7 +20,7 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 restrictions: new UpgradeCardRestrictions
                 (
-                    new FactionRestriction(Faction.Rebel),
+                    new FactionRestriction(Faction.Rebel, Faction.Scum),
                     new ShipRestriction(typeof(Ship.SecondEdition.YT2400LightFreighter2023.YT2400LightFreighter2023))
                 ),
                 abilityType: typeof(Abilities.SecondEdition.Outrider2023Ability)

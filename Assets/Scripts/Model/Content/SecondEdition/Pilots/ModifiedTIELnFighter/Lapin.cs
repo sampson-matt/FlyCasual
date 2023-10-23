@@ -14,7 +14,7 @@ namespace Ship
             {
                 PilotInfo = new PilotCardInfo(
                     "Lapin",
-                    2,
+                    3,
                     25,
                     pilotTitle: "Stickler for Details",
                     isLimited: true,

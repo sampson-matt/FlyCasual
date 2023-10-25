@@ -113,6 +113,7 @@ namespace Ship
         public static event EventHandlerShipDamage OnDamageInstanceResolvedGlobal;
         public static event EventHandlerShipBomb OnAfterSufferBombEffect;
 
+        public event EventHandlerShip OnBeforeCheckPreventDestruction;
         public event EventHandlerShipRefBool OnCheckPreventDestruction;
         public static event EventHandlerShipRefBool OnCheckPreventDestructionGlobal;
         public event EventHandlerShipBool OnShipIsDestroyed;
@@ -664,33 +665,48 @@ namespace Ship
         {
             if (State.HullCurrent == 0 && !IsDestroyed)
             {
-                bool preventDestruction = false;
-
-                OnCheckPreventDestruction?.Invoke(this, ref preventDestruction);
-
-                OnCheckPreventDestructionGlobal?.Invoke(this, ref preventDestruction);
-
-                if (!preventDestruction)
-                {
-                    IsDestroyed = true;
-
-                    PlayDestroyedAnimSound(
-                        delegate { CallShipDestruction(
-                            delegate { PlanShipRemoval(callBack); },
-                            isFled: false);
-                        }
-                    );
-                }
-                else
-                {
-                    callBack();
-                }
+                CallBeforeCheckPreventDestruction(delegate { CallCheckPreventDestruction(callBack); });
             }
             else
             {
                 callBack();
             }
         }
+
+        private void CallBeforeCheckPreventDestruction(Action callBack)
+        {
+            OnBeforeCheckPreventDestruction(this);
+
+            Triggers.ResolveTriggers(TriggerTypes.OnShipIsDestroyedCheck, callBack);
+        }
+
+        private void CallCheckPreventDestruction(Action callBack)
+        {
+            bool preventDestruction = false;
+
+            OnCheckPreventDestruction?.Invoke(this, ref preventDestruction);
+
+            OnCheckPreventDestructionGlobal?.Invoke(this, ref preventDestruction);
+
+            if (!preventDestruction)
+            {
+                IsDestroyed = true;
+
+                PlayDestroyedAnimSound(
+                    delegate {
+                        CallShipDestruction(
+                     delegate { PlanShipRemoval(callBack); },
+                     isFled: false);
+                    }
+                );
+            }
+            else
+            {
+                callBack();
+            }
+        }
+
+        
 
         private void CallShipDestruction(Action callback, bool isFled)
         {

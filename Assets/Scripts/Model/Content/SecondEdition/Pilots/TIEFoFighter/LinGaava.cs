@@ -125,13 +125,13 @@ namespace Conditions
         public override void WhenAssigned()
         {
             Host.OnGenerateActions += AddSlam;
-            Host.OnActionIsPerformed += CheckAbility;
+            Host.OnSlam += CheckAbility;
         }
 
         public override void WhenRemoved()
         {
             Host.OnGenerateActions -= AddSlam;
-            Host.OnActionIsPerformed -= CheckAbility;
+            Host.OnSlam -= CheckAbility;
         }
 
         private void AddSlam(GenericShip ship)
@@ -139,10 +139,8 @@ namespace Conditions
             ship.AddAvailableAction(new SlamAction());
         }
 
-        private void CheckAbility(GenericAction action)
+        private void CheckAbility()
         {
-            if (action is SlamAction)
-            {
                 Triggers.RegisterTrigger
                 (
                     new Trigger()
@@ -153,7 +151,6 @@ namespace Conditions
                         EventHandler = SufferDamage
                     }
                 );
-            }
         }
 
         private void SufferDamage(object sender, EventArgs e)

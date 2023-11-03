@@ -46,9 +46,7 @@ namespace UpgradesList.SecondEdition
 }
 
 namespace Abilities.SecondEdition
-{
-
-   
+{   
     public class ElectroChaffMissilesAbility : GenericAbility
     {
         protected DeviceObjectInfoPanel infoPanel;
@@ -77,7 +75,10 @@ namespace Abilities.SecondEdition
 
         private void RegisterAbility(GenericShip ship)
         {
-            RegisterAbilityTrigger(TriggerTypes.OnSystemsAbilityActivation, AskToLaunch);
+            if (HostUpgrade.State.Charges > 0)
+            {
+                RegisterAbilityTrigger(TriggerTypes.OnSystemsAbilityActivation, AskToLaunch);
+            }
         }
 
         private void AskToLaunch(object sender, EventArgs e)

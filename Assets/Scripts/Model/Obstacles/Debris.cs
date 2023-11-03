@@ -41,7 +41,7 @@ namespace Obstacles
             newPhase.Start();
         }
 
-        public override void OnShotObstructedExtra(GenericShip attacker, GenericShip defender)
+        public override void OnShotObstructedExtra(GenericShip attacker, GenericShip defender, ref int result)
         {
             // Only default effect
         }

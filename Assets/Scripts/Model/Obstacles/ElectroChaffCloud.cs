@@ -36,11 +36,14 @@ namespace Obstacles
         public override void OnHit(GenericShip ship)
         {
             Messages.ShowErrorToHuman(ship.PilotInfo.PilotName + " hit Electro-Chaff Cloud during movement, All lock are broken, Jam token is assigned");
-            ship.Tokens.AssignToken(
-                typeof(Tokens.JamToken),
-                delegate { BreakAllLocks(ship, () => StartToRoll(ship)); },
-                ship.Owner
-            );
+            BreakAllLocks(ship, delegate {
+                ship.Tokens.AssignToken(
+                typeof(Tokens.JamToken), () => StartToRoll(ship), ship.Owner); });
+            //ship.Tokens.AssignToken(
+             //   typeof(Tokens.JamToken),
+            //    delegate { BreakAllLocks(ship, () => StartToRoll(ship)); },
+             //   ship.Owner
+            //);
         }
 
         private void BreakAllLocks(GenericShip ship, Action callback)
@@ -66,17 +69,13 @@ namespace Obstacles
             newPhase.Start();
         }
 
-        public override void OnShotObstructedExtra(GenericShip attacker, GenericShip defender)
-        {
-            defender.AfterGotNumberOfDefenceDice += IncreaseDiceResult;
-        }
-
-        private void IncreaseDiceResult(ref int count)
+        public override void OnShotObstructedExtra(GenericShip attacker, GenericShip defender, ref int result)
         {
             Messages.ShowInfo("Attack is obstructed by Electro-Chaff Cloud the defender rolls 1 extra defense dice");
-            count += 1;
-            Combat.Defender.AfterGotNumberOfDefenceDice -= IncreaseDiceResult;
+            result += 1;
         }
+
+       
 
         public override void AfterObstacleRoll(GenericShip ship, DieSide side, Action callback)
         {

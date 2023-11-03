@@ -40,7 +40,7 @@ namespace RulesList
 
                 foreach (GenericObstacle obstacle in Combat.ShotInfo.ObstructedByObstacles)
                 {
-                    obstacle.OnShotObstructedExtra(Combat.Attacker, Combat.Defender);
+                    obstacle.OnShotObstructedExtra(Combat.Attacker, Combat.Defender, ref result);
                 }
             }
         }

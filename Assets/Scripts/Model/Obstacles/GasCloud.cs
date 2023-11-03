@@ -103,7 +103,7 @@ namespace Obstacles
             return new IonToken(ship);
         }
 
-        public override void OnShotObstructedExtra(GenericShip attacker, GenericShip defender)
+        public override void OnShotObstructedExtra(GenericShip attacker, GenericShip defender, ref int result)
         {
             defender.OnGenerateDiceModifications += TryToAddDiceModification;
         }

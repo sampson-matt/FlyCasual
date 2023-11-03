@@ -46,7 +46,7 @@ namespace Obstacles
             }
         }
 
-        public abstract void OnShotObstructedExtra(GenericShip attacker, GenericShip defender);
+        public abstract void OnShotObstructedExtra(GenericShip attacker, GenericShip defender, ref int result);
 
         public void Spawn(string name, Transform obstacleHolder)
         {

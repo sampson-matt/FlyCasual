@@ -108,6 +108,11 @@ namespace Obstacles
             Instance.ChosenObstacles.Add(looseCargo);
         }
 
+        public static void AddObstacle(ElectroChaffCloud electroChaffCloud)
+        {
+            Instance.ChosenObstacles.Add(electroChaffCloud);
+        }
+
         public static GenericObstacle GenerateObstacle(string shortName, PlayerNo playerNo)
         {
             GenericObstacle prefab = Instance.AllPossibleObstacles.First(n => n.ShortName == shortName);

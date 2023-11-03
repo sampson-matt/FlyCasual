@@ -263,7 +263,7 @@ namespace Ship
 
         public void RemoveAllTokensByType(Type tokenType, Action callback)
         {
-            GenericToken tokenToRemove = GetToken(tokenType);
+            GenericToken tokenToRemove = GetToken(tokenType, '*');
             if (tokenToRemove != null)
             {
                 RemoveToken(

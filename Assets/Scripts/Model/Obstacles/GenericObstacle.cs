@@ -34,7 +34,7 @@ namespace Obstacles
 
         public void OnLanded(GenericShip ship)
         {
-            if (Editions.Edition.Current.RuleSet.GetType() == typeof(Editions.RuleSets.RuleSet25) || this is Asteroid)
+            if (Editions.Edition.Current.RuleSet.GetType() == typeof(Editions.RuleSets.RuleSet25) || this is Asteroid || this is ElectroChaffCloud)
             {
                 ship.OnTryPerformAttack += DenyAttack;
             }

@@ -675,7 +675,7 @@ namespace Ship
 
         private void CallBeforeCheckPreventDestruction(Action callBack)
         {
-            OnBeforeCheckPreventDestruction(this);
+            OnBeforeCheckPreventDestruction?.Invoke(this);
 
             Triggers.ResolveTriggers(TriggerTypes.OnShipIsDestroyedCheck, callBack);
         }

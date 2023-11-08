@@ -21,12 +21,6 @@ namespace UpgradesList.SecondEdition
                 charges: 2,
                 abilityType: typeof(Abilities.SecondEdition.CaptainHarkCrewAbility)
             );
-
-            Avatar = new AvatarInfo(
-                Faction.Republic,
-                new Vector2(269, 3),
-                new Vector2(63, 63)
-            );
         }        
     }
 }

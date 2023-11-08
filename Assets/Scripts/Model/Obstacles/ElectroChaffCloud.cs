@@ -39,11 +39,6 @@ namespace Obstacles
             BreakAllLocks(ship, delegate {
                 ship.Tokens.AssignToken(
                 typeof(Tokens.JamToken), () => StartToRoll(ship), ship.Owner); });
-            //ship.Tokens.AssignToken(
-             //   typeof(Tokens.JamToken),
-            //    delegate { BreakAllLocks(ship, () => StartToRoll(ship)); },
-             //   ship.Owner
-            //);
         }
 
         private void BreakAllLocks(GenericShip ship, Action callback)

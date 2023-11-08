@@ -20,12 +20,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Imperial),
                 abilityType: typeof(Abilities.SecondEdition.AgentKallusAbility)
             );
-
-            Avatar = new AvatarInfo(
-                Faction.Imperial,
-                new Vector2(409, 15),
-                new Vector2(125, 125)
-            );
         }        
     }
 }

@@ -11,6 +11,8 @@ namespace UpgradesList.SecondEdition
     {
         public AdvancedTargetingComputer() : base()
         {
+            FromMod = typeof(Mods.ModsList.HotacEliteImperialPilotsModSE);
+
             UpgradeInfo = new UpgradeCardInfo(
                 "Advanced Targeting Computer",
                 UpgradeType.Sensor,

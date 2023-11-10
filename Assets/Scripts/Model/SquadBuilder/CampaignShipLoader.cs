@@ -121,6 +121,11 @@ namespace SquadBuilderNS
                                     }
                                     string shipNameXws = pilotJson["ship"].str;
 
+                                    if ("random".Equals(shipNameXws))
+                                    {
+                                        shipNameXws = PickRandomShipName();
+                                    }
+
                                     string shipNameGeneral = "";
                                     ShipRecord shipRecord = SquadBuilder.Instance.Database.AllShips.FirstOrDefault(n => n.ShipNameCanonical == shipNameXws);
                                     if (shipRecord == null)
@@ -132,6 +137,11 @@ namespace SquadBuilderNS
                                     shipNameGeneral = shipRecord.ShipName;
 
                                     string pilotNameXws = pilotJson["id"].str;
+
+                                    if ("random".Equals(pilotNameXws))
+                                    {
+                                        pilotNameXws = GetPilotIdFromShipName(shipNameXws);
+                                    }
                                     PilotRecord pilotRecord = SquadBuilder.Instance.Database.AllPilots.FirstOrDefault(n => n.PilotNameCanonical == pilotNameXws && n.Ship.ShipName == shipNameGeneral && n.PilotFaction == faction);
                                     if (pilotRecord == null)
                                     {
@@ -244,6 +254,32 @@ namespace SquadBuilderNS
             }
         }
 
+        private string GetPilotIdFromShipName(string shipNameXws)
+        {
+            if ("tieininterceptor".Equals(shipNameXws))
+            {
+                return "hotacinterceptorpilot";
+            }
+            if ("tieadvancedx1".Equals(shipNameXws))
+            {
+                return "hotactieadvancedx1";
+            }
+            if ("tiesabomber".Equals(shipNameXws))
+            {
+                return "hotacbomberpilot";
+            }
+            return "";
+        }
+
+        private string PickRandomShipName()
+        {
+            List<string> shipNameList = new List<string>
+            { "tieininterceptor","tiesabomber", "tieadvancedx1" };
+            int randomType = UnityEngine.Random.Range(0, shipNameList.Count - 1);
+            return shipNameList[randomType];
+            
+        }
+
         private void SetStrikeTarget(GenericShip ship)
         {
             Dictionary<string, GenericShip> strikeTargets = Roster.Player1.Ships.Where(s => s.Value.PilotNameCanonical.Equals(ship.StrikeTarget)).ToDictionary(s => s.Key, s => s.Value);
@@ -324,8 +360,9 @@ namespace SquadBuilderNS
             if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
 
             string filePath = directoryPath + "/elitePilotUpgrades.json";
-            //File.WriteAllText(filePath, "{\"name\":\"elitePilotUpgrades\",\"ships\":[{\"type\":\"tiesabomber\",\"upgrades\":[{\"basic\":{\"missile\":[\"homingmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"zertikstrompilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"rexlerbrathpilotability\"]}},{\"basic\":{\"torpedo\":[\"advprotontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"modification\":[\"shieldupgrade\"]},\"elite3\":{\"pilot\":[\"majorrhymerpilotability\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"redlinepilotability\"]},\"elite4\":{\"talent\":[\"ruthless\"]},\"elite5\":{\"pilot\":[\"kirkanospilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"marksmanship\"]},\"elite3\":{\"pilot\":[\"commanderalozenpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"majorrhymerpilotability\"]}},{\"basic\":{\"missile\":[\"ionmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"howlrunnerpilotability\"]},\"elite4\":{\"talent\":[\"outmaneuver\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"torpedo\":[\"protontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"nightbeastpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"kathscarletempirepilotability\"]}}]},{\"type\":\"tieininterceptor\",\"upgrades\":[{\"basic\":{\"modification\":[\"autothrusters\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"pushthelimit\"]},\"elite3\":{\"pilot\":[\"captainkagipilotability\"]},\"elite4\":{\"talent\":[\"experthandlinghotac\"]},\"elite5\":{\"pilot\":[\"soontirfellpilotability\"]}},{\"basic\":{\"modification\":[\"autothrusters\"]},\"elite\":{\"modification\":[\"stealthdevice\"],\"talent\":[\"experthandlinghotac\"]},\"elite3\":{\"pilot\":[\"whisperpilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]},\"elite\":{\"modification\":[\"autothrusters\"],\"talent\":[\"predator\"]},\"elite3\":{\"pilot\":[\"rexlerbrathpilotability\"]},\"elite4\":{\"talent\":[\"lonewolf\"]},\"elite5\":{\"pilot\":[\"maulermithelpilotability\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]},\"elite\":{\"modification\":[\"hullupgrade\"],\"talent\":[\"squadleaderhotac\"]},\"elite3\":{\"modification\":[\"experimentalinterface\"]},\"elite4\":{\"talent\":[\"swarmtactics\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]},\"elite\":{\"modification\":[\"autothrusters\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"backstabberpilotability\"]},\"elite4\":{\"talent\":[\"calculation\"]},\"elite5\":{\"pilot\":[\"rearadmiralchiraneaupilotability\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"expose\"]},\"elite3\":{\"modification\":[\"targetingcomputerhotac\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"turrphennirpilotability\"]}}]},{\"type\":\"tieadvancedx1\",\"upgrades\":[{\"basic\":{\"sensor\":[\"accuracycorrector\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"coloneljendon\"]}}]}]}");
-            File.WriteAllText(filePath, "{\"name\":\"elitePilotUpgrades\",\"ships\":[{\"type\":\"tiesabomber\",\"upgrades\":[{\"basic\":{\"missile\":[\"homingmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"zertikstrompilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"rexlerbrathpilotability\"]}},{\"basic\":{\"torpedo\":[\"advprotontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"modification\":[\"shieldupgrade\"]},\"elite3\":{\"pilot\":[\"majorrhymerpilotability\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"redlinepilotability\"]},\"elite4\":{\"talent\":[\"ruthless\"]},\"elite5\":{\"pilot\":[\"kirkanospilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"marksmanship\"]},\"elite3\":{\"pilot\":[\"commanderalozenpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"majorrhymerpilotability\"]}},{\"basic\":{\"missile\":[\"ionmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"howlrunnerpilotability\"]},\"elite4\":{\"talent\":[\"outmaneuver\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"torpedo\":[\"protontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"nightbeastpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"kathscarletempirepilotability\"]}}]},{\"type\":\"tieininterceptor\",\"upgrades\":[{\"basic\":{\"modification\":[\"autothrusters\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"pushthelimit\"]},\"elite3\":{\"pilot\":[\"captainkagipilotability\"]},\"elite4\":{\"talent\":[\"experthandlinghotac\"]},\"elite5\":{\"pilot\":[\"soontirfellpilotability\"]}},{\"basic\":{\"modification\":[\"autothrusters\"]},\"elite\":{\"modification\":[\"stealthdevice\"],\"talent\":[\"experthandlinghotac\"]},\"elite3\":{\"pilot\":[\"whisperpilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]},\"elite\":{\"modification\":[\"autothrusters\"],\"talent\":[\"predator\"]},\"elite3\":{\"pilot\":[\"rexlerbrathpilotability\"]},\"elite4\":{\"talent\":[\"lonewolf\"]},\"elite5\":{\"pilot\":[\"maulermithelpilotability\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]},\"elite\":{\"modification\":[\"hullupgrade\"],\"talent\":[\"squadleaderhotac\"]},\"elite3\":{\"modification\":[\"experimentalinterface\"]},\"elite4\":{\"talent\":[\"swarmtactics\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]},\"elite\":{\"modification\":[\"autothrusters\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"backstabberpilotability\"]},\"elite4\":{\"talent\":[\"calculation\"]},\"elite5\":{\"pilot\":[\"rearadmiralchiraneaupilotability\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"expose\"]},\"elite3\":{\"modification\":[\"targetingcomputerhotac\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"turrphennirpilotability\"]}}]},{\"type\":\"tieadvancedx1\",\"upgrades\":[{\"basic\":{\"sensor\":[\"accuracycorrector\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"coloneljendonpilotability\"]},\"elite4\":{\"talent\":[\"squadleaderhotac\"]},\"elite5\":{\"pilot\":[\"howlrunnerpilotability\"]}},{\"basic\":{\"sensor\":[\"sensorjammer\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"experthandlinghotac\"]},\"elite3\":{\"pilot\":[\"captainkagipilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"carnorjaxpilotability\"]}}]}]}");
+
+            //File.WriteAllText(filePath, "{\"name\":\"elitePilotUpgrades\",\"ships\":[{\"type\":\"tiesabomber\",\"upgrades\":[{\"basic\":{\"missile\":[\"homingmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"zertikstrompilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"rexlerbrathpilotability\"]}},{\"basic\":{\"torpedo\":[\"advprotontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"modification\":[\"shieldupgrade\"]},\"elite3\":{\"pilot\":[\"majorrhymerpilotability\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"redlinepilotability\"]},\"elite4\":{\"talent\":[\"ruthless\"]},\"elite5\":{\"pilot\":[\"kirkanospilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"marksmanship\"]},\"elite3\":{\"pilot\":[\"commanderalozenpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"majorrhymerpilotability\"]}},{\"basic\":{\"missile\":[\"ionmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"howlrunnerpilotability\"]},\"elite4\":{\"talent\":[\"outmaneuver\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"torpedo\":[\"protontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"nightbeastpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"kathscarletempirepilotability\"]}}]},{\"type\":\"tieininterceptor\",\"upgrades\":[{\"basic\":{\"modification\":[\"autothrusters\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"pushthelimit\"]},\"elite3\":{\"pilot\":[\"captainkagipilotability\"]},\"elite4\":{\"talent\":[\"experthandlinghotac\"]},\"elite5\":{\"pilot\":[\"soontirfellpilotability\"]}},{\"basic\":{\"modification\":[\"autothrusters\"]},\"elite\":{\"modification\":[\"stealthdevice\"],\"talent\":[\"experthandlinghotac\"]},\"elite3\":{\"pilot\":[\"whisperpilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]},\"elite\":{\"modification\":[\"autothrusters\"],\"talent\":[\"predator\"]},\"elite3\":{\"pilot\":[\"rexlerbrathpilotability\"]},\"elite4\":{\"talent\":[\"lonewolf\"]},\"elite5\":{\"pilot\":[\"maulermithelpilotability\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]},\"elite\":{\"modification\":[\"hullupgrade\"],\"talent\":[\"squadleaderhotac\"]},\"elite3\":{\"modification\":[\"experimentalinterface\"]},\"elite4\":{\"talent\":[\"swarmtactics\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]},\"elite\":{\"modification\":[\"autothrusters\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"backstabberpilotability\"]},\"elite4\":{\"talent\":[\"calculation\"]},\"elite5\":{\"pilot\":[\"rearadmiralchiraneaupilotability\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"expose\"]},\"elite3\":{\"modification\":[\"targetingcomputerhotac\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"turrphennirpilotability\"]}}]},{\"type\":\"tieadvancedx1\",\"upgrades\":[{\"basic\":{\"sensor\":[\"advancedsensorshotac\"]},\"elite\":{\"missile\":[\"protonrockets\"],\"talent\":[\"intimidation\"]},\"elite3\":{\"pilot\":[\"zertikstrompilotability\"]},\"elite4\":{\"talent\":[\"pushthelimit\"]},\"elite5\":{\"pilot\":[\"maulermithelpilotability\"]}}]}]}");
+            File.WriteAllText(filePath, "{\"name\":\"elitePilotUpgrades\",\"ships\":[{\"type\":\"tiesabomber\",\"upgrades\":[{\"basic\":{\"missile\":[\"homingmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"zertikstrompilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"rexlerbrathpilotability\"]}},{\"basic\":{\"torpedo\":[\"advprotontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"modification\":[\"shieldupgrade\"]},\"elite3\":{\"pilot\":[\"majorrhymerpilotability\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"redlinepilotability\"]},\"elite4\":{\"talent\":[\"ruthless\"]},\"elite5\":{\"pilot\":[\"kirkanospilotability\"]}},{\"basic\":{\"missile\":[\"clustermissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"marksmanship\"]},\"elite3\":{\"pilot\":[\"commanderalozenpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"majorrhymerpilotability\"]}},{\"basic\":{\"missile\":[\"ionmissiles\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"howlrunnerpilotability\"]},\"elite4\":{\"talent\":[\"outmaneuver\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"torpedo\":[\"protontorpedoes\"]},\"elite\":{\"torpedo\":[\"extramunitions\"],\"talent\":[\"calculation\"]},\"elite3\":{\"pilot\":[\"nightbeastpilotability\"]},\"elite4\":{\"talent\":[\"predator\"]},\"elite5\":{\"pilot\":[\"kathscarletempirepilotability\"]}}]},{\"type\":\"tieininterceptor\",\"upgrades\":[{\"basic\":{\"modification\":[\"autothrusters\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"pushthelimit\"]},\"elite3\":{\"pilot\":[\"captainkagipilotability\"]},\"elite4\":{\"talent\":[\"experthandlinghotac\"]},\"elite5\":{\"pilot\":[\"soontirfellpilotability\"]}},{\"basic\":{\"modification\":[\"autothrusters\"]},\"elite\":{\"modification\":[\"stealthdevice\"],\"talent\":[\"experthandlinghotac\"]},\"elite3\":{\"pilot\":[\"whisperpilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"darkcursepilotability\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]},\"elite\":{\"modification\":[\"autothrusters\"],\"talent\":[\"predator\"]},\"elite3\":{\"pilot\":[\"rexlerbrathpilotability\"]},\"elite4\":{\"talent\":[\"lonewolf\"]},\"elite5\":{\"pilot\":[\"maulermithelpilotability\"]}},{\"basic\":{\"modification\":[\"stealthdevice\"]},\"elite\":{\"modification\":[\"hullupgrade\"],\"talent\":[\"squadleaderhotac\"]},\"elite3\":{\"modification\":[\"experimentalinterface\"]},\"elite4\":{\"talent\":[\"swarmtactics\"]},\"elite5\":{\"pilot\":[\"commanderkenkirkpilotability\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]},\"elite\":{\"modification\":[\"autothrusters\"],\"talent\":[\"outmaneuver\"]},\"elite3\":{\"pilot\":[\"backstabberpilotability\"]},\"elite4\":{\"talent\":[\"calculation\"]},\"elite5\":{\"pilot\":[\"rearadmiralchiraneaupilotability\"]}},{\"basic\":{\"modification\":[\"hullupgrade\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"expose\"]},\"elite3\":{\"modification\":[\"targetingcomputerhotac\"]},\"elite4\":{\"talent\":[\"opportunist\"]},\"elite5\":{\"pilot\":[\"turrphennirpilotability\"]}}]},{\"type\":\"tieadvancedx1\",\"upgrades\":[{\"basic\":{\"sensor\":[\"accuracycorrector\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"swarmtactics\"]},\"elite3\":{\"pilot\":[\"coloneljendonpilotability\"]},\"elite4\":{\"talent\":[\"squadleaderhotac\"]},\"elite5\":{\"pilot\":[\"howlrunnerpilotability\"]}},{\"basic\":{\"sensor\":[\"sensorjammer\"]},\"elite\":{\"modification\":[\"shieldupgrade\"],\"talent\":[\"experthandlinghotac\"]},\"elite3\":{\"pilot\":[\"captainkagipilotability\"]},\"elite4\":{\"talent\":[\"elusiveness\"]},\"elite5\":{\"pilot\":[\"carnorjaxpilotability\"]}},{\"basic\":{\"sensor\":[\"advancedtargetingcomputer\"]},\"elite\":{\"modification\":[\"stealthdevice\"],\"talent\":[\"expose\"]},\"elite3\":{\"modification\":[\"experimentalinterface\"]},\"elite4\":{\"pilot\":[\"whisperpilotability\"]},\"elite5\":{\"talent\":[\"opportunist\"]}},{\"basic\":{\"sensor\":[\"advancedsensorshotac\"]},\"elite\":{\"missile\":[\"protonrockets\"],\"talent\":[\"intimidation\"]},\"elite3\":{\"pilot\":[\"zertikstrompilotability\"]},\"elite4\":{\"talent\":[\"pushthelimit\"]},\"elite5\":{\"pilot\":[\"maulermithelpilotability\"]}}]}]}");
             string content = File.ReadAllText(filePath);
             JSONObject elitePilotJson = new JSONObject(content);
             return elitePilotJson;
@@ -389,11 +426,67 @@ namespace SquadBuilderNS
     {
         public static JSONObject CampaignMission { get; set; }
         public static WinConditionsRule WinCondition { get; set; }
+        public static List<Transform> PlayerStartingZones { get; set; }
         public static void LoadCampaign()
         {
             CampaignShipLoader currentCampaignShipLoader = new CampaignShipLoader();
             currentCampaignShipLoader.LoadCampaign();
             LoadWinConditions();
+            LoadPlayerStartingZones();
+        }
+
+        private static void LoadPlayerStartingZones()
+        {
+            if (CampaignMission.HasField("playerStartingZones"))
+            {
+                PlayerStartingZones = new List<Transform>();
+                JSONObject zones = CampaignMission["playerStartingZones"];
+                foreach (JSONObject zoneJson in zones.list)
+                {
+                    if (zoneJson.HasField("startingZone"))
+                    {
+                        PlayerStartingZones.Add(Board.GetStartingZoneCampaign(zoneJson["startingZone"].str).transform);
+                    }
+                }                    
+                foreach (GenericShip ship in Roster.GetPlayer(PlayerNo.Player1).Ships.Values)
+                {
+                    ship.OnSetupSelected += ApplySetupFilter;
+                    ship.OnSetupPlaced += RemoveSetupFilter;
+                }
+            }
+                
+        }
+
+        private static void ApplySetupFilter(GenericShip ship)
+        {
+            Board.TurnOffStartingZones();
+            foreach (Transform startingZone in PlayerStartingZones)
+            {
+                Board.HighlightStartingZone(startingZone);
+            }
+            SetupSubPhase setupSubPhase = Phases.CurrentSubPhase as SetupSubPhase;
+            setupSubPhase.SetupFilter = CampaignSetupRestrictions;
+            setupSubPhase.RespectFilter = true;
+        }
+
+        private static void RemoveSetupFilter(GenericShip ship)
+        {
+            SetupSubPhase setupSubPhase = Phases.CurrentSubPhase as SetupSubPhase;
+            setupSubPhase.SetupFilter = null;
+            setupSubPhase.SetupRangeHelper = null;
+            GenericSubPhase.HideSubphaseDescription();
+        }
+
+        private static bool CampaignSetupRestrictions()
+        {
+            foreach (Transform startingZone in PlayerStartingZones)
+            {
+                if (Selection.ThisShip.ShipBase.IsInside(startingZone))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private static void LoadWinConditions()

@@ -17,6 +17,7 @@ namespace SubPhases
         public override List<GameCommandTypes> AllowedGameCommandTypes { get { return new List<GameCommandTypes>() { GameCommandTypes.ShipPlacement, GameCommandTypes.PressNext }; } }
 
         public Func<bool> SetupFilter;
+        public bool RespectFilter { get; set; }
         public Action SetupRangeHelper;
 
         private static bool inReposition;
@@ -282,6 +283,7 @@ namespace SubPhases
 
         public override void DoSelectThisShip(GenericShip ship, int mouseKeyIsPressed)
         {
+            Board.HighlightStartingZones(Phases.CurrentSubPhase.RequiredPlayer);
             Selection.ThisShip.CallOnSetupSelected();
             StartDrag();
         }
@@ -292,7 +294,7 @@ namespace SubPhases
             IsInsideStartingZone = false;
             Roster.SetRaycastTargets(false);
             Roster.AllShipsHighlightOff();
-            Board.HighlightStartingZones(Phases.CurrentSubPhase.RequiredPlayer);
+            
             Selection.ThisShip.Model.GetComponentInChildren<ObstaclesStayDetector>().checkCollisions = true;
             inReposition = true;
 
@@ -558,10 +560,13 @@ namespace SubPhases
                     }
                     result = false;
                 }
-                else if (SetupFilter != null && (!SetupFilter() && !ship.ShipBase.IsInside(StartingZone)))
+                else if (SetupFilter != null)
                 {
-                    Messages.ShowErrorToHuman("This ship's position is not valid");
-                    result = false;
+                    if((RespectFilter && !SetupFilter()|| (!RespectFilter && !SetupFilter()  && (!ship.ShipBase.IsInside(StartingZone)))))
+                    {
+                        Messages.ShowErrorToHuman("This ship's position is not valid");
+                        result = false;
+                    }
                 }
             }
 

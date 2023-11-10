@@ -146,6 +146,11 @@ namespace BoardTools
             );
         }
 
+        public static void HighlightStartingZone(Transform startingZone)
+        {
+            startingZone.gameObject.SetActive(true);
+        }
+
         public static void HighlightStartingZones(Players.PlayerNo playerNo)
         {
             TurnOffStartingZones();
@@ -276,6 +281,10 @@ namespace BoardTools
                     return StartingZoneCampaignCR;
                 case "StartingZone2":
                     return StartingZone2;
+                case "StartingZone3a":
+                    return StartingZone3a;
+                case "StartingZone4a":
+                    return StartingZone4a;
                 default:
                     return StartingZone1;
             }

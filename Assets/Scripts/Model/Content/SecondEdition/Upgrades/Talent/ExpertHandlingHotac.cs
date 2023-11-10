@@ -15,11 +15,12 @@ namespace UpgradesList.SecondEdition
         {
             FromMod = typeof(Mods.ModsList.HotacEliteImperialPilotsModSE);
             UpgradeInfo = new UpgradeCardInfo(
-                "Expert Handling Hotac",
+                "Expert Handling",
                 UpgradeType.Talent,
                 cost: 4,
                 abilityType: typeof(Abilities.SecondEdition.ExpertHandlingHotacAbility)
             );
+            NameCanonical = "experthandlinghotac";
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/Upgrades/talent/experthandling.png";
         }        
     }

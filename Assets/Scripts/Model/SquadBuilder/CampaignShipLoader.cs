@@ -100,25 +100,27 @@ namespace SquadBuilderNS
 
                                 if (squadSizeValue <= squadSize && averageInitiaveValue <= averageInitiative)
                                 {
-                                    if(pilotJson.HasField("replace"))
+                                    if (pilotJson.HasField("replace"))
                                     {
                                         string typeValue = pilotJson["replace"].str;
                                         GenericShip replaceShip = null;
                                         string replaceShipId = null;
-                                        foreach(KeyValuePair<string, GenericShip> shipEntry in Roster.Player2.Ships)
+
+                                        if (Roster.GetPlayer(PlayerNo.Player2).Ships.Where(r => r.Value.ShipTypeCanonical.Equals(typeValue)).Count() > 0)
                                         {
-                                            if(typeValue.Equals(shipEntry.Value.ShipTypeCanonical))
+                                            KeyValuePair<string, GenericShip> shipEntry = Roster.GetPlayer(PlayerNo.Player2).Ships.Where(r => r.Value.ShipTypeCanonical.Equals(typeValue)).Last();
+
+                                            replaceShip = shipEntry.Value;
+                                            replaceShipId = shipEntry.Key;
+
+                                            if (replaceShip != null)
                                             {
-                                                replaceShip = shipEntry.Value;
-                                                replaceShipId = shipEntry.Key;
+                                                Roster.RemoveDestroyedShip(replaceShipId);
+                                                deploymentGroup.Remove(replaceShip);
                                             }
                                         }
-                                        if(replaceShip!=null)
-                                        {
-                                            Roster.RemoveDestroyedShip(replaceShipId);
-                                            deploymentGroup.Remove(replaceShip);
-                                        }
-                                    }
+                                            
+                                    }                                    
                                     string shipNameXws = pilotJson["ship"].str;
 
                                     if ("random".Equals(shipNameXws))
@@ -546,6 +548,20 @@ namespace SquadBuilderNS
                             remaining = Int32.Parse(remainingStr);
                         }
                         WinCondition = new WinConditionsDestroyRule(enemyType,remaining,victoryMessage,defeatMessage);
+                    }
+                    else
+                    {
+                        WinCondition = new WinConditionsStandardRule();
+                    }
+                }
+                if ("disable".Equals(victoryJson["condition"].str))
+                {
+                    if (victoryJson.HasField("ship") && victoryJson.HasField("direction"))
+                    {
+                        string ship = victoryJson["ship"].str;
+                        string direction = victoryJson["direction"].str;
+                        Direction escapeDirection = getDirectionFromString(direction);
+                        WinCondition = new WinConditionsDisableRule(ship, escapeDirection, victoryMessage, defeatMessage);
                     }
                     else
                     {

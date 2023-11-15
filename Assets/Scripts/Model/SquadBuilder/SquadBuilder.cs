@@ -84,20 +84,27 @@ namespace SquadBuilderNS
 
         public void SaveAutosaveSquadConfigurations()
         {
-            if (!DebugManager.DebugNetworkSingleDevice)
+            if (Global.IsCampaignGame)
             {
-                for (int i = 0; i < 2; i++)
+                SquadLists[Tools.IntToPlayer(1)].SaveSquadronToFile("Campaign Autosave");
+            }
+            else
+            {
+                if (!DebugManager.DebugNetworkSingleDevice)
                 {
-                    try
+                    for (int i = 0; i < 2; i++)
                     {
-                        SquadLists[Tools.IntToPlayer(i + 1)].SaveSquadronToFile("Autosave (Player " + (i + 1) + ")");
-                    }
-                    catch (Exception)
-                    {
-                        DebugManager.DebugNetworkSingleDevice = true;
+                        try
+                        {
+                            SquadLists[Tools.IntToPlayer(i + 1)].SaveSquadronToFile("Autosave (Player " + (i + 1) + ")");
+                        }
+                        catch (Exception)
+                        {
+                            DebugManager.DebugNetworkSingleDevice = true;
+                        }
                     }
                 }
-            }
+            }            
         }
 
         public void GenerateSavedConfigurationsLocal()

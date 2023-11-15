@@ -86,7 +86,7 @@ namespace SquadBuilderNS
         {
             if (Global.IsCampaignGame)
             {
-                SquadLists[Tools.IntToPlayer(1)].SaveSquadronToFile("Campaign Autosave");
+                SquadLists[Tools.IntToPlayer(1)].SaveCampaignSquadronToFile("Campaign Autosave");
             }
             else
             {

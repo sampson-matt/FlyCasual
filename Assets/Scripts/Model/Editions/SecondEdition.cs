@@ -36,6 +36,7 @@ namespace Editions
         public override bool CanAttackBumpedTarget { get { return true; } }
         public override MovementComplexity IonManeuverComplexity { get { return MovementComplexity.Easy; } }
         public override string PathToSavedSquadrons { get { return "SavedSquadrons"; } } //RandomAiSquadrons
+        public override string PathToCampaignSquadrons { get { return "CampaignSquadrons"; } }
         public override string PathToCampaignSetup { get { return "CampaignSetup";  } }
         public override string PathToElitePilotUpgrades { get { return "ElitePilotUpgrades"; } }
 

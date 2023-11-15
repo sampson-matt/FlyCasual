@@ -341,6 +341,21 @@ namespace SquadBuilderNS
             File.WriteAllText(filePath, GetSquadInJson(squad).ToString());
         }
 
+        public static void SaveCampaignSquadronToFile(SquadList squad, string squadName)
+        {
+            squad.Name = CleanFileName(squadName);
+
+            // check that directory exists, if not create it
+            string directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/CampaignSquadrons";
+            if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
+
+            string filePath = $"{directoryPath}/{squad.Name}.json";
+
+            if (File.Exists(filePath)) File.Delete(filePath);
+
+            File.WriteAllText(filePath, GetSquadInJson(squad).ToString());
+        }
+
         private static string CleanFileName(string fileName)
         {
             return Path.GetInvalidFileNameChars().Aggregate(fileName, (current, c) => current.Replace(c.ToString(), string.Empty));

@@ -35,8 +35,16 @@ namespace SquadBuilderNS
         private List<JSONObject> GetSavedSquadsJsons()
         {
             List<JSONObject> savedSquadsJsons = new List<JSONObject>();
-
-            string directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToSavedSquadrons;
+            string directoryPath = "";
+            if (Global.IsCampaignGame)
+            {
+                directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToCampaignSquadrons;
+            }
+            else
+            {
+                directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToSavedSquadrons;
+            }
+            
             if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
 
             foreach (var filePath in Directory.GetFiles(directoryPath))
@@ -110,8 +118,14 @@ namespace SquadBuilderNS
         private JSONObject GetSavedSquadJson(string fileName)
         {
             JSONObject squadJson = null;
-
-            string directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToSavedSquadrons;
+            string directoryPath = "";
+            if (Global.IsCampaignGame)
+            {
+                directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToCampaignSquadrons;
+            } else
+            {
+                directoryPath = Application.persistentDataPath + "/" + Edition.Current.Name + "/" + Edition.Current.PathToSavedSquadrons;
+            }
             if (!Directory.Exists(directoryPath)) Directory.CreateDirectory(directoryPath);
 
             string filePath = directoryPath + "/" + fileName;

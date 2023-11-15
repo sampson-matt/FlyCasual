@@ -76,6 +76,11 @@ namespace SquadBuilderNS
             SquadJsonHelper.SaveSquadronToFile(this, squadName);
         }
 
+        public void SaveCampaignSquadronToFile(string squadName)
+        {
+            SquadJsonHelper.SaveCampaignSquadronToFile(this, squadName);
+        }
+
         public SquadListShip AddShip(GenericShip ship)
         {
             SquadListShip newShip = new SquadListShip(ship, this);

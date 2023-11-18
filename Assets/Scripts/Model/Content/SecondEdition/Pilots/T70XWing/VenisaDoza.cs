@@ -48,7 +48,7 @@ namespace Abilities.SecondEdition
             if (weapon is GenericSpecialWeapon)
             {
                 var specialWeapon = weapon as GenericSpecialWeapon;
-                if (specialWeapon.UpgradeInfo.HasType(UpgradeType.Missile) || specialWeapon.UpgradeInfo.HasType(UpgradeType.Torpedo) && Board.GetShipsInArcAtRange(HostShip, ArcType.Rear, new UnityEngine.Vector2(0,4),Team.Type.Enemy).Contains(target))
+                if ((specialWeapon.UpgradeInfo.HasType(UpgradeType.Missile) || specialWeapon.UpgradeInfo.HasType(UpgradeType.Torpedo)) && Board.GetShipsInArcAtRange(HostShip, ArcType.Rear, new UnityEngine.Vector2(0,4),Team.Type.Enemy).Contains(target))
                 {
                     minRange = 1;
                     maxRange = 2;

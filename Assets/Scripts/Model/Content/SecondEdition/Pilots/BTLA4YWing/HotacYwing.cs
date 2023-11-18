@@ -27,6 +27,7 @@ namespace Ship
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) }; 
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Missile);
                 ShipInfo.UpgradeIcons.Upgrades.Add(UpgradeType.Gunner);
+                ShipAbilities.Add(new Abilities.SecondEdition.HotacPilotUpgradeAbility());
             }
             public void RecheckSlots()
             {
@@ -37,15 +38,18 @@ namespace Ship
                     {
                         case 3:
                             UpgradeBar.AddSlot(UpgradeType.Pilot);
+                            UpgradeBar.AddSlot(UpgradeType.Talent);
                             break;
                         case 4:
                             UpgradeBar.AddSlot(UpgradeType.Modification);
                             break;
                         case 5:
                             UpgradeBar.AddSlot(UpgradeType.Pilot);
+                            UpgradeBar.AddSlot(UpgradeType.Talent);
                             break;
                         case 6:
                             UpgradeBar.AddSlot(UpgradeType.Pilot);
+                            UpgradeBar.AddSlot(UpgradeType.Talent);
                             UpgradeBar.AddSlot(UpgradeType.Modification);
                             break;
                         default:
@@ -59,15 +63,19 @@ namespace Ship
                     {
                         case 2:
                             UpgradeBar.RemoveSlot(UpgradeType.Pilot);
+                            UpgradeBar.RemoveSlot(UpgradeType.Talent);
+                            UpgradeBar.RemoveSlot(UpgradeType.Pilot);
                             break;
                         case 3:
                             UpgradeBar.RemoveSlot(UpgradeType.Modification);
                             break;
                         case 4:
                             UpgradeBar.RemoveSlot(UpgradeType.Pilot);
+                            UpgradeBar.RemoveSlot(UpgradeType.Talent);
                             break;
                         case 5:
                             UpgradeBar.RemoveSlot(UpgradeType.Pilot);
+                            UpgradeBar.RemoveSlot(UpgradeType.Talent);
                             UpgradeBar.RemoveSlot(UpgradeType.Modification);
                             break;
                         default:

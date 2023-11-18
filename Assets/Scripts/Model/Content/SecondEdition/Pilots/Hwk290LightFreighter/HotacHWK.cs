@@ -22,13 +22,14 @@ namespace Ship
                     "Hotac HWK",
                     3,
                     0,
-                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Illicit, UpgradeType.Init, UpgradeType.Pilot }
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Illicit, UpgradeType.Init, UpgradeType.Pilot, UpgradeType.Talent }
                 );
 
                 ImageUrl = "https://infinitearenas.com/xw2/images/pilots/rebelscout.png";
 
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ProtectAction)));
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
+                ShipAbilities.Add(new Abilities.SecondEdition.HotacPilotUpgradeAbility());
             }
             public void RecheckSlots()
             {
@@ -45,6 +46,7 @@ namespace Ship
                             break;
                         case 6:
                             UpgradeBar.AddSlot(UpgradeType.Pilot);
+                            UpgradeBar.AddSlot(UpgradeType.Talent);
                             UpgradeBar.AddSlot(UpgradeType.Modification);
                             break;
                         default:
@@ -64,6 +66,7 @@ namespace Ship
                             break;
                         case 5:
                             UpgradeBar.RemoveSlot(UpgradeType.Pilot);
+                            UpgradeBar.RemoveSlot(UpgradeType.Talent);
                             UpgradeBar.RemoveSlot(UpgradeType.Modification);
                             break;
                         default:

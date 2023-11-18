@@ -20,7 +20,7 @@ namespace SquadBuilderNS
             if (slot.Type == UpgradeType.Pilot)
             {
                 filteredUpgrades = Global.SquadBuilder.Database.AllUpgrades.Where(n =>
-                     (n.Instance.HasType(slot.Type) || n.Instance.HasType(UpgradeType.Talent))
+                     (n.Instance.HasType(slot.Type))
                      && n.Instance.UpgradeInfo.Restrictions.IsAllowedForShip(Global.SquadBuilder.CurrentShip.Instance)
                      && n.Instance.IsAllowedForShip(Global.SquadBuilder.CurrentShip.Instance)
                      && n.Instance.HasEnoughSlotsInShip(Global.SquadBuilder.CurrentShip.Instance)

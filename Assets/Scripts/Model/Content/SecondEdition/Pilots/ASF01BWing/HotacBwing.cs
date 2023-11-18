@@ -19,7 +19,7 @@ namespace Ship
                     "Hotac B-Wing",
                     3,
                     5,
-                    extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Init, UpgradeType.Pilot }
+                    extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Init, UpgradeType.Pilot, UpgradeType.Talent }
                 );
 
                 ImageUrl = "https://infinitearenas.com/xw2/images/pilots/bladesquadronveteran.png";
@@ -28,6 +28,7 @@ namespace Ship
                 RequiredMods = new List<Type>() { typeof(HotacPilotsModSE) };
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Title);
+                ShipAbilities.Add(new Abilities.SecondEdition.HotacPilotUpgradeAbility());
                 ModelInfo.SkinName = "Blue";
             }
             public void RecheckSlots()
@@ -42,9 +43,11 @@ namespace Ship
                             break;
                         case 5:
                             UpgradeBar.AddSlot(UpgradeType.Pilot);
+                            UpgradeBar.AddSlot(UpgradeType.Talent);
                             break;
                         case 6:
                             UpgradeBar.AddSlot(UpgradeType.Pilot);
+                            UpgradeBar.AddSlot(UpgradeType.Talent);
                             UpgradeBar.AddSlot(UpgradeType.Modification);
                             break;
                         default:
@@ -61,9 +64,11 @@ namespace Ship
                             break;
                         case 4:
                             UpgradeBar.RemoveSlot(UpgradeType.Pilot);
+                            UpgradeBar.RemoveSlot(UpgradeType.Talent);
                             break;
                         case 5:
                             UpgradeBar.RemoveSlot(UpgradeType.Pilot);
+                            UpgradeBar.RemoveSlot(UpgradeType.Talent);
                             UpgradeBar.RemoveSlot(UpgradeType.Modification);
                             break;
                         default:

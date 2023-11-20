@@ -129,7 +129,7 @@ namespace Abilities.SecondEdition
 
         private void OnRemovePreInstallUpgrade(GenericUpgrade upgrade)
         {
-            if (HardpointSlotTypes.Contains(upgrade.UpgradeInfo.UpgradeTypes.First()))
+            if (upgrade != null  && HardpointSlotTypes.Contains(upgrade.UpgradeInfo.UpgradeTypes.First()))
             {
                 HardpointSlotTypes
                     .Where(slot => slot != upgrade.UpgradeInfo.UpgradeTypes.First())

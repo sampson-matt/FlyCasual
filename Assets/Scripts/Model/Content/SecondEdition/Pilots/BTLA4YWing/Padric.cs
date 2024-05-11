@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Padric",
                     3,
-                    34,
+                    32,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.PadricAbility),
                     extraUpgradeIcons: new List<UpgradeType>()

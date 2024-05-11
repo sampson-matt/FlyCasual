@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.Hwk290LightFreighter
             (
                 "Tapusk",
                 5,
-                36,
+                33,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.TapuskAbility),
                 extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Illicit },

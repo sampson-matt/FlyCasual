@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Old Teroch",
                     5,
-                    56,
+                    57,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.OldTerochAbility),
                     tags: new List<Tags>

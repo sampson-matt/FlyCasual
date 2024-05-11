@@ -17,7 +17,7 @@ namespace Ship.SecondEdition.Hwk290LightFreighter
             PilotInfo = new PilotCardInfo(
                 "Gamut Key",
                 3,
-                34,
+                31,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.GamutKeyPilotAbility),
                 extraUpgradeIcons: new List<UpgradeType>(){ UpgradeType.Talent, UpgradeType.Illicit },

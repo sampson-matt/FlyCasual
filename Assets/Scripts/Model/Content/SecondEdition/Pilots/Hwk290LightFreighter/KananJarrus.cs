@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Kanan Jarrus",
                     3,
-                    42,
+                    40,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KananJarrusHwk290Ability),
                     tags: new List<Tags>

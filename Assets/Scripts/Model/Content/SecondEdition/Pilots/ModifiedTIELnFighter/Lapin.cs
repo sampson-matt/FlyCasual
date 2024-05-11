@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Lapin",
                     3,
-                    25,
+                    24,
                     pilotTitle: "Stickler for Details",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LapinAbility),

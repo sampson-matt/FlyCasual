@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Fenn Rau",
                     6,
-                    68,
+                    69,
                     isLimited: true,
                     tags: new List<Tags>
                     {

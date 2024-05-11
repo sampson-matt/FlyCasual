@@ -14,7 +14,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Clone Captain Rex",
                 UpgradeType.Gunner,
-                cost: 2,
+                cost: 1,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Republic),
                 abilityType: typeof(Abilities.SecondEdition.CloneCaptainRexAbility)

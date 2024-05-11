@@ -17,7 +17,7 @@ namespace Ship.SecondEdition.Eta2Actis
             PilotInfo = new PilotCardInfo(
                 "Obi-Wan Kenobi",
                 5,
-                48,
+                49,
                 true,
                 force: 3,
                 abilityType: typeof(Abilities.SecondEdition.ObiWanKenobiActisAbility),

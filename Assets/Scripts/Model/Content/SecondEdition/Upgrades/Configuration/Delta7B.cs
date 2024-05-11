@@ -28,9 +28,9 @@ namespace UpgradesList.SecondEdition
                 {1, 15},
                 {2, 15},
                 {3, 15},
-                {4, 17},
-                {5, 20},
-                {6, 24}
+                {4, 16},
+                {5, 18},
+                {6, 22}
             };
 
             UpgradeInfo.Cost = initiativeToCost[ship.PilotInfo.Initiative];

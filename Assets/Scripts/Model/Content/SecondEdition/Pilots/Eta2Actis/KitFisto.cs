@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.Eta2Actis
             PilotInfo = new PilotCardInfo(
                 "Kit Fisto",
                 4,
-                43,
+                42,
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.KitFistoActisAbility),

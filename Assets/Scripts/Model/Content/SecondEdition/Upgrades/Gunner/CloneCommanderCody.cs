@@ -11,7 +11,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
 				"Clone Commander Cody",
                 UpgradeType.Gunner,
-                cost: 4,
+                cost: 3,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Republic),
                 abilityType: typeof(Abilities.SecondEdition.CloneCommanderCodyAbility)

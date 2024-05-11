@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Bravo Flight Officer",
                     2,
-                    29
+                    28
                 );
             }
         }

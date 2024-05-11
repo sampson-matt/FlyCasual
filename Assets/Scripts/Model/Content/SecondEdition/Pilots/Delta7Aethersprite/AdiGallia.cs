@@ -14,7 +14,7 @@ namespace Ship.SecondEdition.Delta7Aethersprite
             PilotInfo = new PilotCardInfo(
                 "Adi Gallia",
                 5,
-                45,
+                46,
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.AdiGalliaAbility),

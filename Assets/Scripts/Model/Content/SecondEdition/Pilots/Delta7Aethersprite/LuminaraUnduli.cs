@@ -14,7 +14,7 @@ namespace Ship.SecondEdition.Delta7Aethersprite
             PilotInfo = new PilotCardInfo(
                 "Luminara Unduli",
                 4,
-                41,
+                39,
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.LuminaraUnduliAbility),

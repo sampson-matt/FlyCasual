@@ -14,7 +14,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Ursa Wren",
                 UpgradeType.Gunner,
-                cost: 7,
+                cost: 4,
                 restriction: new FactionRestriction(Faction.Republic, Faction.Separatists),
                 abilityType: typeof(Abilities.SecondEdition.UrsaWrenGunnerAbility)
             );

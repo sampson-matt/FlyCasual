@@ -1,4 +1,4 @@
-﻿using ActionsList;
+﻿using System.Collections.Generic;
 using Ship;
 using System;
 using Tokens;
@@ -6,7 +6,7 @@ using Upgrade;
 
 namespace UpgradesList.SecondEdition
 {
-    public class PlasmaTorpedoes : GenericSpecialWeapon
+    public class PlasmaTorpedoes : GenericSpecialWeapon, IVariableCost
     {
         public PlasmaTorpedoes() : base()
         {
@@ -25,6 +25,22 @@ namespace UpgradesList.SecondEdition
             );
 
             ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/6f/83/6f83abcd-9460-4208-a439-f6a81597f5f0/swz40_card-plasma-torpedoes.png";
+        }
+
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> initiativeToCost = new Dictionary<int, int>()
+            {
+                {0, 6},
+                {1, 6},
+                {2, 6},
+                {3, 7},
+                {4, 7},
+                {5, 7},
+                {6, 7}
+            };
+
+            UpgradeInfo.Cost = initiativeToCost[ship.PilotInfo.Initiative];
         }
     }
 }

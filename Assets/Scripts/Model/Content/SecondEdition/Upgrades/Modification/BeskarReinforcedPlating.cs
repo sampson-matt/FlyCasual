@@ -4,10 +4,11 @@ using Content;
 using Ship;
 using SubPhases;
 using Upgrade;
+using System.Collections.Generic;
 
 namespace UpgradesList.SecondEdition
 {
-    public class BeskarReinforcedPlating : GenericUpgrade
+    public class BeskarReinforcedPlating : GenericUpgrade, IVariableCost
     {
         public BeskarReinforcedPlating() : base()
         {
@@ -22,6 +23,19 @@ namespace UpgradesList.SecondEdition
             );
 
             ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/2/2b/Beskarreinforcedplating.png";
+        }
+
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> agilityToCost = new Dictionary<int, int>()
+            {
+                {0, 2},
+                {1, 3},
+                {2, 4},
+                {3, 5}
+            };
+
+            UpgradeInfo.Cost = agilityToCost[ship.ShipInfo.Agility];
         }
     }
 }

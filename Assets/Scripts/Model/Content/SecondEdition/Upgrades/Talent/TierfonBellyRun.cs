@@ -1,13 +1,13 @@
 ﻿using ActionsList;
 using Obstacles;
 using Ship;
-using System;
+using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
 
 namespace UpgradesList.SecondEdition
 {
-    public class TierfonBellyRun : GenericUpgrade
+    public class TierfonBellyRun : GenericUpgrade, IVariableCost
     {
         public TierfonBellyRun() : base()
         {
@@ -23,7 +23,23 @@ namespace UpgradesList.SecondEdition
             );
 
             ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/e1/fc/e1fc1361-b9c1-4c44-8144-1bb7a16da4f3/swz85_upgrade_tierfonbellyrun.png";
-        }        
+        }
+
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> initiativeToCost = new Dictionary<int, int>()
+            {
+                {0, 0},
+                {1, 0},
+                {2, 0},
+                {3, 0},
+                {4, 1},
+                {5, 1},
+                {6, 1}
+            };
+
+            UpgradeInfo.Cost = initiativeToCost[ship.PilotInfo.Initiative];
+        }
     }
 }
 

@@ -4,7 +4,7 @@ using Ship;
 
 namespace UpgradesList.SecondEdition
 {
-    public class Outmaneuver : GenericUpgrade
+    public class Outmaneuver : GenericUpgrade, IVariableCost
     {
         public Outmaneuver() : base()
         {
@@ -14,7 +14,23 @@ namespace UpgradesList.SecondEdition
                 cost: 6,
                 abilityType: typeof(Abilities.SecondEdition.OutmaneuverAbilitySE)
             );
-        }        
+        }
+
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> initiativeToCost = new Dictionary<int, int>()
+            {
+                {0, 5},
+                {1, 5},
+                {2, 5},
+                {3, 5},
+                {4, 6},
+                {5, 6},
+                {6, 6}
+            };
+
+            UpgradeInfo.Cost = initiativeToCost[ship.PilotInfo.Initiative];
+        }
     }
 }
 

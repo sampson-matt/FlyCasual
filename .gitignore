@@ -80,3 +80,6 @@ ExportedObj/
 *.pdb
 
 /.collabignore
+
+ProjectSettings.asset
+default-2021.dwlt

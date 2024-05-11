@@ -27,11 +27,11 @@ namespace UpgradesList.SecondEdition
             {
                 {0, 2},
                 {1, 4},
-                {2, 6},
-                {3, 8},
-                {4, 10},
-                {5, 12},
-                {6, 14}
+                {2, 5},
+                {3, 7},
+                {4, 9},
+                {5, 10},
+                {6, 12}
             };
 
             UpgradeInfo.Cost = initiativeToCost[ship.PilotInfo.Initiative];

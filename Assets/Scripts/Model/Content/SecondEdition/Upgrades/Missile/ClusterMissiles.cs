@@ -8,7 +8,7 @@ using Upgrade;
 
 namespace UpgradesList.SecondEdition
 {
-    public class ClusterMissiles : GenericSpecialWeapon
+    public class ClusterMissiles : GenericSpecialWeapon, IVariableCost
     {
         public ClusterMissiles() : base()
         {
@@ -25,7 +25,23 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.CluseterMissilesAbility)
             );
-        }        
+        }
+
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> initiativeToCost = new Dictionary<int, int>()
+            {
+                {0, 3},
+                {1, 3},
+                {2, 3},
+                {3, 4},
+                {4, 4},
+                {5, 4},
+                {6, 4}
+            };
+
+            UpgradeInfo.Cost = initiativeToCost[ship.PilotInfo.Initiative];
+        }
     }
 }
 

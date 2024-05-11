@@ -1,9 +1,11 @@
 ﻿using Tokens;
 using Upgrade;
+using Ship;
+using System.Collections.Generic;
 
 namespace UpgradesList.SecondEdition
 {
-    public class MagPulseWarheads : GenericSpecialWeapon
+    public class MagPulseWarheads : GenericSpecialWeapon, IVariableCost
     {
         public MagPulseWarheads() : base()
         {
@@ -22,6 +24,22 @@ namespace UpgradesList.SecondEdition
             );
 
             ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/8f/95/8f95b9f7-5990-4060-acea-0fc73d026d2a/swz62_mag-pulse-warheads.png";
+        }
+
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> initiativeToCost = new Dictionary<int, int>()
+            {
+                {0, 4},
+                {1, 4},
+                {2, 4},
+                {3, 5},
+                {4, 5},
+                {5, 5},
+                {6, 5}
+            };
+
+            UpgradeInfo.Cost = initiativeToCost[ship.PilotInfo.Initiative];
         }
     }
 }

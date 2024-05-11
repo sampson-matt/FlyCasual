@@ -18,7 +18,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "General Hux",
                 UpgradeType.Crew,
-                cost: 3,
+                cost: 2,
                 isLimited: true,
                 restrictions: new UpgradeCardRestrictions(
                     new FactionRestriction(Faction.FirstOrder),

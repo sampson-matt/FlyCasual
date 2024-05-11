@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Kylo Ren",
                 UpgradeType.Crew,
-                cost: 9,
+                cost: 8,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.FirstOrder),
                 abilityType: typeof(Abilities.SecondEdition.KyloRenCrewAbility),

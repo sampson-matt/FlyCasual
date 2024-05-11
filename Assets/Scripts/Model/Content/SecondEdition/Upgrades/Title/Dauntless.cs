@@ -13,7 +13,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Dauntless",
                 UpgradeType.Title,
-                cost: 3,
+                cost: 2,
                 isLimited: true,
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.VT49Decimator.VT49Decimator)),
                 abilityType: typeof(Abilities.SecondEdition.DauntlessAbility)

@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Juno Eclipse",
                     5,
-                    43,
+                    44,
                     pilotTitle: "Corulag's Finest",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.JunoEclipseAbility),

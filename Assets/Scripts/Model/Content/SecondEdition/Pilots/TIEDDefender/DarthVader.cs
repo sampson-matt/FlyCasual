@@ -12,7 +12,7 @@ namespace Ship.SecondEdition.TIEDDefender
             PilotInfo = new PilotCardInfo(
                 "Darth Vader",
                 6,
-                115,
+                116,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.DarthVaderDefenderAbility),
                 tags: new List<Tags>

@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Rear Admiral Chiraneau",
                     5,
-                    75,
+                    76,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.RearAdmiralCharaneauAbility),
                     extraUpgradeIcon: UpgradeType.Talent

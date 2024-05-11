@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Carida Academy Cadet",
                     1,
-                    33
+                    32
                 );
             }
         }

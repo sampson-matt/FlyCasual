@@ -18,7 +18,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Leia Organa",
                     5,
-                    76,
+                    74,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LeiaOrganaPilotAbility),
                     tags: new List<Tags>

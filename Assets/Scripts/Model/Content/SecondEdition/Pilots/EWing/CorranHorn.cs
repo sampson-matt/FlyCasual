@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Corran Horn",
                     5,
-                    59,
+                    60,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CorranHornAbility),
                     extraUpgradeIcon: UpgradeType.Talent

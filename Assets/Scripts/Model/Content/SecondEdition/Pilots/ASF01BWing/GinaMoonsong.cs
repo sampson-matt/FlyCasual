@@ -19,7 +19,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Gina Moonsong",
                     5,
-                    45,
+                    47,
                     isLimited: true,
                     abilityType: typeof(GinaMoonsongAbility),
                     extraUpgradeIcon: UpgradeType.Talent

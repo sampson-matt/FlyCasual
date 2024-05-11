@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Tycho Celchu",
                     5,
-                    36,
+                    38,
                     pilotTitle: "Son of Alderaan",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TychoCelchuAbility),

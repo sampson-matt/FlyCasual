@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.DroidTriFighter
             PilotInfo = new PilotCardInfo(
                 "Volan Das",
                 5,
-                40,
+                41,
                 true,
                 extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                 abilityType: typeof(Abilities.SecondEdition.VolanDasAbility),

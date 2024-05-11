@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Onderon Oppressor",
                     3,
-                    40,
+                    39,
                     limited: 2,
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Crew, UpgradeType.Device },
                     abilityType: typeof(Abilities.SecondEdition.OnderonOppressorAbility)

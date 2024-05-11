@@ -15,7 +15,7 @@ namespace Ship.SecondEdition.DroidTriFighter
             PilotInfo = new PilotCardInfo(
                 "Phlac-Arphocc Prototype",
                 5,
-                40,
+                41,
                 limited: 2,
                 extraUpgradeIcon: UpgradeType.Talent,
                 abilityType: typeof(Abilities.SecondEdition.PhlacArphoccPrototypeSoCAbility),

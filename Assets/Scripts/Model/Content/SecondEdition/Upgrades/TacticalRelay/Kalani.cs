@@ -20,7 +20,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Kalani",
                 UpgradeType.TacticalRelay,
-                cost: 5,
+                cost: 3,
                 isLimited: true,
                 isSolitary: true,
                 addAction: new ActionInfo(typeof(CalculateAction), ActionColor.White, this),

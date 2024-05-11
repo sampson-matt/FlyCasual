@@ -10,7 +10,7 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
             PilotInfo = new PilotCardInfo(
                 "DFS-081",
                 3,
-                23,
+                22,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.Dfs081Ability),
                 pilotTitle: "Preservation Programming"

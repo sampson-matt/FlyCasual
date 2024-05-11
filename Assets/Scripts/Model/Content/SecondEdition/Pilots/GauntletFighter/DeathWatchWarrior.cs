@@ -15,7 +15,7 @@ namespace Ship
                 (
                     "Death Watch Warrior",
                     2,
-                    54,
+                    53,
                     pilotTitle: "Fanatical Adherent",
                     isLimited: true,
                     tags: new List<Tags>

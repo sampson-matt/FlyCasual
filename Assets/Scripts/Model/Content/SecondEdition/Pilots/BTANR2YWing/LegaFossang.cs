@@ -16,7 +16,7 @@ namespace Ship
                 (
                     "Lega Fossang",
                     3,
-                    32,
+                    31,
                     extraUpgradeIcon: UpgradeType.Talent,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LegaFossangAbility)

@@ -11,7 +11,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "New Republic Patrol",
                     3,
-                    31,
+                    30,
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 

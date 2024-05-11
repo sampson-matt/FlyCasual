@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Poe Dameron",
                     6,
-                    65,
+                    67,
                     isLimited: true,
                     charges: 2,
                     regensCharges: 1,

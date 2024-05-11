@@ -12,7 +12,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Rey's Millennium Falcon",
                 UpgradeType.Title,
-                cost: 1,
+                cost: 3,
                 isLimited: true,
                 restrictions: new UpgradeCardRestrictions(
                     new ShipRestriction(typeof(Ship.SecondEdition.ScavengedYT1300.ScavengedYT1300)),

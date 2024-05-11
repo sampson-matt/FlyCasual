@@ -18,7 +18,7 @@ namespace Ship
                 (
                     "Shasa Zaro",
                     3,
-                    33,
+                    32,
                     extraUpgradeIcon: UpgradeType.Talent,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ShasaZaroAbility)

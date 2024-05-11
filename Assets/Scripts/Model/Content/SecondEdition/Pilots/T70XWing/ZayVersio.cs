@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Zay Versio",
                     3,
-                    47,
+                    46,
                     pilotTitle: "Her Father's Daughter",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ZayVersioAbility),

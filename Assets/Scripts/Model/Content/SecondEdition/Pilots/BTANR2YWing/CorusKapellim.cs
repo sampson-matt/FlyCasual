@@ -18,7 +18,7 @@ namespace Ship
                 (
                     "Corus Kapellim",
                     1,
-                    32,
+                    31,
                     extraUpgradeIcon: UpgradeType.Talent,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CorusKapellimAbility)

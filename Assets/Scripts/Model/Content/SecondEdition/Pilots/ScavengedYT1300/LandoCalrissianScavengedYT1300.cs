@@ -18,7 +18,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Lando Calrissian",
                     5,
-                    69,
+                    70,
                     charges: 3,
                     regensCharges: 1,
                     isLimited: true,

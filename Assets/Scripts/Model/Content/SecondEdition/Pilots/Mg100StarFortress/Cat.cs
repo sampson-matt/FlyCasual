@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Cat",
                     1,
-                    51,
+                    50,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CatAbility)
                 );

@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Larma D'Acy",
                 UpgradeType.Crew,
-                cost: 4,
+                cost: 2,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Resistance),
                 abilityType: typeof(Abilities.SecondEdition.LarmaDAcyAbility)

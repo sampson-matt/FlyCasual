@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Zizi Tlo",
                     5,
-                    43,
+                    44,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ZiziTloAbility),
                     charges: 1,

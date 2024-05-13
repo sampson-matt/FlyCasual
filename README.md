@@ -12,7 +12,7 @@ Added Features:
 
 Notes:
 * I'm learning Unity, C#, and Github as I go, so things will be slow, inconsistent and error prone
-* If anyone wants to throw any money my way for some reason you can do that [here](patreon.com/user?u=84527220).
+* If anyone wants to throw any money my way for some reason you can do that [here](https://patreon.com/user?u=84527220).
 
 Thanks:
 * Sandrem for creating FlyCasual

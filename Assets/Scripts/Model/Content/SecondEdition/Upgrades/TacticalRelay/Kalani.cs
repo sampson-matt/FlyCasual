@@ -34,8 +34,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Separatists,
                 new Vector2(200, 1)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/81/b3/81b32459-3421-4da7-8a45-9bbdbcf1bc31/swz71_upgrade_kalani.png";
         }        
     }
 }
@@ -90,7 +88,7 @@ namespace Abilities.SecondEdition
                 GetAiPriority,
                 HostShip.Owner.PlayerNo,
                 name: "Kalani",
-                description: "Choose a ship and spend 1 charge - it acquires a lock on enemy ship and gains 1 stress token",
+                description: "Choose a ship and spend 1 charge - it acquires a lock on enemy ship, then gains 1 stress token",
                 imageSource: HostUpgrade
             );
         }
@@ -101,6 +99,8 @@ namespace Abilities.SecondEdition
 
             HostUpgrade.State.SpendCharge();
             ActionsHolder.AcquireTargetLock(TargetShip, LastMovedShip, AssignStress, AssignStress);
+
+            Selection.ChangeActiveShip(LastMovedShip);
         }
 
         private void AssignStress()

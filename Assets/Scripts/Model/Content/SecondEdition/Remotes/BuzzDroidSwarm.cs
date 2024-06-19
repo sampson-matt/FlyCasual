@@ -115,6 +115,7 @@ namespace Abilities.SecondEdition
             }
             else
             {
+                Selection.ChangeActiveShip(HostShip);
                 HostShip.IsAttackPerformed = true;
                 Triggers.FinishTrigger();
             }

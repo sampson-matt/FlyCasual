@@ -115,10 +115,25 @@ namespace Abilities.SecondEdition
             }
             else
             {
+                SelectedShips.Clear();
+                ShipOneTokens.Clear();
+                ShipTwoTokens.Clear();
+                ShipIndex = 0;
+                TokenIndex = 0;
                 SelectedShips.AddRange(Selection.MultiSelectedShips);
                 ShipOneTokens.AddRange(SelectedShips[0].Tokens.GetTokensByColor(TokenColors.Red, TokenColors.Orange));
                 ShipTwoTokens.AddRange(SelectedShips[1].Tokens.GetTokensByColor(TokenColors.Red, TokenColors.Orange));
-                AskTransferToken(ShipIndex, TokenIndex, callback);
+                if (ShipOneTokens.Count == 0)
+                {
+                    ShipIndex++;
+                }
+                if (ShipOneTokens.Count > 0 || ShipTwoTokens.Count > 0) { 
+                    AskTransferToken(ShipIndex, TokenIndex, callback);
+                }
+                else
+                {
+                    callback();
+                }
             }
         }
 
@@ -168,6 +183,10 @@ namespace Abilities.SecondEdition
                 token = ShipOneTokens[TokenIndex];
                 if(TokenIndex == ShipOneTokens.Count - 1)
                 {
+                    if (ShipTwoTokens.Count == 0) 
+                    { 
+                        callAgain = false; 
+                    }
                     ShipIndex++;
                     TokenIndex = 0;
                 } 

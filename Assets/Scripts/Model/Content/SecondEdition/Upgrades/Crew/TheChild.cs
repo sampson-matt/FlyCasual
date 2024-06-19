@@ -52,9 +52,23 @@ namespace Abilities.SecondEdition
         {
             if (Combat.DamageInfo.IsDefenderSufferedDamage && HostShip.State.Force < HostShip.State.MaxForce)
             {
-                Messages.ShowInfo($"{HostUpgrade.UpgradeInfo.Name}: {HostShip.PilotInfo.PilotName} recovers 1 Force");
-                HostShip.State.RestoreForce();
+                Triggers.RegisterTrigger(
+                        new Trigger()
+                        {
+                            Name = "Recover Force",
+                            TriggerType = TriggerTypes.OnAttackFinish,
+                            TriggerOwner = HostShip.Owner.PlayerNo,
+                            EventHandler = ForceRegen
+                        }
+                    );                
             }
+        }
+
+        private void ForceRegen(object sender, EventArgs e)
+        {
+            Messages.ShowInfo($"{HostUpgrade.UpgradeInfo.Name}: {HostShip.PilotInfo.PilotName} recovers 1 Force");
+            HostShip.State.RestoreForce();
+            Triggers.FinishTrigger();
         }
 
         private void RegisterAskToAssignConditions()

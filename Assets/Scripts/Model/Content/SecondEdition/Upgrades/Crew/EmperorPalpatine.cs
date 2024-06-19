@@ -61,7 +61,8 @@ namespace Abilities.SecondEdition
         {
             GenericShip activeShip = Combat.AttackStep == CombatStep.Attack ? Combat.Attacker : Combat.Defender;
             return Tools.IsFriendly(activeShip, HostShip)
-                && activeShip != HostShip                
+                && activeShip != HostShip   
+                && Combat.CurrentDiceRoll.Focuses > 0
                 && HostShip.State.Force > 0;
         }
 

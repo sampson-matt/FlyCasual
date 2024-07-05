@@ -19,7 +19,7 @@ namespace Ship
                     "Corus Kapellim",
                     1,
                     31,
-                    extraUpgradeIcon: UpgradeType.Talent,
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CorusKapellimAbility)
                 );

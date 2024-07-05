@@ -18,7 +18,7 @@ namespace Ship
                     "Zorii Bliss",
                     5,
                     38,
-                    extraUpgradeIcon: UpgradeType.Talent,
+                    extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     isLimited: true,
                     charges: 1,
                     regensCharges: 1,

@@ -139,7 +139,7 @@ namespace Abilities
         /// <summary>
         /// Register trigger of ability
         /// </summary>
-        public Trigger RegisterAbilityTrigger(TriggerTypes triggerType, EventHandler eventHandler, System.EventArgs e = null, bool isSkippable = false, string customTriggerName = null)
+        public Trigger RegisterAbilityTrigger(TriggerTypes triggerType, EventHandler eventHandler, System.EventArgs e = null, bool isSkippable = false, string customTriggerName = null, bool isPriority = false)
         {
             var trigger = new Trigger()
             {
@@ -149,7 +149,8 @@ namespace Abilities
                 EventHandler = eventHandler,
                 Sender = hostReal,
                 EventArgs = e,
-                Skippable = isSkippable
+                Skippable = isSkippable,
+                IsPriority = isPriority
             };
             Triggers.RegisterTrigger(trigger);
             return trigger;

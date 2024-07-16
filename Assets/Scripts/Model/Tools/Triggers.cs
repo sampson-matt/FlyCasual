@@ -116,6 +116,7 @@ public enum TriggerTypes
     OnBombWillBeDropped,
     OnBombWasDropped,
     OnBombWasLaunched,
+    OnRemoteWasLaunched,
     OnCheckDropOfSecondDevice,
 
     OnUndockingFinish,
@@ -134,6 +135,8 @@ public class Trigger
     public bool Skippable;
 
     public bool IsCurrent;
+
+    public bool IsPriority;
 
     public void Fire()
     {
@@ -250,6 +253,11 @@ public static partial class Triggers
                 {
                     FireTrigger(currentTriggersList[0]);
                 }
+                //TODO fix this kludgey crap
+                else if(currentTriggersList.Where(n=>n.IsPriority).ToList<Trigger>().Count >0)
+                {
+                    FireTrigger(currentTriggersList.Where(n => n.IsPriority).ToList<Trigger>()[0]);
+                }
                 else
                 {
                     RunDecisionSubPhase();
@@ -284,11 +292,10 @@ public static partial class Triggers
         Trigger currentTrigger = currentStackLevel.GetCurrentTrigger();
 
         currentStackLevel.RemoveTrigger(currentTrigger);
-        currentStackLevel.IsActive = false;
+            currentStackLevel.IsActive = false;
+            CurrentTrigger = null;
 
-        CurrentTrigger = null;
-
-        ResolveTriggers(currentTrigger.TriggerType);
+            ResolveTriggers(currentTrigger.TriggerType);
     }
 
     // PRIVATE

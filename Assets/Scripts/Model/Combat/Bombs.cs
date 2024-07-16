@@ -320,14 +320,14 @@ namespace Bombs
             RegisterBombDropTriggerIfAvailable(ship, TriggerTypes.OnMovementActivationStart);
         }
 
-        public static void RegisterBombDropTriggerIfAvailable(GenericShip ship, TriggerTypes triggerType, UpgradeSubType subType = UpgradeSubType.None, Type type = null, bool onlyDrop = false, bool isRealDrop = true)
+        public static void RegisterBombDropTriggerIfAvailable(GenericShip ship, TriggerTypes triggerType = TriggerTypes.OnMovementActivationStart, UpgradeSubType subType = UpgradeSubType.None, Type type = null, bool onlyDrop = false, bool isRealDrop = true)
         {
             if ((!isRealDrop || !ship.IsBombAlreadyDropped) && HasBombsToDrop(ship, subType, type))
             {
                 Triggers.RegisterTrigger(new Trigger()
                 {
                     Name = "Ask which bomb to drop",
-                    TriggerType = TriggerTypes.OnMovementActivationStart,
+                    TriggerType = triggerType,
                     TriggerOwner = ship.Owner.PlayerNo,
                     EventHandler = (object sender, EventArgs e) => CreateAskBombDropSubPhase((sender as GenericShip), subType, type, onlyDrop),
                     Sender = ship

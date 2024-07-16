@@ -71,14 +71,47 @@ namespace Abilities.SecondEdition
 
         public override void ActivateAbility()
         {
+            GenericShip.OnRemoteWasLaunchedGlobal += CheckOverlap;
             GenericShip.OnPositionFinishGlobal += CheckRemoteOverlapping;
             HostShip.OnCombatActivation += RegisterDealDamageToEnemyShipsAtRange;
         }
 
         public override void DeactivateAbility()
         {
+            GenericShip.OnRemoteWasLaunchedGlobal -= CheckOverlap;
             GenericShip.OnPositionFinishGlobal -= CheckRemoteOverlapping;
             HostShip.OnCombatActivation -= RegisterDealDamageToEnemyShipsAtRange;
+        }
+
+        private void CheckOverlap()
+        {
+            GameManagerScript.Instance.StartCoroutine(ReCheckOverlap());
+        }
+
+        private IEnumerator ReCheckOverlap()
+        {
+            ObstaclesStayDetectorForced collisionDetector = HostShip.Model.GetComponentInChildren<ObstaclesStayDetectorForced>();
+
+            //RelocateToFrontGuides();
+
+            collisionDetector.ReCheckCollisionsStart();
+            collisionDetector.TheShip = HostShip;
+            yield return new WaitForFixedUpdate();
+            
+            bool overlapsShip = collisionDetector.OverlapsShipNow;
+            collisionDetector.ReCheckCollisionsFinish();
+
+            if (overlapsShip)
+            {
+                foreach(GenericShip ship in collisionDetector.OverlappedShipsNow)
+                {
+                    if (!ship.RemotesOverlapped.Contains((GenericRemote) HostShip))
+                    {
+                        ship.RemotesOverlapped.Add((GenericRemote)HostShip);
+                        RegisterAbilityTrigger(TriggerTypes.OnRemoteWasLaunched, delegate { AttachToShip(ship); }, isPriority: true);
+                    }
+                }
+            }
         }
 
         private void RegisterDealDamageToEnemyShipsAtRange(GenericShip ship)
@@ -154,14 +187,14 @@ namespace Abilities.SecondEdition
 
             collisionDetector.ReCheckCollisionsStart();
             yield return new WaitForFixedUpdate();
-            bool canBePlacedFront = NoCollisionsWithObjects(collisionDetector);
+            bool canBePlacedFront = NoCollisionsWithObjects(collisionDetector, SufferedShip);
             collisionDetector.ReCheckCollisionsFinish();
 
             RelocateToRearGuides();
 
             collisionDetector.ReCheckCollisionsStart();
             yield return new WaitForFixedUpdate();
-            bool canBePlacedRear = NoCollisionsWithObjects(collisionDetector);
+            bool canBePlacedRear = NoCollisionsWithObjects(collisionDetector, SufferedShip);
             collisionDetector.ReCheckCollisionsFinish();
 
             HostShip.SetPositionInfo(OldPosition);
@@ -223,11 +256,22 @@ namespace Abilities.SecondEdition
             callback();
         }
 
-        private static bool NoCollisionsWithObjects(ObstaclesStayDetectorForced collisionDetector)
+        private static bool NoCollisionsWithObjects(ObstaclesStayDetectorForced collisionDetector, GenericShip sufferedShip)
         {
+            //this shouldn't be necessary. I don't know why the sufferedShip is showing up in the overlapped list
+            //I think it might have something to do with the two collisionDetectors running in close proximity... maybe??
+            if (collisionDetector.OverlapsShipNow)
+            {
+                return !collisionDetector.OverlapsAsteroidNow
+                && collisionDetector.OverlappedShipsNow.Count == 1
+                && collisionDetector.OverlappedShipsNow.Contains(sufferedShip)
+                && collisionDetector.OverlapedMinesNow.Count == 0
+                && collisionDetector.OverlapedRemotesNow.Count == 0;
+            }
             return !collisionDetector.OverlapsAsteroidNow
                 && !collisionDetector.OverlapsShipNow
-                && collisionDetector.OverlapedMinesNow.Count == 0;
+                && collisionDetector.OverlapedMinesNow.Count == 0
+                && collisionDetector.OverlapedRemotesNow.Count == 0;
         }
 
         private void RestoreRenderers()

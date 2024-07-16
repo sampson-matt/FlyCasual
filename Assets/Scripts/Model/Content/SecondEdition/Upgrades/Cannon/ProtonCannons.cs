@@ -29,10 +29,12 @@ namespace UpgradesList.SecondEdition
 
             );
 
-
             ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/protoncannons.png";
         }
-        public override void PayAttackCost(Action callBack) { callBack(); }
+        public override void PayAttackCost(Action callBack) {
+            State.SpendCharges(2);
+            callBack();
+        }
     }
 }
 
@@ -49,29 +51,14 @@ namespace Abilities.SecondEdition
                 DiceModificationType.Change,
                 1,
                 new List<DieSide>() { DieSide.Focus, DieSide.Success  },
-                DieSide.Crit,
-                payAbilityCost: payCharges
+                DieSide.Crit
             );
         }
 
         public override void DeactivateAbility()
         {
             RemoveDiceModification();
-        }
-
-        private void payCharges(Action<bool> callback)
-        {
-            if (HostUpgrade.State.Charges > 1)
-            {
-                HostUpgrade.State.SpendCharge();
-                HostUpgrade.State.SpendCharge();
-                callback(true);
-            }
-            else
-            {
-                callback(false);
-            }
-        }
+        }        
 
         private bool IsDiceModificationAvailable()
         {
@@ -80,8 +67,6 @@ namespace Abilities.SecondEdition
             if (Combat.AttackStep != CombatStep.Attack) result = false;
 
             if (Combat.ChosenWeapon != HostUpgrade) result = false;
-
-            if (HostUpgrade.State.Charges < 2) result = false;
 
             return result;
         }

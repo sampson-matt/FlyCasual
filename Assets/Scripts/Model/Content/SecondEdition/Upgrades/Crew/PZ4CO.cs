@@ -51,7 +51,10 @@ namespace Abilities.SecondEdition
 
         private void RegisterOwnTrigger()
         {
-            RegisterAbilityTrigger(TriggerTypes.OnActivationPhaseEnd, AskToSelectShipForOwnAbility);
+            if(HostShip.Tokens.HasToken(typeof(CalculateToken)) || (HostShip.Tokens.HasToken(typeof(FocusToken)) && HostShip.RevealedManeuver != null && HostShip.RevealedManeuver.ColorComplexity == Movement.MovementComplexity.Easy))
+            {
+                RegisterAbilityTrigger(TriggerTypes.OnActivationPhaseEnd, AskToSelectShipForOwnAbility);
+            }            
         }
 
         private void AskToSelectShipForOwnAbility(object sender, EventArgs e)

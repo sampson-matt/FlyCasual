@@ -66,12 +66,12 @@ namespace Abilities.SecondEdition
 
         private void RegisterSpendChargeTrigger(GenericAction action, ref bool isFreeAction)
         {
-            if (action is BoostAction && isFreeAction)
+            if (action is BoostAction)
             {
                 HostShip.BeforeActionIsPerformed -= RegisterSpendChargeTrigger;
 
                 RegisterAbilityTrigger(
-                    TriggerTypes.BeforeActionIsPerformed,
+                    TriggerTypes.OnFreeAction,
                     delegate {
                         HostUpgrade.State.SpendCharge();
                         Triggers.FinishTrigger();

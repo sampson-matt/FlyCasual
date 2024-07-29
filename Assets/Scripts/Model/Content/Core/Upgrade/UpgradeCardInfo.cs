@@ -25,6 +25,7 @@ namespace Upgrade
         public bool IsStandardazed { get; private set; }
         public List<Type> AbilityTypes { get; private set; }
         public int Charges { get; private set; }
+        public int Fuses { get; private set; }
         public int RegensChargesCount { get; private set; }
         public bool CannotBeRecharged { get; private set; }
         public UpgradeCardRestrictions Restrictions { get; private set; }
@@ -54,6 +55,7 @@ namespace Upgrade
             UpgradeCardRestriction restriction = null,
             UpgradeCardRestrictions restrictions = null,
             int charges = 0,
+            int fuses = 0,
             bool regensCharges = false,
             int regensChargesCount = 0,
             bool cannotBeRecharged = false,
@@ -80,6 +82,7 @@ namespace Upgrade
             Name = name;
             Cost = cost;
             Charges = charges;
+            Fuses = fuses;
             CannotBeRecharged = cannotBeRecharged;
             WeaponInfo = weaponInfo;
             IsSolitary = isSolitary;

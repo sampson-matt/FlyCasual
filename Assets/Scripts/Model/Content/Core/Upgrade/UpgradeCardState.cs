@@ -15,14 +15,17 @@ namespace Upgrade
             get {
                 string result = HostUpgrade.UpgradeInfo.Name;
                 if (UsesCharges) result += " (" + Charges + ")";
+                if (HasFuses) result += " Fuses (" + Fuses + ")";
                 if (HostUpgrade.NamePostfix != null) result = result + " " + HostUpgrade.NamePostfix;
                 return result;
             }
         }
 
         public int Charges { get; set; }
+        public int Fuses { get; set; }
         public int MaxCharges { get; set; }
         public bool UsesCharges { get { return MaxCharges > 0; } }
+        public bool HasFuses { get { return Fuses > 0; } }
 
         public bool IsFaceup { get; private set; }
 
@@ -41,6 +44,19 @@ namespace Upgrade
                 Charges = upgrade.UpgradeInfo.WeaponInfo.Charges;
                 MaxCharges = upgrade.UpgradeInfo.WeaponInfo.Charges;
             };
+            Fuses = upgrade.UpgradeInfo.Fuses;
+        }
+
+        public void AddFuse()
+        {
+            Fuses++;
+            Roster.UpdateUpgradesPanel(HostShip, HostShip.InfoPanel);
+        }
+
+        public void RemoveFuse()
+        {
+            Fuses--;
+            Roster.UpdateUpgradesPanel(HostShip, HostShip.InfoPanel);
         }
 
         public void Flip(bool isFaceup)

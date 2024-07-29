@@ -32,7 +32,7 @@ namespace Upgrade
             base.ActivateBombs(bombObjects, callBack);
         }
 
-        private void PlanTimedDetonation()
+        protected void PlanTimedDetonation()
         {
             foreach (var bombObject in CurrentBombObjects)
             {

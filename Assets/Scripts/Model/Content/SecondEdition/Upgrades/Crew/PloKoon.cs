@@ -134,8 +134,7 @@ namespace Abilities.SecondEdition
         {
             DecisionSubPhase.ConfirmDecisionNoCallback();
 
-            TargetShip.Damage.FlipFaceupCritFacedown(damageCard);
-            Triggers.FinishTrigger();
+            TargetShip.Damage.FlipFaceupCritFacedown(damageCard, Triggers.FinishTrigger);
         }
 
         private void RemoveToken(Type type)

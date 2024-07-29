@@ -101,7 +101,7 @@ namespace Abilities.SecondEdition
 
                 foreach(GenericDamageCard card in HostShip.Damage.GetFaceupCrits())
                 {
-                    HostShip.Damage.FlipFaceupCritFacedown(card);
+                    HostShip.Damage.FlipFaceupCritFacedown(card, delegate { });
                 }
                 HostShip.OnCheckPreventDestruction += PreventDestruction;
             }

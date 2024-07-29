@@ -82,7 +82,7 @@ namespace Abilities.SecondEdition
                 {
                     foreach(GenericDamageCard card in HostShip.Damage.GetFaceupCrits(CriticalCardType.Ship))
                     {
-                        HostShip.Damage.FlipFaceupCritFacedown(card);
+                        HostShip.Damage.FlipFaceupCritFacedown(card, delegate { });
                         Messages.ShowInfo(card.Name + " repaired");
                     }
                 }
@@ -141,8 +141,8 @@ namespace Abilities.SecondEdition
 
         private void Repair(GenericDamageCard critCard)
         {
-            HostShip.Damage.FlipFaceupCritFacedown(critCard);
-            DecisionSubPhase.ConfirmDecision();
+            HostShip.Damage.FlipFaceupCritFacedown(critCard, DecisionSubPhase.ConfirmDecision);
+           // DecisionSubPhase.ConfirmDecision();
             //hitIndex--;
             //if(hitIndex >0)
             //{

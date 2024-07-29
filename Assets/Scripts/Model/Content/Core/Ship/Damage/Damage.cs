@@ -53,9 +53,10 @@ namespace Ship
             return result;
         }
 
-        public void FlipFaceupCritFacedown(GenericDamageCard critCard)
+        public void FlipFaceupCritFacedown(GenericDamageCard critCard, Action callback)
         {
             critCard.DiscardEffect();
+            critCard.Host.CallFaceupDamageCardIsRepaired(critCard, callback);
 
             Messages.ShowInfo("The critical damage card \"" + critCard.Name + "\" has been flipped face-down");
         }

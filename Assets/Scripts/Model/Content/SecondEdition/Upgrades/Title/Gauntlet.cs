@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Upgrade;
-using UpgradesList;
+using SubPhases;
 
 namespace UpgradesList.SecondEdition
 {
@@ -19,7 +19,6 @@ namespace UpgradesList.SecondEdition
                 types: new List<UpgradeType>()
                 {
                     UpgradeType.Title,
-                    UpgradeType.Modification
                 },
                 cost: 3,
                 charges: 2,
@@ -92,17 +91,19 @@ namespace Abilities.SecondEdition
 
         private void DoAutoRepair()
         {
-            HostShip.Damage.FlipFaceupCritFacedown(HostShip.Damage.GetFaceupCrits(CriticalCardType.Ship).First());
-            Triggers.FinishTrigger();
+            HostShip.Damage.FlipFaceupCritFacedown(HostShip.Damage.GetFaceupCrits(CriticalCardType.Ship).First(), Triggers.FinishTrigger);
         }
 
         private void AskToSelectCrit()
         {
-            Phases.StartTemporarySubPhaseOld(
-                HostUpgrade.UpgradeInfo.Name + ": Select faceup ship damage card",
-                typeof(SubPhases.GauntletRepairSubPhase),
+            GauntletRepairSubPhase subphase = Phases.StartTemporarySubPhaseNew<GauntletRepairSubPhase>(
+                "Gauntlet: Select faceup ship Crit",
                 Triggers.FinishTrigger
             );
+            subphase.DescriptionShort = "Gauntlet";
+            subphase.DescriptionLong = "Select a faceup ship Crit damage card to flip it facedown";
+            subphase.ImageSource = HostUpgrade;
+            subphase.Start();
         }
     }
 }
@@ -129,8 +130,7 @@ namespace SubPhases
 
         private void Repair(GenericDamageCard critCard)
         {
-            Selection.ThisShip.Damage.FlipFaceupCritFacedown(critCard);
-            ConfirmDecision();
+            Selection.ThisShip.Damage.FlipFaceupCritFacedown(critCard, ConfirmDecision);
         }
 
     }

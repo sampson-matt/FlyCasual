@@ -100,8 +100,7 @@ namespace Abilities.SecondEdition
             if (shipCritsList.Count == 1)
             {
                 GenericDamageCard card = shipCritsList.First();
-                Selection.ThisShip.Damage.FlipFaceupCritFacedown(card);
-                Triggers.FinishTrigger();
+                Selection.ThisShip.Damage.FlipFaceupCritFacedown(card, Triggers.FinishTrigger);
             }
             else if (shipCritsList.Count > 1)
             {
@@ -145,8 +144,7 @@ namespace SubPhases
 
         private void RepairCrit(GenericDamageCard critCard)
         {
-            Selection.ThisShip.Damage.FlipFaceupCritFacedown(critCard);
-            ConfirmDecision();
+            Selection.ThisShip.Damage.FlipFaceupCritFacedown(critCard, ConfirmDecision);
         }
 
     }

@@ -29,6 +29,7 @@ namespace Abilities.SecondEdition
     //After a friendly ship at range 0-1 skips its execute maneuver step, you may spend 1 Charge. If you do, if there is an asteroid or debris cloud at range 0 of it, that ship may repair 1 damage. 
     public class TheIronAssemblerAbility : GenericAbility
     {
+
         public override void ActivateAbility()
         {
             GenericShip.OnManeuverIsSkippedGlobal += CheckAbility;
@@ -95,25 +96,51 @@ namespace Abilities.SecondEdition
 
         private void RepairFaceupDamageCard(object sender, EventArgs e)
         {
-            DecisionSubPhase.ConfirmDecisionNoCallback();
-
             HostShip.SpendCharge();
             List<GenericDamageCard> shipCritsList = TargetShip.Damage.GetFaceupCrits();
 
             if (shipCritsList.Count == 1)
             {
-                TargetShip.Damage.FlipFaceupCritFacedown(shipCritsList.First());
-                Triggers.FinishTrigger();
+                TargetShip.Damage.FlipFaceupCritFacedown(shipCritsList.First(), DecisionSubPhase.ConfirmDecision);
             }
             else if (shipCritsList.Count > 1)
             {
-                Phases.StartTemporarySubPhaseOld(
-                    HostShip.PilotInfo.PilotName + ": Select faceup ship Crit",
-                    typeof(SubPhases.R5AstromechDecisionSubPhase),
-                    Triggers.FinishTrigger
+                IronAssemblerDecisionSubPhase subphase = Phases.StartTemporarySubPhaseNew<IronAssemblerDecisionSubPhase>(
+                    "The Iron Assembler: Select faceup ship Crit",
+                    DecisionSubPhase.ConfirmDecision
                 );
+                subphase.DescriptionShort = "The Iron Assembler";
+                subphase.DescriptionLong = "Select a faceup ship Crit damage card to flip it facedown";
+                subphase.ImageSource = HostUpgrade;
+                subphase.TheShip = TargetShip;
+                subphase.Start();
             }
         }
         private class TheIronAssemblerDecisionSubphase : DecisionSubPhase { }
+    }
+}
+namespace SubPhases
+{
+    public class IronAssemblerDecisionSubPhase : DecisionSubPhase
+    {
+        public override void PrepareDecision(System.Action callBack)
+        {
+            DecisionViewType = DecisionViewTypes.ImagesDamageCard;
+
+            foreach (var shipCrit in TheShip.Damage.GetFaceupCrits().ToList())
+            {
+                AddDecision(shipCrit.Name, delegate { DiscardCrit(shipCrit); }, shipCrit.ImageUrl);
+            }
+
+            DefaultDecisionName = GetDecisions().First().Name;
+
+            callBack();
+        }
+
+        private void DiscardCrit(GenericDamageCard critCard)
+        {
+            Selection.ActiveShip.Damage.FlipFaceupCritFacedown(critCard, Phases.CurrentSubPhase.CallBack);
+            Sounds.PlayShipSound("R2D2-Proud");
+        }
     }
 }

@@ -83,9 +83,8 @@ namespace Abilities.SecondEdition
 
         private void DoAutoRepair()
         {
-            HostShip.Damage.FlipFaceupCritFacedown(HostShip.Damage.GetFaceupCrits().First());
+            HostShip.Damage.FlipFaceupCritFacedown(HostShip.Damage.GetFaceupCrits().First(), Triggers.FinishTrigger);
             Sounds.PlayShipSound("Chewbacca");
-            Triggers.FinishTrigger();
         }
 
         private void AskToSelectCrit()
@@ -126,9 +125,8 @@ namespace SubPhases
 
         private void Repair(GenericDamageCard critCard)
         {
-            Selection.ThisShip.Damage.FlipFaceupCritFacedown(critCard);
+            Selection.ThisShip.Damage.FlipFaceupCritFacedown(critCard, ConfirmDecision);
             Sounds.PlayShipSound("Chewbacca");
-            ConfirmDecision();
         }
 
     }

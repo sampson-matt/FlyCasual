@@ -1,9 +1,10 @@
 ﻿using Upgrade;
 using System.Linq;
 using System.Collections.Generic;
-using ActionsList;
+using ActionsList.SecondEdition;
 using System;
 using Ship;
+using SubPhases;
 
 namespace UpgradesList.SecondEdition
 {
@@ -54,6 +55,7 @@ namespace Abilities.SecondEdition
         {
             if (ship.Damage.GetFacedownCards().Any() && HostUpgrade.State.Charges > 0)
             {
+
                 ship.AddAvailableAction(new RepairAction(RepairAction.CardFace.FaceDown)
                 {
                     ImageUrl = HostUpgrade.ImageUrl,
@@ -83,7 +85,7 @@ namespace Abilities.SecondEdition
     }
 }
 
-namespace ActionsList
+namespace ActionsList.SecondEdition
 {
     public class RepairAction : GenericAction
     {
@@ -125,20 +127,48 @@ namespace ActionsList
 
                     if (shipCritsList.Count == 1)
                     {
-                        HostShip.Damage.FlipFaceupCritFacedown(shipCritsList.First());
+                        HostShip.Damage.FlipFaceupCritFacedown(shipCritsList.First(), Phases.CurrentSubPhase.CallBack);
                         Sounds.PlayShipSound("R2D2-Proud");
-                        Phases.CurrentSubPhase.CallBack();
                     }
                     else if (shipCritsList.Count > 1)
                     {
-                        Phases.StartTemporarySubPhaseOld(
-                            Source.UpgradeInfo.Name + ": Select faceup ship Crit",
-                            typeof(SubPhases.R5AstromechDecisionSubPhase),
-                            Phases.CurrentSubPhase.CallBack
+                        R5AstromechDecisionSubPhase subphase = Phases.StartTemporarySubPhaseNew<R5AstromechDecisionSubPhase>(
+                            "R5 Astromech: Select faceup ship Crit",
+                            DecisionSubPhase.ConfirmDecision
                         );
+                        subphase.DescriptionShort = "R5 Astromech";
+                        subphase.DescriptionLong = "Select a faceup ship Crit damage card to flip it facedown";
+                        subphase.ImageSource = Source;
+                        subphase.Start();
                     }
                 }
             }
+        }
+    }
+}
+
+namespace SubPhases
+{
+    public class R5AstromechDecisionSubPhase : DecisionSubPhase
+    {
+        public override void PrepareDecision(System.Action callBack)
+        {
+            DecisionViewType = DecisionViewTypes.ImagesDamageCard;
+
+            foreach (var shipCrit in Selection.ActiveShip.Damage.GetFaceupCrits(CriticalCardType.Ship).ToList())
+            {
+                AddDecision(shipCrit.Name, delegate { DiscardCrit(shipCrit); }, shipCrit.ImageUrl);
+            }
+
+            DefaultDecisionName = GetDecisions().First().Name;
+
+            callBack();
+        }
+
+        private void DiscardCrit(GenericDamageCard critCard)
+        {
+            Selection.ActiveShip.Damage.FlipFaceupCritFacedown(critCard, Phases.CurrentSubPhase.CallBack);
+            Sounds.PlayShipSound("R2D2-Proud");
         }
     }
 }

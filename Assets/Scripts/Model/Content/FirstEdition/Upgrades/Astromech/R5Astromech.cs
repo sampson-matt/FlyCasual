@@ -46,9 +46,9 @@ namespace Abilities.FirstEdition
 
             if (shipCritsList.Count == 1)
             {
-                Selection.ActiveShip.Damage.FlipFaceupCritFacedown(shipCritsList.First());
+                Selection.ActiveShip.Damage.FlipFaceupCritFacedown(shipCritsList.First(), delegate { });
                 Sounds.PlayShipSound("R2D2-Proud");
-                Triggers.FinishTrigger();
+                //Triggers.FinishTrigger();
             }
             else if (shipCritsList.Count > 1)
             {
@@ -67,34 +67,4 @@ namespace Abilities.FirstEdition
             }
         }
     }
-}
-
-namespace SubPhases
-{
-
-    public class R5AstromechDecisionSubPhase : DecisionSubPhase
-    {
-        public override void PrepareDecision(System.Action callBack)
-        {
-            DecisionViewType = DecisionViewTypes.ImagesDamageCard;
-
-            foreach (var shipCrit in Selection.ActiveShip.Damage.GetFaceupCrits(CriticalCardType.Ship).ToList())
-            {
-                AddDecision(shipCrit.Name, delegate { DiscardCrit(shipCrit); }, shipCrit.ImageUrl);
-            }
-
-            DefaultDecisionName = GetDecisions().First().Name;
-
-            callBack();
-        }
-
-        private void DiscardCrit(GenericDamageCard critCard)
-        {
-            Selection.ActiveShip.Damage.FlipFaceupCritFacedown(critCard);
-            Sounds.PlayShipSound("R2D2-Proud");
-            ConfirmDecision();
-        }
-
-    }
-
 }

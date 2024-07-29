@@ -113,8 +113,7 @@ namespace Abilities.SecondEdition
 
             private void DiscardCrit(GenericDamageCard critCard)
             {
-                Selection.ActiveShip.Damage.FlipFaceupCritFacedown(critCard);
-                CritDiscarded(ConfirmDecision);
+                Selection.ActiveShip.Damage.FlipFaceupCritFacedown(critCard, delegate { CritDiscarded(ConfirmDecision); });
             }
 
         }

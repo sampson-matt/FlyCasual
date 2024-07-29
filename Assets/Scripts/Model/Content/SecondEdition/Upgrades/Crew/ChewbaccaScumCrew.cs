@@ -1,4 +1,4 @@
-﻿using Ship;
+﻿using SubPhases;
 using Upgrade;
 using System;
 using Tokens;
@@ -86,18 +86,22 @@ namespace Abilities.SecondEdition
 
         private void DoAutoRepair()
         {
-            HostShip.Damage.FlipFaceupCritFacedown(HostShip.Damage.GetFaceupCrits().First());
+            HostShip.Damage.FlipFaceupCritFacedown(HostShip.Damage.GetFaceupCrits().First(), Triggers.FinishTrigger);
             Sounds.PlayShipSound("Chewbacca");
-            Triggers.FinishTrigger();
         }
 
         private void AskToSelectCrit()
         {
-            Phases.StartTemporarySubPhaseOld(
-                HostUpgrade.UpgradeInfo.Name + ": Select faceup damage card",
-                typeof(SubPhases.ChewbaccaRebelCrewDecisionSubPhase),
+            ChewbaccaRebelCrewDecisionSubPhase subphase = Phases.StartTemporarySubPhaseNew<ChewbaccaRebelCrewDecisionSubPhase>(
+                "Chewbacca: Select faceup damage card",
                 Triggers.FinishTrigger
             );
+
+            subphase.DescriptionShort = "Chewbacca";
+            subphase.DescriptionLong = "Select Faceup Damage Card to repair";
+            subphase.ImageSource = HostUpgrade;
+
+            subphase.Start();
         }
     }
 }

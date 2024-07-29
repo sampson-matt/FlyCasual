@@ -157,7 +157,6 @@ namespace Abilities.SecondEdition
 
         private void RepairFaceupDamageCard(object sender, EventArgs e)
         {
-            DecisionSubPhase.ConfirmDecisionNoCallback();
 
             HostUpgrade.State.SpendCharge();
             HostShip.Tokens.AssignToken(typeof(Tokens.DepleteToken), () =>
@@ -166,17 +165,19 @@ namespace Abilities.SecondEdition
 
                 if (shipCritsList.Count == 1)
                 {
-                    HostShip.Damage.FlipFaceupCritFacedown(shipCritsList.First());
+                    HostShip.Damage.FlipFaceupCritFacedown(shipCritsList.First(), DecisionSubPhase.ConfirmDecision);
                     Sounds.PlayShipSound("R2D2-Proud");
-                    Triggers.FinishTrigger();
                 }
                 else if (shipCritsList.Count > 1)
                 {
-                    Phases.StartTemporarySubPhaseOld(
-                        HostUpgrade.UpgradeInfo.Name + ": Select faceup ship Crit",
-                        typeof(SubPhases.R5AstromechDecisionSubPhase),
-                        Triggers.FinishTrigger
-                    );
+                    R5AstromechDecisionSubPhase subphase = Phases.StartTemporarySubPhaseNew<R5AstromechDecisionSubPhase>(
+                            "R5 Astromech: Select faceup ship Crit",
+                            DecisionSubPhase.ConfirmDecision
+                        );
+                    subphase.DescriptionShort = "R2-D2";
+                    subphase.DescriptionLong = "Select a faceup ship Crit damage card to flip it facedown";
+                    subphase.ImageSource = HostUpgrade;
+                    subphase.Start();
                 }
             });
         }

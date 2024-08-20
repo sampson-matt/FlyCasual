@@ -221,7 +221,7 @@ namespace SubPhases
 
         private static void StartTargetSelection()
         {
-            if (!(Selection.ThisShip is GenericRemote))
+            if (!(Selection.ThisShip is GenericRemote && !(Selection.ThisShip is CommandoTeam)))
             {
                 Combat.StartSelectAttackTarget(
                     Selection.ThisShip,

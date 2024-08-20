@@ -175,6 +175,8 @@ namespace Ship
         public event EventHandler OnBombWillBeDropped;
         public event EventHandler OnBombWasDropped;
         public event EventHandler OnBombWasLaunched;
+        public event EventHandler OnRemoteWasDropped;
+        public static event EventHandler OnRemoteWasDroppedGlobal;
         public event EventHandler OnRemoteWasLaunched;
         public static event EventHandler OnRemoteWasLaunchedGlobal;
         public event EventHandler OnCheckDropOfSecondDevice;
@@ -999,6 +1001,13 @@ namespace Ship
                     TriggerTypes.OnBombWasDropped,
                     delegate { CallCheckDropOfSecondDevice(callback); }
                 );
+            }
+            else if (Bombs.BombsManager.CurrentDevice.UpgradeInfo.SubType == UpgradeSubType.Remote)
+            {
+                if (OnRemoteWasDropped != null) OnRemoteWasDropped();
+                if (OnRemoteWasDroppedGlobal != null) OnRemoteWasDroppedGlobal();
+
+                Triggers.ResolveTriggers(TriggerTypes.OnRemoteWasDropped, callback);
             }
             else
             {

@@ -85,6 +85,8 @@ public static class ShipFactory {
         remote.AfterAssignedDamageIsChanged += Roster.UpdateRosterShieldsDamageIndicators;
         remote.AfterStatsAreChanged += Roster.UpdateShipStats;
 
+        remote.State.Charges = remote.State.MaxCharges;
+
         return remote;
     }
 }

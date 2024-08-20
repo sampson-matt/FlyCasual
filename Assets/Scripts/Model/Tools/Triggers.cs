@@ -116,6 +116,7 @@ public enum TriggerTypes
     OnBombWillBeDropped,
     OnBombWasDropped,
     OnBombWasLaunched,
+    OnRemoteWasDropped,
     OnRemoteWasLaunched,
     OnCheckDropOfSecondDevice,
 

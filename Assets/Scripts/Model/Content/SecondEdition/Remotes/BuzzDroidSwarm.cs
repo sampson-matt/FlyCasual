@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Arcs;
 
 namespace Remote
 {
@@ -17,7 +18,7 @@ namespace Remote
         {
             RemoteInfo = new RemoteInfo(
                 "Buzz Droid Swarm",
-                0, 3, 1,
+                0, new ShipArcsInfo(ArcType.None, 0), 3, 1,
                 "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/3/38/Remote_BuzzDroidSwarm.png",
                 typeof(Abilities.SecondEdition.BuzzDroidSwarmAbiliy)
             );
@@ -105,7 +106,7 @@ namespace Abilities.SecondEdition
             {
                 foreach(GenericShip ship in collisionDetector.OverlappedShipsNow)
                 {
-                    if (!ship.RemotesOverlapped.Contains((GenericRemote) HostShip))
+                    if (!ship.RemotesOverlapped.Contains((GenericRemote) HostShip) && !Tools.IsFriendly(ship, HostShip))
                     {
                         ship.RemotesOverlapped.Add((GenericRemote)HostShip);
                         RegisterAbilityTrigger(TriggerTypes.OnRemoteWasLaunched, delegate { AttachToShip(ship); }, isPriority: true);

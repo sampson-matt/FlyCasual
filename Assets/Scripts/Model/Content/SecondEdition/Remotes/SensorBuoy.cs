@@ -1,6 +1,8 @@
 ﻿using Players;
 using System.Collections.Generic;
 using UnityEngine;
+using Arcs;
+using Ship;
 
 namespace Remote
 {
@@ -10,7 +12,7 @@ namespace Remote
         {
             RemoteInfo = new RemoteInfo(
                 "Sensor Buoy",
-                0, 3, 2,
+                0, new ShipArcsInfo(ArcType.None, 0), 3, 2,
                 ""
             );
         }

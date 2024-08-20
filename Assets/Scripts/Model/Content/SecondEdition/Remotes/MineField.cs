@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Upgrade;
+using Arcs;
 
 namespace Remote
 {
@@ -19,7 +19,7 @@ namespace Remote
         {
             RemoteInfo = new RemoteInfo(
                 "Mine Field",
-                0, 1, 3,
+                0, new ShipArcsInfo(ArcType.None, 0), 1, 3,
                 "https://raw.githubusercontent.com/sampson-matt/Hotac-Upgrade-Cards/main/Upgrades/payload/minefield.png",
                 typeof(Abilities.SecondEdition.MineFieldAbiliy)
             );

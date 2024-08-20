@@ -15,7 +15,7 @@ namespace Ship
         public SectorsHolder(GenericShip hostShip) : base(hostShip)
         {
             Arcs = new List<GenericArc>();
-            if (!(HostShip is GenericRemote))
+            if (!(HostShip is GenericRemote && HostShip.ArcsInfo.Arcs.Count == 0))
             {
                 Arcs.AddRange(
                     new List<GenericArc>()

@@ -15,7 +15,7 @@ namespace Ship
     public partial class GenericShip
     {
         protected Transform ShipAllParts;
-        private Transform modelCenter;
+        protected Transform modelCenter;
 
         public AiPlansStorage AiPlans = new AiPlansStorage();
 

@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Arcs;
 
 namespace Remote
 {
@@ -18,7 +19,7 @@ namespace Remote
         {
             RemoteInfo = new RemoteInfo(
                 "DRK-1 Probe Droid",
-                0, 3, 1,
+                0, new ShipArcsInfo(ArcType.None, 0), 3, 1,
                 "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/c/c9/Swz30_probe-card.png",
                 typeof(Abilities.SecondEdition.Drk1ProbeDroidAbility)
             );

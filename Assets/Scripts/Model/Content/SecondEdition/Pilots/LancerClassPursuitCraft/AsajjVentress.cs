@@ -5,6 +5,7 @@ using SubPhases;
 using System.Collections.Generic;
 using Tokens;
 using Upgrade;
+using Ship;
 
 namespace Ship
 {
@@ -75,7 +76,7 @@ namespace Abilities.SecondEdition
 
             Selection.ThisShip = TargetShip;
             Selection.ActiveShip = HostShip;
-            subphase.SourceUpgrade = HostUpgrade;
+            subphase.SourceShip = HostShip;
             subphase.Start();
         }
     }
@@ -85,13 +86,13 @@ namespace SubPhases
 {
     public class AsajjVentressAbilityDecisionSubPhaseSE : RemoveGreenTokenDecisionSubPhase
     {
-        public GenericUpgrade SourceUpgrade;
+        public GenericShip SourceShip;
 
         public override void PrepareCustomDecisions()
         {
             DescriptionShort = "Asajj Ventress";
             DescriptionLong = Selection.ThisShip.ShipId + ": " + "Select the effect of Asajj Ventress' ability.";
-            ImageSource = SourceUpgrade;
+            ImageSource = SourceShip;
 
             DecisionOwner = Selection.ThisShip.Owner;
             DefaultDecisionName = "Recieve a stress token.";
@@ -101,7 +102,7 @@ namespace SubPhases
 
         private void RecieveStress(object sender, System.EventArgs e)
         {
-            Selection.ActiveShip.State.SpendForce(
+            SourceShip.State.SpendForce(
                 1,
                 delegate { Selection.ThisShip.Tokens.AssignToken(typeof(StressToken), DecisionSubPhase.ConfirmDecision); }
             );

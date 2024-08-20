@@ -69,7 +69,6 @@ namespace Abilities.SecondEdition
 
         private void DiceCheck(object sender, EventArgs e)
         {
-            //SubPhases.DecisionSubPhase.ConfirmDecision();
             PerformDiceCheck(
                 HostName,
                 DiceKind.Attack,
@@ -80,14 +79,14 @@ namespace Abilities.SecondEdition
 
         private void DiceCheckFinished()
         {
-            //if (DiceCheckRoll.CriticalSuccesses > 0)
-            //{
-            //    Messages.ShowInfo(HostName + " exposes one damage card");
-            //    HostShip.Damage.ExposeRandomFacedownCard(AbilityDiceCheck.ConfirmCheck);
-            //}
-            //if (DiceCheckRoll.Successes > 0)
-            //{
-                
+            if (DiceCheckRoll.CriticalSuccesses > 0)
+            {
+                Messages.ShowInfo(HostName + " exposes one damage card");
+                HostShip.Damage.ExposeRandomFacedownCard(AbilityDiceCheck.ConfirmCheck);
+            }
+            if (DiceCheckRoll.Successes > 0)
+            {
+
                 var phase = Phases.StartTemporarySubPhaseNew<PeliMottoDecisionSubPhase>(
                 "Peli Motto: You may roll 1 attack die. On a hit result, repair another faceup Ship damage card. On a crit result, expose 1 damage card.",
                 AbilityDiceCheck.ConfirmCheck
@@ -102,11 +101,11 @@ namespace Abilities.SecondEdition
                 phase.ShowSkipButton = true;
 
                 phase.Start();
-            //}
-            //else
-            //{
-            //    AbilityDiceCheck.ConfirmCheck();
-            //}
+            }
+            else
+            {
+                AbilityDiceCheck.ConfirmCheck();
+            }
         }
 
         private class PeliMottoDecisionSubPhase : DecisionSubPhase

@@ -2,6 +2,7 @@
 using Arcs;
 using Upgrade;
 using System;
+using Ship;
 
 namespace UpgradesList.SecondEdition
 {
@@ -34,6 +35,10 @@ namespace UpgradesList.SecondEdition
         public override void PayAttackCost(Action callBack) {
             State.SpendCharges(2);
             callBack();
+        }
+        public override bool IsShotAvailable(GenericShip targetShip)
+        {
+            return base.IsShotAvailable(targetShip) && State.Charges >= 2;
         }
     }
 }

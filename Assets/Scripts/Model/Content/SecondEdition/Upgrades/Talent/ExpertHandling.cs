@@ -24,7 +24,7 @@ namespace UpgradesList.SecondEdition
             Dictionary<BaseSize, int> sizeToCost = new Dictionary<BaseSize, int>()
             {
                 {BaseSize.Small, 2},
-                {BaseSize.Medium, 3},
+                {BaseSize.Medium, 2},
                 {BaseSize.Large, 4},
             };
 

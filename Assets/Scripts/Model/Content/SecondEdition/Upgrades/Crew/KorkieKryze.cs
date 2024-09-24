@@ -15,7 +15,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Korkie Kryze",
                 UpgradeType.Crew,
-                cost: 7,
+                cost: 5,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Republic),
                 abilityType: typeof(Abilities.SecondEdition.KorkieKryzeAbility)

@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Captain Seevor",
                     3,
-                    31,
+                    28,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CaptainSeevorAbility),
                     charges: 1,

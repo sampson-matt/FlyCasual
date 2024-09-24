@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Nightfall\"",
                     4,
-                    46,
+                    45,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.NightfallPilotAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }

@@ -9,7 +9,7 @@
                 PilotInfo = new PilotCardInfo(
                     "Planetary Sentinel",
                     1,
-                    31
+                    32
                 );
             }
         }

@@ -12,7 +12,7 @@ namespace Ship.SecondEdition.Belbullab22Starfighter
             PilotInfo = new PilotCardInfo(
                 "Feethan Ottraw Autopilot",
                 1,
-                35
+                34
             );
 
             ShipInfo.ActionIcons.SwitchToDroidActions();

@@ -19,7 +19,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Lin Gaava",
                     3,
-                    33,
+                    32,
                     pilotTitle: "Impetuous Mechanic",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LinGaavaAbility),

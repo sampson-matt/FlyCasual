@@ -21,7 +21,7 @@ namespace Ship
                 (
                     "Guild Bounty Hunter",
                     2,
-                    47,
+                    46,
                     limited: 2,
                     pilotTitle: "Blaster for Hire",
                     abilityType: typeof(Abilities.SecondEdition.GuildBountyHunterAbility)

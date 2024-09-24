@@ -19,7 +19,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Prime Minister Almec",
                 UpgradeType.Crew,
-                cost: 9,
+                cost: 8,
                 restriction: new FactionRestriction(Faction.Republic, Faction.Scum),
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.PrimeMinisterAlmecAbility)
@@ -40,7 +40,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Almec Maul's Puppet",
                 UpgradeType.Crew,
-                cost: 9,
+                cost: 8,
                 abilityType: typeof(Abilities.SecondEdition.AlmecMaulsPuppetAbility)
             );
 

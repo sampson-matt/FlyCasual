@@ -17,7 +17,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Razor Crest",
                 UpgradeType.Title,
-                cost: 5,
+                cost: 4,
                 isLimited: true,
                 addActionLink: new LinkedActionInfo(typeof(EvadeAction), typeof(BarrelRollAction), ActionColor.Red),
                 restrictions: new UpgradeCardRestrictions(

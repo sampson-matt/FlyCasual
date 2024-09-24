@@ -39,22 +39,6 @@ namespace Remote
             {
                 return new Dictionary<string, Vector3>()
                 {
-                    //{ "R0", new Vector3(-1.75f, 0f, 3.00f) },
-                    //{ "R1", new Vector3(-1.75f, 0f, 0.00f) },
-                    //{ "R2", new Vector3(-1.53f, 0f, -0.324f) },
-                    //{ "R3", new Vector3(-1.268f, 0f, -0.326f) },
-                    //{ "R4", new Vector3(-1.00f, 0f, 0.00f) },
-                    //{ "R5", new Vector3(1.00f, 0f, 0.00f) },
-                    //{ "R6", new Vector3(1.268f, 0f, -0.326f) },
-                    //{ "R7", new Vector3(1.53f, 0f, -0.324f) },
-                    //{ "R8", new Vector3(1.75f, 0f, 0.00f) },
-                    //{ "R9", new Vector3(1.75f, 0f, 3.00f) },
-                    //{ "R10", new Vector3(1.50f, 0f, 3.35f) },
-                    //{ "R11", new Vector3(1.22f, 0f, 3.35f) },
-                    //{ "R12", new Vector3(1.00f, 0f, 3.00f) },
-                    //{ "R13", new Vector3(-1.00f, 0f, 3.00f) },
-                    //{ "R14", new Vector3(-1.345f, 0f, 3.35f) },
-                    //{ "R15", new Vector3(-1.5f, 0f, 3.35f) },
                     { "R0", new Vector3(1.004529f, 0, 3.072494f) },
                     { "R1", new Vector3(0.9982725f, 0, 3.007827f) },
                     { "R2", new Vector3(1.022992f, 0, 3.133916f) },

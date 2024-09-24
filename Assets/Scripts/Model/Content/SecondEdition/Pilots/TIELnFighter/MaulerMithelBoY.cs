@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Mauler\" Mithel",
                     5,
-                    32,
+                    33,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.MaulerMithelBoYAbility),
                     tags: new List<Tags>

@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Drift\"",
                     3,
-                    31,
+                    30,
                     pilotTitle: "CT-1020",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.DriftAbility),

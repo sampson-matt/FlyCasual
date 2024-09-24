@@ -19,7 +19,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Aurra Sing",
                     4,
-                    77,
+                    75,
                     isLimited: true,
                     force: 1,
                     abilityType: typeof(Abilities.SecondEdition.AuraSingAbility),

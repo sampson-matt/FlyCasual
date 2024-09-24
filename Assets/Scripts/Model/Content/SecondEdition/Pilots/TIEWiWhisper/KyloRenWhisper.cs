@@ -17,7 +17,7 @@ namespace Ship
                 (
                     "Kylo Ren",
                     5,
-                    62,
+                    61,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.KyloRenWhisperPilotAbility),
                     tags: new List<Tags>

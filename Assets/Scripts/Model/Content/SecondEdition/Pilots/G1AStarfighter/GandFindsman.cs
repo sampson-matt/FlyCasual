@@ -11,7 +11,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Gand Findsman",
                     1,
-                    41
+                    39
                 );
             }
         }

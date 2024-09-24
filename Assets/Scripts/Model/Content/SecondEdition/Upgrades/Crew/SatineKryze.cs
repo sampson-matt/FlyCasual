@@ -18,7 +18,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Satine Kryze",
                 UpgradeType.Crew,
-                cost: 9,
+                cost: 7,
                 isLimited: true,                
                 restriction: new FactionRestriction(Faction.Republic),
                 abilityType: typeof(Abilities.SecondEdition.SatineKryzeAbility),

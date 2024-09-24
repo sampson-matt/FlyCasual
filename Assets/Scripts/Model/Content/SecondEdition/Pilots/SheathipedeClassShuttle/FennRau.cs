@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Fenn Rau",
                     6,
-                    46,
+                    45,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.FennRauRebelAbility),
                     tags: new List<Tags>

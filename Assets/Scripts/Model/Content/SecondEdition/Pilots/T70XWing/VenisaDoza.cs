@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Venisa Doza",
                     4,
-                    46,
+                    48,
                     isLimited: true,
                     pilotTitle: "Jade Leader",
                     abilityType: typeof(Abilities.SecondEdition.VenisaDozaAbility),

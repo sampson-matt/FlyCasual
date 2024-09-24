@@ -28,7 +28,7 @@ namespace UpgradesList.SecondEdition
                 {1, 4},
                 {2, 4},
                 {3, 4},
-                {4, 4},
+                {4, 5},
                 {5, 6},
                 {6, 7}
             };

@@ -6,6 +6,7 @@ using System;
 using Tokens;
 using UnityEngine;
 using Upgrade;
+using Remote;
 
 namespace UpgradesList.SecondEdition
 {
@@ -285,7 +286,7 @@ namespace SubPhases
         private bool FilterTargets(GenericShip ship)
         {
             DistanceInfo distInfo = new DistanceInfo(Selection.ThisShip, ship);
-            return distInfo.Range <= 3;
+            return distInfo.Range <= 3 && !(ship is GenericRemote);
         }
 
         private void SelectTokenTarget()

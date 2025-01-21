@@ -42,7 +42,7 @@ namespace Abilities.SecondEdition
                 new DeadeyeShotCritToHitDiceModification()
                 {
                     HostShip = HostShip,
-                    ImageUrl = HostShip.ImageUrl
+                    ImageUrl = HostUpgrade.ImageUrl
                 }
             );
 
@@ -50,7 +50,7 @@ namespace Abilities.SecondEdition
                 new DeadeyeShotSpendHitDiceModificationFocus()
                 {
                     HostShip = HostShip,
-                    ImageUrl = HostShip.ImageUrl
+                    ImageUrl = HostUpgrade.ImageUrl
                 }
             );
         }

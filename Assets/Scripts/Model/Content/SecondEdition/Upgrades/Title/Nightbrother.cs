@@ -20,7 +20,7 @@ namespace UpgradesList.SecondEdition
                     UpgradeType.Title,
                     UpgradeType.Modification
                 },
-                cost: 4,
+                cost: 3,
                 charges: 2,
                 regensCharges: true,
                 isLimited: true,

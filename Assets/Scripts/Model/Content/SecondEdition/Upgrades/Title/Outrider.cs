@@ -1,7 +1,6 @@
 ﻿using Ship;
 using SubPhases;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Tokens;
 using Upgrade;
@@ -10,7 +9,7 @@ namespace UpgradesList.SecondEdition
 {
     public class Outrider : GenericUpgrade
     {
-        public Outrider() : base()
+        public Outrider()
         {
             UpgradeInfo = new UpgradeCardInfo(
                 "Outrider",

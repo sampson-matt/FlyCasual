@@ -13,7 +13,7 @@ namespace UpgradesList.SecondEdition
 {
     public class MandalorianOptics : GenericUpgrade
     {
-        public MandalorianOptics() : base()
+        public MandalorianOptics()
         {
             UpgradeInfo = new UpgradeCardInfo
             (
@@ -88,7 +88,7 @@ namespace Abilities.SecondEdition
                     GetAiAbilityPriority,
                     HostShip.Owner.PlayerNo,
                     HostUpgrade.State.Name,
-                    "You may spend 1 Charge to aquire a lock on an object in your front arc",
+                    "You may spend 1 Charge to acquire a lock on an object in your front arc",
                     HostUpgrade
                 );
         }
@@ -108,7 +108,7 @@ namespace Abilities.SecondEdition
 
         private bool FilterAbilityTargets(GenericShip ship)
         {
-            return HostShip.SectorsInfo.IsShipInSector(ship, Arcs.ArcType.Front);
+            return HostShip.SectorsInfo.IsShipInSector(ship, ArcType.Front);
         }
 
         private void GrantFreeTargetLock()

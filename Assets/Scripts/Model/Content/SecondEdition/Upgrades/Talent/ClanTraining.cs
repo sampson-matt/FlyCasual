@@ -68,7 +68,7 @@ namespace Abilities.SecondEdition
                 new FocusAction() { Color = ActionColor.Red },
                 CleanUp,
                 HostUpgrade.UpgradeInfo.Name,
-                "Before you engage, if you are not foucused and there is an enemy ship in your Front Arc at range 1, you may spend 1 Charge to perform a red Focus action.",
+                "Before you engage, if you are not focused and there is an enemy ship in your Front Arc at range 1, you may spend 1 Charge to perform a red Focus action.",
                 HostUpgrade
             );
         }

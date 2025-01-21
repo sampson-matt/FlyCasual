@@ -10,7 +10,7 @@ namespace UpgradesList.SecondEdition
 {
     public class ClanTraining : GenericUpgrade
     {
-        public ClanTraining() : base()
+        public ClanTraining()
         {
             UpgradeInfo = new UpgradeCardInfo
             (

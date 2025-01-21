@@ -106,6 +106,11 @@ namespace Abilities.SecondEdition
                 subphase.RequiredPlayer = HostShip.Owner.PlayerNo;
                 subphase.ShowSkipButton = false;
 
+                if (Global.SquadBuilder.Database.AllUpgrades.Count == 0)
+                {
+                    Global.SquadBuilder.GenerateDatabase();
+                }
+
                 foreach (UpgradeRecord upgradeType in Global.SquadBuilder.Database.AllUpgrades.Where(n => n.Instance.HasType(UpgradeType.Illicit) && !n.Instance.UpgradeInfo.IsLimited && n.Instance.UpgradeInfo.Restrictions.IsAllowedForShip(HostShip)
                      && n.Instance.IsAllowedForShip(HostShip) && ShipDoesntHaveUpgradeWithSameName(HostShip, n.Instance)).ToList())
                 {

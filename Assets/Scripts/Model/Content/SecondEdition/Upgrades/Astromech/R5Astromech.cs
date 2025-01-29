@@ -8,7 +8,7 @@ using SubPhases;
 
 namespace UpgradesList.SecondEdition
 {
-    public class R5Astromech : GenericUpgrade
+    public class R5Astromech : GenericUpgrade, IVariableCost
     {
         public R5Astromech() : base()
         {

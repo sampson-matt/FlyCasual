@@ -10,8 +10,9 @@ namespace Ship
 {
     namespace SecondEdition.GauntletFighter
     {
-        public class GauntletFighter : GenericShip
+        public class GauntletFighter : GenericShip, IMovableWings
         {
+            public WingsPositions CurrentWingsPosition { get; set; }
             public GauntletFighter() : base()
             {
                 ShipInfo = new ShipCardInfo

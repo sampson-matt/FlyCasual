@@ -11,7 +11,8 @@ namespace RulesList
     public enum JamIsNotAllowedReasons
     {
         NotInRange,
-        FriendlyShip
+        FriendlyShip,
+        Obstacle
     }
 
     public class JamRule

@@ -3,6 +3,7 @@ using System;
 using Upgrade;
 using SubPhases;
 using Tokens;
+using System.Linq;
 
 namespace Ship
 {
@@ -91,6 +92,7 @@ namespace Abilities.SecondEdition
 
             if (subphase.GetDecisions().Count > 0)
             {
+                subphase.DefaultDecisionName = subphase.GetDecisions().First().Name;
                 subphase.Start();
             }
             else

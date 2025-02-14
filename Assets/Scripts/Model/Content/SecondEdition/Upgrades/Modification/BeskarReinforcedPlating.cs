@@ -5,6 +5,7 @@ using Ship;
 using SubPhases;
 using Upgrade;
 using System.Collections.Generic;
+using System;
 
 namespace UpgradesList.SecondEdition
 {
@@ -46,21 +47,21 @@ namespace Abilities.SecondEdition
     {
         public override void ActivateAbility()
         {
-            HostShip.OnDamageCardIsDealt += RegisterBeskarTrigger;
+            HostShip.OnFaceupCritCardReadyToBeDealt += RegisterBeskarTrigger;
         }
 
         public override void DeactivateAbility()
         {
-            HostShip.OnDamageCardIsDealt -= RegisterBeskarTrigger;
+            HostShip.OnFaceupCritCardReadyToBeDealt -= RegisterBeskarTrigger;
         }
 
-        private void RegisterBeskarTrigger(GenericShip ship)
-        {
+    private void RegisterBeskarTrigger(GenericShip ship, GenericDamageCard crit, EventArgs e)
+    {
             if (Combat.CurrentCriticalHitCard.IsFaceup
                 && HostUpgrade.State.Charges > 0
                 && IsFaceToFaceDefense())
             {
-                RegisterAbilityTrigger(TriggerTypes.OnDamageCardIsDealt, AskUseChewbaccaAbility);
+                RegisterAbilityTrigger(TriggerTypes.OnFaceupCritCardReadyToBeDealt, AskUseChewbaccaAbility);
             }
         }
 

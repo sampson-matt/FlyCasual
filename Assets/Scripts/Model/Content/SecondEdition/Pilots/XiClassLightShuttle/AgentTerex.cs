@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Agent Terex",
                     3,
-                    35,
+                    34,
                     isLimited: true,
                     extraUpgradeIcons: new List<UpgradeType>()
                     {

@@ -15,7 +15,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Petty Officer Thanisson",
                 UpgradeType.Crew,
-                cost: 3,
+                cost: 2,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.FirstOrder),
                 abilityType: typeof(Abilities.SecondEdition.PettyOfficerThanissonCrewAbility)

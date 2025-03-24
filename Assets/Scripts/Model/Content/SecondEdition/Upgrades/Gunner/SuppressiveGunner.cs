@@ -14,11 +14,9 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Suppressive Gunner",
                 UpgradeType.Gunner,
-                cost: 7,
+                cost: 6,
                 abilityType: typeof(Abilities.SecondEdition.SuppressiveGunnerAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/71/36/7136b2b9-dc7c-494a-9509-4ffbe0d2870d/swz70_a1_suppressive-gunner_upgrade.png";
         }
     }
 }

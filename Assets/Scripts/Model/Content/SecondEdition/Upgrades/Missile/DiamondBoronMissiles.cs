@@ -20,7 +20,7 @@ namespace UpgradesList.SecondEdition
                     UpgradeType.Missile,
                     UpgradeType.Missile
                 },
-                cost: 5,
+                cost: 4,
                 weaponInfo: new SpecialWeaponInfo(
                     attackValue: 3,
                     minRange: 2,
@@ -31,8 +31,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.DiamondBoronMissilesAbility),
                 isLimited: true
             );
-            
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/f1/c4/f1c4559f-1817-4256-a229-132b40d83ec9/swz41_diamond-boron-missiles.png";
         }        
     }
 }

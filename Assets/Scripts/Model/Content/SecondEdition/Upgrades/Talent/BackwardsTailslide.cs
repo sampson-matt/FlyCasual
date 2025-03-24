@@ -14,15 +14,13 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Backwards Tailslide",
                 UpgradeType.Talent,
-                cost: 2,
+                cost: 1,
                 restrictions: new UpgradeCardRestrictions(
                     new ShipRestriction(typeof(Ship.SecondEdition.T65XWing.T65XWing), typeof(Ship.SecondEdition.T70XWing.T70XWing)),
                     new UpgradePresentRestriction(UpgradeType.Configuration)
                 ),
                 abilityType: typeof(Abilities.SecondEdition.BackwardsTailslideAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/c4/d5/c4d543bc-bcf0-4c88-b8df-f652210752b9/swz68_backward-tailslide.png";
         }
         public override bool IsAllowedForSquadBuilderPostCheck(SquadList squadList)
         {

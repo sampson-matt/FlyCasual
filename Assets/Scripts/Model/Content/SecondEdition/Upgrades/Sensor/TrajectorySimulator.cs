@@ -3,10 +3,11 @@ using Movement;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
+using Ship;
 
 namespace UpgradesList.SecondEdition
 {
-    public class TrajectorySimulator : GenericUpgrade
+    public class TrajectorySimulator : GenericUpgrade, IVariableCost
     {
         public TrajectorySimulator() : base()
         {
@@ -16,8 +17,19 @@ namespace UpgradesList.SecondEdition
                 cost: 6,
                 abilityType: typeof(Abilities.SecondEdition.TrajectorySimulatorAbility)
             );
-        }        
-    }
+        }
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<BaseSize, int> sizeToCost = new Dictionary<BaseSize, int>()
+            {
+                {BaseSize.Small, 5},
+                {BaseSize.Medium, 4},
+                {BaseSize.Large, 3},
+            };
+
+            UpgradeInfo.Cost = sizeToCost[ship.ShipInfo.BaseSize];
+        }
+    }    
 }
 
 namespace Abilities.SecondEdition

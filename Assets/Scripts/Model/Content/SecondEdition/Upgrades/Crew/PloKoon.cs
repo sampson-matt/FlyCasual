@@ -30,8 +30,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Republic,
                 new Vector2(235, 1)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/9a/a5/9aa5ef62-7c41-425d-9f27-01369d3e1571/swz70_a1_plo-koon_upgrade.png";
         }
 
         public void UpdateCost(GenericShip ship)

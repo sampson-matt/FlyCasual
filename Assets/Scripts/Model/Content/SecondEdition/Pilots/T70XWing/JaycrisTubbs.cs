@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Jaycris Tubbs",
                     1,
-                    45,
+                    44,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.JaycrisTubbsAbility)
                 );

@@ -12,7 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Jarek Yeager",
                     5,
-                    30,
+                    28,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.JarekYeagerAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Astromech }

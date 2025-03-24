@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Amilyn Holdo",
                 UpgradeType.Crew,
-                cost: 8,
+                cost: 6,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Resistance),
                 abilityType: typeof(Abilities.SecondEdition.AmilynHoldoCrewAbility)

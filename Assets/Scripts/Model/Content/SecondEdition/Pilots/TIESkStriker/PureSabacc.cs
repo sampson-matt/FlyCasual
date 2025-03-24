@@ -11,7 +11,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Pure Sabacc\"",
                     4,
-                    42,
+                    41,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.PureSabaccAbility),
                     extraUpgradeIcon: UpgradeType.Talent

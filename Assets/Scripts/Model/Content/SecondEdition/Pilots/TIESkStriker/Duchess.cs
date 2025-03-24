@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Duchess\"",
                     5,
-                    44,
+                    43,
                     isLimited: true,
                     extraUpgradeIcon: UpgradeType.Talent
                 );

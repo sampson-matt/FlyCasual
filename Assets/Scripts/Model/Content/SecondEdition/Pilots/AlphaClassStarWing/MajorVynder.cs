@@ -12,7 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Major Vynder",
                     4,
-                    39,
+                    38,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.MajorVynderAbility),
                     extraUpgradeIcon: UpgradeType.Talent

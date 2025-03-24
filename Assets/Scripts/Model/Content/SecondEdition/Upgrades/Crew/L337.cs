@@ -19,7 +19,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "L3-37",
                 UpgradeType.Crew,
-                cost: 4,
+                cost: 3,
                 restriction: new FactionRestriction(Faction.Scum),
                 abilityType: typeof(Abilities.SecondEdition.L337CrewAbility)
             );

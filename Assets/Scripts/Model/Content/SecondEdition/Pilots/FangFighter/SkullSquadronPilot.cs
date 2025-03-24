@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Skull Squadron Pilot",
                     4,
-                    46,
+                    44,
                     tags: new List<Tags>
                     {
                         Tags.Mandalorian

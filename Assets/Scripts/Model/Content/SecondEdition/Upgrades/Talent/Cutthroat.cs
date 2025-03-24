@@ -17,12 +17,10 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Cutthroat",
                 UpgradeType.Talent,
-                cost: 2,
+                cost: 1,
                 abilityType: typeof(Abilities.SecondEdition.CutthroatAbility),
                 restriction: new FactionRestriction(Faction.Scum)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/fd/7b/fd7b2ccc-d500-4a02-bb2a-9e0538406d65/swz85_upgrade_cutthroat.png";
         }        
     }
 }

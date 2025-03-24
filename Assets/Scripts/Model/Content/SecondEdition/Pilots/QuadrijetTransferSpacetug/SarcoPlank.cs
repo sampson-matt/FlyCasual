@@ -15,7 +15,8 @@ namespace Ship
                     2,
                     29,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.SarcoPlankAbility)
+                    abilityType: typeof(Abilities.SecondEdition.SarcoPlankAbility),
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
             }
         }

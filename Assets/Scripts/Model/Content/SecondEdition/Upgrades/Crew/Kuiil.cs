@@ -10,7 +10,7 @@ using Upgrade;
 
 namespace UpgradesList.SecondEdition
 {
-    public class Kuiil : GenericUpgrade
+    public class Kuiil : GenericUpgrade, IVariableCost
     {
         public Kuiil() : base()
         {
@@ -22,6 +22,17 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Scum),
                 abilityType: typeof(Abilities.SecondEdition.KuiilAbility)
             );
+        }
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<BaseSize, int> sizeToCost = new Dictionary<BaseSize, int>()
+            {
+                {BaseSize.Small, 3},
+                {BaseSize.Medium, 6},
+                {BaseSize.Large, 8 }
+            };
+
+            UpgradeInfo.Cost = sizeToCost[ship.ShipInfo.BaseSize];
         }
     }
 }

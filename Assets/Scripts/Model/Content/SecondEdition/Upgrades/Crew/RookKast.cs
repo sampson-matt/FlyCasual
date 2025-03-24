@@ -16,14 +16,12 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Rook Kast",
                 UpgradeType.Crew,
-                cost: 7,
+                cost: 5,
                 isLimited: true,
                 restriction: new FactionRestriction(Faction.Scum),
                 addAction: new ActionInfo(typeof(TargetLockAction), ActionColor.Red),
                 abilityType: typeof(Abilities.SecondEdition.RookKastCrewAbility)
             );
-
-            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/rookkast.png";
         }        
     }
 }

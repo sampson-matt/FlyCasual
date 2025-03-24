@@ -22,10 +22,10 @@ namespace Ship
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();
-                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Crew);
+                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Illicit);
+                ShipInfo.UpgradeIcons.Upgrades.Add(UpgradeType.Crew);
 
-                PilotNameCanonical = "leebo-swz103";
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/leebo-wisdomofages.png";
+                PilotNameCanonical = "leebo-swz103-rebelalliance";
             }
         }
     }

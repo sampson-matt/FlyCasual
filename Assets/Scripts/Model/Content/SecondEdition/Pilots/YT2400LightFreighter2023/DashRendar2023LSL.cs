@@ -23,7 +23,6 @@ namespace Ship
                 );
 
                 PilotNameCanonical = "dashrendar-swz103-lsl-rebelalliance";
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/main/YT2400/dashRendar-rebel.png";
             }
         }
     }

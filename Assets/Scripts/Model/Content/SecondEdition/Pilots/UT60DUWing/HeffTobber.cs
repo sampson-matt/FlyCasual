@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Heff Tobber",
                     2,
-                    44,
+                    43,
                     isLimited: true,
                     abilityType: typeof(HeffTobberAbility),
                     extraUpgradeIcon: UpgradeType.Talent

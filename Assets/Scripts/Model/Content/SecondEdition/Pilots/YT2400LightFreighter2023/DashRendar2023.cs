@@ -20,8 +20,7 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent}
                 );
 
-                PilotNameCanonical = "dashrendar-swz103";
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/dashrendar-freighterforhire.png";
+                PilotNameCanonical = "dashrendar-swz103-rebelalliance";
             }
         }
     }

@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Saw Gerrera",
                     4,
-                    52,
+                    50,
                     isLimited: true,
                     abilityType: typeof(SawGerreraPilotAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }

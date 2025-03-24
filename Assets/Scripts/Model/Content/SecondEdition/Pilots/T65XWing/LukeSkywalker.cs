@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Luke Skywalker",
                     5,
-                    60,
+                    59,
                     isLimited: true,
                     abilityType: typeof(LukeSkywalkerAbility),
                     tags: new List<Tags>

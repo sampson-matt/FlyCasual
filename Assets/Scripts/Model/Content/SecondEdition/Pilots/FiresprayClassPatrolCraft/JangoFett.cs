@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Jango Fett",
                     6,
-                    78,
+                    79,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.JangoFettAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Crew },

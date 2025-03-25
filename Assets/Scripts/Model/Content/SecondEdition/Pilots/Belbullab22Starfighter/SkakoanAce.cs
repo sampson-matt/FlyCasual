@@ -7,7 +7,7 @@
             PilotInfo = new PilotCardInfo(
                 "Skakoan Ace",
                 3,
-                38,
+                37,
                 extraUpgradeIcon: Upgrade.UpgradeType.Talent
             );
         }

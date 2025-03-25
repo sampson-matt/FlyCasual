@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Cad Bane",
                     4,
-                    44,
+                    42,
                     charges: 1,
                     regensCharges: 1,
                     pilotTitle: "Needs No Introduction",

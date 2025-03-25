@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "IG-111",
                     1,
-                    38,
+                    37,
                     pilotTitle: "One Eye",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.IG111Ability),

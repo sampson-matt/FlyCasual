@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Treacherous",
                 UpgradeType.Talent,
-                cost: 2,
+                cost: 1,
                 abilityType: typeof(Abilities.SecondEdition.TreacherousAbility),
                 restriction: new FactionRestriction(Faction.Separatists),
                 charges: 1

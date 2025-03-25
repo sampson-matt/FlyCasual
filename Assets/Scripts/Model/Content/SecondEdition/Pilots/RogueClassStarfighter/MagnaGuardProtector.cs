@@ -20,7 +20,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "MagnaGuard Protector",
                     4,
-                    40,
+                    39,
                     limited: 2,
                     pilotTitle: "Implacable Escort",
                     abilityText: "Setup: After placing forces, assign the Guarded condition to 1 friendly ship other than MagnaGuard Protector.",

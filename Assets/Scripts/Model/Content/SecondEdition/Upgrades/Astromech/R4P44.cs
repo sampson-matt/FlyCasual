@@ -14,11 +14,10 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "R4-P44",
                 UpgradeType.Astromech,
-                cost: 2, 
+                cost: 1, 
                 abilityType: typeof(Abilities.SecondEdition.R4P44Ability),
                 restriction: new FactionRestriction(Faction.Republic)
             );
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/71/af/71afc8f6-022b-48f7-9694-83e6322782b2/swz33_r4-p44-upgrade.png";
         }
     }
 }

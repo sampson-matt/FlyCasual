@@ -12,7 +12,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "212th Battalion Pilot",
                     2,
-                    46
+                    45
                 );
             }
         }

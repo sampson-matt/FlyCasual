@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Seventh Fleet Gunner",
                 UpgradeType.Gunner,
-                cost: 7,
+                cost: 6,
                 restriction: new FactionRestriction(Faction.Republic),
                 charges: 1,
                 abilityType: typeof(Abilities.SecondEdition.SeventhFleetGunnerAbility)

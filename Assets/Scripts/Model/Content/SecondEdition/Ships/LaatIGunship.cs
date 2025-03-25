@@ -37,7 +37,8 @@ namespace Ship.SecondEdition.LaatIGunship
                     UpgradeType.Gunner,
                     UpgradeType.Missile,
                     UpgradeType.Missile,
-                    UpgradeType.Modification
+                    UpgradeType.Modification,
+                    UpgradeType.Astromech
                 )
             );
 

@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Contrail\"",
                     5,
-                    32,
+                    31,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ContrailAbility),
                     extraUpgradeIcon: UpgradeType.Talent

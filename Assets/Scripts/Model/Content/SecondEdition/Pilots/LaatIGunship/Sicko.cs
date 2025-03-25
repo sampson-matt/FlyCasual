@@ -20,7 +20,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Sicko\"",
                     2,
-                    49,
+                    47,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.SickoAbility)
                 );

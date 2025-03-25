@@ -14,13 +14,12 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "R4-P17",
                 UpgradeType.Astromech,
-                cost: 5,
+                cost: 4,
                 charges: 2,
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.R4P17Ability),
                 restriction: new FactionRestriction(Faction.Republic)
             );
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/9c/08/9c089203-13b7-4639-8366-2498c9fe9982/swz32_r4-p17_astromech.png";
         }
     }
 }

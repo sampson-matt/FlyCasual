@@ -14,7 +14,7 @@ namespace Ship.SecondEdition.Eta2Actis
             PilotInfo = new PilotCardInfo(
                 "Aayla Secura",
                 5,
-                48,
+                47,
                 true,
                 force: 2,
                 abilityType: typeof(Abilities.SecondEdition.AaylaSecuraActisAbility),

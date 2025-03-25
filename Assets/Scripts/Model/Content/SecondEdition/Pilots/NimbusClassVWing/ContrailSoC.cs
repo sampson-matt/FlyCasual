@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "\"Contrail\"",
                     5,
-                    33,
+                    32,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ContrailAbility),
                     tags: new List<Tags>

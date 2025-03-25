@@ -7,7 +7,7 @@ using BoardTools;
 
 namespace UpgradesList.SecondEdition
 {
-    public class R7A7 : GenericUpgrade
+    public class R7A7 : GenericUpgrade, IVariableCost
     {
         public R7A7() : base()
         {
@@ -20,8 +20,18 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Republic),
                 abilityType: typeof(Abilities.SecondEdition.R7A7Ability)
             );
+        }
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<int, int> agilityToCost = new Dictionary<int, int>()
+            {
+                {0, 3},
+                {1, 3},
+                {2, 3},
+                {3, 5}
+            };
 
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/f5/84/f58409a7-8000-4201-a912-014b011521cb/swz80_upgrade_r7-a7.png";
+            UpgradeInfo.Cost = agilityToCost[ship.ShipInfo.Agility];
         }
     }
 }

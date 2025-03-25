@@ -16,7 +16,7 @@ namespace Ship.SecondEdition.V19TorrentStarfighter
             PilotInfo = new PilotCardInfo(
                 "\"Axe\"",
                 3,
-                31,
+                30,
                 true,
                 tags: new List<Tags>
                 {

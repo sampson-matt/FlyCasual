@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using Upgrade;
 using Content;
 
 namespace Ship.SecondEdition.Eta2Actis
@@ -20,7 +20,7 @@ namespace Ship.SecondEdition.Eta2Actis
                 },
                 force: 2
             );
-
+            ShipInfo.UpgradeIcons.Upgrades.Add(UpgradeType.Cannon);
             ModelInfo.SkinName = "Blue";
         }
     }

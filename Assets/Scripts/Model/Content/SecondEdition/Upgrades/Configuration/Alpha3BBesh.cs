@@ -14,13 +14,11 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Alpha-3B \"Besh\"",
                 UpgradeType.Configuration,
-                cost: 1,
+                cost: 0,
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.NimbusClassVWing.NimbusClassVWing)),
                 abilityType: typeof(Abilities.SecondEdition.Alpha3BBeshAbility),
                 addSlot: new UpgradeSlot(UpgradeType.Device)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/6d/43/6d434e52-68f4-4b8d-9166-4365fb920625/swz80_upgrade_alpha-3b.png";
         }
     }
 }

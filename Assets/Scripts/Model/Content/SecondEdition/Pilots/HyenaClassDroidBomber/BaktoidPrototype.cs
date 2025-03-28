@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Content;
 using Ship;
 using Tokens;
 using Upgrade;
@@ -18,7 +19,11 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 limited: 2,
                 abilityType: typeof(Abilities.SecondEdition.BaktoidPrototypeAbility),
                 extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Sensor, UpgradeType.Missile, UpgradeType.Missile },
-                pilotTitle: "Function over Form"
+                pilotTitle: "Function over Form",
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

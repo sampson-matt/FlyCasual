@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using Upgrade;
-using System;
+﻿using Actions;
+using ActionsList;
 using Content;
 using Ship;
-using ActionsList;
-using Actions;
+using System;
+using System.Collections.Generic;
+using Upgrade;
 
 namespace Ship.SecondEdition.HyenaClassDroidBomber
 {
@@ -21,7 +21,8 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 charges: 2,
                 tags: new List<Tags>
                 {
-                    Tags.SoC
+                    Tags.SoC,
+                    Tags.Droid
                 },
                 extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Sensor, UpgradeType.TacticalRelay },
                 pilotTitle: "Siege of Coruscant"

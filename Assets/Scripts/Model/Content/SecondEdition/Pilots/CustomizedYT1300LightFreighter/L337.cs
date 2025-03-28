@@ -1,6 +1,6 @@
-﻿using Movement;
+﻿using Content;
+using Movement;
 using Ship;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Ship
@@ -16,7 +16,11 @@ namespace Ship
                     2,
                     41,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.L337Ability)
+                    abilityType: typeof(Abilities.SecondEdition.L337Ability),
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

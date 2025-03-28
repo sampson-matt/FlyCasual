@@ -1,4 +1,5 @@
-﻿using SubPhases;
+﻿using Content;
+using SubPhases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,11 @@ namespace Ship
                     24,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.R1J5PilotAbility),
-                    extraUpgradeIcon: UpgradeType.Crew
+                    extraUpgradeIcon: UpgradeType.Crew,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

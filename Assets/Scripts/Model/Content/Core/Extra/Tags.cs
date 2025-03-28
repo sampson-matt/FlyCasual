@@ -4,6 +4,7 @@
     {
         AWing,
         BountyHunter,
+        BoE,
         BoY,
         BWing,
         Clone,

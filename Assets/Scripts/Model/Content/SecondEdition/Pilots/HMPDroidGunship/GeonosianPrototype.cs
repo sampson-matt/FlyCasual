@@ -1,4 +1,5 @@
-﻿using Ship;
+﻿using Content;
+using Ship;
 using System;
 using System.Collections.Generic;
 using Tokens;
@@ -18,7 +19,11 @@ namespace Ship
                     38,
                     limited: 2,
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Cannon, UpgradeType.Cannon },
-                    abilityType: typeof(Abilities.SecondEdition.GeonosianPrototypeAbility)
+                    abilityType: typeof(Abilities.SecondEdition.GeonosianPrototypeAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
             }
         }

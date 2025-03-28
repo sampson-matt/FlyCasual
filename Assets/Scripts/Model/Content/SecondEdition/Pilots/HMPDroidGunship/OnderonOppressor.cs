@@ -1,4 +1,5 @@
 ﻿using ActionsList;
+using Content;
 using Movement;
 using Ship;
 using System;
@@ -20,7 +21,11 @@ namespace Ship
                     39,
                     limited: 2,
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Crew, UpgradeType.Device },
-                    abilityType: typeof(Abilities.SecondEdition.OnderonOppressorAbility)
+                    abilityType: typeof(Abilities.SecondEdition.OnderonOppressorAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
             }
         }

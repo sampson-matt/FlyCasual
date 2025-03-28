@@ -3,6 +3,7 @@ using Upgrade;
 using System.Linq;
 using System;
 using Ship;
+using Content;
 
 namespace Ship.SecondEdition.HyenaClassDroidBomber
 {
@@ -17,10 +18,12 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.DBS404Ability),
                 extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Torpedo, UpgradeType.Missile, UpgradeType.Device },
-                pilotTitle: "Preservation Protocol Not Found"
+                pilotTitle: "Preservation Protocol Not Found",
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
-
-            ImageUrl = "https://raw.githubusercontent.com/eirikmun/x-wing2.0-project-goldenrod/2.0/src/images/En/pilots/dbs404.png";
         }
     }
 }

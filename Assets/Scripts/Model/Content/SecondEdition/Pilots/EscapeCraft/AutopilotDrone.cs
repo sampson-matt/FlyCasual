@@ -1,6 +1,7 @@
 ﻿using Actions;
 using ActionsList;
 using BoardTools;
+using Content;
 using Ship;
 using System.Collections.Generic;
 using Upgrade;
@@ -18,7 +19,11 @@ namespace Ship
                     1,
                     11,
                     isLimited: true,
-                    charges: 3
+                    charges: 3,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Crew);

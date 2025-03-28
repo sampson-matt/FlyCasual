@@ -23,7 +23,8 @@ namespace Ship.SecondEdition.DroidTriFighter
                 pilotTitle: "Siege of Coruscant",
                 tags: new List<Tags>
                 {
-                    Tags.SoC
+                    Tags.SoC,
+                    Tags.Droid
                 }
             );
 

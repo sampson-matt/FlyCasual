@@ -1,10 +1,7 @@
-﻿using BoardTools;
-using Bombs;
+﻿using Content;
 using Ship;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Upgrade;
 
 namespace Ship
@@ -21,7 +18,11 @@ namespace Ship
                     30,
                     isLimited: true,
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Crew },
-                    abilityType: typeof(Abilities.SecondEdition.R2D2PilotAbility)
+                    abilityType: typeof(Abilities.SecondEdition.R2D2PilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

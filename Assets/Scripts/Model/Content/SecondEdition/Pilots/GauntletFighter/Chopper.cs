@@ -1,4 +1,5 @@
 ﻿
+using Content;
 using System;
 using System.Collections.Generic;
 using Upgrade;
@@ -20,7 +21,11 @@ namespace Ship
                     pilotTitle: "Spectre-3",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ChopperPilotAbility),
-                    factionOverride: Faction.Rebel
+                    factionOverride: Faction.Rebel,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ModelInfo.SkinName = "Red";

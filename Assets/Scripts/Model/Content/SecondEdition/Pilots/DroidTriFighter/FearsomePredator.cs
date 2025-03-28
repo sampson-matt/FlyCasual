@@ -1,4 +1,5 @@
 ﻿using Conditions;
+using Content;
 using Ship;
 using SubPhases;
 using System;
@@ -19,7 +20,11 @@ namespace Ship.SecondEdition.DroidTriFighter
                 35,
                 limited: 3,
                 extraUpgradeIcon: UpgradeType.Talent,
-                abilityType: typeof(Abilities.SecondEdition.FearsomePredatorAbility)
+                abilityType: typeof(Abilities.SecondEdition.FearsomePredatorAbility),
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

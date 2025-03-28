@@ -1,9 +1,11 @@
 ﻿using Actions;
 using ActionsList;
+using Content;
 using Movement;
 using Ship;
 using SubPhases;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Tokens;
 using Upgrade;
@@ -22,7 +24,11 @@ namespace Ship
                     45,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.P4LOMAbility),
-                    extraUpgradeIcon: UpgradeType.Talent
+                    extraUpgradeIcon: UpgradeType.Talent,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

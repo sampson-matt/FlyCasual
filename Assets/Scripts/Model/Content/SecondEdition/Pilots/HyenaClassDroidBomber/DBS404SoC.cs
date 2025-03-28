@@ -18,7 +18,8 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 abilityType: typeof(Abilities.SecondEdition.DBS404SoCAbility),
                 tags: new List<Tags>
                 {
-                    Tags.SoC
+                    Tags.SoC,
+                    Tags.Droid
                 },
                 extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Torpedo, UpgradeType.Missile, UpgradeType.Device },
                 pilotTitle: "Siege of Coruscant"

@@ -21,7 +21,8 @@ namespace Ship.SecondEdition.DroidTriFighter
                 abilityType: typeof(Abilities.SecondEdition.PhlacArphoccPrototypeSoCAbility),
                 tags: new List<Tags>
                 {
-                    Tags.SoC
+                    Tags.SoC,
+                    Tags.Droid
                 },
                 pilotTitle: "Siege of Coruscant"
             );

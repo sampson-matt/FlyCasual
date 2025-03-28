@@ -1,4 +1,5 @@
 ﻿using Arcs;
+using Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,11 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 "Techno Union Bomber",
                 1,
                 26,
-                extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Torpedo, UpgradeType.Missile, UpgradeType.Device }
+                extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Torpedo, UpgradeType.Missile, UpgradeType.Device },
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

@@ -1,5 +1,5 @@
 ﻿using Abilities.Parameters;
-using SubPhases;
+using Content;
 using System.Collections.Generic;
 using Tokens;
 using Upgrade;
@@ -18,7 +18,11 @@ namespace Ship
                     39,
                     isLimited: true,
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Crew, UpgradeType.Device },
-                    abilityType: typeof(Abilities.SecondEdition.DGS286Ability)
+                    abilityType: typeof(Abilities.SecondEdition.DGS286Ability),
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
             }
         }

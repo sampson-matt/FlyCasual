@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Content;
 using System.Collections.Generic;
-using Upgrade;
 
 namespace Ship.SecondEdition.DroidTriFighter
 {
@@ -11,7 +10,11 @@ namespace Ship.SecondEdition.DroidTriFighter
             PilotInfo = new PilotCardInfo(
                 "Colicoid Interceptor",
                 1,
-                34
+                34,
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

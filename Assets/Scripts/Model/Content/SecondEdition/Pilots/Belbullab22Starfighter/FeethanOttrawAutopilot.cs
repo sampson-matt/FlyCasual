@@ -1,7 +1,5 @@
-﻿using System;
+﻿using Content;
 using System.Collections.Generic;
-using System.Linq;
-using Upgrade;
 
 namespace Ship.SecondEdition.Belbullab22Starfighter
 {
@@ -12,7 +10,11 @@ namespace Ship.SecondEdition.Belbullab22Starfighter
             PilotInfo = new PilotCardInfo(
                 "Feethan Ottraw Autopilot",
                 1,
-                34
+                34,
+                tags: new List<Content.Tags>
+                {
+                    Tags.Droid
+                }
             );
 
             ShipInfo.ActionIcons.SwitchToDroidActions();

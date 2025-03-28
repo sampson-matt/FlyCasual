@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Content;
+using System.Collections.Generic;
 using Upgrade;
 
 namespace Ship.SecondEdition.HyenaClassDroidBomber
@@ -11,7 +12,11 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 "Separatist Bomber",
                 3,
                 28,
-                extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Torpedo, UpgradeType.Missile, UpgradeType.Device }
+                extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Torpedo, UpgradeType.Missile, UpgradeType.Device },
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

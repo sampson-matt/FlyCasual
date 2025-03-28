@@ -1,5 +1,4 @@
-﻿using Actions;
-using ActionsList;
+﻿using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -17,7 +16,11 @@ namespace Ship
                     25,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.L337Ability),
-                    extraUpgradeIcon: UpgradeType.Talent
+                    extraUpgradeIcon: UpgradeType.Talent,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 PilotNameCanonical = "l337-escapecraft";

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -12,7 +12,11 @@ namespace Ship.SecondEdition.DroidTriFighter
                 "Separatist Interceptor",
                 3,
                 35,
-                extraUpgradeIcon: UpgradeType.Talent
+                extraUpgradeIcon: UpgradeType.Talent,
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

@@ -1,4 +1,5 @@
 ﻿using BoardTools;
+using Content;
 using Ship;
 using SubPhases;
 using System;
@@ -17,7 +18,11 @@ namespace Ship.SecondEdition.DroidTriFighter
                 36,
                 true,
                 extraUpgradeIcon: UpgradeType.Talent,
-                abilityType: typeof(Abilities.SecondEdition.Dis347Ability)
+                abilityType: typeof(Abilities.SecondEdition.Dis347Ability),
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

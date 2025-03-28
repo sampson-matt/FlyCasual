@@ -1,4 +1,5 @@
-﻿using Ship;
+﻿using Content;
+using Ship;
 using SubPhases;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,11 @@ namespace Ship.SecondEdition.DroidTriFighter
                 38,
                 limited: 2,
                 extraUpgradeIcon: UpgradeType.Talent,
-                abilityType: typeof(Abilities.SecondEdition.PhlacArphoccPrototypeAbility)
+                abilityType: typeof(Abilities.SecondEdition.PhlacArphoccPrototypeAbility),
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

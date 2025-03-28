@@ -1,9 +1,9 @@
 ﻿using BoardTools;
+using Content;
 using Ship;
 using SubPhases;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Tokens;
 using Upgrade;
 
@@ -19,7 +19,11 @@ namespace Ship.SecondEdition.DroidTriFighter
                 36,
                 true,
                 extraUpgradeIcon: UpgradeType.Talent,
-                abilityType: typeof(Abilities.SecondEdition.DisT81Ability)
+                abilityType: typeof(Abilities.SecondEdition.DisT81Ability),
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

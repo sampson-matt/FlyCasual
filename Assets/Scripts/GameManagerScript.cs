@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using GameModes;
-using BoardTools;
+﻿using BoardTools;
 using Bombs;
-using Obstacles;
+using GameModes;
+using System.Collections;
+using UnityEngine;
 
 public delegate void CallBackFunction();
 
@@ -41,8 +39,6 @@ public class GameManagerScript : MonoBehaviour {
         Combat.Initialize();
         Triggers.Initialize();
         yield return DamageDecks.Initialize();
-
-        CheckRemoteSettings();
 
         GameMode.CurrentGameMode.StartBattle();
     }
@@ -90,17 +86,6 @@ public class GameManagerScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(seconds);
         callBack();
-    }
-
-    private void CheckRemoteSettings()
-    {
-        bool showNeyYearTree = RemoteSettings.GetBool("ShowNewYearTree", false);
-        if (showNeyYearTree)
-        {
-            GameObject.Find("SceneHolder/Board").transform.Find("NewYearTree").gameObject.SetActive(true);
-            GameObject.Find("SceneHolder/Board/CombatDiceHolder").transform.localPosition = new Vector3(73, 0, 0);
-            GameObject.Find("SceneHolder/Board/CheckDiceHolder").transform.localPosition = new Vector3(85, 0, 0);
-        }
     }
 
     private void TestShotDistance()

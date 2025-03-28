@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Tokens;
-using UnityEngine;
 
 namespace Ship
 {
@@ -96,7 +95,7 @@ namespace Ship
 
             foreach (var assignedToken in AssignedTokens)
             {
-                if (assignedToken.GetType() == type)
+                if (type.IsAssignableFrom(assignedToken.GetType()))
                 {
                     if (assignedToken.GetType().BaseType == typeof(GenericTargetLockToken))
                     {
@@ -261,9 +260,9 @@ namespace Ship
             Triggers.ResolveTriggers(TriggerTypes.OnTokenIsRemoved, callback);
         }
 
-        public void RemoveAllTokensByType(Type tokenType, Action callback)
+        public void RemoveAllTokensByType(Type tokenType, Action callback, char letter = '*')
         {
-            GenericToken tokenToRemove = GetToken(tokenType, '*');
+            GenericToken tokenToRemove = GetToken(tokenType, letter);
             if (tokenToRemove != null)
             {
                 RemoveToken(

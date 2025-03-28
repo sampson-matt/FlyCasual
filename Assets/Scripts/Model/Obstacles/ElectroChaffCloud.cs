@@ -1,18 +1,17 @@
-﻿using Obstacles;
-using Ship;
-using SubPhases;
-using System;
-using Tokens;
-using Bombs;
-using UnityEngine;
-using System.Collections.Generic;
+﻿using Players;
 using RulesList;
+using Ship;
+using System;
+using System.Collections.Generic;
+using Tokens;
 
 namespace Obstacles
 {
     public class ElectroChaffCloud : GenericObstacle
     {
         protected int fuses = 0;
+
+        public GenericPlayer Assigner;
 
         public int Fuses
         {
@@ -28,9 +27,11 @@ namespace Obstacles
         public delegate void DeviceValueChanging(GenericObstacle deviceGameObject, int oldValue, ref int newValue);
         public event DeviceValueChanging FusesChanging;
         public bool IsFused => Fuses > 0;
-        public ElectroChaffCloud(string name, string shortName) : base(name, shortName)
+        public ElectroChaffCloud(string name, string shortName, GenericPlayer owner) : base(name, shortName)
         {
-            
+            Assigner = owner;
+            RulesList.TargetLocksRule.OnCheckTargetLockIsDisallowed += DisallowTargetLocks;
+            RulesList.JamRule.OnCheckJamIsDisallowed += DisallowJams;
         }
 
         public override string GetTypeName => "Electro-Chaff Cloud";
@@ -38,8 +39,6 @@ namespace Obstacles
         public override void OnLanded(GenericShip ship)
         {
             ship.OnCanBeCoordinated += denyCoordinate;
-            RulesList.TargetLocksRule.OnCheckTargetLockIsDisallowed += DisallowTargetLocks;
-            RulesList.JamRule.OnCheckJamIsDisallowed += DisallowJams;
         }
 
         private void DisallowJams(ref List<JamIsNotAllowedReasons> blockReasons, GenericShip jamSource, GenericShip jamTarget)
@@ -55,8 +54,7 @@ namespace Obstacles
             if (ship.IsLandedOnObstacle && ship.ObstaclesLanded.Contains(this))
             {
                 canBeCoordinated = false;
-            }
-            
+            }            
         }
 
         private void DisallowTargetLocks(ref bool result, GenericShip attacker, ITargetLockable defender)
@@ -80,15 +78,13 @@ namespace Obstacles
                 Selection.ThisShip.IsSkipsActionSubPhase = true;
             }
             BreakAllLocks(ship, delegate {
-                ship.Tokens.AssignToken(
-                typeof(Tokens.JamToken), Triggers.FinishTrigger, ship.Owner);
+                ship.Tokens.AssignToken(new JamToken(ship, Assigner), Triggers.FinishTrigger);
             });
         }
 
         private void BreakAllLocks(GenericShip ship, Action callback)
         {
-            ship.Tokens.RemoveAllTokensByType(typeof(Tokens.BlueTargetLockToken), delegate { });
-            ship.Tokens.RemoveAllTokensByType(typeof(Tokens.RedTargetLockToken), callback);
+            ship.Tokens.RemoveAllTokensByType(typeof(GenericTargetLockToken), callback, '*');
         }
 
         public override void OnShotObstructedExtra(GenericShip attacker, GenericShip defender, ref int result)

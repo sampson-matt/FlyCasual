@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Bombs;
 using Ship;
-using Bombs;
-using System.Linq;
+using System;
+using System.Collections.Generic;
 
 namespace Upgrade
 {

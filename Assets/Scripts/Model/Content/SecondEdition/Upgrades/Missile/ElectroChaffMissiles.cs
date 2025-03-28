@@ -1,14 +1,10 @@
-﻿using System.Collections.Generic;
-using Upgrade;
-using BoardTools;
-using Movement;
-using Ship;
-using System;
-using SubPhases;
-using Obstacles;
-using System.Linq;
-using UnityEngine;
+﻿using BoardTools;
 using Bombs;
+using Movement;
+using Obstacles;
+using System;
+using System.Collections.Generic;
+using Upgrade;
 
 namespace UpgradesList.SecondEdition
 {
@@ -62,7 +58,7 @@ namespace UpgradesList.SecondEdition
 
             foreach (var bombObject in bombObjects)
             {
-                chaffCloud = new ElectroChaffCloud("Electro-Chaff Cloud", "electro-chaffcloud");
+                chaffCloud = new ElectroChaffCloud("Electro-Chaff Cloud", "electro-chaffcloud", HostShip.Owner);
                 chaffCloud.Spawn("Electro-Chaff Cloud " + HostShip.ShipId, Board.GetBoard());
                 ObstaclesManager.AddObstacle(chaffCloud);
 

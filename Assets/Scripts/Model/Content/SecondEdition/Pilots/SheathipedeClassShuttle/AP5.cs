@@ -1,5 +1,6 @@
 ﻿using Actions;
 using ActionsList;
+using Content;
 using Ship;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,7 +21,11 @@ namespace Ship
                     31,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.AP5PilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent
+                    extraUpgradeIcon: UpgradeType.Talent,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

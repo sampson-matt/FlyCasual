@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Content;
+using System;
 using System.Collections.Generic;
 
 namespace Ship.SecondEdition.VultureClassDroidFighter
@@ -13,7 +14,11 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 22,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.Dfs081Ability),
-                pilotTitle: "Preservation Programming"
+                pilotTitle: "Preservation Programming",
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

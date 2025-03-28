@@ -1,4 +1,5 @@
 ﻿using Arcs;
+using Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,11 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 23,
                 limited: 3,
                 abilityType: typeof(Abilities.SecondEdition.PreciseHunterAbility),
-                pilotTitle: "Pinpoint Protocols"
+                pilotTitle: "Pinpoint Protocols",
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

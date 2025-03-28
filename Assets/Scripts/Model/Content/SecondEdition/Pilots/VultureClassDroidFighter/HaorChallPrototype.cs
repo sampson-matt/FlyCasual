@@ -1,5 +1,6 @@
 ﻿using ActionsList;
 using Arcs;
+using Content;
 using Ship;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,11 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 22,
                 limited: 2,
                 abilityType: typeof(Abilities.SecondEdition.HaorChallPrototypeAbility),
-                pilotTitle: "Xi Char Offering"
+                pilotTitle: "Xi Char Offering",
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
 
             ModelInfo.SkinName = "Gray";

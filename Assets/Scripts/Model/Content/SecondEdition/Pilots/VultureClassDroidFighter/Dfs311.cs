@@ -1,4 +1,5 @@
-﻿using Ship;
+﻿using Content;
+using Ship;
 using SubPhases;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,11 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 23,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.Dfs311Ability),
-                pilotTitle: "Scouting Drone"
+                pilotTitle: "Scouting Drone",
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

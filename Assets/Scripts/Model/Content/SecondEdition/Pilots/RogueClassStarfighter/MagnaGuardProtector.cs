@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using Upgrade;
-using System;
-using Abilities.SecondEdition;
-using System.Linq;
-using SubPhases;
-using Ship;
-using Tokens;
+﻿using Abilities.SecondEdition;
 using BoardTools;
 using Conditions;
+using Content;
+using Ship;
+using SubPhases;
+using System.Collections.Generic;
+using System.Linq;
+using Tokens;
+using Upgrade;
 
 namespace Ship
 {
@@ -26,7 +26,11 @@ namespace Ship
                     abilityText: "Setup: After placing forces, assign the Guarded condition to 1 friendly ship other than MagnaGuard Protector.",
                     abilityType: typeof(Abilities.SecondEdition.MagnaGuardProtectorAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent },
-                    factionOverride: Faction.Separatists
+                    factionOverride: Faction.Separatists,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

@@ -1,7 +1,5 @@
-﻿using Ship;
-using BoardTools;
-using SubPhases;
-using Tokens;
+﻿using Content;
+using System.Collections.Generic;
 using Upgrade;
 
 namespace Ship
@@ -19,7 +17,11 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.Leebo2023Ability),
                     extraUpgradeIcon: UpgradeType.Talent,
-                    factionOverride: Faction.Scum
+                    factionOverride: Faction.Scum,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

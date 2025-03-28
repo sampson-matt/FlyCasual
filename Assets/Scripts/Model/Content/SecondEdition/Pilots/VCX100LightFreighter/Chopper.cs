@@ -1,7 +1,6 @@
-﻿using Ship;
-using System.Collections;
+﻿using Content;
+using Ship;
 using System.Collections.Generic;
-using System.Linq;
 using Tokens;
 
 namespace Ship
@@ -17,7 +16,11 @@ namespace Ship
                     2,
                     66,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.ChopperPilotAbility)
+                    abilityType: typeof(Abilities.SecondEdition.ChopperPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

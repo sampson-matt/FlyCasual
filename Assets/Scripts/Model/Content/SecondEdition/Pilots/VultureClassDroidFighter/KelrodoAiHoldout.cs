@@ -1,13 +1,13 @@
-﻿using ActionsList;
-using Arcs;
+﻿using Actions;
+using ActionsList;
+using BoardTools;
+using Content;
+using Movement;
 using Ship;
+using SubPhases;
 using System;
 using System.Collections.Generic;
-using Actions;
-using Movement;
-using BoardTools;
 using Tokens;
-using SubPhases;
 
 namespace Ship.SecondEdition.VultureClassDroidFighter
 {
@@ -22,7 +22,11 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 limited: 3,
                 abilityType: typeof(Abilities.SecondEdition.KelrodoAiHoldoutAbility),
                 affectedByStandardized: false,
-                pilotTitle: "Separatist Stalwart"
+                pilotTitle: "Separatist Stalwart",
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
 
             ShipInfo.ActionIcons.RemoveLinkedAction(typeof(BarrelRollAction), typeof(CalculateAction));

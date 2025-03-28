@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Content;
+using System;
 using System.Collections.Generic;
 
 namespace Ship.SecondEdition.VultureClassDroidFighter
@@ -10,7 +11,11 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
             PilotInfo = new PilotCardInfo(
                 "Trade Federation Drone",
                 1,
-                21
+                21,
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

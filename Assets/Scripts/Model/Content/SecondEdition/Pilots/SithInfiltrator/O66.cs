@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Content;
 using Ship;
 using Upgrade;
 
@@ -15,7 +16,11 @@ namespace Ship.SecondEdition.SithInfiltrator
                 46,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.O66PilotAbility),
-                extraUpgradeIcon: UpgradeType.Talent
+                extraUpgradeIcon: UpgradeType.Talent,
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
 
             ShipInfo.ActionIcons.SwitchToDroidActions();

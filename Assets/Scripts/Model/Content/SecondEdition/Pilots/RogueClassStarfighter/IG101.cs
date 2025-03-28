@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using Upgrade;
-using System;
-using System.Linq;
+﻿using Abilities.SecondEdition;
+using Content;
 using SubPhases;
-using Abilities.SecondEdition;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Upgrade;
 
 namespace Ship
 {
@@ -21,7 +22,11 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(IG101Ability),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent },
-                    factionOverride: Faction.Separatists
+                    factionOverride: Faction.Separatists,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

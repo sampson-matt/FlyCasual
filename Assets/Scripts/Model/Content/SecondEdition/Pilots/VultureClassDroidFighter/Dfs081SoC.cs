@@ -20,7 +20,8 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 abilityType: typeof(Abilities.SecondEdition.Dfs081SoCAbility),
                 tags: new List<Tags>
                 {
-                    Tags.SoC
+                    Tags.SoC,
+                    Tags.Droid
                 },
                 pilotTitle: "Siege of Coruscant"
             );

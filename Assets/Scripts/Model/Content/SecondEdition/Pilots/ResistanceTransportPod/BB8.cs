@@ -1,10 +1,9 @@
 ﻿using Abilities.SecondEdition;
 using ActionsList;
-using BoardTools;
+using Content;
 using Ship;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Upgrade;
 
 namespace Ship.SecondEdition.ResistanceTransportPod
@@ -19,7 +18,11 @@ namespace Ship.SecondEdition.ResistanceTransportPod
                 23,
                 isLimited: true,
                 abilityType: typeof(BB8TransportPodAbility),
-                extraUpgradeIcon: UpgradeType.Talent
+                extraUpgradeIcon: UpgradeType.Talent,
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
 
             ShipInfo.ActionIcons.SwitchToDroidActions();

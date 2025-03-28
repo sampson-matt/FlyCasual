@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using Upgrade;
+﻿using Abilities.SecondEdition;
+using Content;
+using System.Collections.Generic;
 using System.Linq;
-using Abilities.SecondEdition;
+using Upgrade;
 
 namespace Ship
 {
@@ -16,7 +17,11 @@ namespace Ship
                     3,
                     37,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent },
-                    factionOverride: Faction.Separatists
+                    factionOverride: Faction.Separatists,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

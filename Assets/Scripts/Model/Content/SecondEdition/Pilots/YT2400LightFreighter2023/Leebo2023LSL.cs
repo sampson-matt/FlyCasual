@@ -3,6 +3,8 @@ using BoardTools;
 using SubPhases;
 using Tokens;
 using Upgrade;
+using Content;
+using System.Collections.Generic;
 
 namespace Ship
 {
@@ -18,7 +20,11 @@ namespace Ship
                     69,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.Leebo2023Ability),
-                    extraUpgradeIcon: UpgradeType.Talent
+                    extraUpgradeIcon: UpgradeType.Talent,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

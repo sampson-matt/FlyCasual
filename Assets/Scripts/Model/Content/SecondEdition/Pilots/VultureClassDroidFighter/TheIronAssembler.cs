@@ -1,4 +1,5 @@
 ﻿using BoardTools;
+using Content;
 using System;
 using Ship;
 using SubPhases;
@@ -18,7 +19,11 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 true,
                 charges: 3,
                 abilityType: typeof(Abilities.SecondEdition.TheIronAssemblerAbility),
-                pilotTitle: "Scintilla Scavenger"
+                pilotTitle: "Scintilla Scavenger",
+                tags: new List<Tags>
+                {
+                    Tags.Droid
+                }
             );
         }
     }

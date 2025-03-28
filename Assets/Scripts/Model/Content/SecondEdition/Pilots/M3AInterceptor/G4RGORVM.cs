@@ -1,4 +1,5 @@
 ﻿using BoardTools;
+using Content;
 using Ship;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,11 @@ namespace Ship
                     0,
                     25,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.G4RGORVMAbility)
+                    abilityType: typeof(Abilities.SecondEdition.G4RGORVMAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
                 ShipInfo.ActionIcons.SwitchToDroidActions();
             }

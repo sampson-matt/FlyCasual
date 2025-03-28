@@ -1,5 +1,6 @@
 ﻿using Abilities.SecondEdition;
 using ActionsList;
+using Content;
 using Ship;
 using System;
 using System.Collections;
@@ -21,7 +22,11 @@ namespace Ship
                     46,
                     isLimited: true,
                     abilityType: typeof(K2SOPilotAbility),
-                    extraUpgradeIcon: UpgradeType.Talent
+                    extraUpgradeIcon: UpgradeType.Talent,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

@@ -1,5 +1,5 @@
-﻿using Ship;
-using System.Collections;
+﻿using Content;
+using Ship;
 using System.Collections.Generic;
 using Tokens;
 using Upgrade;
@@ -18,7 +18,11 @@ namespace Ship
                     73,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LeeboAbility),
-                    extraUpgradeIcon: UpgradeType.Talent
+                    extraUpgradeIcon: UpgradeType.Talent,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

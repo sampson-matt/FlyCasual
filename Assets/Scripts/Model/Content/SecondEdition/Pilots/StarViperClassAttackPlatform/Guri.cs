@@ -1,5 +1,5 @@
-﻿using Actions;
-using ActionsList;
+﻿using Content;
+using System.Collections.Generic;
 using UnityEngine;
 using Upgrade;
 
@@ -17,7 +17,11 @@ namespace Ship
                     59,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.GuriAbility),
-                    extraUpgradeIcon: UpgradeType.Talent
+                    extraUpgradeIcon: UpgradeType.Talent,
+                    tags: new List<Tags>
+                    {
+                        Tags.Droid
+                    }
                 );
 
                 ShipInfo.ActionIcons.SwitchToDroidActions();

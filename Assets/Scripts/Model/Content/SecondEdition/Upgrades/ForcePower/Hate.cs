@@ -12,7 +12,7 @@ namespace UpgradesList.SecondEdition
                 "Hate",
                 UpgradeType.ForcePower,
                 cost: 4,
-                restriction: new ForceAlignmentRestriction(ForceAlignment.Dark),
+                restriction: new TagRestriction(Content.Tags.DarkSide),
                 abilityType: typeof(Abilities.SecondEdition.HateAbility)
             );
         }

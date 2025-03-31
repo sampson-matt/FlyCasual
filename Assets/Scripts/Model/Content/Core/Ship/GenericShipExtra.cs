@@ -54,6 +54,7 @@ namespace Ship
 
         public event EventHandlerBool OnSelectDamageCardToExpose;
         public event EventHandlerDamageCard OnFaceupDamageCardIsRepaired;
+        public event EventHandlerDamageCard OnFacedownDamageCardIsRepaired;
 
         public static event EventHandlerShipRefInt OnForceTokensAreSpent;
         public event EventHandlerObstacleRefBool OnCheckObstacleDenyAttack;
@@ -469,6 +470,12 @@ namespace Ship
                 TriggerTypes.OnSelectDamageCardToExpose,
                 delegate { exposeFacedownCardByIndex.Invoke(index, callback, isOverriden); }
             );
+        }
+
+        public void CallFacedownDamageCardIsRepaired(GenericDamageCard damageCard, Action callback)
+        {
+            OnFacedownDamageCardIsRepaired?.Invoke(damageCard);
+            Triggers.ResolveTriggers(TriggerTypes.OnFacedownDamageCardIsRepaired, callback);
         }
 
         public void CallFaceupDamageCardIsRepaired(GenericDamageCard damageCard, Action callback)

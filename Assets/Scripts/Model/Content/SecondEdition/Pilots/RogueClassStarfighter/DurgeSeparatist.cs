@@ -75,19 +75,12 @@ namespace Abilities.SecondEdition
             HostShip.OnBeforeCheckPreventDestruction -= RegisterAbility;
 
             List<GenericDamageCard> cardsToDiscard = HostShip.Damage.GetFacedownCards().FindAll(d => d.Type == CriticalCardType.Pilot || d.Name == "Direct Hit");
-            //foreach (GenericDamageCard card in HostShip.Damage.GetFacedownCards())
-            //{
-            //    Messages.ShowInfo(HostShip.PilotInfo.PilotName + " revealed: " + card.Name + " type:" + card.Type);
-            //}
-            //Messages.ShowInfo(HostShip.PilotInfo.PilotName + " revealed " + cardsToDiscard.Count + " Pilot trait and Direct Hit! cards.");
 
             cardsToDiscard.AddRange(HostShip.Damage.GetFaceupCrits().FindAll(d => d.Type == CriticalCardType.Pilot || d.Name == "Direct Hit"));
 
             Messages.ShowInfo(HostShip.PilotInfo.PilotName + " discarded " + cardsToDiscard.Count + " cards.");
 
             int remainingDamage = HostShip.Damage.GetFacedownCards().Count + HostShip.Damage.GetFaceupCrits().Count - cardsToDiscard.Count;
-
-            //Messages.ShowInfo(HostShip.PilotInfo.PilotName + " remaining damage: " + remainingDamage);
 
             if (cardsToDiscard.Count > 0 && remainingDamage < HostShip.ShipInfo.Hull)
             {

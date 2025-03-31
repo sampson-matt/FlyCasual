@@ -38,26 +38,35 @@ namespace Ship
             return DamageCards.Sum(n => n.DamageValue);
         }
 
-        public bool DiscardRandomFacedownCard()
+        public bool DiscardRandomFacedownCard(Action callback = null)
         {
             bool result = false;
+            if (callback == null)
+            {
+                callback = delegate { };
+            }
 
             List<GenericDamageCard> faceDownCards = GetFacedownCards();
 
             if (faceDownCards.Count != 0)
             {
                 result = true;
-                DamageCards.Remove(faceDownCards.First());
-                Host.CallAfterAssignedDamageIsChanged();
+                Repair(faceDownCards.First(), callback);                
             }
             return result;
+        }
+
+        public void Repair(GenericDamageCard repairedDamageCard, Action callback)
+        {
+            DamageCards.Remove(repairedDamageCard);
+            repairedDamageCard.Host.CallFacedownDamageCardIsRepaired(repairedDamageCard, callback);
+            Host.CallAfterAssignedDamageIsChanged();
         }
 
         public void FlipFaceupCritFacedown(GenericDamageCard critCard, Action callback)
         {
             critCard.DiscardEffect();
             critCard.Host.CallFaceupDamageCardIsRepaired(critCard, callback);
-
             Messages.ShowInfo("The critical damage card \"" + critCard.Name + "\" has been flipped face-down");
         }
 

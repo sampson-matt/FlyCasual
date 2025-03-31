@@ -79,12 +79,8 @@ namespace Abilities.SecondEdition
         private void RepairAgain(object sender, EventArgs e)
         {
             HostUpgrade.State.SpendCharge();
-
-            HostShip.Damage.DamageCards.Remove(ActionsHolder.SelectedCriticalHitCard);
-            HostShip.CallAfterAssignedDamageIsChanged();
-
+            HostShip.Damage.Repair(ActionsHolder.SelectedCriticalHitCard, delegate { });
             Messages.ShowInfo("R1-J5 repaired facedown damage card");
-
             SubPhases.DecisionSubPhase.ConfirmDecision();
         }
     }

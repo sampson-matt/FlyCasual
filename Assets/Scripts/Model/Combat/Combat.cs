@@ -315,7 +315,10 @@ public static class Combat
         if (SkipAttackDiceRollsAndHit) return;
 
         int crits = DiceRollAttack.CriticalSuccesses;
-        DiceRollAttack.CancelHitsByDefence(DiceRollDefence.Successes);
+        Dictionary<string, int> results = DiceRollAttack.CancelHitsByDefence(DiceRollDefence.Successes);
+        int cancelledRegularHits = results["hits"];
+        int cancelledCriticalHits = results["crits"];
+        CancelUsedDefenseDice(cancelledCriticalHits + cancelledRegularHits);
         if (crits > DiceRollAttack.CriticalSuccesses)
         {
             Attacker.CallOnAtLeastOneCritWasCancelledByDefender();
@@ -332,7 +335,19 @@ public static class Combat
         }
     }
 
-	private static void CalculateAttackResults()
+    private static void CancelUsedDefenseDice(int countToCancel)
+    {
+        List<Die> successes = DiceRollDefence.DiceList.Where(n => n.Side == DieSide.Success).ToList();
+
+        countToCancel = Math.Min(countToCancel, successes.Count);
+
+        for (int i = 0; i < countToCancel; i++)
+        {
+            successes[i].Cancel();
+        }
+    }
+
+    private static void CalculateAttackResults()
 	{
         Combat.Defender.CallCombatCompareResults();
 

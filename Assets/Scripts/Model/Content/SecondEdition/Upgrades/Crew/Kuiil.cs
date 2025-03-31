@@ -88,11 +88,7 @@ namespace Abilities.SecondEdition
             {
                 if (DiceCheckRoll.RegularSuccesses >= HostShip.Damage.GetFaceupCrits(CriticalCardType.Ship).Count)
                 {
-                    foreach (GenericDamageCard card in HostShip.Damage.GetFaceupCrits(CriticalCardType.Ship))
-                    {
-                        HostShip.Damage.FlipFaceupCritFacedown(card, delegate { });
-                    }
-                    CheckCrits(AbilityDiceCheck.ConfirmCheck);
+                    repairCritsRecusrive(HostShip.Damage.GetFaceupCrits(CriticalCardType.Ship).Count, delegate { CheckCrits(AbilityDiceCheck.ConfirmCheck); });
                 }
                 else
                 {
@@ -105,18 +101,47 @@ namespace Abilities.SecondEdition
                 CheckCrits(AbilityDiceCheck.ConfirmCheck);
             }
         }
+
+        private void repairCritsRecusrive(int count, Action callback)
+        {
+            if(count > 0)
+            {
+                count--;
+                HostShip.Damage.FlipFaceupCritFacedown(HostShip.Damage.GetFaceupCrits(CriticalCardType.Ship)[0], delegate { repairCritsRecusrive(count, callback); });
+            }
+            else
+            {
+                callback();
+            }
+        }
+
         private void CheckCrits(Action callBack)
         {
             if (DiceCheckRoll.CriticalSuccesses > 0 && HostShip.Damage.HasFacedownCards)
             {
-                for (int i = 0; i < DiceCheckRoll.CriticalSuccesses; i++)
-                {
-                    HostShip.Damage.DiscardRandomFacedownCard();
-                    Messages.ShowInfo("Facedown damage card repaired.");
-                }
+                int count = Math.Min(DiceCheckRoll.CriticalSuccesses, HostShip.Damage.GetFacedownCards().Count);
+                repairDamageRecusrive(count, delegate { CheckBlanks(callBack); });
             }
-            CheckBlanks(callBack);
+            else
+            {
+                CheckBlanks(callBack);
+            }
         }
+
+        private void repairDamageRecusrive(int count, Action callback)
+        {
+            if (count > 0)
+            {
+                count--;
+                Messages.ShowInfo(HostUpgrade.UpgradeInfo.Name + ": Facedown damage card has been repaired.");
+                HostShip.Damage.DiscardRandomFacedownCard(delegate { repairDamageRecusrive(count, callback); });
+            }
+            else
+            {
+                callback();
+            }
+        }
+
         private void CheckBlanks(Action callBack)
         {
             if (DiceCheckRoll.Blanks > 0 && HostShip.Tokens.CountTokensByColor(TokenColors.Orange) > 0)

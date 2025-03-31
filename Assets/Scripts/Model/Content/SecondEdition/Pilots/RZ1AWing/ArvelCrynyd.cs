@@ -26,8 +26,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ArvelCrynydAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent }
                 );
-
-                ImageUrl = "https://raw.githubusercontent.com/eirikmun/x-wing2.0-project-goldenrod/2.0/src/images/En/pilots/arvelcrynyd.png";
             }
         }
     }

@@ -94,7 +94,7 @@ namespace Abilities.SecondEdition
                 Triggers.FinishTrigger,
                 descriptionShort: "Vectored Cannons",
                 descriptionLong: "You may perform a red boost or rotate arc action",
-                imageHolder: HostReal as IImageHolder
+                imageHolder: HostUpgrade
             );
         }
 

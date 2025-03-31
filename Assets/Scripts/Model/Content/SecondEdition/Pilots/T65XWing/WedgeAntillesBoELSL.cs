@@ -28,13 +28,15 @@ namespace Ship
                     {
                         Tags.BoE
                     },
-                    abilityType: typeof(Abilities.FirstEdition.WhisperAbility)
+                    abilityType: typeof(Abilities.FirstEdition.WhisperAbility),
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
                 ShipAbilities.Add(new LockedSFoils());
                 ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(FocusAction), typeof(BoostAction)));
                 ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(BarrelRollAction), typeof(FocusAction)));
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(BoostAction)));
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Configuration);
+                ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
                 PilotNameCanonical = "wedgeantilles-battleoverendor-lsl";
                 ModelInfo.SkinName = "Wedge Antilles";
             }

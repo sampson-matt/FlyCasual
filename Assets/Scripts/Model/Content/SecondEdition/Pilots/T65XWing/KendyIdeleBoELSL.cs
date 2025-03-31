@@ -28,7 +28,8 @@ namespace Ship
                     {
                         Tags.BoE
                     },
-                    abilityType: typeof(Abilities.SecondEdition.KendyIdeleAbility)
+                    abilityType: typeof(Abilities.SecondEdition.KendyIdeleAbility),
+                    extraUpgradeIcon: UpgradeType.Talent
                 );
                 ShipAbilities.Add(new LockedSFoils());
                 ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(FocusAction), typeof(BoostAction)));

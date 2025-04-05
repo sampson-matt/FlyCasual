@@ -39,8 +39,6 @@ namespace Abilities.SecondEdition
 {
     public class TorPhunAbility : GenericAbility
     {
-        private bool PerformedRegularAttack;
-
         public override void ActivateAbility()
         {
             GenericShip.OnShipIsDestroyedGlobal += CheckAbility;
@@ -59,18 +57,12 @@ namespace Abilities.SecondEdition
             if (Tools.IsSameShip(ship, Combat.Defender)
                 && Tools.IsSameShip(HostShip, Combat.Attacker))
             {
-                HostShip.OnCombatCheckExtraAttack += RegisterTorPhunAbility;
+                RegisterAbilityTrigger(TriggerTypes.OnShipIsDestroyed, PerformAction);
+                if (!HostShip.IsCannotAttackSecondTime) HostShip.OnCombatCheckExtraAttack += RegisterTorPhunExtraAttackAbility;
             }
         }
 
-        private void RegisterTorPhunAbility(GenericShip ship)
-        {
-            HostShip.OnCombatCheckExtraAttack -= RegisterTorPhunAbility;
-
-            RegisterAbilityTrigger(TriggerTypes.OnCombatCheckExtraAttack, StartTorPhunAbility);
-        }
-
-        private void StartTorPhunAbility(object sender, EventArgs e)
+        private void PerformAction(object sender, System.EventArgs e)
         {
             CameraScript.RestoreCamera();
 
@@ -79,13 +71,16 @@ namespace Abilities.SecondEdition
             HostShip.OnActionIsPerformed += DisallowActionsWhileStressed;
             HostShip.OnActionIsSkipped += DisallowActionsWhileStressedAlt;
 
-            List<GenericAction> actions = HostShip.GetAvailableActions();
+            List<GenericAction> actions = Selection.ThisShip.GetAvailableActions();            
 
-            HostShip.AskPerformFreeAction(actions,
-                StartExtraAttack,
-                descriptionShort: HostShip.PilotInfo.PilotName,
-                descriptionLong: "You may perfrom an action, even while stressed",
-                imageHolder: HostShip
+            HostShip.AskPerformFreeAction(
+                actions,
+                delegate {
+                    Triggers.FinishTrigger();
+                },
+                HostShip.PilotInfo.PilotName,
+                "You may perfrom an action, even while stressed",
+                HostShip
             );
         }
 
@@ -93,7 +88,7 @@ namespace Abilities.SecondEdition
         {
             HostShip.OnCanPerformActionWhileStressed -= TemporaryAllowAnyActionsWhileStressed;
             HostShip.OnCheckCanPerformActionsWhileStressed -= TemporaryAllowActionsWhileStressed;
-            HostShip.OnActionIsPerformed -= DisallowActionsWhileStressed;            
+            HostShip.OnActionIsPerformed -= DisallowActionsWhileStressed;
         }
 
         private void DisallowActionsWhileStressedAlt(GenericShip ship)
@@ -114,12 +109,15 @@ namespace Abilities.SecondEdition
             isAllowed = true;
         }
 
-        private void StartExtraAttack()
+        private void RegisterTorPhunExtraAttackAbility(GenericShip ship)
         {
-            PerformedRegularAttack = HostShip.IsAttackPerformed;
+            HostShip.OnCombatCheckExtraAttack -= RegisterTorPhunExtraAttackAbility;
 
-            HostShip.OnAttackStartAsAttacker += MarkTorPhurAbilityAsUsed;
+            RegisterAbilityTrigger(TriggerTypes.OnCombatCheckExtraAttack, StartExtraAttack);
+        }
 
+        private void StartExtraAttack(object sender, EventArgs e)
+        {
             HostShip.IsCannotAttackSecondTime = true;
 
             Combat.StartSelectAttackTarget(
@@ -139,19 +137,19 @@ namespace Abilities.SecondEdition
 
         private void FinishAbility()
         {
-            HostShip.IsAttackPerformed = PerformedRegularAttack;
-            if (HostShip.IsAttackSkipped) HostShip.IsCannotAttackSecondTime = false;
-            HostShip.OnAttackStartAsAttacker -= MarkTorPhurAbilityAsUsed;
-
-            Triggers.FinishTrigger();
+            if (Selection.ThisShip.IsAttackSkipped)
+            {
+                Selection.ThisShip.IsCannotAttackSecondTime = false;
+                Triggers.FinishTrigger();
+            }
+            else
+            {
+                Selection.ThisShip.IsAttackPerformed = true;
+                AssignTwoStrainTokens();
+            }            
         }
 
-        private void MarkTorPhurAbilityAsUsed()
-        {
-            RegisterAbilityTrigger(TriggerTypes.OnAttackStart, AssignTwoStrainTokens);
-        }
-
-        private void AssignTwoStrainTokens(object sender, EventArgs e)
+        private void AssignTwoStrainTokens()
         {
             Messages.ShowInfo($"{HostShip.PilotInfo.PilotName}: 2 Strain tokens are gained to perform a bonus attack");
             HostShip.Tokens.AssignTokens(CreateStrainToken, 2, Triggers.FinishTrigger);

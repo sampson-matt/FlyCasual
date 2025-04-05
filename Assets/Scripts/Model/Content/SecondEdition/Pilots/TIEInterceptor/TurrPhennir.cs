@@ -32,6 +32,7 @@ namespace Abilities.SecondEdition
     {
         protected override void TurrPhennirPilotAbility(object sender, EventArgs e)
         {
+            CameraScript.RestoreCamera();
             HostShip.AskPerformFreeAction(
                 new List<ActionsList.GenericAction>()
                 {

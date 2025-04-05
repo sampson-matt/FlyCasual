@@ -59,7 +59,7 @@ namespace Abilities.SecondEdition
                 "Formed Up: You may remove 1 non-lock red token",
                 Triggers.FinishTrigger
             );
-            subphase.ImageSource = HostUpgrade;
+            subphase.ImageSource = HostReal as IImageHolder;
             subphase.AbilityHostShip = HostShip;
             subphase.RemoveOnlyNonLocks = true;
             subphase.Start();
@@ -86,7 +86,5 @@ namespace Abilities.SecondEdition
 
             return friendlyShips.Count > 2 || friendlyFormedUpShips.Count > 1;
         }
-
-
     }
 }

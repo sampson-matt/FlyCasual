@@ -90,7 +90,9 @@ namespace Abilities.SecondEdition
 
         private bool IsAvailable()
         {
-            return IsDefenderHasBadTokens();
+            return Combat.AttackStep == CombatStep.Defence &&
+                Combat.Attacker == HostShip &&
+                IsDefenderHasBadTokens();
         }
 
         public override void DeactivateAbility()

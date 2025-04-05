@@ -71,8 +71,11 @@ namespace UpgradesList.SecondEdition
 
         protected override void Detonate()
         {
-            ObstaclesManager.DestroyObstacle(chaffCloud);
             Phases.Events.OnEndPhaseStart_Triggers -= base.PlanTimedDetonation;
+            if (ObstaclesManager.GetPlacedObstacles().Contains(chaffCloud))
+            {
+                ObstaclesManager.DestroyObstacle(chaffCloud);
+            }
             base.Detonate();
         }
     }

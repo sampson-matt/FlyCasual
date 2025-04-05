@@ -78,14 +78,22 @@ namespace Abilities.SecondEdition
 
         private void AskToUseAdditionalDie(object sender, EventArgs e)
         {
-            AskToUseAbility(
-                HostShip.PilotInfo.PilotName,
-                AlwaysUseByDefault,
-                UseAdditionalDie,
-                showAlwaysUseOption: true,
-                descriptionLong: "Do you want to roll 1 additional die?",
-                imageHolder: HostShip
-            );
+            if (!alwaysUseAbility)
+            {
+                AskToUseAbility(
+                    HostShip.PilotInfo.PilotName,
+                    AlwaysUseByDefault,
+                    UseAdditionalDie,
+                    showAlwaysUseOption: true,
+                    descriptionLong: "Do you want to roll 1 additional die?",
+                    imageHolder: HostShip
+                );
+            }
+            else
+            {
+                UseAbility = true;
+                Triggers.FinishTrigger();
+            }
         }
 
         private void UseAdditionalDie(object sender, EventArgs e)

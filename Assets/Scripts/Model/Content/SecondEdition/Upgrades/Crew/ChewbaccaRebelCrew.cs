@@ -47,7 +47,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility()
         {
-            if (HostUpgrade.State.Charges >= 2 && HostShip.Damage.HasFaceupCards)
+            if (HostShip.Owner.PlayerNo == Global.SquadBuilder.CurrentPlayer && HostUpgrade.State.Charges >= 2 && HostShip.Damage.HasFaceupCards)
             {
                 RegisterAbilityTrigger(TriggerTypes.OnCombatPhaseStart, AskToUseOwnAbility);
             }

@@ -24,7 +24,8 @@ namespace Ship
                     isLimited: true,
                     tags: new List<Tags>
                     {
-                        Tags.BoE
+                        Tags.BoE,
+                        Tags.LsL
                     },
                     abilityType: typeof(MajorMiandaAbility),
                     extraUpgradeIcon: UpgradeType.Talent

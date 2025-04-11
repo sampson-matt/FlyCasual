@@ -25,7 +25,8 @@ namespace Ship
                     abilityType: typeof(Sigma5Ability),
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.SL
                     },
                     extraUpgradeIcons: new List<UpgradeType>()
                     {

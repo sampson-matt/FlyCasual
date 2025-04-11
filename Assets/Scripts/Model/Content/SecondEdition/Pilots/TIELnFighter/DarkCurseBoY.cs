@@ -20,7 +20,8 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent,
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.LsL
                     },
                     abilityType: typeof(Abilities.SecondEdition.DarkCurseAbility)
                 );

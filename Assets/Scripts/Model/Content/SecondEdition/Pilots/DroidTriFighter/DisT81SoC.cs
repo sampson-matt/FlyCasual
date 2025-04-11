@@ -24,6 +24,7 @@ namespace Ship.SecondEdition.DroidTriFighter
                 tags: new List<Tags>
                 {
                     Tags.SoC,
+                    Tags.LsL,
                     Tags.Droid
                 }
             );

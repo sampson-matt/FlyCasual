@@ -24,7 +24,8 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ArvelCrynydBattleOverEndorAbility),
                     tags: new List<Tags>
                     {
-                        Tags.BoE
+                        Tags.BoE,
+                        Tags.LsL
                     },
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Talent }
                 );

@@ -24,7 +24,8 @@ namespace Ship
                     80,
                     tags: new List<Tags>
                     {
-                        Tags.BoE
+                        Tags.BoE,
+                        Tags.LsL
                     },
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ColonelJendonBattleOverEndorAbility),

@@ -28,7 +28,8 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.OddBallSoCAbility),
                     tags: new List<Tags>
                     {
-                        Tags.SoC
+                        Tags.SoC,
+                        Tags.LsL
                     },
                     extraUpgradeIcon: UpgradeType.Talent
                 );

@@ -27,7 +27,8 @@ namespace Ship
                     abilityType: typeof(PopsKrailBoYAbility),
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.LsL
                     },
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Modification }
                 );

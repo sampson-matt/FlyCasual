@@ -19,7 +19,8 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.ContrailAbility),
                     tags: new List<Tags>
                     {
-                        Tags.SoC
+                        Tags.SoC,
+                        Tags.LsL
                     },
                     extraUpgradeIcon: UpgradeType.Talent
                 );

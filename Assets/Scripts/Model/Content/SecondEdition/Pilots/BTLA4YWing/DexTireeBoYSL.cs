@@ -20,7 +20,8 @@ namespace Ship
                     abilityType: typeof(DexTireeAbility),
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.SL
                     },
                     extraUpgradeIcons: new List<UpgradeType>
                     {

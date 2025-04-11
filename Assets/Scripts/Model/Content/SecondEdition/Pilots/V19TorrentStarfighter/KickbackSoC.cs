@@ -20,7 +20,8 @@ namespace Ship.SecondEdition.V19TorrentStarfighter
                 abilityType: typeof(Abilities.SecondEdition.KickbackSoCAbility),
                 tags: new List<Tags>
                 {
-                    Tags.SoC
+                    Tags.SoC,
+                    Tags.LsL
                 },
                 extraUpgradeIcon: UpgradeType.Talent
             );

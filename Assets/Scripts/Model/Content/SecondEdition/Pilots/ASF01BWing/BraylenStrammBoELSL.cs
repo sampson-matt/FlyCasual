@@ -24,7 +24,8 @@ namespace Ship
                     abilityType: typeof(BraylenStrammBattleOverEndorAbility),
                     tags: new List<Tags>
                     {
-                        Tags.BoE
+                        Tags.BoE,
+                        Tags.LsL
                     },
                     charges: 2,
                     regensCharges: 1,

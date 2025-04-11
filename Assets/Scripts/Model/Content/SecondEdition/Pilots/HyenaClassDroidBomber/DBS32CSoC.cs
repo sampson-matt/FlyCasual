@@ -22,6 +22,7 @@ namespace Ship.SecondEdition.HyenaClassDroidBomber
                 tags: new List<Tags>
                 {
                     Tags.SoC,
+                    Tags.LsL,
                     Tags.Droid
                 },
                 extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Sensor, UpgradeType.TacticalRelay },

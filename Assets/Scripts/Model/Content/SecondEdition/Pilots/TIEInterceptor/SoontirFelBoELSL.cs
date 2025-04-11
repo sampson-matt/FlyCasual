@@ -24,7 +24,8 @@ namespace Ship
                     abilityType: typeof(SoontirFelBattleOverEndorAbility),
                     tags: new List<Tags>
                     {
-                        Tags.BoE
+                        Tags.BoE,
+                        Tags.LsL
                     },
                     charges: 2,
                     extraUpgradeIcon: UpgradeType.Talent

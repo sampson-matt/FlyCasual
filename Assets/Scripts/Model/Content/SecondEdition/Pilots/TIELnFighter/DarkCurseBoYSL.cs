@@ -24,7 +24,8 @@ namespace Ship
                     },
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.SL
                     },
                     abilityType: typeof(Abilities.SecondEdition.DarkCurseAbility),
                     isStandardLayout:true

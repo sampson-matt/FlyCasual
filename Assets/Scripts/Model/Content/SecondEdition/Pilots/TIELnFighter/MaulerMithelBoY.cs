@@ -19,7 +19,8 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.MaulerMithelBoYAbility),
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.LsL
                     },
                     extraUpgradeIcon: UpgradeType.Talent
                 );

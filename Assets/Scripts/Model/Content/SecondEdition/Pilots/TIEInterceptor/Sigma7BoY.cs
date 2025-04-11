@@ -27,7 +27,8 @@ namespace Ship
                     abilityType: typeof(Sigma7Ability),
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.LsL
                     },
                     extraUpgradeIcon: UpgradeType.Talent
                 );

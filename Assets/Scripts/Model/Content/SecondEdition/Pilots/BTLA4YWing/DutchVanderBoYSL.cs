@@ -26,7 +26,8 @@ namespace Ship
                     abilityType: typeof(DutchVanderBoYAbility),
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.SL
                     },
                     extraUpgradeIcons: new List<UpgradeType>
                     {

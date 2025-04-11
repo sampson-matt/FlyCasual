@@ -24,7 +24,8 @@ namespace Ship
                     abilityType: typeof(IdenVersioBoYAbility),
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.SL
                     },
                      extraUpgradeIcons: new List<UpgradeType>()
                     {

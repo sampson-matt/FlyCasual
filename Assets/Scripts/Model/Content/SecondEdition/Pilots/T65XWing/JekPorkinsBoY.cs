@@ -17,7 +17,8 @@ namespace Ship
                     isLimited: true,
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.LsL
                     },
                     abilityType: typeof(JekPorkinsAbility)
                 );

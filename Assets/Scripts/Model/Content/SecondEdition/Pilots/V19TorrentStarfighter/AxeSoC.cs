@@ -20,7 +20,8 @@ namespace Ship.SecondEdition.V19TorrentStarfighter
                 true,
                 tags: new List<Tags>
                 {
-                    Tags.SoC
+                    Tags.SoC,
+                    Tags.LsL
                 },
                 abilityType: typeof(Abilities.SecondEdition.AxeSoCAbility),
                 extraUpgradeIcon: UpgradeType.Talent

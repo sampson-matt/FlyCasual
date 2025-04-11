@@ -22,7 +22,8 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.WolffeAbility),
                     tags: new List<Tags>
                     {
-                        Tags.SoC
+                        Tags.SoC,
+                        Tags.LsL
                     },
                     extraUpgradeIcon: UpgradeType.Talent,
                     charges: 1

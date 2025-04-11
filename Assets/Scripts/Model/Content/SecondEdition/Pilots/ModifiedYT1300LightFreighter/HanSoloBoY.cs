@@ -22,7 +22,8 @@ namespace Ship
                     charges: 4,
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.LsL
                     },
                     extraUpgradeIcon: UpgradeType.Talent
                 );

@@ -19,6 +19,7 @@ namespace Ship.SecondEdition.SithInfiltrator
                 tags: new List<Tags>
                 {
                     Tags.SoC,
+                    Tags.LsL,
                     Tags.DarkSide,
                     Tags.Sith
                 },

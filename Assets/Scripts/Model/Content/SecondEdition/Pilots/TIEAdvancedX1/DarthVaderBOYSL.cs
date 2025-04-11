@@ -30,6 +30,7 @@ namespace Ship
                     tags: new List<Tags>
                     {
                         Tags.BoY,
+                        Tags.SL,
                         Tags.DarkSide,
                         Tags.Sith
                     },

@@ -21,6 +21,7 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 tags: new List<Tags>
                 {
                     Tags.SoC,
+                    Tags.LsL,
                     Tags.Droid
                 },
                 pilotTitle: "Siege of Coruscant"

@@ -21,7 +21,8 @@ namespace Ship
                     72,
                     tags: new List<Tags>
                     {
-                        Tags.BoE
+                        Tags.BoE,
+                        Tags.LsL
                     },
                     isLimited: true,
                     charges: 2,

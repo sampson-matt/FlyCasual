@@ -23,7 +23,8 @@ namespace Ship
                     abilityType: typeof(MausMonareAbility),
                     tags: new List<Tags>
                     {
-                        Tags.BoE
+                        Tags.BoE,
+                        Tags.LsL
                     },
                     extraUpgradeIcon: UpgradeType.Talent
                 );

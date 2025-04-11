@@ -28,7 +28,8 @@ namespace Ship
                     },
                     tags: new List<Tags>
                     {
-                        Tags.BoY
+                        Tags.BoY,
+                        Tags.SL
                     },
                     regensCharges: 1,
                     isStandardLayout: true

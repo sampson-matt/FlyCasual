@@ -23,7 +23,8 @@ namespace Ship
                     abilityType: typeof(Saphire2Ability),
                     tags: new List<Tags>
                     {
-                        Tags.BoE
+                        Tags.BoE,
+                        Tags.LsL
                     }
                 );
                 PilotNameCanonical = "sapphire2-battleoverendor-lsl";

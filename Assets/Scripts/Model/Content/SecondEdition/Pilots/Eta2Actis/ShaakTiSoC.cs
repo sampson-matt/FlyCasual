@@ -26,6 +26,7 @@ namespace Ship.SecondEdition.Eta2Actis
                 tags: new List<Tags>
                 {
                     Tags.SoC,
+                    Tags.LsL,
                     Tags.LightSide,
                     Tags.Jedi
                 },

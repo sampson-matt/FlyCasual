@@ -27,10 +27,7 @@ namespace UpgradesList.SecondEdition
                     arc: ArcType.Bullseye
                 ),
                 abilityType: typeof(Abilities.SecondEdition.ProtonCannonsAbility)
-
             );
-
-            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/protoncannons.png";
         }
         public override void PayAttackCost(Action callBack) {
             State.SpendCharges(2);

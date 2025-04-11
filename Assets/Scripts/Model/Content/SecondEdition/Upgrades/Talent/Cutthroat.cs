@@ -71,8 +71,10 @@ namespace Abilities.SecondEdition
         {
             foreach (GenericUpgrade upgrade in HostShip.UpgradeBar.GetUpgradesAll())
             {
+                bool hasRegen = upgrade.UpgradeInfo.RegensChargesCount > 0 || ((upgrade.UpgradeInfo.WeaponInfo)?.RegensCharges ?? false);
+
                 if (upgrade.State.MaxCharges > 0
-                    && upgrade.UpgradeInfo.RegensChargesCount == 0
+                    && !hasRegen
                     && upgrade.State.Charges < upgrade.State.MaxCharges
                     && !upgrade.UpgradeInfo.CannotBeRecharged
                 )

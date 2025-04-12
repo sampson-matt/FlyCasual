@@ -51,11 +51,10 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship, bool flag)
         {
-            if (!(Phases.CurrentPhase is MainPhases.CombatPhase))
-                return;
-
-            if (Tools.IsSameShip(ship, Combat.Defender)
-                && Tools.IsSameShip(HostShip, Combat.Attacker))
+            if (Phases.CurrentPhase is MainPhases.CombatPhase
+                && Combat.AttackStep == CombatStep.Attack
+                && Tools.IsSameShip(HostShip, Combat.Attacker)
+                && Tools.IsSameShip(ship, Combat.Defender))
             {
                 RegisterAbilityTrigger(TriggerTypes.OnShipIsDestroyed, PerformAction);
                 if (!HostShip.IsCannotAttackSecondTime) HostShip.OnCombatCheckExtraAttack += RegisterTorPhunExtraAttackAbility;

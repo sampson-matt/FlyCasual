@@ -27,8 +27,6 @@ namespace Abilities.SecondEdition
 {
     public class SarcoPlankAbility : GenericAbility
     {
-        private int OriginalAgility;
-
         public override void ActivateAbility()
         {
             HostShip.OnDefenceStartAsDefender += RegisterTrigger;
@@ -66,9 +64,7 @@ namespace Abilities.SecondEdition
         private void ChangeAgility(object sender, System.EventArgs e)
         {
             Messages.ShowInfo(HostShip.PilotInfo.PilotName + "'s Agility is now " + HostShip.AssignedManeuver.Speed);
-
-            OriginalAgility = HostShip.State.Agility;
-            HostShip.ChangeAgilityBy(HostShip.AssignedManeuver.Speed - HostShip.State.Agility);
+            HostShip.ChangeAgilityBy(HostShip.AssignedManeuver.Speed - 2);
 
             HostShip.OnAttackFinishAsDefender += RestoreOriginalAgility;
 
@@ -79,8 +75,8 @@ namespace Abilities.SecondEdition
         {
             HostShip.OnAttackFinishAsDefender -= RestoreOriginalAgility;
 
-            Messages.ShowInfo(HostShip.PilotInfo.PilotName + "'s Agility hass been restored to " + OriginalAgility);
-            HostShip.ChangeAgilityBy(OriginalAgility - HostShip.AssignedManeuver.Speed);
+            Messages.ShowInfo(HostShip.PilotInfo.PilotName + "'s Agility hass been restored to " + 2);
+            HostShip.ChangeAgilityBy(2 - HostShip.AssignedManeuver.Speed);
         }
     }
 }

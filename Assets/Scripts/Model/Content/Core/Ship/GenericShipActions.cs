@@ -275,14 +275,15 @@ namespace Ship
             return result;
         }
 
-        public void AskPerformFreeAction(GenericAction freeAction, Action callback, string descriptionShort, string descriptionLong = null, IImageHolder imageHolder = null, bool isForced = false)
+        public void AskPerformFreeAction(GenericAction freeAction, Action callback, string descriptionShort, string descriptionLong = null, IImageHolder imageHolder = null, bool isForced = false, Action skipActionCallback = null)
         {
-            AskPerformFreeAction(new List<GenericAction> { freeAction }, callback, descriptionShort, descriptionLong, imageHolder, isForced);
+            AskPerformFreeAction(new List<GenericAction> { freeAction }, callback, descriptionShort, descriptionLong, imageHolder, isForced, skipActionCallback);
         }
 
         // TODO: move actions list into subphase
-        public void AskPerformFreeAction(List<GenericAction> freeActions, Action callback, string descriptionShort, string descriptionLong = null, IImageHolder imageHolder = null, bool isForced = false)
+        public void AskPerformFreeAction(List<GenericAction> freeActions, Action callback, string descriptionShort, string descriptionLong = null, IImageHolder imageHolder = null, bool isForced = false, Action skipActionCallback = null)
         {
+            if (skipActionCallback == null) skipActionCallback = callback;
             foreach (GenericAction freeAction in freeActions)
             {
                 if (freeAction.HostShip == null) freeAction.HostShip = Selection.ThisShip;
@@ -317,7 +318,7 @@ namespace Ship
                                 else
                                 {
                                     Selection.ThisShip.CallActionIsSkipped();
-                                    FinishFreeActionDecision(callback);
+                                    FinishFreeActionDecision(skipActionCallback);
                                 }
                             }
                         );
@@ -336,7 +337,7 @@ namespace Ship
             Triggers.ResolveTriggers(TriggerTypes.OnFreeAction, Triggers.FinishTrigger);
         }
 
-        private void FinishFreeActionDecision(Action callback)
+            private void FinishFreeActionDecision(Action callback)
         {
             Phases.FinishSubPhase(typeof(FreeActionDecisonSubPhase));
             callback();

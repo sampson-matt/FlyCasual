@@ -52,34 +52,27 @@ namespace Abilities.SecondEdition
         private void PerformAction(object sender, System.EventArgs e)
         {
             var previousSelectedShip = Selection.ThisShip;
-            Selection.ThisShip = HostShip;
+            Selection.ChangeActiveShip(HostShip);
 
             Messages.ShowInfoToHuman(HostName + ": you may spend 1 charge to perform an action");
-
-            HostShip.BeforeActionIsPerformed += SpendCharge;
 
             HostShip.AskPerformFreeAction(
                 HostShip.GetAvailableActions(),
                 delegate
                 {
-                    Selection.ThisShip = previousSelectedShip;
+                    Selection.ChangeActiveShip(previousSelectedShip);
                     CleanUp();
                 },
                 HostShip.PilotInfo.PilotName,
                 "After you suffer damage, you may spend 1 Charge to perform an action",
-                HostShip
+                HostShip,
+                skipActionCallback: Triggers.FinishTrigger
             );
-        }
-
-        private void SpendCharge(GenericAction action, ref bool isFreeAction)
-        {
-            HostShip.BeforeActionIsPerformed -= SpendCharge;
-            HostShip.SpendCharge();
         }
 
         private void CleanUp()
         {
-            HostShip.BeforeActionIsPerformed -= SpendCharge;
+            HostShip.SpendCharge();
             Triggers.FinishTrigger();
         }
     }

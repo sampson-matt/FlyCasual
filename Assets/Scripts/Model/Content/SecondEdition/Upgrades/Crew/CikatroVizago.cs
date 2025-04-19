@@ -165,11 +165,13 @@ namespace Abilities.SecondEdition
                 {
                     upgradeAbility.DeactivateAbility();
                 }
+                SelectedUpgradeSlots[i].RemovePreInstallUpgrade();
             }
 
             for (int i = 0; i < 2; i++)
             {
                 int anotherIndex = (i == 0) ? 1 : 0;
+                
                 SelectedUpgradeSlots[i].PreInstallUpgrade(SelectedUpgrades[anotherIndex], SelectedShips[i]);
                 Roster.ReplaceUpgrade(SelectedShips[i], SelectedUpgrades[i].State.Name, SelectedUpgrades[anotherIndex].State.Name, SelectedUpgrades[anotherIndex].ImageUrl);
                 SelectedUpgrades[anotherIndex].ActivateAbility();

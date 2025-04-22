@@ -17,7 +17,6 @@ namespace Ship
                     "Imperial Super Commando",
                     2,
                     54,
-                    isLimited: true,
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent},
                     tags: new List<Tags>
                     {

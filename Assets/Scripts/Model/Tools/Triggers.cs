@@ -87,7 +87,7 @@ public enum TriggerTypes
     OnDamageCardSeverityIsChecked,
     OnDamageCardIsDealt,
     OnFaceupCritCardReadyToBeDealt,
-    OnFaceupCritCardReadyToBeDealtUI,
+    OnFaceupCritCardRevealed,
     OnFaceupCritCardIsDealt,
     OnSelectDamageCardToExpose,
     OnFaceupDamageCardIsRepaired,

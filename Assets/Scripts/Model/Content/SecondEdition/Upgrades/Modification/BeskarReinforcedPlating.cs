@@ -47,12 +47,12 @@ namespace Abilities.SecondEdition
     {
         public override void ActivateAbility()
         {
-            HostShip.OnFaceupCritCardReadyToBeDealt += RegisterBeskarTrigger;
+            HostShip.OnFaceupCritCardRevealed += RegisterBeskarTrigger;
         }
 
         public override void DeactivateAbility()
         {
-            HostShip.OnFaceupCritCardReadyToBeDealt -= RegisterBeskarTrigger;
+            HostShip.OnFaceupCritCardRevealed -= RegisterBeskarTrigger;
         }
 
     private void RegisterBeskarTrigger(GenericShip ship, GenericDamageCard crit, EventArgs e)
@@ -61,7 +61,7 @@ namespace Abilities.SecondEdition
                 && HostUpgrade.State.Charges > 0
                 && IsFaceToFaceDefense())
             {
-                RegisterAbilityTrigger(TriggerTypes.OnFaceupCritCardReadyToBeDealt, AskUseChewbaccaAbility);
+                RegisterAbilityTrigger(TriggerTypes.OnFaceupCritCardRevealed, AskUseBeskarAbility);
             }
         }
 
@@ -76,7 +76,7 @@ namespace Abilities.SecondEdition
             return shotInfo.InArcByType(ArcType.Front);
         }
 
-        private void AskUseChewbaccaAbility(object sender, System.EventArgs e)
+        private void AskUseBeskarAbility(object sender, System.EventArgs e)
         {
             BeskarDecisionSubPhase subphase = Phases.StartTemporarySubPhaseNew<BeskarDecisionSubPhase>("Beskar Decision Subphase", Triggers.FinishTrigger);
 
@@ -99,7 +99,7 @@ namespace Abilities.SecondEdition
         {
             if (chargesSpent == 1)
             {
-                Messages.ShowInfo($"{HostUpgrade.UpgradeInfo.Name}: Faceup damage card is dealt facedown instead");
+                Messages.ShowInfo($"{HostUpgrade.UpgradeInfo.Name}: {Combat.CurrentCriticalHitCard.Name} is dealt facedown instead");
 
                 HostUpgrade.State.SpendCharge();
                 Combat.CurrentCriticalHitCard.IsFaceup = false;
@@ -107,7 +107,7 @@ namespace Abilities.SecondEdition
             }
             else // chargesSpent == 2
             {
-                Messages.ShowInfo($"{HostUpgrade.UpgradeInfo.Name}: Faceup damage card is discarded instead");
+                Messages.ShowInfo($"{HostUpgrade.UpgradeInfo.Name}: {Combat.CurrentCriticalHitCard.Name} is discarded instead");
 
                 HostUpgrade.State.SpendCharges(2);
                 Combat.CurrentCriticalHitCard = null;

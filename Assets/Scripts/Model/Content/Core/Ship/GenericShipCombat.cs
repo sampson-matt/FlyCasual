@@ -102,6 +102,8 @@ namespace Ship
         public event EventHandlerBool OnCheckFaceupCrit;
         public event EventHandlerShipCritArgs OnFaceupCritCardReadyToBeDealt;
         public static event EventHandlerShipCritArgs OnFaceupCritCardReadyToBeDealtGlobal;
+        public event EventHandlerShipCritArgs OnFaceupCritCardRevealed;
+        public static event EventHandlerShipCritArgs OnFaceupCritCardRevealedGlobal;
         public event EventHandlerShipCritArgs OnAssignCrit;
 
         public event EventHandlerShipBool OnDamageWasSuccessfullyDealt;
@@ -585,11 +587,11 @@ namespace Ship
                 {
                     Name = "Information about faceup damage card",
                     TriggerOwner = this.Owner.PlayerNo,
-                    TriggerType = TriggerTypes.OnFaceupCritCardReadyToBeDealtUI,
+                    TriggerType = TriggerTypes.OnFaceupCritCardRevealed,
                     EventHandler = InformCrit.LoadAndShow
-                });
+                }); ;
 
-                Triggers.ResolveTriggers(TriggerTypes.OnFaceupCritCardReadyToBeDealt, delegate { SufferFaceupDamageCard(callback); });
+                Triggers.ResolveTriggers(TriggerTypes.OnFaceupCritCardReadyToBeDealt, delegate { SufferFaceupDamageCard(e, callback); });
             }
             else
             {
@@ -597,10 +599,13 @@ namespace Ship
             }
         }
 
-        private void SufferFaceupDamageCard(Action callback)
+        private void SufferFaceupDamageCard(EventArgs e, Action callback)
         {
+            OnFaceupCritCardRevealed?.Invoke(this, Combat.CurrentCriticalHitCard);
+            OnFaceupCritCardRevealedGlobal?.Invoke(this, Combat.CurrentCriticalHitCard, e);
+
             Triggers.ResolveTriggers(
-                TriggerTypes.OnFaceupCritCardReadyToBeDealtUI,
+                TriggerTypes.OnFaceupCritCardRevealed,
                 delegate { SufferFaceupDamageCardPart2(callback); }
             );
         }

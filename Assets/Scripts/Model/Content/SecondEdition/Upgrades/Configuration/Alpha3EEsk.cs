@@ -47,7 +47,7 @@ namespace Abilities.SecondEdition
             }
         }
 
-        private void CheckAbility()
+        protected virtual void CheckAbility()
         {
             if (Combat.ChosenWeapon.WeaponType == WeaponTypes.PrimaryWeapon
                 && HostUpgrade.State.Charges >= 2
@@ -57,7 +57,7 @@ namespace Abilities.SecondEdition
             }
         }
 
-        private void RegisterEskAbility(object sender, EventArgs e)
+        protected void RegisterEskAbility(object sender, EventArgs e)
         {
             AskToUseAbility(
                 HostUpgrade.UpgradeInfo.Name,

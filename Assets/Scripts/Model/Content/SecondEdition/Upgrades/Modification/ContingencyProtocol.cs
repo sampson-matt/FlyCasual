@@ -22,8 +22,7 @@ namespace UpgradesList.SecondEdition
                 (
                     new FactionRestriction(Faction.Separatists)
                 ),
-                abilityType: typeof(Abilities.SecondEdition.ContingencyProtocolAbility),
-                charges: 2
+                abilityType: typeof(Abilities.SecondEdition.ContingencyProtocolAbility)
             );
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/contingencyprotocol.jpg";
         }

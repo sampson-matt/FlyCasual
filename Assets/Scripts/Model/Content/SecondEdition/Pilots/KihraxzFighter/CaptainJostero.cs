@@ -1,4 +1,5 @@
-﻿using Ship;
+﻿using BoardTools;
+using Ship;
 using System.Collections;
 using System.Collections.Generic;
 using Upgrade;
@@ -28,6 +29,10 @@ namespace Abilities.SecondEdition
     public class CaptainJosteroAbility : GenericAbility
     {
         private bool performedRegularAttack;
+        private bool IsCannotAttackSecondTimePreviousValue;
+        private GenericShip triggeringShip;
+        private GenericShip activeShip;
+        private GenericShip previousAttacker = null;
 
         public override void ActivateAbility()
         {
@@ -41,6 +46,8 @@ namespace Abilities.SecondEdition
 
         private void CheckJosteroAbility(GenericShip damaged, DamageSourceEventArgs damage)
         {
+            triggeringShip = damaged;
+
             // Can we even bonus attack?
             if (HostShip.IsCannotAttackSecondTime)
                 return;
@@ -53,15 +60,23 @@ namespace Abilities.SecondEdition
             if (Combat.Defender == damaged || damage.DamageType == DamageTypes.ShipAttack)
                 return;
 
+            //ShotInfo arcInfo = new ShotInfo(HostShip, damaged, HostShip.PrimaryWeapons);
+            //if (!arcInfo.InArc || arcInfo.Range > 3)
+            //    return;
+
             // Save the value for whether we've attacked or not.
             performedRegularAttack = HostShip.IsAttackPerformed;
+            activeShip = Selection.ActiveShip;
+            IsCannotAttackSecondTimePreviousValue = HostShip.IsCannotAttackSecondTime;
 
-            TargetShip = damaged;
+            
 
             // It may be possible in the future for a non-defender to be damaged in combat so we've got to future proof here.
-            if (Combat.AttackStep == CombatStep.None)
+            if (Combat.AttackStep == CombatStep.None || Combat.Attacker != HostShip)
             {
-                RegisterAbilityTrigger(TriggerTypes.OnDamageInstanceResolved, RegisterBonusAttack);
+                previousAttacker = Combat.Attacker;
+                string Name = HostShip.PilotInfo.PilotName + "'s ability ShipId:" + triggeringShip.ShipId;
+                RegisterAbilityTrigger(TriggerTypes.OnDamageInstanceResolved, RegisterBonusAttack, customTriggerName: Name);
             }
             else
             {
@@ -72,17 +87,28 @@ namespace Abilities.SecondEdition
         private void StartBonusAttack(GenericShip ship)
         {
             ship.OnCombatCheckExtraAttack -= StartBonusAttack;
-            RegisterAbilityTrigger(TriggerTypes.OnCombatCheckExtraAttack, RegisterBonusAttack);
+            string Name = HostShip.PilotInfo.PilotName + "'s ability ShipId:" + triggeringShip.ShipId;
+            RegisterAbilityTrigger(TriggerTypes.OnCombatCheckExtraAttack, RegisterBonusAttack, customTriggerName: Name);
         }
 
         private void RegisterBonusAttack(object sender, System.EventArgs e)
         {
-            HostShip.StartBonusAttack(CleanupBonusAttack, IsTargetShip);
+            HostShip.IsCannotAttackSecondTime = true;
+
+            Combat.StartSelectAttackTarget(
+                HostShip,
+                CleanupBonusAttack,
+                IsTargetShip,
+                HostShip.PilotInfo.PilotName,
+                "You may perform a bonus attack against " + triggeringShip.PilotInfo.PilotName + "("+triggeringShip.ShipId+")",
+                HostShip
+            );
+
         }
 
         private bool IsTargetShip(GenericShip defender, IShipWeapon weapon, bool isSilent)
         {
-            if (defender == TargetShip)
+            if (defender == triggeringShip)
             {
                 return true;
             }
@@ -95,11 +121,16 @@ namespace Abilities.SecondEdition
 
         private void CleanupBonusAttack()
         {
+            if (HostShip.IsAttackSkipped)
+            {
+                HostShip.IsCannotAttackSecondTime = IsCannotAttackSecondTimePreviousValue;
+            }
             // Restore previous value of "has already attacked" flag
             HostShip.IsAttackPerformed = performedRegularAttack;
 
             // Restore ship selection
-            Selection.ChangeActiveShip(TargetShip);
+            Selection.ChangeActiveShip(activeShip);
+            Combat.Attacker = previousAttacker;
 
             Triggers.FinishTrigger();
         }

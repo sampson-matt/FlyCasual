@@ -58,6 +58,9 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility(GenericShip ship)
         {
+            if (!Tools.IsFriendly(ship, HostShip)) 
+                return;
+
             friendlyShip = ship;
             
             if (HostShip.State.Charges > 0 && HasReasonToUseAbility())

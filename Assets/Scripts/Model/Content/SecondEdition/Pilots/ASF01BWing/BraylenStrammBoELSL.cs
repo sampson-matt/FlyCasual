@@ -1,12 +1,14 @@
 ﻿using Abilities.SecondEdition;
-using Content;
-using System.Collections.Generic;
-using Ship;
-using Upgrade;
+using Actions;
+using ActionsList;
 using BoardTools;
-using System;
+using Content;
+using Ship;
 using SubPhases;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Upgrade;
 
 namespace Ship
 {
@@ -32,6 +34,8 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent
                 );
                 ShipAbilities.Add(new GyroCockpit());
+                ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(BarrelRollAction), typeof(TargetLockAction)));
+                ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ReloadAction), ActionColor.Red));
                 ModelInfo.SkinName = "Dark Blue";
                 PilotNameCanonical = "braylenstramm-battleoverendor-lsl";
             }

@@ -13,6 +13,8 @@ namespace UpgradesList.SecondEdition
     {
         public ChaffParticlesBoE() : base()
         {
+            IsHidden = true;
+
             UpgradeInfo = new UpgradeCardInfo(
                 "Chaff Particles",
                 UpgradeType.Modification,

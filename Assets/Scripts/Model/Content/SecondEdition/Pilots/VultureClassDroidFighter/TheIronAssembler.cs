@@ -52,7 +52,7 @@ namespace Abilities.SecondEdition
         {
             bool obstacleCheck = ship.ObstaclesLanded.Any(n => n.GetTypeName == "Asteroid" || n.GetTypeName == "Debris");
 
-            if (ship.IsManeuverSkipped && obstacleCheck && Tools.IsFriendly(ship, HostShip)
+            if (HostShip.State.Charges > 0 && ship.IsManeuverSkipped && obstacleCheck && Tools.IsFriendly(ship, HostShip)
                 && new DistanceInfo(ship, HostShip).Range < 2 && ship.Damage.IsDamaged)
             {
                 TargetShip = ship;

@@ -50,6 +50,8 @@ namespace Abilities.SecondEdition
 
             if (ActionsHolder.HasTargetLockOn(HostShip, ship)) return;
 
+            if (token.GetType() == typeof(RedTargetLockToken) && HostShip == (token as GenericTargetLockToken).OtherTargetLockTokenOwner) return;
+
             if (token.TokenColor != TokenColors.Red && token.TokenColor != TokenColors.Orange) return;
 
             DistanceInfo distInfo = new DistanceInfo(HostShip, ship);

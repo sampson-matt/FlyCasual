@@ -2,9 +2,6 @@
 using Actions;
 using ActionsList;
 using Content;
-using Ship;
-using SubPhases;
-using System;
 using System.Collections.Generic;
 using Upgrade;
 using UpgradesList.SecondEdition;

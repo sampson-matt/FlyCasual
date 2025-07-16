@@ -68,7 +68,10 @@ public partial class DiceRoll
     public Die AddDice(DieSide side = DieSide.Unknown)
     {
         Die newDice = new Die(this, this.Type, side);
-        DiceList.Add(newDice);
+        if (DiceList.Count < 6)
+        {
+            DiceList.Add(newDice);
+        }
         return newDice;
     }
 

@@ -350,13 +350,16 @@ public static class Combat
     private static void CalculateAttackResults()
 	{
         Combat.Defender.CallCombatCompareResults();
+        Combat.Attacker.CallAfterNeutralizeResultsAttacker(ContinueAttackResults);
+    }
 
+    private static void ContinueAttackResults()
+    {
         DiceRollAttack.RemoveAllFailures();
-
         Combat.Defender.CallAfterNeutralizeResults(CheckAttackHit);
     }
 
-    private static void CheckAttackHit()
+        private static void CheckAttackHit()
     {
         if (DiceRollAttack.Successes > 0)
         {

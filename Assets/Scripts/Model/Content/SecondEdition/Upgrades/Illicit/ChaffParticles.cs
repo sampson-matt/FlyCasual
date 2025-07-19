@@ -43,7 +43,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility()
         {
-            if (HostUpgrade.State.Charges > 0 && 
+            if (HostUpgrade.State.Charges > 0 &&
                 (HostShip.Tokens.HasTokenByColor(TokenColors.Red) || HostShip.Tokens.HasTokenByColor(TokenColors.Orange)) && 
                 (Combat.DiceRollDefence.Focuses > 0 || Combat.DiceRollDefence.Successes > Combat.DiceRollAttack.Successes))
             {

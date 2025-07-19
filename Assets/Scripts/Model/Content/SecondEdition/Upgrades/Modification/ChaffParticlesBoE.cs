@@ -45,7 +45,7 @@ namespace Abilities.SecondEdition
         private void CheckAbility()
         {
             if ((HostShip.Tokens.HasTokenByColor(TokenColors.Red) || HostShip.Tokens.HasTokenByColor(TokenColors.Orange)) && 
-                (Combat.DiceRollDefence.Focuses > 0))
+                Combat.DiceRollDefence.Focuses > 0)
             {
                 RegisterAbilityTrigger(TriggerTypes.OnAfterNeutralizeResults, AskToRemove);
             }

@@ -170,6 +170,7 @@ namespace Ship
 
         public event EventHandlerShip OnCombatCompareResults;
         public event EventHandler OnAfterNeutralizeResults;
+        public event EventHandler OnAfterNeutralizeResultsAttacker;
 
         public event EventHandler AfterAttackDiceModification;
         public event EventHandlerModifyDice OnTryDiceResultModification;
@@ -961,6 +962,13 @@ namespace Ship
         public void CallCombatCompareResults()
         {
             if (OnCombatCompareResults != null) OnCombatCompareResults(this);
+        }
+
+        public void CallAfterNeutralizeResultsAttacker(Action callback)
+        {
+            if (OnAfterNeutralizeResultsAttacker != null) OnAfterNeutralizeResultsAttacker();
+
+            Triggers.ResolveTriggers(TriggerTypes.OnAfterNeutralizeResultsAttacker, callback);
         }
 
         public void CallAfterNeutralizeResults(Action callback)

@@ -73,6 +73,7 @@ public enum TriggerTypes
     OnShotHit,
     OnTryDamagePrevention,
     OnAfterNeutralizeResults,
+    OnAfterNeutralizeResultsAttacker,
     OnAttackHit,
     OnAttackMissed,
     OnAttackFinish,

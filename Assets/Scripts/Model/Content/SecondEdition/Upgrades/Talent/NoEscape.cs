@@ -12,8 +12,8 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "No Escape",
                 UpgradeType.Talent,
-                cost: 3,
-                restrictions: new UpgradeCardRestrictions(new FactionRestriction(Faction.Imperial), new NonLimitedRestriction()),
+                cost: 1,
+                restrictions: new UpgradeCardRestrictions(new FactionRestriction(Faction.Imperial), new NonLimitedRestriction(), new ShipRestriction(typeof(Ship.SecondEdition.TIELnFighter.TIELnFighter))),
                 abilityType: typeof(Abilities.SecondEdition.NoEscapeAbility)
             );
             ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/noescape.jpg";

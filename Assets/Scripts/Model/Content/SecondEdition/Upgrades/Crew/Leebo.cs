@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Leebo",
                 UpgradeType.Crew,
-                cost: 3,
+                cost: 1,
                 isLimited: true,
                 restrictions: new UpgradeCardRestrictions(
                     new FactionRestriction(Faction.Scum, Faction.Rebel)

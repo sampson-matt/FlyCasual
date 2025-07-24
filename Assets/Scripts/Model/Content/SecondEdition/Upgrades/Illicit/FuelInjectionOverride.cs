@@ -4,6 +4,7 @@ using Ship;
 using SubPhases;
 using System;
 using Upgrade;
+using Tokens;
 
 namespace UpgradesList.SecondEdition
 {
@@ -14,9 +15,8 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Fuel Injection Override",
                 UpgradeType.Illicit,
-                cost: 3,
+                cost: 2,
                 charges: 1,
-                restriction: new BaseSizeRestriction(BaseSize.Small),
                 abilityType: typeof(Abilities.SecondEdition.FuelInjectionOverrideAbility)
             );
 
@@ -32,54 +32,86 @@ namespace Abilities.SecondEdition
         private GenericAction Action;
         public override void ActivateAbility()
         {
-            HostShip.BeforeActionIsPerformed += RegisterFuelInjectionOverrideAbility;
+            HostShip.OnMovementActivationStart += RegisterTrigger;
         }
 
         public override void DeactivateAbility()
         {
-            HostShip.BeforeActionIsPerformed -= RegisterFuelInjectionOverrideAbility;
+            HostShip.OnMovementActivationStart -= RegisterTrigger;
         }
 
-        private void RegisterFuelInjectionOverrideAbility(GenericAction action, ref bool data)
+        private void RegisterTrigger(GenericShip ship)
         {
-            if (HostUpgrade.State.Charges > 0 && (action is BoostAction || action is BarrelRollAction))
+            if (HostUpgrade.State.Charges > 0)
             {
-                Action = action;
-                RegisterAbilityTrigger(TriggerTypes.BeforeActionIsPerformed, AskToUseFuelInjectionOverrideAbility);
+                Triggers.RegisterTrigger(new Trigger()
+                {
+                    Name = Name,
+                    TriggerType = TriggerTypes.OnMovementActivationStart,
+                    TriggerOwner = HostShip.Owner.PlayerNo,
+                    EventHandler = AskUseFuelInjectionOverride
+                });
             }
         }
 
-        private void AskToUseFuelInjectionOverrideAbility(object sender, System.EventArgs e)
+        private void AskUseFuelInjectionOverride(object sender, System.EventArgs e)
         {
-            AskToUseAbility
-            (
-                descriptionShort: HostUpgrade.UpgradeInfo.Name,
-                descriptionLong: "Do you want to spend a charge to use a template with a speed 1 higher?",
-                useByDefault: NeverUseByDefault,
-                useAbility: UpdateTemplate,
-                callback: Cleanup,
-                imageHolder: HostUpgrade,
-                showSkipButton: false
-            );
+            if (HostUpgrade.State.Charges > 0)
+            {
+                AskToUseAbility(
+                    HostUpgrade.UpgradeInfo.Name,
+                    NeverUseByDefault,
+                    ActivateFuelInjectionOverride,
+                    descriptionLong: "Do you want to spend 1 Charge? (If you do, until the end of the round, while you move, you must use a template of 1 speed higher, if able.)",
+                    imageHolder: HostUpgrade
+                );
+            }
+            else
+            {
+                Triggers.FinishTrigger();
+            }
         }
 
-        private void Cleanup()
+        public void ActivateFuelInjectionOverride(object sender, System.EventArgs e)
+        {
+            Phases.Events.OnEndPhaseStart_NoTriggers += DeactivateActivateFuelInjectionOverrideAbility;
+
+            PayActivationCost(UseHigherTemplates);
+        }
+
+        protected virtual void PayActivationCost(Action callback)
         {
             HostUpgrade.State.SpendCharge();
+            HostShip.Tokens.AssignToken(typeof(StrainToken), callback);
+        }
+
+        private void UseHigherTemplates()
+        {
+            DecisionSubPhase.ConfirmDecisionNoCallback();
+
+            Messages.ShowInfo(HostUpgrade.UpgradeInfo.Name + " allows " + HostShip.PilotInfo.PilotName + " to perform actions and red maneuvers even while stressed");
+
+            HostShip.OnUpdateChosenBoostTemplate += UpdateBoostTemplate;
+            HostShip.OnUpdateChosenBarrelRollTemplate += UpdateBarrelRollTemplate;
+            HostShip.BeforeMovementIsExecuted += UpdateMovementTemplate;
+
             Triggers.FinishTrigger();
         }
 
-        private void UpdateTemplate(object sender, EventArgs e)
+        
+
+        public void DeactivateActivateFuelInjectionOverrideAbility()
         {
-            DecisionSubPhase.ConfirmDecision();
-            if (Action is BoostAction)
-            {
-                HostShip.OnUpdateChosenBoostTemplate += UpdateBoostTemplate;
-            }
-            if (Action is BarrelRollAction)
-            {
-                HostShip.OnUpdateChosenBarrelRollTemplate += UpdateBarrelRollTemplate;
-            }
+            Phases.Events.OnEndPhaseStart_NoTriggers -= DeactivateActivateFuelInjectionOverrideAbility;
+
+            HostShip.OnUpdateChosenBoostTemplate -= UpdateBoostTemplate;
+            HostShip.OnUpdateChosenBarrelRollTemplate -= UpdateBarrelRollTemplate;
+            HostShip.BeforeMovementIsExecuted -= UpdateMovementTemplate;
+        }
+
+        private void UpdateMovementTemplate(GenericShip ship)
+        {
+            ship.AssignedManeuver.TryIncreaseSpeed();
         }
 
         private void UpdateBoostTemplate(ref string name)

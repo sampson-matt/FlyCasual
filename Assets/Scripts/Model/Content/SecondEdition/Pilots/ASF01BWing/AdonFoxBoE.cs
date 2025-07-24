@@ -41,7 +41,7 @@ namespace Ship
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ReloadAction), ActionColor.Red));
 
                 MustHaveUpgrades.Add(typeof(ItsATrap));
-                MustHaveUpgrades.Add(typeof(PartingGift));
+                MustHaveUpgrades.Add(typeof(PartingGiftBoE));
                 MustHaveUpgrades.Add(typeof(ProtonRockets));
                 MustHaveUpgrades.Add(typeof(ProtonBombs));
 

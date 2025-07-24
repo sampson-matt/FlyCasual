@@ -19,8 +19,8 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Formed Up",
                 UpgradeType.Talent,
-                cost: 3,
-                limited: 2,
+                cost: 1,
+                limited: 3,
                 restrictions: new UpgradeCardRestrictions(new FactionRestriction(Faction.Imperial), new ShipRestriction(typeof(Ship.SecondEdition.TIELnFighter.TIELnFighter))),
                 abilityType: typeof(Abilities.SecondEdition.FormedUpAbility)
             );

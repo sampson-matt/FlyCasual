@@ -11,8 +11,7 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Silent Hunter",
                 UpgradeType.Talent,
-                cost: 3,
-                isLimited: true,
+                cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.SilentHunterAbility)
             );
 

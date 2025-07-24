@@ -14,15 +14,15 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Seeker Missiles",
                 types: new List<UpgradeType>(){
-                    UpgradeType.Missile,
                     UpgradeType.Missile
                 },
-                cost: 7,
+                cost: 5,
+                limited: 2,
                 weaponInfo: new SpecialWeaponInfo(
                     attackValue: 3,
                     minRange: 2,
                     maxRange: 3,
-                    charges: 4,
+                    charges: 2,
                     requiresToken: typeof(BlueTargetLockToken)
                 ),
                 abilityType: typeof(Abilities.SecondEdition.SeekerMissilesAbility)
@@ -34,46 +34,46 @@ namespace UpgradesList.SecondEdition
 
 namespace Abilities.SecondEdition
 {
+    //  If this attack misses and 1 or more hit/crit results were neutralized, the defender gains 1 strain token.
     public class SeekerMissilesAbility : GenericAbility
     {
-        private int usedCount = 0;
+        int hitOrCritResults;
+
         public override void ActivateAbility()
         {
-            AddDiceModification(
-                HostUpgrade.UpgradeInfo.Name,
-                IsAvailable,
-                GetAiPriority,
-                DiceModificationType.Change,
-                1,
-                sidesCanBeSelected: new List<DieSide>() { DieSide.Focus },
-                sideCanBeChangedTo: DieSide.Success,
-                canBeUsedFewTimes: true,
-                payAbilityPostCost: PayAbilityCost
-            );
-        }
-
-        private bool IsAvailable()
-        {
-            return Combat.ChosenWeapon == HostUpgrade
-                && HostUpgrade.State.Charges > 0
-                && usedCount < 2
-                && Combat.AttackStep == CombatStep.Attack;
-        }
-
-        private int GetAiPriority()
-        {
-            return 39; // Just a bit lower than focus and calculate
-        }
-
-        private void PayAbilityCost()
-        {
-            usedCount++;
-            HostUpgrade.State.SpendCharge();
+            HostShip.OnDefenceStartAsAttacker += SaveHitOrCritResults;
+            HostShip.OnAttackMissedAsAttacker += RegisterAbility;
         }
 
         public override void DeactivateAbility()
         {
-            RemoveDiceModification();
+            HostShip.OnDefenceStartAsAttacker -= SaveHitOrCritResults;
+            HostShip.OnAttackMissedAsAttacker -= RegisterAbility;
+        }
+
+        private void SaveHitOrCritResults()
+        {
+            hitOrCritResults = Combat.DiceRollAttack.Successes;
+        }
+
+        private void RegisterAbility()
+        {
+            if (hitOrCritResults > 0 && Combat.ChosenWeapon == HostUpgrade)
+            {
+                HostShip.OnAttackFinish += RegisterTrigger;
+            }
+        }
+
+        private void RegisterTrigger(GenericShip ship)
+        {
+            HostShip.OnAttackFinish -= RegisterTrigger;
+            RegisterAbilityTrigger(TriggerTypes.OnAttackFinish, AssignStrainToDefender);
+        }
+
+        private void AssignStrainToDefender(object sender, System.EventArgs e)
+        {
+            Messages.ShowInfo(HostUpgrade.UpgradeInfo.Name + " assigned a strain token to " + Combat.Defender.PilotInfo.PilotName);
+            Combat.Defender.Tokens.AssignToken(typeof(Tokens.StrainToken), Triggers.FinishTrigger);
         }
     }
 }

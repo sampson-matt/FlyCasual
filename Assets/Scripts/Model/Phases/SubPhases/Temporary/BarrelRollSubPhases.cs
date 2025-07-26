@@ -178,7 +178,7 @@ namespace SubPhases
 
         protected virtual void GenerateListOfAvailableTemplates()
         {
-            List<ManeuverTemplate> allowedTemplates = Selection.ThisShip.GetAvailableBarrelRollTemplates();
+            List<ManeuverTemplate> allowedTemplates = Selection.ThisShip.GetAvailableBarrelRollTemplates(HostAction);
 
             foreach (ManeuverTemplate barrelRollTemplate in allowedTemplates)
             {
@@ -290,6 +290,52 @@ namespace SubPhases
                     }
                 );
             }
+
+            // Bank templates
+            ManeuverTemplate turnLeft = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Turn && n.Direction == ManeuverDirection.Left);
+            ManeuverTemplate turnRight = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Turn && n.Direction == ManeuverDirection.Right);
+
+            if (turnLeft != null && turnRight != null)
+            {
+                subphase.AddDecision(
+                    "Left " + turnRight.NameNoDirection + " Forward",
+                    (EventHandler)delegate
+                    {
+                        SelectTemplate(turnRight, Direction.Left, Direction.Top);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                subphase.AddDecision(
+                    "Right " + turnLeft.NameNoDirection + " Forward",
+                    (EventHandler)delegate
+                    {
+                        SelectTemplate(turnLeft, Direction.Right, Direction.Top);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                subphase.AddDecision(
+                    "Left " + turnLeft.NameNoDirection + " Backwards",
+                    (EventHandler)delegate
+                    {
+                        SelectTemplate(turnLeft, Direction.Left, Direction.Bottom);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                subphase.AddDecision(
+                    "Right " + turnRight.NameNoDirection + " Backwards",
+                    (EventHandler)delegate
+                    {
+                        SelectTemplate(turnRight, Direction.Right, Direction.Bottom);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+            }
+
+
+
         }
 
         public void SelectTemplate(ManeuverTemplate template, Direction directionPrimary, Direction directionSecondary = Direction.None)
@@ -297,6 +343,7 @@ namespace SubPhases
             SelectedTemplate = template;
             SelectedDirectionPrimary = directionPrimary;
             SelectedDirectionSecondary = directionSecondary;
+            (HostAction as BarrelRollAction).SelectedTemplate = template;
         }
 
         protected virtual IEnumerator CheckCollisionsOfTemporaryElements(Action callback)

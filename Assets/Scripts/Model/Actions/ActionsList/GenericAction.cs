@@ -80,6 +80,16 @@ namespace ActionsList
             }
         }
 
+        public GenericAction AsPerformWhileStressedAction
+        {
+            get
+            {
+                var performWileStressedAction = (GenericAction)MemberwiseClone();
+                performWileStressedAction.CanBePerformedWhileStressed = true;
+                return performWileStressedAction;
+            }
+        }
+
         public bool IsInActionBar;
 
         public Action DoAction = delegate { };

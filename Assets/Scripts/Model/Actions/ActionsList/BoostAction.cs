@@ -42,11 +42,11 @@ namespace ActionsList
                 var phase = Phases.StartTemporarySubPhaseNew<SubPhases.BoostPlanningSubPhase>(
                     "Boost",
                     delegate {
-                        SelectedBoostTemplate = null;
+                        //SelectedBoostTemplate = null;
                         Phases.CurrentSubPhase.CallBack();
                     }
                 );
-                phase.SelectedBoostHelper = SelectedBoostTemplate;
+                phase.SelectedBoostHelper = null;
                 phase.HostAction = this;
                 phase.Start();
             }

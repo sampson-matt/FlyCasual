@@ -3,8 +3,8 @@ using BoardTools;
 using Ship;
 using SubPhases;
 using System;
-using Upgrade;
 using Tokens;
+using Upgrade;
 
 namespace UpgradesList.SecondEdition
 {

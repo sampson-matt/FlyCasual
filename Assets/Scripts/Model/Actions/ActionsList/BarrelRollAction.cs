@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using BoardTools;
 using SubPhases;
 namespace ActionsList
 {
@@ -8,6 +9,8 @@ namespace ActionsList
     public class BarrelRollAction : GenericAction
     {
         public bool IsThroughObstacle { get; set; }
+
+        public ManeuverTemplate SelectedTemplate { get; set; }
 
         public BarrelRollAction()
         {

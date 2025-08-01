@@ -19,7 +19,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Soontir Fel",
                     6,
-                    49,
+                    68,
                     isLimited: true,
                     abilityType: typeof(SoontirFelBattleOverEndorAbility),
                     tags: new List<Tags>

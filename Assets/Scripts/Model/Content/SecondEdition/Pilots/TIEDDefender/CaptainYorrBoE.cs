@@ -41,7 +41,7 @@ namespace Ship
                 ShipAbilities.Remove(oldAbility);
                 ShipAbilities.Add(new ChissEngineeringAbility());
 
-                MustHaveUpgrades.Add(typeof(NoEscape));
+                MustHaveUpgrades.Add(typeof(NoEscapeBoE));
                 MustHaveUpgrades.Add(typeof(Predator));
                 MustHaveUpgrades.Add(typeof(IonCannon));
                 MustHaveUpgrades.Add(typeof(ComputerAssistedHandling));

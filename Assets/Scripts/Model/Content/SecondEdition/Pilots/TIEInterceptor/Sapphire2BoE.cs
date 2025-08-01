@@ -38,7 +38,7 @@ namespace Ship
                 ShipAbilities.Remove(oldAbility);
                 ShipAbilities.Add(new SensitiveControlsRealAbility());
 
-                MustHaveUpgrades.Add(typeof(NoEscape));
+                MustHaveUpgrades.Add(typeof(NoEscapeBoE));
                 MustHaveUpgrades.Add(typeof(Reckless));
                 MustHaveUpgrades.Add(typeof(TargetingMatrix));
                 MustHaveUpgrades.Add(typeof(PrimedThrusters));

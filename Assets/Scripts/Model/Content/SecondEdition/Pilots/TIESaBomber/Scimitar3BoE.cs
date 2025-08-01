@@ -31,7 +31,7 @@ namespace Ship
                     }
                 );
 
-                MustHaveUpgrades.Add(typeof(NoEscape));
+                MustHaveUpgrades.Add(typeof(NoEscapeBoE));
                 MustHaveUpgrades.Add(typeof(PartingGiftBoE));
                 MustHaveUpgrades.Add(typeof(ProtonTorpedoes));
                 MustHaveUpgrades.Add(typeof(ProtonBombs));

@@ -41,7 +41,7 @@ namespace Ship
                 ShipInfo.Hull++;
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
 
-                MustHaveUpgrades.Add(typeof(NoEscape));
+                MustHaveUpgrades.Add(typeof(NoEscapeBoE));
                 MustHaveUpgrades.Add(typeof(UpgradesList.SecondEdition.Elusive));
                 MustHaveUpgrades.Add(typeof(Collected));
 

@@ -37,7 +37,7 @@ namespace Ship
                 );
 
                 MustHaveUpgrades.Add(typeof(Marksmanship));
-                MustHaveUpgrades.Add(typeof(NoEscape));
+                MustHaveUpgrades.Add(typeof(NoEscapeBoE));
                 MustHaveUpgrades.Add(typeof(ProtonTorpedoes));
                 MustHaveUpgrades.Add(typeof(IonBombs));
 

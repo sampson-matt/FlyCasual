@@ -37,7 +37,7 @@ namespace Ship
                 ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(BarrelRollAction), typeof(EvadeAction)));
                 ShipInfo.Hull++;
 
-                MustHaveUpgrades.Add(typeof(NoEscape));
+                MustHaveUpgrades.Add(typeof(NoEscapeBoE));
                 MustHaveUpgrades.Add(typeof(Predator));
                 MustHaveUpgrades.Add(typeof(IonManeuveringJet));
                 MustHaveUpgrades.Add(typeof(TargetingMatrix));

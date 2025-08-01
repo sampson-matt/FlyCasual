@@ -45,7 +45,7 @@ namespace Ship
                 ModelInfo.SkinName = "Red Stripes";
 
                 MustHaveUpgrades.Add(typeof(ApexPredator));
-                MustHaveUpgrades.Add(typeof(NoEscape));
+                MustHaveUpgrades.Add(typeof(NoEscapeBoE));
                 MustHaveUpgrades.Add(typeof(BlankSignature));
                 MustHaveUpgrades.Add(typeof(FeedbackEmitter));
             }

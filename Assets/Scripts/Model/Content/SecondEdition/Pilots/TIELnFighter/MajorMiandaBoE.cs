@@ -41,7 +41,7 @@ namespace Ship
 
                 MustHaveUpgrades.Add(typeof(Ruthless));
                 MustHaveUpgrades.Add(typeof(SwarmTactics));
-                MustHaveUpgrades.Add(typeof(NoEscape));
+                MustHaveUpgrades.Add(typeof(NoEscapeBoE));
 
                 PilotNameCanonical = "majormianda-battleoverendor";
             }

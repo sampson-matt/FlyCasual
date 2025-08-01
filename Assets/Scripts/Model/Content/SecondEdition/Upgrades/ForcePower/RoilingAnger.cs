@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
                 restriction: new TagRestriction(Content.Tags.DarkSide),
                 abilityType: typeof(Abilities.SecondEdition.RoilingAngerAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/roilinganger.jpg";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/RoilingAnger.jpg";
         }
     }
 }

@@ -16,7 +16,7 @@ namespace UpgradesList.SecondEdition
                 restrictions: new UpgradeCardRestrictions(new FactionRestriction(Faction.Imperial), new NonLimitedRestriction(), new ShipRestriction(typeof(Ship.SecondEdition.TIELnFighter.TIELnFighter))),
                 abilityType: typeof(Abilities.SecondEdition.NoEscapeAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/noescape.jpg";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/NoEscape.jpg";
         }
     }
 }

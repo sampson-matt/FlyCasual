@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Greetings
-      run: echo "Hellow World"
+        run: echo "Hellow World"

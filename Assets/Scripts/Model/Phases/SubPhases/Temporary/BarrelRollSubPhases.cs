@@ -343,7 +343,10 @@ namespace SubPhases
             SelectedTemplate = template;
             SelectedDirectionPrimary = directionPrimary;
             SelectedDirectionSecondary = directionSecondary;
-            (HostAction as BarrelRollAction).SelectedTemplate = template;
+            if (HostAction is BarrelRollAction)
+            {
+                (HostAction as BarrelRollAction).SelectedTemplate = template;
+            }
         }
 
         protected virtual IEnumerator CheckCollisionsOfTemporaryElements(Action callback)

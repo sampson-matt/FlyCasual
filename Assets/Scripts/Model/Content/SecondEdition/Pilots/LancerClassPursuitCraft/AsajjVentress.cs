@@ -38,10 +38,19 @@ namespace Ship
 
 namespace Abilities.SecondEdition
 {
-    public class AsajjVentressPilotAbility : Abilities.FirstEdition.AsajjVentressPilotAbility
+    public class AsajjVentressPilotAbility : GenericAbility
     {
+        public override void ActivateAbility()
+        {
+            Phases.Events.OnCombatPhaseStart_Triggers += TryRegisterAsajjVentressPilotAbility;
+        }
 
-        protected override void TryRegisterAsajjVentressPilotAbility()
+        public override void DeactivateAbility()
+        {
+            Phases.Events.OnCombatPhaseStart_Triggers -= TryRegisterAsajjVentressPilotAbility;
+        }
+
+        private void TryRegisterAsajjVentressPilotAbility()
         {
             if (TargetsForAbilityExist(FilterTargetsOfAbility) && HostShip.State.Force > 0)
             {
@@ -49,7 +58,7 @@ namespace Abilities.SecondEdition
             }
         }
 
-        protected override void AskSelectShip(object sender, System.EventArgs e)
+        private void AskSelectShip(object sender, System.EventArgs e)
         {
             Selection.ChangeActiveShip(HostShip);
 
@@ -71,13 +80,36 @@ namespace Abilities.SecondEdition
                 Phases.StartTemporarySubPhaseNew(
                 "Choose effect of " + HostShip.PilotInfo.PilotName + "' ability.",
                 typeof(AsajjVentressAbilityDecisionSubPhaseSE),
-                Triggers.FinishTrigger
+                delegate { HostShip.State.SpendForce(1, Triggers.FinishTrigger); }
             );
 
             Selection.ThisShip = TargetShip;
             Selection.ActiveShip = HostShip;
             subphase.SourceShip = HostShip;
             subphase.Start();
+        }
+
+        private bool FilterTargetsOfAbility(GenericShip ship)
+        {
+            return FilterByTargetType(ship, new List<TargetTypes>() { TargetTypes.Enemy }) && FilterTargetsByRange(ship, 0, 2) && FilterTargetInMobileFiringArc(ship);
+        }
+
+        protected int GetAiPriorityOfTarget(GenericShip ship)
+        {
+            int priority = 50;
+
+            priority += (ship.Tokens.CountTokensByType(typeof(StressToken)) * 25);
+            priority += (ship.State.Agility * 5);
+
+            if (ship.CallCheckCanPerformActionsWhileStressed() && ship.CanPerformRedManeuverWhileStressed()) priority = 10;
+
+            return priority;
+        }
+
+        private bool FilterTargetInMobileFiringArc(GenericShip ship)
+        {
+            ShotInfo shotInfo = new ShotInfo(HostShip, ship, HostShip.PrimaryWeapons);
+            return shotInfo.InArcByType(ArcType.SingleTurret);
         }
     }
 }
@@ -102,10 +134,7 @@ namespace SubPhases
 
         private void RecieveStress(object sender, System.EventArgs e)
         {
-            SourceShip.State.SpendForce(
-                1,
-                delegate { Selection.ThisShip.Tokens.AssignToken(typeof(StressToken), DecisionSubPhase.ConfirmDecision); }
-            );
+            Selection.ThisShip.Tokens.AssignToken(typeof(StressToken), DecisionSubPhase.ConfirmDecision);
         }
     }
 }

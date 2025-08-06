@@ -380,7 +380,8 @@ namespace Ship
 
         public List<Type> GetWeaponAttackRequirement(GenericSpecialWeapon weapon, bool isSilent)
         {
-            List<Type> tokenTypeAttackRequirement = weapon.WeaponInfo.RequiresTokens;
+            List<Type> tokenTypeAttackRequirement = new List<Type>();
+            tokenTypeAttackRequirement.AddRange(weapon.WeaponInfo.RequiresTokens);
 
             GenericShip.OnModifyWeaponAttackRequirementGlobal?.Invoke(this, weapon, ref tokenTypeAttackRequirement, isSilent);
             OnModifyWeaponAttackRequirement?.Invoke(this, weapon, ref tokenTypeAttackRequirement, isSilent);

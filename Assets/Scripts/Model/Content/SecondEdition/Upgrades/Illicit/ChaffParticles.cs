@@ -21,7 +21,7 @@ namespace UpgradesList.SecondEdition
                 restriction: new BaseSizeRestriction(BaseSize.Small),
                 abilityType: typeof(Abilities.SecondEdition.ChaffParticlesAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/chaff-particles.jpg";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/ChaffParticles.jpg";
         }        
     }
 }
@@ -43,7 +43,7 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility()
         {
-            if (HostUpgrade.State.Charges > 0 && 
+            if (HostUpgrade.State.Charges > 0 &&
                 (HostShip.Tokens.HasTokenByColor(TokenColors.Red) || HostShip.Tokens.HasTokenByColor(TokenColors.Orange)) && 
                 (Combat.DiceRollDefence.Focuses > 0 || Combat.DiceRollDefence.Successes > Combat.DiceRollAttack.Successes))
             {

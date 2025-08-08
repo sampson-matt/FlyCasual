@@ -1,4 +1,6 @@
 ﻿using Abilities.SecondEdition;
+using Actions;
+using ActionsList;
 using BoardTools;
 using Content;
 using Ship;
@@ -34,6 +36,8 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent
                 );
                 ShipAbilities.Add(new GyroCockpit());
+                ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(BarrelRollAction), typeof(TargetLockAction)));
+                ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ReloadAction), ActionColor.Red));
                 ModelInfo.SkinName = "Gina Moonsong";            
                 PilotNameCanonical = "ginamoonsong-battleoverendor-lsl";
             }

@@ -19,6 +19,7 @@ namespace Obstacles
         public override void OnHit(GenericShip ship)
         {
             if (Selection.ThisShip.IgnoreObstacleTypes.Contains(typeof(Asteroid))) {
+                Triggers.FinishTrigger();
                 return;
             }
 

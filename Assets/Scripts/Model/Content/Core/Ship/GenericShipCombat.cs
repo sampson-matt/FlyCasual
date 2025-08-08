@@ -170,6 +170,7 @@ namespace Ship
 
         public event EventHandlerShip OnCombatCompareResults;
         public event EventHandler OnAfterNeutralizeResults;
+        public event EventHandler OnAfterNeutralizeResultsAttacker;
 
         public event EventHandler AfterAttackDiceModification;
         public event EventHandlerModifyDice OnTryDiceResultModification;
@@ -379,7 +380,8 @@ namespace Ship
 
         public List<Type> GetWeaponAttackRequirement(GenericSpecialWeapon weapon, bool isSilent)
         {
-            List<Type> tokenTypeAttackRequirement = weapon.WeaponInfo.RequiresTokens;
+            List<Type> tokenTypeAttackRequirement = new List<Type>();
+            tokenTypeAttackRequirement.AddRange(weapon.WeaponInfo.RequiresTokens);
 
             GenericShip.OnModifyWeaponAttackRequirementGlobal?.Invoke(this, weapon, ref tokenTypeAttackRequirement, isSilent);
             OnModifyWeaponAttackRequirement?.Invoke(this, weapon, ref tokenTypeAttackRequirement, isSilent);
@@ -844,11 +846,11 @@ namespace Ship
             OnGetBombTemplateDirection?.Invoke(ref direction);
         }
 
-        public List<ManeuverTemplate> GetAvailableBarrelRollTemplates()
+        public List<ManeuverTemplate> GetAvailableBarrelRollTemplates(GenericAction action)
         {
             List<ManeuverTemplate> availableTemplates = new List<ManeuverTemplate>(ShipBase.BarrelRollTemplatesAvailable);
 
-            OnGetAvailableBarrelRollTemplates?.Invoke(availableTemplates);
+            OnGetAvailableBarrelRollTemplates?.Invoke(availableTemplates, action);
 
             return availableTemplates;
         }
@@ -961,6 +963,13 @@ namespace Ship
         public void CallCombatCompareResults()
         {
             if (OnCombatCompareResults != null) OnCombatCompareResults(this);
+        }
+
+        public void CallAfterNeutralizeResultsAttacker(Action callback)
+        {
+            if (OnAfterNeutralizeResultsAttacker != null) OnAfterNeutralizeResultsAttacker();
+
+            Triggers.ResolveTriggers(TriggerTypes.OnAfterNeutralizeResultsAttacker, callback);
         }
 
         public void CallAfterNeutralizeResults(Action callback)

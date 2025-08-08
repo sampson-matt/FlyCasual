@@ -1,4 +1,6 @@
 ﻿using Abilities.SecondEdition;
+using Actions;
+using ActionsList;
 using Content;
 using System;
 using System.Collections.Generic;
@@ -26,6 +28,8 @@ namespace Ship
                     regensCharges: 1
                 );
                 ShipAbilities.Add(new GyroCockpit());
+                ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(BarrelRollAction), typeof(TargetLockAction)));
+                ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(ReloadAction), ActionColor.Red));
                 ModelInfo.SkinName = "Blue";
                 PilotNameCanonical = "adonfox-battleoverendor-lsl";
             }

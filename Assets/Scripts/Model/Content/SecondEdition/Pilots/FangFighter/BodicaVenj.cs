@@ -43,6 +43,7 @@ namespace Abilities.SecondEdition
     public class BodicaVenjAbility : GenericAbility
     {
         GenericShip bonusAttackTarget;
+        Boolean previousAttackState;
 
         public override void ActivateAbility()
         {
@@ -59,6 +60,7 @@ namespace Abilities.SecondEdition
             
             if (!HostShip.IsDepleted && !HostShip.IsCannotAttackSecondTime && Tools.IsFriendly(Combat.Defender, HostShip) && Combat.Defender.ShipId != HostShip.ShipId)
             {
+                previousAttackState = HostShip.IsAttackPerformed;
                 bonusAttackTarget = Combat.Attacker;
                 bonusAttackTarget.OnCombatCheckExtraAttack += RegisterBodicaVenjAbility;
             }
@@ -81,7 +83,7 @@ namespace Abilities.SecondEdition
                 Cleanup,
                 IsPrimaryWeaponShot,
                 HostShip.PilotInfo.PilotName,
-                "You may perform a bonus attack against " + bonusAttackTarget.PilotInfo.PilotName + " and then gain 1 deplete token.",
+                "You may perform a bonus primary attack against " + bonusAttackTarget.PilotInfo.PilotName + " and then gain 1 deplete token.",
                 HostShip
             );
         }
@@ -107,7 +109,7 @@ namespace Abilities.SecondEdition
         private void Cleanup()
         {
             bonusAttackTarget = null;
-            HostShip.IsAttackPerformed = true;
+            HostShip.IsAttackPerformed = previousAttackState;
             //if bonus attack was skipped, allow bonus attacks again
             if (HostShip.IsAttackSkipped)
             {

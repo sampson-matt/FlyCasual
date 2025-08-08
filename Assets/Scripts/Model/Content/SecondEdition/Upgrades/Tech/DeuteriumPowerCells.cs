@@ -67,6 +67,7 @@ namespace Abilities.SecondEdition
             if (!HostShip.IsStressed && HostUpgrade.State.Charges > 0
                 && !(token is GenericTargetLockToken)
                 && !(token is StressToken)
+                && !(token is ChargeToken)
             )
             {
                 RegisterAbilityTrigger(TriggerTypes.OnBeforeTokenIsAssigned, AskToReplaceToken);

@@ -178,7 +178,7 @@ namespace SubPhases
 
         protected virtual void GenerateListOfAvailableTemplates()
         {
-            List<ManeuverTemplate> allowedTemplates = Selection.ThisShip.GetAvailableBarrelRollTemplates();
+            List<ManeuverTemplate> allowedTemplates = Selection.ThisShip.GetAvailableBarrelRollTemplates(HostAction);
 
             foreach (ManeuverTemplate barrelRollTemplate in allowedTemplates)
             {
@@ -290,6 +290,52 @@ namespace SubPhases
                     }
                 );
             }
+
+            // Bank templates
+            ManeuverTemplate turnLeft = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Turn && n.Direction == ManeuverDirection.Left);
+            ManeuverTemplate turnRight = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Turn && n.Direction == ManeuverDirection.Right);
+
+            if (turnLeft != null && turnRight != null)
+            {
+                subphase.AddDecision(
+                    "Left " + turnRight.NameNoDirection + " Forward",
+                    (EventHandler)delegate
+                    {
+                        SelectTemplate(turnRight, Direction.Left, Direction.Top);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                subphase.AddDecision(
+                    "Right " + turnLeft.NameNoDirection + " Forward",
+                    (EventHandler)delegate
+                    {
+                        SelectTemplate(turnLeft, Direction.Right, Direction.Top);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                subphase.AddDecision(
+                    "Left " + turnLeft.NameNoDirection + " Backwards",
+                    (EventHandler)delegate
+                    {
+                        SelectTemplate(turnLeft, Direction.Left, Direction.Bottom);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                subphase.AddDecision(
+                    "Right " + turnRight.NameNoDirection + " Backwards",
+                    (EventHandler)delegate
+                    {
+                        SelectTemplate(turnRight, Direction.Right, Direction.Bottom);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+            }
+
+
+
         }
 
         public void SelectTemplate(ManeuverTemplate template, Direction directionPrimary, Direction directionSecondary = Direction.None)
@@ -297,6 +343,10 @@ namespace SubPhases
             SelectedTemplate = template;
             SelectedDirectionPrimary = directionPrimary;
             SelectedDirectionSecondary = directionSecondary;
+            if (HostAction is BarrelRollAction)
+            {
+                (HostAction as BarrelRollAction).SelectedTemplate = template;
+            }
         }
 
         protected virtual IEnumerator CheckCollisionsOfTemporaryElements(Action callback)
@@ -363,9 +413,24 @@ namespace SubPhases
 
         private bool IsColliderDataAllowed(ObstaclesStayDetectorForced collider, bool isBaseFinalPosition = false)
         {
+            List<GenericDeviceGameObject> potentiallyHitMines = new List<GenericDeviceGameObject>();
+            if (collider.OverlapedMinesNow.Count > 0)
+            {
+                foreach (var mineHit in collider.OverlapedMinesNow)
+                {
+                    GenericDeviceGameObject MineObject = mineHit.transform.parent.GetComponent<GenericDeviceGameObject>();
+                    if (!TheShip.MinesHit.Contains(MineObject))
+                    {
+                        potentiallyHitMines.Add(MineObject);
+                    }
+                }
+                TheShip.MinesHit.AddRange(potentiallyHitMines);
+            }
             if (collider.OverlapsShipNow && isBaseFinalPosition)
             {
                 BarrelRollProblems.Add(ActionFailReason.Bumped);
+                TheShip.MinesHit = TheShip.MinesHit.Except(potentiallyHitMines).ToList();
+
             }
             else if (!TheShip.IsIgnoreObstacles 
                 && !TheShip.IsIgnoreObstaclesDuringBarrelRoll() 
@@ -374,12 +439,28 @@ namespace SubPhases
                 && !TheShip.IgnoreObstacleTypes.Contains(typeof(Asteroid)))
             {
                 BarrelRollProblems.Add(ActionFailReason.ObstacleHit);
+                TheShip.MinesHit = TheShip.MinesHit.Except(potentiallyHitMines).ToList();
             }
             else if (collider.OffTheBoardNow)
             {
                 BarrelRollProblems.Add(ActionFailReason.OffTheBoard);
+                TheShip.MinesHit = TheShip.MinesHit.Except(potentiallyHitMines).ToList();
             }
+            if (TheShip.IsIgnoreObstaclesDuringBarrelRoll()
+                && collider.OverlapsAsteroidNow
+                && !IsIgnoreObstacles
+                && !TheShip.IgnoreObstacleTypes.Contains(typeof(Asteroid)))
+            {
+                TheShip.IsHitObstacles = true;
+                foreach (GenericObstacle hitObstacle in collider.OverlappedAsteroidsNow)
+                {
+                    if (!TheShip.ObstaclesHit.Contains(hitObstacle))
+                    {
+                        TheShip.ObstaclesHit.Add(hitObstacle);
+                    }
+                }
 
+            }
             return BarrelRollProblems.Count == 0;
         }
 

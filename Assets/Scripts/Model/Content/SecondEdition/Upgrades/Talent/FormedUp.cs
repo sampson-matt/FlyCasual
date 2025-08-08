@@ -19,12 +19,12 @@ namespace UpgradesList.SecondEdition
             UpgradeInfo = new UpgradeCardInfo(
                 "Formed Up",
                 UpgradeType.Talent,
-                cost: 3,
-                limited: 2,
+                cost: 1,
+                limited: 3,
                 restrictions: new UpgradeCardRestrictions(new FactionRestriction(Faction.Imperial), new ShipRestriction(typeof(Ship.SecondEdition.TIELnFighter.TIELnFighter))),
                 abilityType: typeof(Abilities.SecondEdition.FormedUpAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/formedup.jpg";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/FormedUp.jpg";
         }
     }
 }
@@ -81,7 +81,7 @@ namespace Abilities.SecondEdition
 
         private bool hasFriendlyShipsInRange()
         {
-            List<GenericShip> friendlyShips = Board.GetShipsAtRange(HostShip, new Vector2(0, 1), Team.Type.Friendly);
+            List<GenericShip> friendlyShips = Board.GetShipsAtRange(HostShip, new Vector2(0, 1), Team.Type.Friendly).Where(n => n is Ship.SecondEdition.TIELnFighter.TIELnFighter).ToList();
             List<GenericShip> friendlyFormedUpShips = friendlyShips.Where(n=> n.UpgradeBar.HasUpgradeInstalled(typeof(FormedUp))).ToList();
 
             return friendlyShips.Count > 2 || friendlyFormedUpShips.Count > 1;

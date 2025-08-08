@@ -10,7 +10,7 @@ using UpgradesList.SecondEdition;
 
 namespace UpgradesList.SecondEdition
 {
-    public class ContingencyProtocol : GenericUpgrade
+    public class ContingencyProtocol : GenericUpgrade, IVariableCost
     {
         public ContingencyProtocol() : base()
         {
@@ -24,7 +24,18 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.ContingencyProtocolAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/contingencyprotocol.jpg";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/ContingencyProtocol.jpg";
+        }
+        public void UpdateCost(GenericShip ship)
+        {
+            Dictionary<BaseSize, int> sizeToCost = new Dictionary<BaseSize, int>()
+            {
+                {BaseSize.Small, 1},
+                {BaseSize.Medium, 2},
+                {BaseSize.Large, 2}
+            };
+
+            UpgradeInfo.Cost = sizeToCost[ship.ShipInfo.BaseSize];
         }
         public override bool IsAllowedForSquadBuilderPostCheck(SquadList squadList)
         {

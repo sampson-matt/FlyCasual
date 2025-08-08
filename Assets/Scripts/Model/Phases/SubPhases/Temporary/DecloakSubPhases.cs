@@ -11,6 +11,7 @@ using ActionsList;
 using BoardTools;
 using Movement;
 using System.Collections;
+using Bombs;
 
 namespace SubPhases
 {
@@ -211,7 +212,22 @@ namespace SubPhases
             }
             else
             {
+                CheckMines(obstaclesStayDetectorMovementTemplate, obstaclesStayDetectorNewBase);
                 callback();
+            }
+        }
+
+        private void CheckMines(ObstaclesStayDetectorForced obstaclesStayDetectorMovementTemplate, ObstaclesStayDetectorForced obstaclesStayDetectorNewBase)
+        {
+            foreach (var mineCollider in obstaclesStayDetectorMovementTemplate.OverlapedMinesNow)
+            {
+                GenericDeviceGameObject mineObject = mineCollider.transform.parent.GetComponent<GenericDeviceGameObject>();
+                if (!TheShip.MinesHit.Contains(mineObject)) TheShip.MinesHit.Add(mineObject);
+            }
+            foreach (var mineCollider in obstaclesStayDetectorNewBase.OverlapedMinesNow)
+            {
+                GenericDeviceGameObject mineObject = mineCollider.transform.parent.GetComponent<GenericDeviceGameObject>();
+                if (!TheShip.MinesHit.Contains(mineObject)) TheShip.MinesHit.Add(mineObject);
             }
         }
 
@@ -266,7 +282,20 @@ namespace SubPhases
             {
                 BarrelRollProblems.Add(ActionFailReason.OffTheBoard);
             }
-
+            if (TheShip.IsIgnoreObstaclesDuringBarrelRoll()
+                && collider.OverlapsAsteroidNow
+                && !IsIgnoreObstacles
+                && !TheShip.IgnoreObstacleTypes.Contains(typeof(Asteroid)))
+            {
+                TheShip.IsHitObstacles = true;
+                foreach (GenericObstacle hitObstacle in collider.OverlappedAsteroidsNow)
+                {
+                    if (!TheShip.ObstaclesHit.Contains(hitObstacle))
+                    {
+                        TheShip.ObstaclesHit.Add(hitObstacle);
+                    }
+                }
+            }
             return BarrelRollProblems.Count == 0;
         }
 
@@ -287,7 +316,21 @@ namespace SubPhases
             {
                 BarrelRollProblems.Add(ActionFailReason.OffTheBoard);
             }
+            if (TheShip.IsIgnoreObstaclesDuringBarrelRoll()
+                && collider.OverlapsAsteroidNow
+                && !IsIgnoreObstacles
+                && !TheShip.IgnoreObstacleTypes.Contains(typeof(Asteroid)))
+            {
+                TheShip.IsHitObstacles = true;
+                foreach (GenericObstacle hitObstacle in collider.OverlappedAsteroidsNow)
+                {
+                    if (!TheShip.ObstaclesHit.Contains(hitObstacle))
+                    {
+                        TheShip.ObstaclesHit.Add(hitObstacle);
+                    }
+                }
 
+            }
             return BarrelRollProblems.Count == 0;
         }
 

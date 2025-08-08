@@ -1,7 +1,7 @@
 ﻿using BoardTools;
 using Movement;
 using Ship;
-using System;
+using ActionsList;
 using System.Collections.Generic;
 using System.Linq;
 using Upgrade;
@@ -38,7 +38,7 @@ namespace Abilities.FirstEdition
             HostShip.OnGetAvailableBarrelRollTemplates -= ChangeBarrelRollTemplates;
         }
 
-        private void ChangeBarrelRollTemplates(List<ManeuverTemplate> availableTemplates)
+        private void ChangeBarrelRollTemplates(List<ManeuverTemplate> availableTemplates, GenericAction action)
         {
             if (availableTemplates.Any(n => n.Name == "Straight 1"))
             {

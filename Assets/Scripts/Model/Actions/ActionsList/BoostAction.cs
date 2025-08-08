@@ -42,11 +42,11 @@ namespace ActionsList
                 var phase = Phases.StartTemporarySubPhaseNew<SubPhases.BoostPlanningSubPhase>(
                     "Boost",
                     delegate {
-                        SelectedBoostTemplate = null;
+                        //SelectedBoostTemplate = null;
                         Phases.CurrentSubPhase.CallBack();
                     }
                 );
-                phase.SelectedBoostHelper = SelectedBoostTemplate;
+                phase.SelectedBoostHelper = null;
                 phase.HostAction = this;
                 phase.Start();
             }
@@ -434,6 +434,11 @@ namespace SubPhases
         private void CheckMines()
         {
             foreach (var mineCollider in obstaclesStayDetectorMovementTemplate.OverlapedMinesNow)
+            {
+                GenericDeviceGameObject mineObject = mineCollider.transform.parent.GetComponent<GenericDeviceGameObject>();
+                if (!TheShip.MinesHit.Contains(mineObject)) TheShip.MinesHit.Add(mineObject);
+            }
+            foreach (var mineCollider in obstaclesStayDetectorBase.OverlapedMinesNow)
             {
                 GenericDeviceGameObject mineObject = mineCollider.transform.parent.GetComponent<GenericDeviceGameObject>();
                 if (!TheShip.MinesHit.Contains(mineObject)) TheShip.MinesHit.Add(mineObject);

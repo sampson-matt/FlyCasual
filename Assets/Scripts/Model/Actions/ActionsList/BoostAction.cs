@@ -438,6 +438,11 @@ namespace SubPhases
                 GenericDeviceGameObject mineObject = mineCollider.transform.parent.GetComponent<GenericDeviceGameObject>();
                 if (!TheShip.MinesHit.Contains(mineObject)) TheShip.MinesHit.Add(mineObject);
             }
+            foreach (var mineCollider in obstaclesStayDetectorBase.OverlapedMinesNow)
+            {
+                GenericDeviceGameObject mineObject = mineCollider.transform.parent.GetComponent<GenericDeviceGameObject>();
+                if (!TheShip.MinesHit.Contains(mineObject)) TheShip.MinesHit.Add(mineObject);
+            }
         }
 
         private List<ActionFailReason> CheckBoostProblems(bool quiet = false)

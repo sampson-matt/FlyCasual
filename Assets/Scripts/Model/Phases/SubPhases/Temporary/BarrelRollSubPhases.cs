@@ -413,9 +413,24 @@ namespace SubPhases
 
         private bool IsColliderDataAllowed(ObstaclesStayDetectorForced collider, bool isBaseFinalPosition = false)
         {
+            List<GenericDeviceGameObject> potentiallyHitMines = new List<GenericDeviceGameObject>();
+            if (collider.OverlapedMinesNow.Count > 0)
+            {
+                foreach (var mineHit in collider.OverlapedMinesNow)
+                {
+                    GenericDeviceGameObject MineObject = mineHit.transform.parent.GetComponent<GenericDeviceGameObject>();
+                    if (!TheShip.MinesHit.Contains(MineObject))
+                    {
+                        potentiallyHitMines.Add(MineObject);
+                    }
+                }
+                TheShip.MinesHit.AddRange(potentiallyHitMines);
+            }
             if (collider.OverlapsShipNow && isBaseFinalPosition)
             {
                 BarrelRollProblems.Add(ActionFailReason.Bumped);
+                TheShip.MinesHit = TheShip.MinesHit.Except(potentiallyHitMines).ToList();
+
             }
             else if (!TheShip.IsIgnoreObstacles 
                 && !TheShip.IsIgnoreObstaclesDuringBarrelRoll() 
@@ -424,12 +439,28 @@ namespace SubPhases
                 && !TheShip.IgnoreObstacleTypes.Contains(typeof(Asteroid)))
             {
                 BarrelRollProblems.Add(ActionFailReason.ObstacleHit);
+                TheShip.MinesHit = TheShip.MinesHit.Except(potentiallyHitMines).ToList();
             }
             else if (collider.OffTheBoardNow)
             {
                 BarrelRollProblems.Add(ActionFailReason.OffTheBoard);
+                TheShip.MinesHit = TheShip.MinesHit.Except(potentiallyHitMines).ToList();
             }
+            if (TheShip.IsIgnoreObstaclesDuringBarrelRoll()
+                && collider.OverlapsAsteroidNow
+                && !IsIgnoreObstacles
+                && !TheShip.IgnoreObstacleTypes.Contains(typeof(Asteroid)))
+            {
+                TheShip.IsHitObstacles = true;
+                foreach (GenericObstacle hitObstacle in collider.OverlappedAsteroidsNow)
+                {
+                    if (!TheShip.ObstaclesHit.Contains(hitObstacle))
+                    {
+                        TheShip.ObstaclesHit.Add(hitObstacle);
+                    }
+                }
 
+            }
             return BarrelRollProblems.Count == 0;
         }
 

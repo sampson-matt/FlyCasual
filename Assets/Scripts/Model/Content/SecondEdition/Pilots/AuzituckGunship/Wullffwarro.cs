@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -16,6 +16,10 @@ namespace Ship
                     54,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.WullffwarroAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Wookie,
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
             }

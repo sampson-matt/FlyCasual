@@ -21,6 +21,7 @@
         SoC,
         Spectre,
         Tie,
+        Wookie,
         XWing,
         YT1300,
         YWing

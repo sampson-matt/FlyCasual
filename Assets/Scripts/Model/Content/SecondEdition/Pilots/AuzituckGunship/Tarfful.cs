@@ -1,11 +1,13 @@
 ﻿using BoardTools;
 using Conditions;
+using Content;
 using Ship;
 using SubPhases;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using Tokens;
 using Upgrade;
-using System;
 
 
 namespace Ship
@@ -22,10 +24,14 @@ namespace Ship
                     59,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.TarffulAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Wookie,
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/Tarfful.jpg";
+                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/Tarfful.png";
             }
         }
     }
@@ -127,6 +133,7 @@ namespace Abilities.SecondEdition
         protected virtual bool CheckRequirements(GenericShip ship)
         {
             var match = Tools.IsFriendly(ship, HostShip)
+                && (!ship.PilotInfo.IsLimited || ship.PilotInfo.Tags.Contains(Content.Tags.Wookie))
                 && ship.PilotInfo.PilotName != "Tarfful";
             return match;
         }
@@ -147,21 +154,134 @@ namespace Conditions
     public class Liberated : GenericToken
     {
         public GenericUpgrade SourceUpgrade;
+        private GenericShip curToDamage;
+        private DamageSourceEventArgs curDamageInfo;
+
         public Liberated(GenericShip host) : base(host)
         {
             Name = ImageName = "Liberated Condition";
             Temporary = false;
-            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/Liberated.jpg";
+            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/Liberated.png";
         }
 
         public override void WhenAssigned()
         {
             Host.OnShipIsDestroyed += RegisterTrigger;
+            GenericShip.OnTryDamagePreventionGlobal += CheckDrawTheirFireAbility;
         }
 
         public override void WhenRemoved()
         {
             Host.OnShipIsDestroyed -= RegisterTrigger;
+            GenericShip.OnTryDamagePreventionGlobal -= CheckDrawTheirFireAbility;
+        }
+
+        private void CheckDrawTheirFireAbility(GenericShip ship, DamageSourceEventArgs e)
+        {
+            curToDamage = ship;
+            curDamageInfo = e;
+
+            if (AbilityCanBeUsed())
+            {
+                Triggers.RegisterTrigger
+                (
+                    new Trigger()
+                    {
+                        Name = "Remove Broken Trust",
+                        TriggerType = TriggerTypes.OnTryDamagePrevention,
+                        TriggerOwner = Host.Owner.PlayerNo,
+                        EventHandler = StartQuestionSubphase
+                    }
+                );
+            }
+        }
+
+        protected virtual bool AbilityCanBeUsed()
+        {
+            // Is the damage type a ship attack?
+            if (curDamageInfo.DamageType != DamageTypes.ShipAttack)
+                return false;
+
+            // Is the defender on our team and not us? If not return.
+            if (!Tools.IsFriendly(curToDamage, Host) || curToDamage.ShipId == Host.ShipId)
+                return false;
+
+            // Is the defender at range 1 and is there a hit/crit result?
+            if (!Board.IsShipAtRange(Host, curToDamage, 1) || curToDamage.AssignedDamageDiceroll.Successes < 1)
+                return false;
+
+            return true;
+        }
+
+        protected class BiggsDarklighterDecisionSubPhase : DecisionSubPhase { }
+
+        protected virtual void StartQuestionSubphase(object sender, System.EventArgs e)
+        {
+            BiggsDarklighterDecisionSubPhase selectBiggsDarklighterSubPhase = (BiggsDarklighterDecisionSubPhase)Phases.StartTemporarySubPhaseNew(
+                Name,
+                typeof(BiggsDarklighterDecisionSubPhase),
+                Triggers.FinishTrigger
+            );
+
+            selectBiggsDarklighterSubPhase.DescriptionShort = Name;
+            selectBiggsDarklighterSubPhase.DescriptionLong = "You may suffer 1 Hit or Crit damage to cancel 1 matching result";
+            selectBiggsDarklighterSubPhase.ImageSource = SourceUpgrade;
+
+            if (curToDamage.AssignedDamageDiceroll.RegularSuccesses > 0)
+            {
+                selectBiggsDarklighterSubPhase.AddDecision("Redirect Hit damage", delegate { PreventDamage(DieSide.Success); });
+                selectBiggsDarklighterSubPhase.AddTooltip("Redirect Hit damage", Tooltip);
+            }
+
+            if (curToDamage.AssignedDamageDiceroll.CriticalSuccesses > 0)
+            {
+                selectBiggsDarklighterSubPhase.AddDecision("Redirect Crit damage", delegate { PreventDamage(DieSide.Crit); });
+                selectBiggsDarklighterSubPhase.AddTooltip("Redirect Crit damage", Tooltip);
+            }
+
+            selectBiggsDarklighterSubPhase.AddDecision("No", delegate { DecisionSubPhase.ConfirmDecision(); });
+            selectBiggsDarklighterSubPhase.DefaultDecisionName = GetDefaultDecision();
+            selectBiggsDarklighterSubPhase.ShowSkipButton = true;
+            selectBiggsDarklighterSubPhase.DecisionOwner = Host.Owner;
+            selectBiggsDarklighterSubPhase.Start();
+        }
+
+        private void PreventDamage(DieSide type)
+        {
+            // Find a crit and remove it from the ship we're protecting's assigned damage.
+            Die dieToRemove = curToDamage.AssignedDamageDiceroll.DiceList.Find(n => n.Side == type);
+            curToDamage.AssignedDamageDiceroll.DiceList.Remove(dieToRemove);
+
+            DamageSourceEventArgs drawtheirfireDamage = new DamageSourceEventArgs()
+            {
+                Source = Name,
+                DamageType = DamageTypes.CardAbility
+            };
+
+            int hits = type == DieSide.Success ? 1 : 0;
+            int crits = type == DieSide.Crit ? 1 : 0;
+            Host.Damage.TryResolveDamage(hits, crits, drawtheirfireDamage, DecisionSubPhase.ConfirmDecision);
+        }
+
+        protected string GetDefaultDecision()
+        {
+            string result = "No";
+
+            if (Host.State.HullCurrent > 1)
+            {
+                if (curToDamage.AssignedDamageDiceroll.RegularSuccesses > 0)
+                {
+                    result = "Redirect Hit damage";
+                }
+
+                if (curToDamage.AssignedDamageDiceroll.CriticalSuccesses > 0)
+                {
+                    result = "Redirect Crit damage";
+                }
+
+            }
+
+            return result;
         }
 
         private void RegisterTrigger(GenericShip ship, bool flag)

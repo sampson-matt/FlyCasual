@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Content;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -16,6 +16,10 @@ namespace Ship
                     49,
                     isLimited: true,
                     abilityType: typeof(Abilities.FirstEdition.LowhhrickAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Wookie,
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 

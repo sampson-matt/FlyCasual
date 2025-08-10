@@ -52,6 +52,7 @@ namespace Abilities.SecondEdition
             if (action is BoostAction || action is BarrelRollAction)
             {
                 selectedAction = action;
+                selectedAction.Color = Actions.ActionColor.White;
                 RegisterAbilityTrigger(TriggerTypes.OnActionIsPerformed, SelectTargetForAbility);
             }
         }

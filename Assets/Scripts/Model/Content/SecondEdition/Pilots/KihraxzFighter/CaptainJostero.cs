@@ -33,6 +33,7 @@ namespace Abilities.SecondEdition
         private GenericShip triggeringShip;
         private GenericShip activeShip;
         private GenericShip previousAttacker = null;
+        private GenericShip previousDefender = null;
 
         public override void ActivateAbility()
         {
@@ -75,6 +76,7 @@ namespace Abilities.SecondEdition
             if (Combat.AttackStep == CombatStep.None || Combat.Attacker != HostShip)
             {
                 previousAttacker = Combat.Attacker;
+                previousDefender = Combat.Defender;
                 string Name = HostShip.PilotInfo.PilotName + "'s ability ShipId:" + triggeringShip.ShipId;
                 RegisterAbilityTrigger(TriggerTypes.OnDamageInstanceResolved, RegisterBonusAttack, customTriggerName: Name);
             }
@@ -131,6 +133,7 @@ namespace Abilities.SecondEdition
             // Restore ship selection
             Selection.ChangeActiveShip(activeShip);
             Combat.Attacker = previousAttacker;
+            Combat.Defender = previousDefender;
 
             Triggers.FinishTrigger();
         }

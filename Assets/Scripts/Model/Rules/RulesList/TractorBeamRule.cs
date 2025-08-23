@@ -1,11 +1,13 @@
-﻿using Ship;
-using Tokens;
+﻿using ActionsList;
 using BoardTools;
-using System;
-using Players;
-using System.Linq;
 using Editions;
-using ActionsList;
+using Players;
+using Ship;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Tokens;
+using Movement;
 
 namespace RulesList
 {
@@ -107,6 +109,8 @@ namespace SubPhases
         public GenericPlayer Assigner;
         private Action selectedPlanningAction;
         private bool canBoost = true;
+        private BarrelRollAction stubAction;
+        protected List<ManeuverTemplate> AvailableRepositionTemplates = new List<ManeuverTemplate>();
 
         public override void Start()
         {
@@ -168,10 +172,8 @@ namespace SubPhases
             }
         }
 
-        private void PerfromBrTemplatePlanning(Direction direction)
+        private void PerfromBrTemplatePlanning(ManeuverTemplate template, Direction direction, Direction directionSecondary = Direction.None)
         {
-            BarrelRollAction stubAction = new BarrelRollAction{ HostShip = TheShip };
-
             BarrelRollPlanningSubPhase brPlanning = (BarrelRollPlanningSubPhase) Phases.StartTemporarySubPhaseNew(
                 "Select position",
                 typeof(BarrelRollPlanningSubPhase),
@@ -188,32 +190,28 @@ namespace SubPhases
             brPlanning.IsTractorBeamBarrelRoll = true;
             brPlanning.IsIgnoreObstacles = Edition.Current.RuleSet.AllowTractoringOnObstacle;
             brPlanning.SelectTemplate(
-                new ManeuverTemplate(
-                    Movement.ManeuverBearing.Straight,
-                    Movement.ManeuverDirection.Forward,
-                    Movement.ManeuverSpeed.Speed1,
-                    isSideTemplate: TheShip.ShipInfo.BaseSize != BaseSize.Small
-                ),
-                direction
+                template,
+                direction,
+                directionSecondary
             );
 
             Phases.UpdateHelpInfo();
             brPlanning.PerfromTemplatePlanning();
         }
 
-        private void PerfromLeftBrTemplatePlanning()
-        {
-            PerfromBrTemplatePlanning(Direction.Left);
-        }
+        //private void PerfromLeftBrTemplatePlanning()
+        //{
+        //    PerfromBrTemplatePlanning(Direction.Left);
+        //}
 
-        private void PerfromRightBrTemplatePlanning()
-        {
-            PerfromBrTemplatePlanning(Direction.Right);
-        }
+        //private void PerfromRightBrTemplatePlanning()
+        //{
+        //    PerfromBrTemplatePlanning(Direction.Right);
+        //}
 
         private void PerfromStraightTemplatePlanning()
         {
-            BoostAction stubAction = new BoostAction() { HostShip = TheShip };
+            BoostAction boostAction = new BoostAction() { HostShip = TheShip };
 
             BoostPlanningSubPhase boostPlanning = (BoostPlanningSubPhase) Phases.StartTemporarySubPhaseNew(
                 "Boost",
@@ -222,7 +220,7 @@ namespace SubPhases
                     FinishTractorBeamMovement();
                 }
             );
-            boostPlanning.HostAction = stubAction;
+            boostPlanning.HostAction = boostAction;
             InitializeBoostPlanning(boostPlanning);
             Phases.UpdateHelpInfo();
             boostPlanning.TryConfirmBoostPosition();
@@ -231,6 +229,15 @@ namespace SubPhases
         private void StartSelectTemplateSubphase()
         {
             selectedPlanningAction = null;
+
+            stubAction = new BarrelRollAction { HostShip = TheShip };
+
+            List<ManeuverTemplate> allowedTemplates = TheShip.GetAvailableBarrelRollTemplates(stubAction);
+
+            foreach (ManeuverTemplate barrelRollTemplate in allowedTemplates)
+            {
+                AvailableRepositionTemplates.Add(barrelRollTemplate);
+            }
 
             TractorBeamDirectionDecisionSubPhase selectTractorDirection = (TractorBeamDirectionDecisionSubPhase)Phases.StartTemporarySubPhaseNew(
                 Name,
@@ -250,15 +257,124 @@ namespace SubPhases
                 );
             }
 
-            selectTractorDirection.AddDecision("Left", delegate {
-                selectedPlanningAction = PerfromLeftBrTemplatePlanning;
-                DecisionSubPhase.ConfirmDecision();
-            });
+            // Straight templates
+            foreach (ManeuverTemplate template in AvailableRepositionTemplates)
+            {
+                if (template.Bearing == ManeuverBearing.Straight)
+                {
+                    selectTractorDirection.AddDecision(
+                        "Left " + template.NameNoDirection,
+                        delegate {
+                            selectedPlanningAction = () => PerfromBrTemplatePlanning(template, Direction.Left);
+                            DecisionSubPhase.ConfirmDecision();
+                        }
+                    );
 
-            selectTractorDirection.AddDecision("Right", delegate {
-                selectedPlanningAction = PerfromRightBrTemplatePlanning;
-                DecisionSubPhase.ConfirmDecision();
-            });
+                    selectTractorDirection.AddDecision(
+                        "Right " + template.NameNoDirection,
+                        (EventHandler)delegate {
+                            selectedPlanningAction = () => PerfromBrTemplatePlanning(template, Direction.Right);
+                            DecisionSubPhase.ConfirmDecision();
+                        }
+                    );
+                }
+            }
+
+            // Bank templates
+            ManeuverTemplate bankLeft = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Bank && n.Direction == ManeuverDirection.Left);
+            ManeuverTemplate bankRight = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Bank && n.Direction == ManeuverDirection.Right);
+
+            if (bankLeft != null && bankRight != null)
+            {
+                selectTractorDirection.AddDecision(
+                    "Left " + bankRight.NameNoDirection + " Forward",
+                    (EventHandler)delegate
+                    {
+                        selectedPlanningAction = () => PerfromBrTemplatePlanning(bankRight, Direction.Left, Direction.Top);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                selectTractorDirection.AddDecision(
+                    "Right " + bankLeft.NameNoDirection + " Forward",
+                    (EventHandler)delegate
+                    {
+                        selectedPlanningAction = () => PerfromBrTemplatePlanning(bankLeft, Direction.Right, Direction.Top);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                selectTractorDirection.AddDecision(
+                    "Left " + bankLeft.NameNoDirection + " Backwards",
+                    (EventHandler)delegate
+                    {
+                        selectedPlanningAction = () => PerfromBrTemplatePlanning(bankLeft, Direction.Left, Direction.Bottom);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                selectTractorDirection.AddDecision(
+                    "Right " + bankRight.NameNoDirection + " Backwards",
+                    (EventHandler)delegate
+                    {
+                        selectedPlanningAction = () => PerfromBrTemplatePlanning(bankRight, Direction.Right, Direction.Bottom);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+            }
+
+            // Bank templates
+            ManeuverTemplate turnLeft = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Turn && n.Direction == ManeuverDirection.Left);
+            ManeuverTemplate turnRight = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Turn && n.Direction == ManeuverDirection.Right);
+
+            if (turnLeft != null && turnRight != null)
+            {
+                selectTractorDirection.AddDecision(
+                    "Left " + turnRight.NameNoDirection + " Forward",
+                    (EventHandler)delegate
+                    {
+                        selectedPlanningAction = () => PerfromBrTemplatePlanning(turnRight, Direction.Left, Direction.Top);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                selectTractorDirection.AddDecision(
+                    "Right " + turnLeft.NameNoDirection + " Forward",
+                    (EventHandler)delegate
+                    {
+                        selectedPlanningAction = () => PerfromBrTemplatePlanning(turnLeft, Direction.Right, Direction.Top);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                selectTractorDirection.AddDecision(
+                    "Left " + turnLeft.NameNoDirection + " Backwards",
+                    (EventHandler)delegate
+                    {
+                        selectedPlanningAction = () => PerfromBrTemplatePlanning(turnLeft, Direction.Left, Direction.Bottom);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+
+                selectTractorDirection.AddDecision(
+                    "Right " + turnRight.NameNoDirection + " Backwards",
+                    (EventHandler)delegate
+                    {
+                        selectedPlanningAction = () => PerfromBrTemplatePlanning(turnRight, Direction.Right, Direction.Bottom);
+                        DecisionSubPhase.ConfirmDecision();
+                    }
+                );
+            }
+
+            //selectTractorDirection.AddDecision("Left", delegate {
+            //    selectedPlanningAction = PerfromLeftBrTemplatePlanning;
+            //    DecisionSubPhase.ConfirmDecision();
+            //});
+
+            //selectTractorDirection.AddDecision("Right", delegate {
+            //    selectedPlanningAction = PerfromRightBrTemplatePlanning;
+            //    DecisionSubPhase.ConfirmDecision();
+            //});
 
             selectTractorDirection.DescriptionShort = "Tractor beam";
             selectTractorDirection.DescriptionLong = "Select direction for " + TheShip.PilotInfo.PilotName;

@@ -153,14 +153,21 @@ namespace Abilities.SecondEdition
 
         private void TransferTokens(bool transfer, GenericToken token, GenericShip ship, GenericShip target, Action callback)
         {
-            DecisionSubPhase.ConfirmDecision();
+            DecisionSubPhase.ConfirmDecisionNoCallback();
 
             if (transfer)
             {
-                ActionsHolder.ReassignToken(token, ship, target, delegate { });
+                ActionsHolder.ReassignToken(token, ship, target, delegate { ContinueTokenOperations(callback); });
                 Messages.ShowInfo("Token: " + token.Name + " transfered from " + ship.PilotInfo.PilotName + " to " + target.PilotInfo.PilotName);
+            } 
+            else
+            {
+                ContinueTokenOperations(callback);
             }
+        }
 
+        private void ContinueTokenOperations(Action callback)
+        {
             TokenIndex++;
             if (TokenIndex < ShipTokens.Count())
             {

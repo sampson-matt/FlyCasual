@@ -406,17 +406,16 @@ namespace SubPhases
                 RotateTractoredShip(Direction.Right, CheckObstacles);
             });
 
-            selectRotateDecision.AddDecision("Skip", delegate {
-                DecisionSubPhase.ConfirmDecisionNoCallback();
-                CheckObstacles();
-            });
-
             selectRotateDecision.DescriptionShort = "Tractor beam";
             selectRotateDecision.DescriptionLong = "You may rotate tractored ship 90 degrees";
 
             selectRotateDecision.DefaultDecisionName = SelectAIRotateDecision(TheShip);
             selectRotateDecision.RequiredPlayer = TheShip.Owner.PlayerNo;
             selectRotateDecision.ShowSkipButton = true;
+            selectRotateDecision.OnSkipButtonIsPressed += delegate {
+                DecisionSubPhase.ConfirmDecisionNoCallback();
+                CheckObstacles();
+            };
 
             selectRotateDecision.Start();
         }

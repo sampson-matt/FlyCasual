@@ -61,9 +61,13 @@ namespace Abilities.SecondEdition
                 }
             }
 
-            if (Combat.ShotInfo.Range > minRange)
+            DistanceInfo targetRange = new(HostShip, target);
+            if (targetRange.Range > minRange)
             {
-                Messages.ShowError($"Automated Target Priority: You must attack target at range {minRange} instead");
+                if (HostShip.Owner.PlayerType != Players.PlayerType.Ai)
+                {
+                    Messages.ShowError($"Automated Target Priority: You must attack target at range {minRange} instead");
+                }
                 isAllowed = false;
             }
         }

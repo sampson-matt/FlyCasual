@@ -142,6 +142,10 @@ namespace AI.Aggressor
 
             foreach (GenericShip enemyShip in GetEnemyShipsAndDistance(CurrentShip, inArcAndRange: true))
             {
+                bool isAllowedByAbility = true;
+                ship.CallTargetForAttackIsAllowed(enemyShip, ref isAllowedByAbility);
+
+                if (!isAllowedByAbility) continue;
                 Selection.AnotherShip = enemyShip;
                 foreach (IShipWeapon weapon in CurrentShip.GetAllWeapons())
                 {

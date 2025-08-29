@@ -1,8 +1,8 @@
-﻿using Upgrade;
-using Ship;
-using System;
+﻿using Ship;
 using SubPhases;
+using System;
 using Tokens;
+using Upgrade;
 
 namespace UpgradesList.SecondEdition
 {
@@ -40,7 +40,6 @@ namespace Abilities.SecondEdition
         {
             HostShip.OnCheckForceRecurring -= DenyForceRecurring;
             HostShip.OnAttackFinishAsDefender -= CheckForceRegenAbility;
-            Phases.Events.OnSetupEnd -= RegisterAskToAssignConditions;
         }
 
         private void DenyForceRecurring(ref bool isForceRecurring)
@@ -73,6 +72,7 @@ namespace Abilities.SecondEdition
 
         private void RegisterAskToAssignConditions()
         {
+            Phases.Events.OnSetupEnd -= RegisterAskToAssignConditions;
             RegisterAbilityTrigger(TriggerTypes.OnSetupEnd, AskOpponentToSelect2Ships);
         }
 
@@ -149,7 +149,7 @@ namespace Conditions
 
         private void CheckBonus(GenericShip ship)
         {
-            if (Combat.Defender.UpgradeBar.HasUpgradeInstalled(typeof(UpgradesList.SecondEdition.TheChild)))
+            if (Combat.Defender.UpgradeBar.HasUpgradeInstalled(typeof(UpgradesList.SecondEdition.TheChild)) && !Combat.Defender.IsDestroyed)
             {
                 CachedAttacker = Combat.Attacker;
                 CachedDefender = Combat.Defender;

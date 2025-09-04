@@ -31,34 +31,57 @@ namespace Abilities.SecondEdition
     {
         public override void ActivateAbility()
         {
-            HostShip.OnCheckPreventDestruction += ActivateAbility;
+            HostShip.OnBeforeCheckPreventDestruction += RegisterAbility;
         }
 
         public override void DeactivateAbility()
         {
-            HostShip.OnCheckPreventDestruction -= ActivateAbility;
+            HostShip.OnBeforeCheckPreventDestruction -= RegisterAbility;
+        }
+
+        private void RegisterAbility(GenericShip ship)
+        {
+            if (HostShip.State.Charges > 0)
+            {
+                RegisterAbilityTrigger(TriggerTypes.OnShipIsDestroyedCheck, CheckAbility);
+            }
+        }
+
+        private void CheckAbility(object sender, EventArgs e)
+        {
+            if (HostShip.State.Charges > 0)
+            {
+                AskToUseAbility(HostShip.PilotInfo.PilotName,
+                    AlwaysUseByDefault,
+                    UseAbility,
+                    descriptionLong: "Do you want to spend 1 charge to discard all your damage cards, suffer 5 damage and place yourself in reserves instead?",
+                    imageHolder: HostShip,
+                    requiredPlayer: HostShip.Owner.PlayerNo
+                );
+            }
+         }
+
+        private void UseAbility(object sender, System.EventArgs e)
+        {
+            SubPhases.DecisionSubPhase.ConfirmDecisionNoCallback();
+            HostShip.OnBeforeCheckPreventDestruction -= RegisterAbility;
+            HostShip.OnCheckPreventDestruction += ActivateAbility;
+            Triggers.FinishTrigger();
         }
 
         private void ActivateAbility(GenericShip ship, ref bool preventDestruction)
         {
-            if (HostShip.State.Charges > 0)
-            {
-                HostShip.SpendCharge();
-
-                Messages.ShowInfo(HostShip.PilotInfo.PilotName + " has prevented his own destruction");
-
-                HostShip.OnCheckPreventDestruction -= ActivateAbility;
-                preventDestruction = true;
-                Roster.MoveToReserve(HostShip);
-
-                Phases.Events.OnPlanningPhaseStart += RegisterSetup;
-            }
+            HostShip.SpendCharge();
+            Messages.ShowInfo(HostShip.PilotInfo.PilotName + " has prevented his own destruction");
+            HostShip.OnCheckPreventDestruction -= ActivateAbility;
+            preventDestruction = true;
+            Roster.MoveToReserve(HostShip);
+            Phases.Events.OnPlanningPhaseStart += RegisterSetup;
         }
 
         private void RegisterSetup()
         {
             Phases.Events.OnPlanningPhaseStart -= RegisterSetup;
-
             RegisterAbilityTrigger(TriggerTypes.OnPlanningSubPhaseStart, RestoreAndSetup);
         }
 

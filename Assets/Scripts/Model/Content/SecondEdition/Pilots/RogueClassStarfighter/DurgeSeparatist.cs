@@ -59,7 +59,6 @@ namespace Abilities.SecondEdition
                 AskToUseAbility(HostShip.PilotInfo.PilotName,
                     AlwaysUseByDefault,
                     UseAbility,
-                    dontUseAbility: delegate { },
                     descriptionLong: "Do you want to spend 1 charge to Charge to reveal all of your facedown damage, discard each Direct Hit! and each of your damage cards with the Pilot trait, then repair all of your faceup damage cards?",
                     imageHolder: HostShip,
                     requiredPlayer: HostShip.Owner.PlayerNo

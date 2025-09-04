@@ -49,7 +49,6 @@ namespace Abilities.SecondEdition
 
                 HostShip.OnCheckPreventDestruction -= ActivateAbility;
                 preventDestruction = true;
-                HostShip.IsDestroyed = false;
                 Roster.MoveToReserve(HostShip);
 
                 Phases.Events.OnPlanningPhaseStart += RegisterSetup;
@@ -71,7 +70,7 @@ namespace Abilities.SecondEdition
         private void RestoreShip(Action callback)
         {
             HostShip.Damage.RemoveAllDamage();
-
+            HostShip.IsDestroyed = false;
             DamageSourceEventArgs damageArgs = new DamageSourceEventArgs()
             {
                 Source = HostShip,

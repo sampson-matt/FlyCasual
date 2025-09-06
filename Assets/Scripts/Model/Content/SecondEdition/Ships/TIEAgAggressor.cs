@@ -14,6 +14,7 @@ namespace Ship
             {
                 ShipInfo.ShipName = "TIE/ag Aggressor";
                 ShipInfo.UpgradeIcons.Upgrades.Add(UpgradeType.Gunner);
+                ShipInfo.UpgradeIcons.Upgrades.Add(UpgradeType.Sensor);
                 ShipInfo.ActionIcons.AddLinkedAction(new LinkedActionInfo(typeof(BarrelRollAction), typeof(EvadeAction)));
                 IconicPilots[Faction.Imperial] = typeof(LieutenantKestal);
 

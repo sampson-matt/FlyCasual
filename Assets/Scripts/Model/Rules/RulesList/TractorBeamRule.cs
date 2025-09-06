@@ -412,7 +412,7 @@ namespace SubPhases
             selectRotateDecision.DefaultDecisionName = SelectAIRotateDecision(TheShip);
             selectRotateDecision.RequiredPlayer = TheShip.Owner.PlayerNo;
             selectRotateDecision.ShowSkipButton = true;
-            selectRotateDecision.OnSkipButtonIsPressed += delegate {
+            selectRotateDecision.OnSkipButtonIsPressedOverwrite += delegate {
                 DecisionSubPhase.ConfirmDecisionNoCallback();
                 CheckObstacles();
             };
@@ -437,7 +437,7 @@ namespace SubPhases
                     return "Right";
             }
 
-            return "Skip";
+            return "";
         }
 
         private void RotateTractoredShip(Direction direction, Action callback)

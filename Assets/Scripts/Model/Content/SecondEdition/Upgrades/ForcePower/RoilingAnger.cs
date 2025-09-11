@@ -37,16 +37,12 @@ namespace Abilities.SecondEdition
 
         private void CheckAbility()
         {
-            if (HostShip.State.Force < HostShip.State.MaxForce &&
-                isInEnemyArc()) 
-            {
-                RegisterAbilityTrigger
-                    (
-                        TriggerTypes.OnCombatPhaseStart,
-                        AskToRecoverCharge,
-                        customTriggerName: $"{HostShip.PilotInfo.PilotName}: {HostUpgrade.UpgradeInfo.Name}"
-                    );
-            }
+            RegisterAbilityTrigger
+            (
+                TriggerTypes.OnCombatPhaseStart,
+                AskToRecoverCharge,
+                customTriggerName: $"{HostShip.PilotInfo.PilotName}: {HostUpgrade.UpgradeInfo.Name}"
+            );
         }
 
         private bool isInEnemyArc()
@@ -63,14 +59,21 @@ namespace Abilities.SecondEdition
 
         private void AskToRecoverCharge(object sender, EventArgs e)
         {
-            AskToUseAbility
-            (
-                HostUpgrade.UpgradeInfo.Name,
-                ShouldAiUseAbility,
-                UseRoilingAngerAbility,
-                descriptionLong: "You may gain 1 strain token to recover 1 force charge",
-                requiredPlayer: HostShip.Owner.PlayerNo
-            );
+            if (HostShip.State.Force < HostShip.State.MaxForce &&
+                isInEnemyArc())
+            {
+                AskToUseAbility
+                (
+                    HostUpgrade.UpgradeInfo.Name,
+                    ShouldAiUseAbility,
+                    UseRoilingAngerAbility,
+                    descriptionLong: "You may gain 1 strain token to recover 1 force charge",
+                    requiredPlayer: HostShip.Owner.PlayerNo
+                );
+            } else
+            {
+                Triggers.FinishTrigger();
+            }
         }
 
         private bool ShouldAiUseAbility()

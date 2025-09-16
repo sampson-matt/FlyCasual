@@ -1,7 +1,9 @@
-﻿using BoardTools;
+﻿using System;
 using Ship;
-using System.Collections.Generic;
+using System.Linq;
 using Upgrade;
+using System.Collections.Generic;
+using SubPhases;
 
 namespace Ship
 {
@@ -18,6 +20,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.EnricPrydeAbility)
                 );
+                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/EnricPryde.png";
             }
         }
     }
@@ -29,15 +32,85 @@ namespace Abilities.SecondEdition
     {
         public override void ActivateAbility()
         {
-            
+            HostShip.OnCombatCheckExtraAttack += RegisterTrigger;
         }
 
         public override void DeactivateAbility()
         {
-            
+            HostShip.OnCombatCheckExtraAttack -= RegisterTrigger;
         }
 
-        
+        private void RegisterTrigger(GenericShip ship)
+        {
+            if (Roster.AllShips.Values.Any(s => FilterAbilityTargets(s)))
+            {
+                RegisterAbilityTrigger(TriggerTypes.OnCombatCheckExtraAttack, AskAbility);
+            }
 
+        }
+
+        private bool FilterAbilityTargets(GenericShip ship)
+        {
+            return BoardTools.Board.GetShipsAtRange(HostShip, new UnityEngine.Vector2(0, 3), Team.Type.Friendly).ToList().Contains(ship);
+        }
+
+        private void AskAbility(object sender, EventArgs e)
+        {
+            SelectTargetForAbility(
+                SetupBonusAttack,
+                FilterAbilityTargets,
+                AiPriority,
+                HostShip.Owner.PlayerNo,
+                HostName,
+                "You may choose a a friendly ship at range 0-3. You and the chosen ship may perform a bonus attack. Then the chosen ship is destroyed",
+                HostShip
+            );
+        }
+
+        private int AiPriority(GenericShip ship)
+        {
+            return 0;
+        }
+
+        private void SetupBonusAttack()
+        {
+            BonusAttack(TargetShip, () => BonusAttack(HostShip, () => DestroyShip(TargetShip)));
+        }
+
+        private void DestroyShip(GenericShip ship)
+        {
+            Messages.ShowErrorToHuman(ship.PilotInfo.PilotName + " is destroyed.");
+            ship.DestroyShipForced(SelectShipSubPhase.FinishSelection);
+        }
+
+        private void BonusAttack(GenericShip ship, Action callback)
+        {
+            if (!ship.IsCannotAttackSecondTime)
+            {
+                Messages.ShowInfo(ship.PilotInfo.PilotName + " can perform a bonus attack.");
+
+                ship.IsCannotAttackSecondTime = true;
+
+                Combat.StartSelectAttackTarget
+                (
+                    ship,
+                    callback,
+                    AnyTarget,
+                    HostShip.PilotInfo.PilotName,
+                    "You may perform a bonus attack",
+                    HostShip
+                );
+            }
+            else
+            {
+                Messages.ShowErrorToHuman(ship.PilotInfo.PilotName + " cannot perform a second attack");
+                callback();
+            }
+        }
+
+        private bool AnyTarget(GenericShip ship, IShipWeapon weapon, bool isSilent)
+        {
+            return true;
+        }
     }
 }

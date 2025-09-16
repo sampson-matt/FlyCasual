@@ -32,19 +32,19 @@ namespace Abilities.SecondEdition
     {
         public override void ActivateAbility()
         {
-            HostShip.OnCombatCheckExtraAttack += RegisterTrigger;
+            HostShip.OnAttackFinishAsAttacker += RegisterTrigger;
         }
 
         public override void DeactivateAbility()
         {
-            HostShip.OnCombatCheckExtraAttack -= RegisterTrigger;
+            HostShip.OnAttackFinishAsAttacker -= RegisterTrigger;
         }
 
         private void RegisterTrigger(GenericShip ship)
         {
             if (Roster.AllShips.Values.Any(s => FilterAbilityTargets(s)))
             {
-                RegisterAbilityTrigger(TriggerTypes.OnCombatCheckExtraAttack, AskAbility);
+                RegisterAbilityTrigger(TriggerTypes.OnAttackFinish, AskAbility);
             }
 
         }
@@ -74,13 +74,15 @@ namespace Abilities.SecondEdition
 
         private void SetupBonusAttack()
         {
-            BonusAttack(TargetShip, () => BonusAttack(HostShip, () => DestroyShip(TargetShip)));
+            TargetShip.OnAttackFinishAsAttacker += DestroyShip;
+            BonusAttack(TargetShip, () => BonusAttack(HostShip, SelectShipSubPhase.FinishSelection));
         }
 
         private void DestroyShip(GenericShip ship)
         {
+            ship.OnAttackFinishAsAttacker -= DestroyShip;
             Messages.ShowErrorToHuman(ship.PilotInfo.PilotName + " is destroyed.");
-            ship.DestroyShipForced(SelectShipSubPhase.FinishSelection);
+            ship.DestroyShipForced(delegate { });
         }
 
         private void BonusAttack(GenericShip ship, Action callback)

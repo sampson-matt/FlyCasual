@@ -473,7 +473,14 @@ public static class Combat
 
     private static void FinishCombatActivation()
     {
-        Attacker.CallCombatDeactivation(CleanupAndCheckExtraAttacks);
+        if(Attacker != null)
+        {
+            Attacker.CallCombatDeactivation(CleanupAndCheckExtraAttacks);
+        }
+        else
+        {
+            CleanupAndCheckExtraAttacks();
+        }
     }
 
     private static void CleanupAndCheckExtraAttacks()

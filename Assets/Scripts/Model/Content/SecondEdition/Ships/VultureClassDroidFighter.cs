@@ -133,11 +133,22 @@ namespace Abilities.SecondEdition
 
             if ((Combat.AttackStep == CombatStep.Attack) || (Combat.AttackStep == CombatStep.Defence))
             {
-                return BoardTools.Board
+                bool standardIndependentCalculationsCheck = BoardTools.Board
                     .GetShipsAtRange(HostShip, new UnityEngine.Vector2(0, 1), Team.Type.Friendly)
                     .Where(ship => ship.Tokens.HasToken<Tokens.CalculateToken>())
                     .Where(ship => !ship.ShipAbilities.Any(n => n is Abilities.SecondEdition.IndependentCalculationsAbility))
                     .Any();
+                GenericShip oomShip = BoardTools.Board
+                    .GetShipsAtRange(HostShip, new UnityEngine.Vector2(0, 1), Team.Type.Friendly)
+                    .Where(ship => ship.PilotAbilities.Any(n => n is Abilities.SecondEdition.OOMUplinkPrototypeAbility))
+                    .FirstOrDefault();
+                bool oomIndependentCalculationsCheck = (oomShip != null && BoardTools.Board
+                    .GetShipsAtRange(oomShip, new UnityEngine.Vector2(0, 1), Team.Type.Friendly)
+                    .Where(ship => ship.Tokens.HasToken<Tokens.CalculateToken>())
+                    .Where(ship => !ship.ShipAbilities.Any(n => n is Abilities.SecondEdition.IndependentCalculationsAbility))
+                    .Any());
+                return standardIndependentCalculationsCheck || oomIndependentCalculationsCheck;
+
             }
             return false;
         }
@@ -210,10 +221,26 @@ namespace Abilities.SecondEdition
 
         private bool FilterTargets(GenericShip ship)
         {
-            return FilterByTargetType(ship, TargetTypes.AnyFriendly)
-                && FilterTargetsByRange(ship, 0, 1)
-                && (ship.Tokens.HasToken<CalculateToken>())
-                && !ship.ShipAbilities.Any(n => n is Abilities.SecondEdition.IndependentCalculationsAbility);
+            List<GenericShip> potentialTargets = BoardTools.Board
+                    .GetShipsAtRange(HostShip, new UnityEngine.Vector2(0, 1), Team.Type.Friendly)
+                    .Where(ship => ship.Tokens.HasToken<Tokens.CalculateToken>())
+                    .Where(ship => !ship.ShipAbilities.Any(n => n is Abilities.SecondEdition.IndependentCalculationsAbility))
+                    .ToList();
+
+            GenericShip oomShip = BoardTools.Board
+                    .GetShipsAtRange(HostShip, new UnityEngine.Vector2(0, 1), Team.Type.Friendly)
+                    .Where(ship => ship.PilotAbilities.Any(n => n is Abilities.SecondEdition.OOMUplinkPrototypeAbility))
+                    .FirstOrDefault();
+
+            if (oomShip != null) 
+            {
+                potentialTargets.AddRange(BoardTools.Board
+                .GetShipsAtRange(oomShip, new UnityEngine.Vector2(0, 1), Team.Type.Friendly)
+                .Where(ship => ship.Tokens.HasToken<Tokens.CalculateToken>())
+                .Where(ship => !ship.ShipAbilities.Any(n => n is Abilities.SecondEdition.IndependentCalculationsAbility)).ToList());
+            }
+
+            return potentialTargets.Contains(ship);
         }
 
         private int GetAiPriority(GenericShip ship)

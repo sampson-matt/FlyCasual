@@ -76,6 +76,7 @@ namespace Ship
         public delegate void EventHandlerTrySelectDie(Die die, ref bool isAllowed);
         public event EventHandlerShip AfterStatsAreChanged;
         public event EventHandlerInt AfterGetMaxHull;
+        public event EventHandlerInt BeforeGetForce;
         public event EventHandlerTagsBool OnUpgradeEquipTagCheck;
 
     }

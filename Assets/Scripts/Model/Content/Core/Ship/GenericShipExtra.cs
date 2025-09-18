@@ -56,6 +56,7 @@ namespace Ship
         public event EventHandlerDamageCard OnFaceupDamageCardIsRepaired;
         public event EventHandlerDamageCard OnFacedownDamageCardIsRepaired;
 
+        public event EventHandlerShipRefInt BeforeForceTokensAreSpent;
         public static event EventHandlerShipRefInt OnForceTokensAreSpent;
         public event EventHandlerObstacleRefBool OnCheckObstacleDenyAttack;
 
@@ -482,6 +483,11 @@ namespace Ship
         {
             OnFaceupDamageCardIsRepaired?.Invoke(damageCard);
             Triggers.ResolveTriggers(TriggerTypes.OnFaceupDamageCardIsRepaired, callback);
+        }
+
+        public void CallBeforeForceTokensAreSpent(int count)
+        {
+            BeforeForceTokensAreSpent?.Invoke(this, ref count);
         }
 
         public void CallForceTokensAreSpent(int count, Action callback)

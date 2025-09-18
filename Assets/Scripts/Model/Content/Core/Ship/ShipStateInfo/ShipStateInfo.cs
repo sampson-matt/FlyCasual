@@ -142,7 +142,14 @@ namespace Ship
 
         public int MaxForce { get; set; }
 
-        public int Force { get { return HostShip.Tokens.CountTokensByType<ForceToken>(); } }
+        public int Force
+        {
+            get
+            {
+                int result = HostShip.Tokens.CountTokensByType<ForceToken>();
+                return HostShip.CallBeforeGetForce(result);
+            }
+        }
 
         public void InitializeForceTokens(int value)
         {
@@ -157,6 +164,7 @@ namespace Ship
 
         public void SpendForce(int count, Action callback)
         {
+            HostShip.CallBeforeForceTokensAreSpent(count);
             UpdateTokens(Force - count, typeof(ForceToken));
             HostShip.CallForceTokensAreSpent(count, callback);
         }

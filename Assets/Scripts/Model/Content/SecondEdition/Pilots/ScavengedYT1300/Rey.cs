@@ -64,7 +64,7 @@ namespace Abilities.SecondEdition
             public override void ActionEffect(System.Action callBack)
             {
                 Combat.CurrentDiceRoll.ChangeOne(DieSide.Blank, DieSide.Success);
-                HostShip.Tokens.SpendToken(typeof(ForceToken), callBack);
+                HostShip.State.SpendForce(1, callBack);
             }
 
             public override bool IsDiceModificationAvailable()

@@ -66,6 +66,12 @@ namespace Ship
             if (AfterGetMaxHull != null) AfterGetMaxHull(ref result);
         }
 
+        public int CallBeforeGetForce(int result)
+        {
+            BeforeGetForce?.Invoke(ref result);
+            return result;
+        }
+
         public GameObject Model { get; protected set; }
         public GameObject InfoPanel { get; protected set;  }
 

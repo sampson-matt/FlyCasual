@@ -65,6 +65,7 @@ public enum TriggerTypes
     OnDecloak,
     OnSlam,
 
+    OnBeforeAttackStart,
     OnAttackStart,
     OnShotStart,
     OnImmediatelyAfterRolling,

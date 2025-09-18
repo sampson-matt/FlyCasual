@@ -55,6 +55,8 @@ namespace Ship
         public event EventHandlerShipWeaponTypeBool OnModifyWeaponAttackRequirement;
         public static event EventHandlerShipWeaponTypeBool OnModifyWeaponAttackRequirementGlobal;
 
+        public static event EventHandler OnBeforeAttackStartAsAttackerGlobal;
+        public static event EventHandler OnBeforeAttackStartAsDefenderGlobal;
         public event EventHandler OnAttackStartAsAttacker;
         public static event EventHandler OnAttackStartAsAttackerGlobal;
         public event EventHandler OnAttackStartAsDefender;
@@ -239,6 +241,18 @@ namespace Ship
         public void CallAfterAttackDiceModification()
         {
             if (AfterAttackDiceModification != null) AfterAttackDiceModification();
+        }
+
+        public void CallBeforeAttackStart()
+        {
+            if (Combat.Attacker.ShipId == this.ShipId)
+            {
+                if (OnBeforeAttackStartAsAttackerGlobal != null) OnBeforeAttackStartAsAttackerGlobal();
+            }
+            else if (Combat.Defender.ShipId == this.ShipId)
+            {
+                if (OnBeforeAttackStartAsDefenderGlobal != null) OnBeforeAttackStartAsDefenderGlobal();
+            }
         }
 
         public void CallAttackStart()

@@ -259,7 +259,7 @@ public static class Combat
         AttackStep = CombatStep.Attack;
         Selection.ActiveShip = Attacker;
 
-        CallAttackStart();
+        CallBeforeAttackStart();
     }
 
     private static void DeclareAttackerAndDefender()
@@ -268,6 +268,14 @@ public static class Combat
 
         Attacker = Selection.ThisShip;
         Defender = Selection.AnotherShip;        
+    }
+
+    public static void CallBeforeAttackStart()
+    {
+        Attacker.CallBeforeAttackStart();
+        Defender.CallBeforeAttackStart();
+
+        Triggers.ResolveTriggers(TriggerTypes.OnBeforeAttackStart, CallAttackStart);
     }
 
     public static void CallAttackStart()

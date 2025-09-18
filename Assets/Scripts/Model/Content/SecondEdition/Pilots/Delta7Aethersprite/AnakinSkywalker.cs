@@ -80,7 +80,7 @@ namespace Abilities.SecondEdition
 
         private void UseAnakinAbility(object sender, System.EventArgs e) 
         {
-            HostShip.Tokens.SpendToken(typeof(ForceToken), () => 
+            HostShip.State.SpendForce(1, () => 
                 HostShip.Tokens.RemoveToken(
                     typeof(StressToken),
                     DecisionSubPhase.ConfirmDecision

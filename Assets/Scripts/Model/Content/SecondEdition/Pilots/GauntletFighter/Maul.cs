@@ -77,7 +77,7 @@ namespace Abilities.SecondEdition
             HostShip.OnCheckActionColor += TreatThisCoordinateActionAsWhite;
             HostShip.OnCheckCoordinateModeModification += SetCustomCoordinateMode;
             HostShip.OnCoordinateTargetIsSelected += CoordinateShipSelected;
-            HostShip.Tokens.SpendToken(typeof(ForceToken), SubPhases.DecisionSubPhase.ConfirmDecision);
+            HostShip.State.SpendForce(1, SubPhases.DecisionSubPhase.ConfirmDecision);
         }
 
         private void CoordinateShipSelected(GenericShip ship)

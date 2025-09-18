@@ -82,7 +82,7 @@ namespace Abilities.SecondEdition
 
         private void RemoveStress(object sender, EventArgs e)
         {
-            HostShip.Tokens.SpendToken(typeof(ForceToken), () => 
+            HostShip.State.SpendForce(1, () => 
                 ShipToRemoveStress.Tokens.RemoveToken(
                     typeof(StressToken),
                     DecisionSubPhase.ConfirmDecision

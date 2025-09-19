@@ -85,6 +85,7 @@ namespace Ship
         public EventHandlerShipTokenBool BeforeRemovingTokenInEndPhase;
         public static EventHandlerShipTokenBool BeforeRemovingTokenInEndPhaseGlobal;
 
+        public static event EventHandlerShip OnBeforeDecloakGlobal;
         public event EventHandler OnDecloak;
         public event EventHandler OnSlam;
 
@@ -709,6 +710,13 @@ namespace Ship
         }
 
         // Decloak
+
+        public void CallBeforeDecloak(Action callback)
+        {
+            if (OnBeforeDecloakGlobal != null) OnBeforeDecloakGlobal(this);
+
+            Triggers.ResolveTriggers(TriggerTypes.OnBeforeDecloak, callback);
+        }
 
         public void CallDecloak(Action callback)
         {

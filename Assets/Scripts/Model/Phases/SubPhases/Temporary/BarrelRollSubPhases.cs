@@ -248,90 +248,96 @@ namespace SubPhases
                 }
             }
 
-            // Bank templates
-            ManeuverTemplate bankLeft = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Bank && n.Direction == ManeuverDirection.Left);
-            ManeuverTemplate bankRight = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Bank && n.Direction == ManeuverDirection.Right);
+            List<ManeuverSpeed> speedsToCheck = new List<ManeuverSpeed> { ManeuverSpeed.Speed1, ManeuverSpeed.Speed2, ManeuverSpeed.Speed3 };
 
-            if (bankLeft != null && bankRight != null)
+            foreach(ManeuverSpeed speed in speedsToCheck)
             {
-                subphase.AddDecision(
-                    "Left " + bankRight.NameNoDirection + " Forward",
-                    (EventHandler)delegate
-                    {
-                        SelectTemplate(bankRight, Direction.Left, Direction.Top);
-                        DecisionSubPhase.ConfirmDecision();
-                    }
-                );
+                // Bank templates
+                ManeuverTemplate bankLeft = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Bank && n.Direction == ManeuverDirection.Left && n.Speed == speed);
+                ManeuverTemplate bankRight = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Bank && n.Direction == ManeuverDirection.Right && n.Speed == speed);
 
-                subphase.AddDecision(
-                    "Right " + bankLeft.NameNoDirection + " Forward",
-                    (EventHandler)delegate
-                    {
-                        SelectTemplate(bankLeft, Direction.Right, Direction.Top);
-                        DecisionSubPhase.ConfirmDecision();
-                    }
-                );
+                if (bankLeft != null && bankRight != null)
+                {
+                    subphase.AddDecision(
+                        "Left " + bankRight.NameNoDirection + " Forward",
+                        (EventHandler)delegate
+                        {
+                            SelectTemplate(bankRight, Direction.Left, Direction.Top);
+                            DecisionSubPhase.ConfirmDecision();
+                        }
+                    );
 
-                subphase.AddDecision(
-                    "Left " + bankLeft.NameNoDirection + " Backwards",
-                    (EventHandler)delegate
-                    {
-                        SelectTemplate(bankLeft, Direction.Left, Direction.Bottom);
-                        DecisionSubPhase.ConfirmDecision();
-                    }
-                );
+                    subphase.AddDecision(
+                        "Right " + bankLeft.NameNoDirection + " Forward",
+                        (EventHandler)delegate
+                        {
+                            SelectTemplate(bankLeft, Direction.Right, Direction.Top);
+                            DecisionSubPhase.ConfirmDecision();
+                        }
+                    );
 
-                subphase.AddDecision(
-                    "Right " + bankRight.NameNoDirection + " Backwards",
-                    (EventHandler)delegate
-                    {
-                        SelectTemplate(bankRight, Direction.Right, Direction.Bottom);
-                        DecisionSubPhase.ConfirmDecision();
-                    }
-                );
-            }
+                    subphase.AddDecision(
+                        "Left " + bankLeft.NameNoDirection + " Backwards",
+                        (EventHandler)delegate
+                        {
+                            SelectTemplate(bankLeft, Direction.Left, Direction.Bottom);
+                            DecisionSubPhase.ConfirmDecision();
+                        }
+                    );
 
-            // Bank templates
-            ManeuverTemplate turnLeft = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Turn && n.Direction == ManeuverDirection.Left);
-            ManeuverTemplate turnRight = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Turn && n.Direction == ManeuverDirection.Right);
+                    subphase.AddDecision(
+                        "Right " + bankRight.NameNoDirection + " Backwards",
+                        (EventHandler)delegate
+                        {
+                            SelectTemplate(bankRight, Direction.Right, Direction.Bottom);
+                            DecisionSubPhase.ConfirmDecision();
+                        }
+                    );
+                }
 
-            if (turnLeft != null && turnRight != null)
-            {
-                subphase.AddDecision(
-                    "Left " + turnRight.NameNoDirection + " Forward",
-                    (EventHandler)delegate
-                    {
-                        SelectTemplate(turnRight, Direction.Left, Direction.Top);
-                        DecisionSubPhase.ConfirmDecision();
-                    }
-                );
+                // turn templates
+                ManeuverTemplate turnLeft = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Turn && n.Direction == ManeuverDirection.Left && n.Speed == speed);
+                ManeuverTemplate turnRight = AvailableRepositionTemplates.FirstOrDefault(n => n.Bearing == ManeuverBearing.Turn && n.Direction == ManeuverDirection.Right && n.Speed == speed);
 
-                subphase.AddDecision(
-                    "Right " + turnLeft.NameNoDirection + " Forward",
-                    (EventHandler)delegate
-                    {
-                        SelectTemplate(turnLeft, Direction.Right, Direction.Top);
-                        DecisionSubPhase.ConfirmDecision();
-                    }
-                );
+                if (turnLeft != null && turnRight != null)
+                {
+                    subphase.AddDecision(
+                        "Left " + turnRight.NameNoDirection + " Forward",
+                        (EventHandler)delegate
+                        {
+                            SelectTemplate(turnRight, Direction.Left, Direction.Top);
+                            DecisionSubPhase.ConfirmDecision();
+                        }
+                    );
 
-                subphase.AddDecision(
-                    "Left " + turnLeft.NameNoDirection + " Backwards",
-                    (EventHandler)delegate
-                    {
-                        SelectTemplate(turnLeft, Direction.Left, Direction.Bottom);
-                        DecisionSubPhase.ConfirmDecision();
-                    }
-                );
+                    subphase.AddDecision(
+                        "Right " + turnLeft.NameNoDirection + " Forward",
+                        (EventHandler)delegate
+                        {
+                            SelectTemplate(turnLeft, Direction.Right, Direction.Top);
+                            DecisionSubPhase.ConfirmDecision();
+                        }
+                    );
 
-                subphase.AddDecision(
-                    "Right " + turnRight.NameNoDirection + " Backwards",
-                    (EventHandler)delegate
-                    {
-                        SelectTemplate(turnRight, Direction.Right, Direction.Bottom);
-                        DecisionSubPhase.ConfirmDecision();
-                    }
-                );
+                    subphase.AddDecision(
+                        "Left " + turnLeft.NameNoDirection + " Backwards",
+                        (EventHandler)delegate
+                        {
+                            SelectTemplate(turnLeft, Direction.Left, Direction.Bottom);
+                            DecisionSubPhase.ConfirmDecision();
+                        }
+                    );
+
+                    subphase.AddDecision(
+                        "Right " + turnRight.NameNoDirection + " Backwards",
+                        (EventHandler)delegate
+                        {
+                            SelectTemplate(turnRight, Direction.Right, Direction.Bottom);
+                            DecisionSubPhase.ConfirmDecision();
+                        }
+                    );
+                }
+
             }
 
 

@@ -70,7 +70,7 @@ namespace SubPhases
             IsTemporary = true;
             UpdateHelpInfo();
 
-            StartBarrelRollPlanning(isDeckloak: true);
+            TheShip.CallBeforeDecloak(() => StartBarrelRollPlanning(isDeckloak: true));
         }
 
         public override void PerfromTemplatePlanning()
@@ -141,19 +141,23 @@ namespace SubPhases
                     );
                 }
             }
+            List<ManeuverSpeed> speedsToCheck = new List<ManeuverSpeed> { ManeuverSpeed.Speed1, ManeuverSpeed.Speed2, ManeuverSpeed.Speed3 };
 
-            foreach (ManeuverTemplate template in AvailableRepositionTemplates)
+            foreach (ManeuverSpeed speed in speedsToCheck)
             {
-                if (template.Bearing == ManeuverBearing.Bank)
+                foreach (ManeuverTemplate template in AvailableRepositionTemplates)
                 {
-                    subphase.AddDecision(
-                        "Boost " + template.NameNoDirection + " " + ((template.Direction == ManeuverDirection.Left) ? "Left" : "Right"),
-                        (EventHandler)delegate
-                        {
-                            SelectTemplate(template, Direction.Top, (template.Direction == ManeuverDirection.Left) ? Direction.Left : Direction.Right);
-                            DecisionSubPhase.ConfirmDecision();
-                        }
-                    );
+                    if (template.Bearing == ManeuverBearing.Bank && template.Speed == speed)
+                    {
+                        subphase.AddDecision(
+                            "Boost " + template.NameNoDirection + " " + ((template.Direction == ManeuverDirection.Left) ? "Left" : "Right"),
+                            (EventHandler)delegate
+                            {
+                                SelectTemplate(template, Direction.Top, (template.Direction == ManeuverDirection.Left) ? Direction.Left : Direction.Right);
+                                DecisionSubPhase.ConfirmDecision();
+                            }
+                        );
+                    }
                 }
             }
 

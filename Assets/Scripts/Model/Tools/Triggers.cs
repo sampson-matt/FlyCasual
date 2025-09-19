@@ -62,6 +62,7 @@ public enum TriggerTypes
     OnTargetLockIsAcquired,
     OnRerollIsConfirmed,
     OnDieResultIsSpent,
+    OnBeforeDecloak,
     OnDecloak,
     OnSlam,
 

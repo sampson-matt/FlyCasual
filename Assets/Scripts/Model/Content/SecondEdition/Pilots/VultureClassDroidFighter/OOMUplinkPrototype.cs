@@ -20,7 +20,7 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                     Tags.Droid
                 }
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/OOMUplinkPrototype.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-wat00muplinkv33.png";
         }
     }
 }

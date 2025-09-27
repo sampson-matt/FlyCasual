@@ -17,6 +17,7 @@ namespace Ship
         {
             public EssaraTill() : base()
             {
+                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "Essara Till",
                     4,

@@ -12,6 +12,7 @@ namespace Ship
         {
             public Strife() : base()
             {
+                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "\"Strife\"",
                     3,

@@ -10,6 +10,7 @@ namespace Ship.SecondEdition.Belbullab22Starfighter
     {
         public KutKontor()
         {
+            IsHidden = true;
             PilotInfo = new PilotCardInfo(
                 "Kut Kontor",
                 5,

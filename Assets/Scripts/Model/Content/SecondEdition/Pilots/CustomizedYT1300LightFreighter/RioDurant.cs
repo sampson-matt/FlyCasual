@@ -19,7 +19,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.RioDurantAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/RioDurant.png";
+                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watriodurantv11.png";
             }
         }
     }

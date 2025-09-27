@@ -21,7 +21,7 @@ namespace Ship.SecondEdition.TIEInterceptor
                 abilityType: typeof(CarnorJaxAbility),
                 extraUpgradeIcon: UpgradeType.Talent
             );
-            ImageUrl= "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/CarnorJax.png";
+            ImageUrl= "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watcarnorjax.png";
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Ship
         {
             public NeraDantels() : base()
             {
+                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "Nera Dantels",
                     3,

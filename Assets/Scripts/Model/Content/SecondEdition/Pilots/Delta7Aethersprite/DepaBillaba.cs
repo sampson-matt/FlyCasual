@@ -31,7 +31,7 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
 
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/DepaBillaba.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watdepabillabav17.png";
         }
     }
 }
@@ -39,7 +39,7 @@ namespace Ship.SecondEdition.Delta7Aethersprite
 namespace Abilities.SecondEdition
 {
     // While a friendly ship with [force] in your [full front arc] defends or performs an attack,
-    // if it has spent all its [force], it may spend your [force] as if it were theirs.
+    // if it has spent more inactive [force] than active [force], it may spend your [force] as if it were theirs.
     public class DepaBillabaAbility : GenericAbility
     {
         private HashSet<GenericShip> FriendlyShips = new HashSet<GenericShip>();
@@ -83,7 +83,7 @@ namespace Abilities.SecondEdition
         {
             if (ship != HostShip &&
                 ship.State.MaxForce > 0 &&
-                ship.State.Force == 0 &&
+                ship.State.MaxForce - ship.State.Force > ship.State.Force &&
                 HostShip.State.Force > 0 &&
                 BoardTools.Board.GetShipsInArcAtRange(HostShip, Arcs.ArcType.FullFront, new Vector2(0, 3), Team.Type.Friendly).Contains(ship))
             {

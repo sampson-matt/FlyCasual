@@ -25,7 +25,7 @@ namespace Ship
                 ModelInfo.SkinName = "Blue";
 
 
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/IMG_0653.jpg";
+                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watantocmerrickv15.png";
             }
         }
     }

@@ -15,6 +15,7 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
     {
         public Dfs420()
         {
+            IsHidden = true;
             PilotInfo = new PilotCardInfo(
                 "DFS-420",
                 4,

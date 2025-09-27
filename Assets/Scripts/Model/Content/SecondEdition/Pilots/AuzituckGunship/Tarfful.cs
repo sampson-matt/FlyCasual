@@ -18,6 +18,7 @@ namespace Ship
         {
             public Tarfful() : base()
             {
+                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "Tarfful",
                     5,

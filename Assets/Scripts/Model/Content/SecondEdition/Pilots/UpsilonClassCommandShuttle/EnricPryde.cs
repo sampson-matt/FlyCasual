@@ -15,7 +15,7 @@ namespace Ship
             {
                 PilotInfo = new PilotCardInfo(
                     "Enric Pryde",
-                    3,
+                    2,
                     62,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.EnricPrydeAbility)

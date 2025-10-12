@@ -41,14 +41,18 @@ public class GenericDamageCard
     public void Assign(GenericShip host, Action callback)
     {
         Host = host;
+        Host.ExposeCrit(() =>PrepareApply(callback));
+    }
 
+    public void PrepareApply(Action callback)
+    {
         if (IsFaceup)
         {
             Triggers.RegisterTrigger(new Trigger()
             {
                 Name = "Apply critical hit card effect",
                 TriggerType = TriggerTypes.OnFaceupCritCardIsDealt,
-                TriggerOwner = host.Owner.PlayerNo,
+                TriggerOwner = Host.Owner.PlayerNo,
                 EventHandler = ApplyEffect
             });
 
@@ -96,7 +100,8 @@ public class GenericDamageCard
 
         Triggers.ResolveTriggers(
             TriggerTypes.OnAbilityDirect,
-            delegate {
+            delegate
+            {
                 IsFaceup = true;
                 Assign(Host, callback);
             }

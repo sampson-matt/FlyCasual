@@ -303,5 +303,14 @@ namespace Upgrade
                 .Where(n => !n.UpgradeInfo.CannotBeRecharged)
                 .ToList();
         }
+
+        public List<GenericUpgrade> GetRechargableUpgrades()
+        {
+            return GetUpgradesOnlyFaceup()
+                .Where(n => n.State.UsesCharges)
+                .Where(n => n.State.Charges < n.State.MaxCharges)
+                .Where(n => !n.UpgradeInfo.CannotBeRecharged)
+                .ToList();
+        }
     }
 }

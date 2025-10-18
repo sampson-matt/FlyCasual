@@ -1,5 +1,6 @@
 ﻿using ActionsList;
 using BoardTools;
+using Content;
 using Ship;
 using System.Collections.Generic;
 using Upgrade;
@@ -18,6 +19,10 @@ namespace Ship
                     59,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ChewbaccaPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Wookie,
+                    },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 

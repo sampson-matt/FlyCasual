@@ -1,6 +1,6 @@
-﻿using Ship;
+﻿using Content;
+using Ship;
 using SubPhases;
-using System.Collections;
 using System.Collections.Generic;
 using Upgrade;
 
@@ -18,6 +18,10 @@ namespace Ship
                     68,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.ChewbaccaRebelPilotAbility),
+                    tags: new List<Tags>
+                    {
+                        Tags.Wookie,
+                    },
                     charges: 1,
                     regensCharges: 1,
                     extraUpgradeIcon: UpgradeType.Talent

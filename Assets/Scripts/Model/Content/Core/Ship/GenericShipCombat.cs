@@ -106,6 +106,7 @@ namespace Ship
         public static event EventHandlerShipCritArgs OnFaceupCritCardReadyToBeDealtGlobal;
         public event EventHandlerShipCritArgs OnFaceupCritCardRevealed;
         public static event EventHandlerShipCritArgs OnFaceupCritCardRevealedGlobal;
+        public static event EventHandlerShipBool OnCritExposedGlobal;
         public event EventHandlerShipCritArgs OnAssignCrit;
 
         public event EventHandlerShipBool OnDamageWasSuccessfullyDealt;
@@ -639,6 +640,12 @@ namespace Ship
             {
                 callback();
             }
+        }
+
+        public void ExposeCrit(Action callback)
+        {
+            OnCritExposedGlobal?.Invoke(this, Combat.CurrentCriticalHitCard.IsFaceup);
+            Triggers.ResolveTriggers(TriggerTypes.OnCritExposed, callback);
         }
 
         public void CallHullValueIsDecreased(Action callBack)

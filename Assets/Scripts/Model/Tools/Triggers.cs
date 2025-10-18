@@ -93,6 +93,7 @@ public enum TriggerTypes
     OnFaceupCritCardRevealed,
     OnFaceupCritCardIsDealt,
     OnSelectDamageCardToExpose,
+    OnCritExposed,
     OnFaceupDamageCardIsRepaired,
     OnFacedownDamageCardIsRepaired,
     OnShipIsDestroyedCheck,

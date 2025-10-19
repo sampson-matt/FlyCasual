@@ -15,7 +15,6 @@ namespace Ship
         {
             public CaptainSaxton() : base()
             {
-                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "Captain Saxton",
                     3,
@@ -26,7 +25,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.CaptainSaxtonAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/CaptainSaxton.png";
+                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watcaptainsaxtonv27.png";
             }
         }
     }

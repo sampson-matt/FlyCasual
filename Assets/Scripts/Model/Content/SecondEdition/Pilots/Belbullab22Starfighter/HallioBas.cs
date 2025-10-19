@@ -6,62 +6,61 @@ using Tokens;
 
 namespace Ship.SecondEdition.Belbullab22Starfighter
 {
-    public class KutKontor : Belbullab22Starfighter
+    public class HallioBas : Belbullab22Starfighter
     {
-        public KutKontor()
+        public HallioBas()
         {
-            IsHidden = true;
             PilotInfo = new PilotCardInfo(
-                "Kut Kontor",
+                "Hallio Bas",
                 5,
                 45,
                 true,
-                charges: 2,
+                charges: 1,
                 regensCharges: 1,
-                abilityType: typeof(Abilities.SecondEdition.KutKontorAbility)
+                abilityType: typeof(Abilities.SecondEdition.HallioBasAbility)
             );
 
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/kutkontormk3.jpg";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-wathalliobasv36.png";
         }
     }
 }
 
 namespace Abilities.SecondEdition
 {
-    public class KutKontorAbility : GenericAbility
+    public class HallioBasAbility : GenericAbility
     {
         Boolean abilitySkipped = false;
         public override void ActivateAbility()
         {
-            HostShip.OnAttackStartAsAttacker += RegisterKutKontorAbility;
-            HostShip.OnAttackStartAsDefender += RegisterKutKontorAbility;
+            HostShip.OnAttackStartAsAttacker += RegisterHallioBasAbility;
+            HostShip.OnAttackStartAsDefender += RegisterHallioBasAbility;
         }
 
         public override void DeactivateAbility()
         {
-            HostShip.OnAttackStartAsAttacker -= RegisterKutKontorAbility;
-            HostShip.OnAttackStartAsDefender += RegisterKutKontorAbility;
+            HostShip.OnAttackStartAsAttacker -= RegisterHallioBasAbility;
+            HostShip.OnAttackStartAsDefender += RegisterHallioBasAbility;
         }
 
-        private void RegisterKutKontorAbility()
+        private void RegisterHallioBasAbility()
         {
             abilitySkipped = false;
-            var noFriendlyShipsInRange0to2 = true;
+            var noFriendlyShipsInRange0to1 = true;
 
             foreach (var friendlyShip in HostShip.Owner.Ships)
             {
                 if (friendlyShip.Value != HostShip && Tools.IsFriendly(friendlyShip.Value, HostShip))
                 {
                     BoardTools.DistanceInfo distanceInfo = new BoardTools.DistanceInfo(HostShip, friendlyShip.Value);
-                    if (distanceInfo.Range < 3)
+                    if (distanceInfo.Range < 2)
                     {
-                        noFriendlyShipsInRange0to2 = false;
+                        noFriendlyShipsInRange0to1 = false;
                         break;
                     }
                 }
             }
 
-            if (noFriendlyShipsInRange0to2 && HostShip.State.Charges > 0 && HostShip.Tokens.GetNonLockRedOrangeTokens().Count > 0)
+            if (noFriendlyShipsInRange0to1 && HostShip.State.Charges > 0 && HostShip.Tokens.GetNonLockRedOrangeTokens().Count > 0)
             {
                 RegisterAbilityTrigger(TriggerTypes.OnAttackStart, ChooseRemoveTokens);
             }
@@ -71,8 +70,8 @@ namespace Abilities.SecondEdition
         {
             if (HostShip.State.Charges > 0 && HostShip.Tokens.GetNonLockRedOrangeTokens().Count > 0 && !abilitySkipped)
             {
-                KutKontorDecisonSubphase subphase = Phases.StartTemporarySubPhaseNew<KutKontorDecisonSubphase>(
-                "Kut Kontor remove non-lock red or orange token decision",
+                HallioBasDecisonSubphase subphase = Phases.StartTemporarySubPhaseNew<HallioBasDecisonSubphase>(
+                "Hallio Bas remove non-lock red or orange token decision",
                 () => ChooseRemoveTokens(sender, e)
                 );
 
@@ -93,7 +92,7 @@ namespace Abilities.SecondEdition
             
         }
 
-        private class KutKontorDecisonSubphase : DecisionSubPhase
+        private class HallioBasDecisonSubphase : DecisionSubPhase
         {
             public GenericShip HostShip { get; set; }
             public override void PrepareDecision(System.Action callBack)

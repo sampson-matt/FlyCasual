@@ -15,6 +15,7 @@ namespace Ship
         {
             public JanusKasmir() : base()
             {
+                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "Janus Kasmir",
                     4,

@@ -12,7 +12,6 @@ namespace Ship
         {
             public Strife() : base()
             {
-                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "\"Strife\"",
                     3,
@@ -22,7 +21,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.StrifeAbility)
                 );
 
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/Strife.png";
+                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watstrifev13.png";
             }
         }
     }

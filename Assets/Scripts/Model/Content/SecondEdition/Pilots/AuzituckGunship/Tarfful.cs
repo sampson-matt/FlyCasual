@@ -18,7 +18,6 @@ namespace Ship
         {
             public Tarfful() : base()
             {
-                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "Tarfful",
                     5,
@@ -32,7 +31,7 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/Tarfful.png";
+                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-wattarffulv23.png";
             }
         }
     }
@@ -127,7 +126,7 @@ namespace Abilities.SecondEdition
                 GenericShip ship = kvp.Value;
                 ship.Tokens.RemoveCondition(typeof(Liberated));
             }
-            TargetShip.Tokens.AssignCondition(new Liberated(TargetShip) { SourceUpgrade = HostUpgrade });
+            TargetShip.Tokens.AssignCondition(new Liberated(TargetShip) { SourceUpgrade = HostUpgrade, curToDamage = HostShip });
             SelectShipSubPhase.FinishSelection();
         }
 
@@ -155,31 +154,30 @@ namespace Conditions
     public class Liberated : GenericToken
     {
         public GenericUpgrade SourceUpgrade;
-        private GenericShip curToDamage;
+        public GenericShip curToDamage;
         private DamageSourceEventArgs curDamageInfo;
 
         public Liberated(GenericShip host) : base(host)
         {
             Name = ImageName = "Liberated Condition";
             Temporary = false;
-            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/Liberated.png";
+            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewCond-watliberatedv24.png";
         }
 
         public override void WhenAssigned()
         {
             Host.OnShipIsDestroyed += RegisterTrigger;
-            GenericShip.OnTryDamagePreventionGlobal += CheckDrawTheirFireAbility;
+            curToDamage.OnTryDamagePrevention += CheckDrawTheirFireAbility;
         }
 
         public override void WhenRemoved()
         {
             Host.OnShipIsDestroyed -= RegisterTrigger;
-            GenericShip.OnTryDamagePreventionGlobal -= CheckDrawTheirFireAbility;
+            curToDamage.OnTryDamagePrevention -= CheckDrawTheirFireAbility;
         }
 
         private void CheckDrawTheirFireAbility(GenericShip ship, DamageSourceEventArgs e)
         {
-            curToDamage = ship;
             curDamageInfo = e;
 
             if (AbilityCanBeUsed())
@@ -188,7 +186,7 @@ namespace Conditions
                 (
                     new Trigger()
                     {
-                        Name = "Remove Broken Trust",
+                        Name = "Remove Loberated",
                         TriggerType = TriggerTypes.OnTryDamagePrevention,
                         TriggerOwner = Host.Owner.PlayerNo,
                         EventHandler = StartQuestionSubphase
@@ -204,14 +202,11 @@ namespace Conditions
                 return false;
 
             // Is the defender on our team and not us? If not return.
-            if (!Tools.IsFriendly(curToDamage, Host) || curToDamage.ShipId == Host.ShipId)
-                return false;
+            //if (!Tools.IsFriendly(curToDamage, Host) || curToDamage.ShipId == Host.ShipId)
+            //    return false;
 
             // Is the defender at range 1 and is there a hit/crit result?
-            if (!Board.IsShipAtRange(Host, curToDamage, 1) || curToDamage.AssignedDamageDiceroll.Successes < 1)
-                return false;
-
-            return true;
+            return Board.IsShipBetweenRange(Host, curToDamage, 0, 2) && curToDamage.AssignedDamageDiceroll.Successes >= 2;
         }
 
         protected class BiggsDarklighterDecisionSubPhase : DecisionSubPhase { }
@@ -353,7 +348,7 @@ namespace Conditions
         {
             Messages.ShowInfo("Liberated: " + targetShip.PilotInfo.PilotName + " (" + targetShip.ShipId + ") is selected");
 
-            targetShip.Tokens.AssignCondition(typeof(Liberated));
+            targetShip.Tokens.AssignCondition(new Liberated(targetShip) { SourceUpgrade = SourceUpgrade, curToDamage = curToDamage });
 
             SubPhases.DecisionSubPhase.ConfirmDecision();
         }

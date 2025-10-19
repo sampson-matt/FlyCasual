@@ -41,11 +41,6 @@ public class GenericDamageCard
     public void Assign(GenericShip host, Action callback)
     {
         Host = host;
-        Host.ExposeCrit(() =>PrepareApply(callback));
-    }
-
-    public void PrepareApply(Action callback)
-    {
         if (IsFaceup)
         {
             Triggers.RegisterTrigger(new Trigger()
@@ -103,7 +98,7 @@ public class GenericDamageCard
             delegate
             {
                 IsFaceup = true;
-                Assign(Host, callback);
+                Host.ExposeCrit(() => Assign(Host, callback));
             }
         );
     }

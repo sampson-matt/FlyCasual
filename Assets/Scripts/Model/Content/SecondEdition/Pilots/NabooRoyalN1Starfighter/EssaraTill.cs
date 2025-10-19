@@ -17,7 +17,6 @@ namespace Ship
         {
             public EssaraTill() : base()
             {
-                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "Essara Till",
                     4,
@@ -28,7 +27,7 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }
                 );
 
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watessaratillv23.png";
+                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watessaratillv25.png";
             }
         }
     }

@@ -26,7 +26,7 @@ namespace Ship
 
                 ShipInfo.ArcInfo.Arcs.Add(new ShipArcInfo(ArcType.SingleTurret));
 
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/neraDantels.jpg";
+                PilotNameCanonical = "neradantels-wat1";
 
                 ModelInfo.SkinName = "Red";
             }

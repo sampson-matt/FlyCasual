@@ -1,9 +1,7 @@
-﻿using System;
-using Ship;
-using System.Linq;
-using Upgrade;
-using System.Collections.Generic;
+﻿using Ship;
 using SubPhases;
+using System;
+using System.Linq;
 
 namespace Ship
 {
@@ -20,7 +18,7 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.EnricPrydeAbility)
                 );
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watenricprydev22.png";
+                PilotNameCanonical = "enricpryde-wat1";
             }
         }
     }

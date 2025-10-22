@@ -17,8 +17,7 @@ namespace Ship.SecondEdition.ResistanceTransportPod
                 abilityType: typeof(DJAbility),
                 extraUpgradeIcon: UpgradeType.Illicit
             );
-
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watdjv12.png";
+            PilotNameCanonical = "dj-wat1";
         }
     }
 }

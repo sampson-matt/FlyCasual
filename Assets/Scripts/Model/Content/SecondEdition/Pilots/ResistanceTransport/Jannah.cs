@@ -1,5 +1,4 @@
 ﻿using Abilities.SecondEdition;
-using System.Collections.Generic;
 using ActionsList;
 using Ship;
 using Upgrade;
@@ -23,7 +22,7 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent
                 );
 
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/Jannah.png";
+                PilotNameCanonical = "jannah-wat1";
             }
         }
     }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using BoardTools;
+﻿using BoardTools;
 using Ship;
 using SubPhases;
+using System.Collections.Generic;
 using Tokens;
 using Upgrade;
 
@@ -24,7 +22,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.TorraDozaAbility),
                     extraUpgradeIcons: new List<UpgradeType> { UpgradeType.Talent, UpgradeType.Astromech }
                 );
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-wattorradozav15.png";
+                PilotNameCanonical = "torradoza-wat1";
             }
         }
     }

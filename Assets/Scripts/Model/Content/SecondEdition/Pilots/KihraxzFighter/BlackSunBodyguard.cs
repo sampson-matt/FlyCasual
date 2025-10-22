@@ -1,10 +1,8 @@
-﻿using BoardTools;
-using Ship;
-using System.Collections;
+﻿using Ship;
 using SubPhases;
-using Upgrade;
-using System.Linq;
 using System;
+using System.Linq;
+using Upgrade;
 
 namespace Ship
 {
@@ -23,7 +21,8 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent,
                     abilityType: typeof(Abilities.SecondEdition.BlackSunBodyguardAbility)
                 );
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watblacksunbodyguardv23.png";
+                PilotNameCanonical = "blacksunbodyguard-wat1";
+
             }
         }
     }

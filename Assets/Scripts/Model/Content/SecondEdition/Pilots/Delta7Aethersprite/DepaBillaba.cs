@@ -1,14 +1,9 @@
+using Content;
 using Ship;
 using System;
-using SubPhases;
 using System.Collections.Generic;
-using System.Linq;
-using Upgrade;
-using Team;
-using Tokens;
-using Content;
-using BoardTools;
 using UnityEngine;
+using Upgrade;
 
 namespace Ship.SecondEdition.Delta7Aethersprite
 {
@@ -30,8 +25,7 @@ namespace Ship.SecondEdition.Delta7Aethersprite
                 },
                 extraUpgradeIcon: UpgradeType.ForcePower
             );
-
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watdepabillabav17.png";
+            PilotNameCanonical = "depabillaba-wat1";
         }
     }
 }

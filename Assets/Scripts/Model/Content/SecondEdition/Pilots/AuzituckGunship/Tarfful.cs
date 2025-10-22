@@ -30,8 +30,7 @@ namespace Ship
                     },
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-wattarffulv23.png";
+                PilotNameCanonical = "tarfful-wat1";
             }
         }
     }

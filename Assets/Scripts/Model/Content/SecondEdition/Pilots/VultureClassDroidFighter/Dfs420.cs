@@ -1,12 +1,12 @@
-﻿using Content;
+﻿using ActionsList;
 using BoardTools;
-using ActionsList;
-using Ship;
-using System.Linq;
+using Content;
 using Movement;
-using System.Collections.Generic;
-using Tokens;
+using Ship;
 using SubPhases;
+using System.Collections.Generic;
+using System.Linq;
+using Tokens;
 using Upgrade;
 
 namespace Ship.SecondEdition.VultureClassDroidFighter
@@ -28,7 +28,7 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                 },
                 extraUpgradeIcon: UpgradeType.Talent
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/Dfs420.png";
+            PilotNameCanonical = "dfs420-wat1";
         }
     }
 }

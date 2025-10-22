@@ -19,8 +19,7 @@ namespace Ship.SecondEdition.Belbullab22Starfighter
                 regensCharges: 1,
                 abilityType: typeof(Abilities.SecondEdition.HallioBasAbility)
             );
-
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-wathalliobasv36.png";
+            PilotNameCanonical = "halliobas-wat1";
         }
     }
 }

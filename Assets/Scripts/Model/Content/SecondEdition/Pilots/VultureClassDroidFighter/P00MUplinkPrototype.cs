@@ -1,15 +1,14 @@
 ﻿using Content;
-using System;
 using System.Collections.Generic;
 
 namespace Ship.SecondEdition.VultureClassDroidFighter
 {
-    public class OOMUplinkPrototype : VultureClassDroidFighter
+    public class P00MUplinkPrototype : VultureClassDroidFighter
     {
-        public OOMUplinkPrototype()
+        public P00MUplinkPrototype()
         {
             PilotInfo = new PilotCardInfo(
-                "OOM Uplink Prototype",
+                "00M Uplink Prototype",
                 2,
                 23,
                 true,
@@ -20,7 +19,7 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
                     Tags.Droid
                 }
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-wat00muplinkv33.png";
+            PilotNameCanonical = "00muplinkprototype-wat1";
         }
     }
 }

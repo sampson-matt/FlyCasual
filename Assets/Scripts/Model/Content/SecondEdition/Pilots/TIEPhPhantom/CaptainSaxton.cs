@@ -25,7 +25,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.CaptainSaxtonAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watcaptainsaxtonv27.png";
+                PilotNameCanonical = "captainsaxton-wat1";
             }
         }
     }

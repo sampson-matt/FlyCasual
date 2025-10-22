@@ -1,13 +1,11 @@
 ﻿using Abilities.SecondEdition;
 using ActionsList;
-using Ship;
-using SubPhases;
-using Content;
-using System.Collections.Generic;
-using Upgrade;
-using Tokens;
-using System;
 using BoardTools;
+using Ship;
+using System;
+using System.Collections.Generic;
+using Tokens;
+using Upgrade;
 
 namespace Ship
 {
@@ -26,8 +24,7 @@ namespace Ship
                     abilityType: typeof(EssaraTillAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Talent }
                 );
-
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watessaratillv25.png";
+                PilotNameCanonical = "essaratill-wat1";
             }
         }
     }

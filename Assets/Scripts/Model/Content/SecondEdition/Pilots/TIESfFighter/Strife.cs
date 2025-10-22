@@ -1,5 +1,4 @@
-﻿using BoardTools;
-using Ship;
+﻿using Ship;
 using SubPhases;
 using System;
 using Upgrade;
@@ -20,8 +19,7 @@ namespace Ship
                     extraUpgradeIcon: UpgradeType.Talent,
                     abilityType: typeof(Abilities.SecondEdition.StrifeAbility)
                 );
-
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watstrifev13.png";
+                PilotNameCanonical = "strife-wat1";
             }
         }
     }

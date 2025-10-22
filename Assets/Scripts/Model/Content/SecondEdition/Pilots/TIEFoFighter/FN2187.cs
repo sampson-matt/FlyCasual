@@ -22,7 +22,7 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.FN2187Ability)
                 );
 
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/FN2187.png";
+                PilotNameCanonical = "fn2187-wat1";
             }
         }
     }

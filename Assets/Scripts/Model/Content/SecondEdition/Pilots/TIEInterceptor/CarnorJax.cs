@@ -1,5 +1,4 @@
 ﻿using Abilities.SecondEdition;
-using BoardTools;
 using Ship;
 using SubPhases;
 using System;
@@ -21,7 +20,7 @@ namespace Ship.SecondEdition.TIEInterceptor
                 abilityType: typeof(CarnorJaxAbility),
                 extraUpgradeIcon: UpgradeType.Talent
             );
-            ImageUrl= "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watcarnorjax.png";
+            PilotNameCanonical = "carnorjax-wat1";
         }
     }
 }

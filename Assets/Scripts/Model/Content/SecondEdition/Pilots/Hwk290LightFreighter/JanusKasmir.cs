@@ -1,10 +1,8 @@
-﻿using BoardTools;
-using Tokens;
+﻿using ActionsList;
 using SubPhases;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using ActionsList;
+using Tokens;
 using Upgrade;
 
 namespace Ship
@@ -25,7 +23,7 @@ namespace Ship
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit },
                     factionOverride: Faction.Scum
                 );
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watjanuskasmirv23.png";
+                PilotNameCanonical = "januskasmir-wat1";
             }
         }
     }

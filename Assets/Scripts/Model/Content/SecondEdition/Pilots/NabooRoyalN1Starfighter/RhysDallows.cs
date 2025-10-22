@@ -1,13 +1,11 @@
 ﻿using Abilities.SecondEdition;
 using ActionsList;
-using Ship;
-using SubPhases;
-using Content;
-using System.Collections.Generic;
-using Upgrade;
-using Tokens;
-using System;
 using BoardTools;
+using Ship;
+using System;
+using System.Collections.Generic;
+using Tokens;
+using Upgrade;
 
 namespace Ship
 {
@@ -27,8 +25,7 @@ namespace Ship
                     abilityType: typeof(RhysDallowsAbility),
                     extraUpgradeIcons: new List<UpgradeType>() { UpgradeType.Talent, UpgradeType.Illicit }
                 );
-
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/X2PO-homebrewPilot-watrhysdallowsv23.png";
+                PilotNameCanonical = "rhysdallows-wat1";
             }
         }
     }

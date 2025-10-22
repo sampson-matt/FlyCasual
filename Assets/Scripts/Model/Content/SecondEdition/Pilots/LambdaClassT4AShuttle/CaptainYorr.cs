@@ -22,8 +22,8 @@ namespace Ship
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.CaptainYorrAbility)
                 );
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/Homebrew/CaptainYorr.png";
-                PilotNameCanonical = "captainyorr-lambda";
+
+                PilotNameCanonical = "captainyorr-wat1";
             }
         }
     }

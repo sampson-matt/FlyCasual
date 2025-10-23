@@ -219,6 +219,7 @@ public static partial class Roster
             string shipIdKey = ship.Owner.Ships.First(n => n.Value == ship).Key;
             ship.Owner.Units.Remove(shipIdKey);
             AllUnits.Remove(shipIdKey);
+            DisableUpgrades(ship);
         }
     }
 
@@ -231,6 +232,7 @@ public static partial class Roster
             ship.SetDockedName(false);
             ship.Owner.Units.Add("ShipId:" + ship.ShipId, ship);
             AllUnits.Add("ShipId:" + ship.ShipId, ship);
+            EnableUpgrades(ship);
         }
     }
 

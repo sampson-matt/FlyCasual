@@ -48,7 +48,12 @@ namespace Abilities.SecondEdition
 
         private void TryRegisterAbility(GenericShip ship)
         {
-            RegisterAbilityTrigger(TriggerTypes.OnCombatActivation, TryStartDoctorAphraAbility);
+            if (HostShip.Tokens.HasGreenTokens
+                && HostShip.State.Charges > 0
+                && HasAnyAnotherShipsNearWithoutStress())
+            {
+                RegisterAbilityTrigger(TriggerTypes.OnCombatActivation, TryStartDoctorAphraAbility);
+            }
         }
 
         private void TryStartDoctorAphraAbility(object sender, EventArgs e)
@@ -95,7 +100,8 @@ namespace Abilities.SecondEdition
         private bool FilterTargets(GenericShip ship)
         {
             return FilterByTargetType(ship, TargetTypes.OtherAny)
-                && FilterTargetsByRange(ship, 0, 1);
+                && FilterTargetsByRange(ship, 0, 1)
+                && !ship.IsStressed;
         }
 
         private int GetAiPriority(GenericShip ship)

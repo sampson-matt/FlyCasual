@@ -15,11 +15,10 @@ namespace Ship.SecondEdition.VultureClassDroidFighter
     {
         public Dfs420()
         {
-            IsHidden = true;
             PilotInfo = new PilotCardInfo(
                 "DFS-420",
                 4,
-                25,
+                24,
                 true,
                 abilityType: typeof(Abilities.SecondEdition.Dfs420Ability),
                 tags: new List<Tags>

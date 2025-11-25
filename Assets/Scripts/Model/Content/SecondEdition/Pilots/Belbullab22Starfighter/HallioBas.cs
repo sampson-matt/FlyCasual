@@ -13,7 +13,7 @@ namespace Ship.SecondEdition.Belbullab22Starfighter
             PilotInfo = new PilotCardInfo(
                 "Hallio Bas",
                 5,
-                45,
+                43,
                 true,
                 charges: 1,
                 regensCharges: 1,

@@ -13,11 +13,10 @@ namespace Ship
         {
             public FN2187() : base()
             {
-                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "FN-2187",
                     1,
-                    30,
+                    28,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.FN2187Ability)
                 );

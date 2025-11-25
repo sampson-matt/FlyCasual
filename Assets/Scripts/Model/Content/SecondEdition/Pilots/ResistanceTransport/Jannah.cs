@@ -11,7 +11,6 @@ namespace Ship
         {
             public Jannah() : base()
             {
-                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "Jannah",
                     5,

@@ -18,7 +18,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Essara Till",
                     4,
-                    37,
+                    38,
                     isLimited: true,
                     abilityText: "When you or a friendly Rhys Dallows at range 0-3 would receive a green token, you may spend 1 [Charge]. If you do, that ship may perform a [Lock] action instead.",
                     abilityType: typeof(EssaraTillAbility),

@@ -12,7 +12,7 @@ namespace Ship.SecondEdition.ResistanceTransportPod
             PilotInfo = new PilotCardInfo(
                 "DJ",
                 2,
-                26,
+                25,
                 isLimited: true,
                 abilityType: typeof(DJAbility),
                 extraUpgradeIcon: UpgradeType.Illicit

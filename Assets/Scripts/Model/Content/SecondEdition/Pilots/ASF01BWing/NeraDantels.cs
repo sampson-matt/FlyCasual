@@ -14,11 +14,10 @@ namespace Ship
         {
             public NeraDantels() : base()
             {
-                IsHidden = true;
                 PilotInfo = new PilotCardInfo(
                     "Nera Dantels",
                     3,
-                    44,
+                    45,
                     isLimited: true,
                     abilityType: typeof(NeraDantelsAbility),
                     extraUpgradeIcon: UpgradeType.Talent

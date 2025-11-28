@@ -12,6 +12,7 @@ namespace UpgradesList.SecondEdition
                 "Stealth Device",
                 UpgradeType.Modification,
                 cost: 3,
+                charges: 1,
                 abilityType: typeof(Abilities.SecondEdition.StealthDeviceAbility)
             );
         }
@@ -33,25 +34,30 @@ namespace UpgradesList.SecondEdition
 
 namespace Abilities.SecondEdition
 {
-    public class StealthDeviceAbility : Abilities.FirstEdition.StealthDeviceAbility
+    public class StealthDeviceAbility : GenericAbility
     {
         public override void ActivateAbility()
         {
-            HostShip.ShipInfo.Agility++;
-            HostShip.ChangeAgilityBy(1);
-
-            HostShip.OnDamageWasSuccessfullyDealt += RegisterStealthDeviceCleanupSe;
+            HostShip.AfterGotNumberOfDefenceDice += CheckDefenseBonus;
+            HostShip.OnDamageWasSuccessfullyDealt += RegisterStealthDeviceCleanup;
         }
 
         public override void DeactivateAbility()
         {
-            HostShip.ShipInfo.Agility--;
-            HostShip.ChangeAgilityBy(-1);
-
-            HostShip.OnDamageWasSuccessfullyDealt -= RegisterStealthDeviceCleanupSe;
+            HostShip.AfterGotNumberOfDefenceDice -= CheckDefenseBonus;
+            HostShip.OnDamageWasSuccessfullyDealt -= RegisterStealthDeviceCleanup;
         }
 
-        private void RegisterStealthDeviceCleanupSe(GenericShip ship, bool isCritical)
+        private void CheckDefenseBonus(ref int count)
+        {
+            if (HostUpgrade.State.Charges > 0)
+            {
+                Messages.ShowInfo($"{HostUpgrade.UpgradeInfo.Name}: {HostShip.PilotInfo.PilotName} rolls 1 additional defense die");
+                count++;
+            }
+        }
+
+        private void RegisterStealthDeviceCleanup(GenericShip ship, bool isCritical)
         {
             Triggers.RegisterTrigger(new Trigger
             {
@@ -60,6 +66,13 @@ namespace Abilities.SecondEdition
                 TriggerOwner = HostShip.Owner.PlayerNo,
                 EventHandler = StealthDeviceCleanup
             });
+        }
+
+        protected void StealthDeviceCleanup(object sender, System.EventArgs e)
+        {
+            Messages.ShowInfo("Stealth Device: This ship has suffered a hit! Lose 1 charge on Stealth Device");
+            HostUpgrade.State.SpendCharge();
+            Triggers.FinishTrigger();
         }
     }
 }

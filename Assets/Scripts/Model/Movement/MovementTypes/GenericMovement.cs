@@ -463,7 +463,7 @@ namespace Movement
                 Speed++;
                 isIncreased = true;
             }
-            else if (Speed < 5 && Bearing == ManeuverBearing.Straight)
+            else if (Speed < 5 && (Bearing == ManeuverBearing.Straight || Bearing == ManeuverBearing.KoiogranTurn))
             {
                 Speed++;
                 isIncreased = true;

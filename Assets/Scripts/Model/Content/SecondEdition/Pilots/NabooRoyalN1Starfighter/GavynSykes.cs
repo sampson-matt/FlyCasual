@@ -14,7 +14,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Gavyn Sykes",
                     3,
-                    31,
+                    30,
                     isLimited: true,
                     abilityText: "When you defend or perform a primary attack, if the maneuver you revealed is greater than the enemy ship’s maneuver, you may reroll your blank results.",
                     abilityType: typeof(GavynSykesAbility),

@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Nera Dantels",
                     3,
-                    45,
+                    44,
                     isLimited: true,
                     abilityType: typeof(NeraDantelsAbility),
                     extraUpgradeIcon: UpgradeType.Talent

@@ -18,7 +18,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Rhys Dallows",
                     6,
-                    46,
+                    45,
                     isLimited: true,
                     abilityText: "When you or a friendly Rhys Dallows at range 0-3 would receive a green token, you may spend 1 [Charge]. If you do, that ship may perform a [Barrel Roll] action instead.",
                     abilityType: typeof(RhysDallowsAbility),

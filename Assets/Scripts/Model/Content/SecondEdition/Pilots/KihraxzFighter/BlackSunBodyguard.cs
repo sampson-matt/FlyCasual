@@ -15,7 +15,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Black Sun Bodyguard",
                     4,
-                    40,
+                    42,
                     limited: 2,
                     charges: 2,
                     extraUpgradeIcon: UpgradeType.Talent,

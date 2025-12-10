@@ -34,7 +34,7 @@ namespace UpgradesList.SecondEdition
             Dictionary<int, int> agilityToCost = new Dictionary<int, int>()
             {
                 {0, 6},
-                {1, 3},
+                {1, 2},
                 {2, 1},
                 {3, 1}
             };

@@ -9,7 +9,7 @@
                 PilotInfo = new PilotCardInfo(
                     "First Order Courier",
                     2,
-                    32
+                    30
                 );
             }
         }

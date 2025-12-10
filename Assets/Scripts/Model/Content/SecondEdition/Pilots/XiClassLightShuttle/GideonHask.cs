@@ -17,7 +17,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Gideon Hask",
                     4,
-                    40,
+                    38,
                     pilotTitle: "Merciless Hard-Liner",
                     isLimited: true,
                     extraUpgradeIcon: Upgrade.UpgradeType.Talent,

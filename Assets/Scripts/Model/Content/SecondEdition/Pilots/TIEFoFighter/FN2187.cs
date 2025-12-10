@@ -16,7 +16,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "FN-2187",
                     1,
-                    28,
+                    30,
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.FN2187Ability)
                 );

@@ -13,7 +13,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Dineé Ellberger",
                     3,
-                    30,
+                    29,
                     isLimited: true,
                     abilityText: "While you defend or perform an attack, if the speed of your revealed maneuver is the same as the enemy ship's, that ship's dice cannot be modified.",
                     abilityType: typeof(DineeEllbergerAbility),

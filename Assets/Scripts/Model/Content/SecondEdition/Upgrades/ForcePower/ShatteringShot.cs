@@ -11,7 +11,7 @@ namespace UpgradesList.SecondEdition
             (
                 "Shattering Shot",
                 UpgradeType.ForcePower,
-                cost: 3,
+                cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.ShatteringShotAbility)                
             );
 

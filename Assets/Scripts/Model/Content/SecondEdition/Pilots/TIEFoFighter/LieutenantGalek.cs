@@ -18,7 +18,7 @@ namespace Ship
                 PilotInfo = new PilotCardInfo(
                     "Lieutenant Galek",
                     5,
-                    32,
+                    31,
                     pilotTitle: "Harsh Instructor",
                     isLimited: true,
                     abilityType: typeof(Abilities.SecondEdition.LieutenantGalekAbility),

@@ -27,7 +27,7 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.SeekerMissilesAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/SeekerMissiles.jpg";
+            NameCanonical = "seekermissiles-rsl";
         }        
     }
 }

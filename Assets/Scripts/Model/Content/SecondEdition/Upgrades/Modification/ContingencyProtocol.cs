@@ -24,7 +24,7 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.ContingencyProtocolAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/ContingencyProtocol.jpg";
+            NameCanonical = "contingencyprotocol-rsl";
         }
         public void UpdateCost(GenericShip ship)
         {

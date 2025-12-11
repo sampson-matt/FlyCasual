@@ -24,7 +24,7 @@ namespace UpgradesList.SecondEdition
                 restrictions: new UpgradeCardRestrictions(new FactionRestriction(Faction.Imperial), new ShipRestriction(typeof(Ship.SecondEdition.TIELnFighter.TIELnFighter))),
                 abilityType: typeof(Abilities.SecondEdition.FormedUpAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/FormedUp.jpg";
+            NameCanonical = "formedup-rsl";
         }
     }
 }

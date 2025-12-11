@@ -23,7 +23,7 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.LeeboCrewAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/leebo-crew.jpg";
+            NameCanonical = "leebo-rsl";
         }
     }
 }

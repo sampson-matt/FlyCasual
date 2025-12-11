@@ -20,7 +20,7 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.FuelInjectionOverrideAbility)
             );
 
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/fuelinjectionoverride.jpg";
+            NameCanonical = "fuelinjectionoverride-rsl";
         }
     }
 }

@@ -20,7 +20,7 @@ namespace UpgradesList.SecondEdition
                 cost: 1,
                 abilityType: typeof(Abilities.SecondEdition.PartingGiftAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/PartingGift.jpg";
+            NameCanonical = "partinggift-rsl";
         }
     }
 }

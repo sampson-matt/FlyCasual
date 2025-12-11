@@ -21,7 +21,7 @@ namespace UpgradesList.SecondEdition
                 restriction: new BaseSizeRestriction(BaseSize.Small),
                 abilityType: typeof(Abilities.SecondEdition.ChaffParticlesAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/ChaffParticles.jpg";
+            NameCanonical = "chaffparticles-rsl";
         }        
     }
 }

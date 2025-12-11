@@ -15,7 +15,7 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.SilentHunterAbility)
             );
 
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/RSLUpgrades/silenthunter.jpg";
+            NameCanonical = "silenthunter-rsl";
         }
     }
 }

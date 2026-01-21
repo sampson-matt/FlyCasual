@@ -34,10 +34,7 @@ namespace Ship
                     factionOverride: Faction.Rebel
                 );
                 ModelInfo.SkinName = "Fenn Rau";
-
-                ImageUrl = "https://raw.githubusercontent.com/CrazyVulcan/x-wing2.0-project-goldenrod/main/src/images/En/pilots/fennrau-fangfighter.png";
-
-                PilotNameCanonical = "fennrau-rebel-fang";
+                PilotNameCanonical = "fennrau-fangfighter";
             }
         }
     }

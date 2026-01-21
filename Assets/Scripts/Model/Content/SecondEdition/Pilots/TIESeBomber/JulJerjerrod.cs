@@ -25,8 +25,6 @@ namespace Ship
                     abilityType: typeof(Abilities.SecondEdition.JulJerjerrodPilotAbility),
                     extraUpgradeIcon: UpgradeType.Talent
                 );
-
-                ImageUrl = "https://infinitearenas.com/xw2/images/pilots/juljerjerrod.png";
             }
         }
     }

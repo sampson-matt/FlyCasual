@@ -33,8 +33,7 @@ namespace Ship
                 ShipInfo.ActionIcons.AddActions(new ActionInfo(typeof(BoostAction), ActionColor.Red));
                 ShipInfo.Hull++;
                 ShipInfo.UpgradeIcons.Upgrades.Remove(UpgradeType.Modification);
-                PilotNameCanonical = "lieutenant-hebsly-battleoverendor-lsl";
-                ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/BattleOverEndor/lieutenanthebsly.png";                
+                PilotNameCanonical = "lieutenanthebsly-battleoverendor-lsl";            
             }
         }
     }

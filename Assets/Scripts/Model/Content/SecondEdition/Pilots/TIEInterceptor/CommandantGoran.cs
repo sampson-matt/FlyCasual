@@ -22,8 +22,6 @@ namespace Ship.SecondEdition.TIEInterceptor
             );
 
             ModelInfo.SkinName = "Skystrike Academy";
-
-            ImageUrl = "https://raw.githubusercontent.com/eirikmun/x-wing2.0-project-goldenrod/2.0/src/images/En/pilots/commandantgoran.png";
         }
     }
 }

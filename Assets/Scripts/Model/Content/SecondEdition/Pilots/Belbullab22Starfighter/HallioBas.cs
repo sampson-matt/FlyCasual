@@ -3,6 +3,7 @@ using SubPhases;
 using System;
 using System.Linq;
 using Tokens;
+using Upgrade;
 
 namespace Ship.SecondEdition.Belbullab22Starfighter
 {
@@ -17,6 +18,7 @@ namespace Ship.SecondEdition.Belbullab22Starfighter
                 true,
                 charges: 1,
                 regensCharges: 1,
+                extraUpgradeIcon: UpgradeType.Talent,
                 abilityType: typeof(Abilities.SecondEdition.HallioBasAbility)
             );
             PilotNameCanonical = "halliobas-wat1";

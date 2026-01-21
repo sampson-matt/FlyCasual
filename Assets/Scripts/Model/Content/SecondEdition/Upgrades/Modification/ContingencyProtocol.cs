@@ -20,7 +20,8 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 restrictions: new UpgradeCardRestrictions
                 (
-                    new FactionRestriction(Faction.Separatists)
+                    new FactionRestriction(Faction.Separatists),
+                    new UpgradeBarRestriction(UpgradeType.TacticalRelay)
                 ),
                 abilityType: typeof(Abilities.SecondEdition.ContingencyProtocolAbility)
             );

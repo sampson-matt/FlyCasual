@@ -16,8 +16,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.Delta7Aethersprite.Delta7Aethersprite)),
                 abilityType: typeof(Abilities.SecondEdition.Delta7BAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/d6/97/d697602c-8614-4192-a44d-986fa2d2fd7a/swz_delta-7b.png";
         }
 
         public void UpdateCost(GenericShip ship)

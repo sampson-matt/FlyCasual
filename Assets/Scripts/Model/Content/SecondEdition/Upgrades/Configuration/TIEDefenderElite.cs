@@ -25,8 +25,6 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.TIEDefenderEliteAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/44/f5/44f50470-c0b2-41e8-9ee8-c24edab9d8e7/swz84_upgrade_tiedefenderelite.png";
         }
     }
 }

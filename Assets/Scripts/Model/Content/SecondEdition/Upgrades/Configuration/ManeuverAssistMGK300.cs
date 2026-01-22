@@ -24,8 +24,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.TIERbHeavy.TIERbHeavy)),
                 abilityType: typeof(Abilities.SecondEdition.ManeuverAssistMGK300Ability)
             );
-
-            ImageUrl = "https://i.imgur.com/tYqSuOn.png";
         }
     }
 }

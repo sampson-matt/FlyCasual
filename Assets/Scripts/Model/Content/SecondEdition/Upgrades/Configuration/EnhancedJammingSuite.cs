@@ -27,8 +27,6 @@ namespace UpgradesList.SecondEdition
                     new LinkedActionInfo(typeof(BoostAction),       typeof(JamAction), ActionColor.White)
                 }
             );
-            
-            ImageUrl = "https://i.imgur.com/PZiB0nf.png";
         }
     }
 }

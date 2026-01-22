@@ -20,7 +20,7 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.RepulsorliftStabilizersInactiveAbility)
             );
 
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/28/39/2839eb69-5a45-47e1-a69d-4bb0b4f8ab5d/swz71_upgrade_stabilizer-inactive.png";
+            NameCanonical = "repulsorliftstabilizers";
 
             SelectSideOnSetup = false;
             AnotherSide = typeof(RepulsorliftStabilizersActive);
@@ -43,7 +43,7 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.RepulsorliftStabilizersActiveAbility)
             );
 
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/b9/24/b92420be-2835-4e12-b76e-b2675533249c/swz71_upgrade_stabilizer-active.png";
+            NameCanonical = "repulsorliftstabilizers-sideb";
 
             IsSecondSide = true;
             AnotherSide = typeof(RepulsorliftStabilizersInactive);

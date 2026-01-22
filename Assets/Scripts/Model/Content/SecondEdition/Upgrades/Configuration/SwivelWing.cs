@@ -19,7 +19,7 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.SwivelWingDownAbility)
             );
 
-            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/swivelwing.png";
+            NameCanonical = "swivelwing";
 
             AnotherSide = typeof(SwivelWingUp);
         }
@@ -30,7 +30,7 @@ namespace UpgradesList.SecondEdition
         public SwivelWingUp() : base()
         {
             IsHidden = true;
-            NameCanonical = "SwivelWing-sideb";
+            NameCanonical = "swivelwing-sideb";
 
             UpgradeInfo = new UpgradeCardInfo(
                 "Swivel Wing (Up)",
@@ -39,8 +39,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.GauntletFighter.GauntletFighter)),
                 abilityType: typeof(Abilities.SecondEdition.SwivelWingUpAbility)
             );
-
-            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/swivelwing-sideb.png";
 
             IsSecondSide = true;
 

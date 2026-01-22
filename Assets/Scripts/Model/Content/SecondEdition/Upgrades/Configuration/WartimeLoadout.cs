@@ -32,8 +32,6 @@ namespace UpgradesList.SecondEdition
                 },
                 abilityType: typeof(Abilities.SecondEdition.WartimeLoadoutAbility)
             );
-            
-            ImageUrl = "https://i.imgur.com/Qe0Owij.png";
         }
     }
 }

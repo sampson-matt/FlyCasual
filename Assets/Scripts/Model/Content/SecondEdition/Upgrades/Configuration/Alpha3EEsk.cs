@@ -20,8 +20,6 @@ namespace UpgradesList.SecondEdition
                 charges: 2,
                 regensCharges: true
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/08/3a/083ae697-4a97-4e74-bcb0-77cb590e51e3/swz80_upgrade_alpha-3e.png";
         }
     }
 }

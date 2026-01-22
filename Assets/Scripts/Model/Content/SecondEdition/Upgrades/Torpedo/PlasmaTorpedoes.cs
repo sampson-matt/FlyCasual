@@ -23,8 +23,6 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.PlasmaTorpedoesAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/6f/83/6f83abcd-9460-4208-a439-f6a81597f5f0/swz40_card-plasma-torpedoes.png";
         }
 
         public void UpdateCost(GenericShip ship)

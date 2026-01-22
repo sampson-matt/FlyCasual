@@ -17,7 +17,7 @@ namespace Ship
                     5,
                     74,
                     isLimited: true,
-                    abilityType: typeof(Abilities.SecondEdition.DashRendar2023Ability),
+                    abilityType: typeof(Abilities.SecondEdition.DashRendar2023SLAbility),
                     extraUpgradeIcon: UpgradeType.Talent,
                     factionOverride: Faction.Scum
                 );

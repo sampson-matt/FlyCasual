@@ -27,8 +27,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Scum,
                 new Vector2(239, 1)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/5b/54/5b5418d8-1e33-403d-abfc-815cf4ffac94/swz82_a1_upgrade_jango-fett.png";
         }        
     }
 }

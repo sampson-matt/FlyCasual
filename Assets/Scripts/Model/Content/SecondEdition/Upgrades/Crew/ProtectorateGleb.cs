@@ -20,8 +20,6 @@ namespace UpgradesList.SecondEdition
                 addAction: new Actions.ActionInfo(typeof(CoordinateAction), Actions.ActionColor.Red),
                 abilityType: typeof(Abilities.SecondEdition.ProtectorateGlebAbility)
             );
-
-            ImageUrl = "https://i.imgur.com/tWQx5NL.png";
         }        
     }
 }

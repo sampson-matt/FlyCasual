@@ -27,8 +27,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Republic,
                 new Vector2(227, 9)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/fa/fe/fafeeec4-919f-4968-b26f-93f3cdda03b3/swz70_a1_fives_upgrade.png";
         }        
     }
 }

@@ -30,8 +30,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Republic,
                 new Vector2(218, 0)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/8b/b8/8bb8be49-b567-4a31-a17e-b8ca2b86b039/swz48_cards-c-3p0.png";
         }        
     }
 }

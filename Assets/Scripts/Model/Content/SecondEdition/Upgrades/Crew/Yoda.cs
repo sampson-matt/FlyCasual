@@ -28,8 +28,6 @@ namespace UpgradesList.SecondEdition
                 new Vector2(241, 0),
                 new Vector2(125, 125)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/27/8a/278a7c83-c1e0-4ea4-b36b-2114e95fde99/swz70_a1_yoda_upgrade.png";
         }        
     }
 }

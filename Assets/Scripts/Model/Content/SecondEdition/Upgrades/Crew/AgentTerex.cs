@@ -30,8 +30,6 @@ namespace UpgradesList.SecondEdition
                 Faction.FirstOrder,
                 new Vector2(229, 1)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/27/56/27568de2-a0be-4de5-8107-8c8c584fdd18/swz69_terex_card.png";
         }
     }
 
@@ -57,8 +55,6 @@ namespace UpgradesList.SecondEdition
                 Faction.FirstOrder,
                 new Vector2(215, 0)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/ae/fc/aefc02a4-e435-4842-964d-ec54d70913f6/swz69_cyborg-terex_card.png";
         }
     }
 }

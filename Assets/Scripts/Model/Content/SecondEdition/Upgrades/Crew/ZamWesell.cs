@@ -26,8 +26,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Scum,
                 new Vector2(239, 1)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/77/bd/77bd5f12-05de-4c34-9e5a-e8dfa636de52/swz82_a1_upgrade_zam-wessel.png";
         }        
     }
 }

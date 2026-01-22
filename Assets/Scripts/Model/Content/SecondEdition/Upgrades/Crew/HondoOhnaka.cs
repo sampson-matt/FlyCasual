@@ -27,8 +27,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Scum,
                 new Vector2(237, 1)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/f2/30/f230e89a-4885-4721-b2a0-7c0e1ef1726f/swz-hondo-ohnaka.png";
         }        
     }
 }

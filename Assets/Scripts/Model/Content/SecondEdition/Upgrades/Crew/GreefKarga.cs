@@ -24,8 +24,6 @@ namespace UpgradesList.SecondEdition
                 addAction: new ActionInfo(typeof(CoordinateAction), ActionColor.Red),
                 abilityType: typeof(Abilities.SecondEdition.GreefKargaCrewAbility)
             );
-
-            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/greefkarga.png";
         }        
     }
 }

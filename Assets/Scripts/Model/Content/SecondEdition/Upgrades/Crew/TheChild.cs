@@ -19,8 +19,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Imperial, Faction.Rebel, Faction.Scum),
                 addForce: 2
             );
-
-            ImageUrl = "https://i.imgur.com/8pqkhJr.png";
         }
     }
 }

@@ -22,8 +22,6 @@ namespace UpgradesList.SecondEdition
                 charges: 2,
                 regensCharges: true
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/8c/7a/8c7a9702-c9c5-4bcd-8da6-34ef8830d6cd/swz85_upgrade_gamutkey.png";
         }
     }
 }

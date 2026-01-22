@@ -18,7 +18,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Resistance),
                 abilityType: typeof(Abilities.SecondEdition.BB8Ability)
             );
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/13/fe/13fe41a3-58df-41a7-ba97-38aed4a6c1fe/swz25_bb-8_a1.png";
         }
 
 

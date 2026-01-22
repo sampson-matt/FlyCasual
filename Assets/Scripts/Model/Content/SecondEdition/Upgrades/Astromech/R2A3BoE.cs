@@ -19,9 +19,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.R2A3BoEAbility),
                 charges: 1
             );
-
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/BattleOverEndor/R2A3BoE.jpg";
-
             NameCanonical = "r2a3-battleoverendor";
         }
     }

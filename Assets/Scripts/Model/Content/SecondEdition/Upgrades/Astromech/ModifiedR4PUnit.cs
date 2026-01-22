@@ -18,7 +18,6 @@ namespace UpgradesList.SecondEdition
                 charges: 1,
                 abilityType: typeof(Abilities.SecondEdition.ModifiedR4PUnitAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/BattleOverEndor/ModifiedR4PUnit.jpg";
         }
     }
 }

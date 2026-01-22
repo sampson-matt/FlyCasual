@@ -21,7 +21,6 @@ namespace UpgradesList.SecondEdition
                 charges: 1,
                 abilityType: typeof(Abilities.SecondEdition.StabilizingAstromechAbility)
             );
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/BattleOverEndor/StabilizingAstromech.jpg";
         }
     }
 }

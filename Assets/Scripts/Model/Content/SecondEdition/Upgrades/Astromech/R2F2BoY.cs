@@ -21,9 +21,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.R2AstromechBoYAbility),
                 charges: 2
             );
-
-            ImageUrl = "https://i.imgur.com/g9vlF6c.jpg";
-
             NameCanonical = "r2f2-battleofyavin";
         }
     }

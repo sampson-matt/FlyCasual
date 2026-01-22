@@ -18,10 +18,7 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Resistance),
                 charges: 4
             );
-
             NameCanonical = "r2d2-resistance";
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/1c/97/1c971472-6fea-493b-ac8f-888fc6363c84/swz68_r2d2.png";
         }
     }
 }

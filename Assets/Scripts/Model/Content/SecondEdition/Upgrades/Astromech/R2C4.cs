@@ -18,8 +18,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Republic),
                 abilityType: typeof(Abilities.SecondEdition.R2C4Ability)
             );
-
-            ImageUrl = "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/8/89/Astromech_R2-C4.png";
         }
     }
 }

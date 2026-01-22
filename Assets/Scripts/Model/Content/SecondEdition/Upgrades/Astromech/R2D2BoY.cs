@@ -19,9 +19,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.R2AstromechAbility),
                 charges: 2
             );
-
-            ImageUrl = "https://i.imgur.com/pgrul0D.jpg";
-
             NameCanonical = "r2d2-battleofyavin";
         }
     }

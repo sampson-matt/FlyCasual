@@ -19,8 +19,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Resistance),
                 abilityType: typeof(Abilities.SecondEdition.R6D8Ability)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/e5/c2/e5c25a09-ca2a-4742-92d5-d39d0d33d99b/swz68_r6d8.png";
         }
     }
 }

@@ -21,8 +21,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Republic),
                 abilityType: typeof(Abilities.SecondEdition.R2A6Ability)
             );
-
-            ImageUrl = "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/c/c4/Swz40_card-r2-a6.png";
         }
     }
 }

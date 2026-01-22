@@ -18,8 +18,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.R5AstromechAbility),
                 charges: 2
             );
-
-            ImageUrl = "https://i.imgur.com/eVhZ9EC.jpg";
         }
     }
 }

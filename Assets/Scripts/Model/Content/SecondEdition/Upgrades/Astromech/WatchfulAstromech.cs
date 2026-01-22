@@ -17,8 +17,6 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.WatchfulAstromechAbility)
             );
-
-            ImageUrl = "https://i.imgur.com/2txzWm1.png";
         }
     }
 }

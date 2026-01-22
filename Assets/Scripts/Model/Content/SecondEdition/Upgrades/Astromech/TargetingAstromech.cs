@@ -19,8 +19,6 @@ namespace UpgradesList.SecondEdition
                 cost: 0,
                 abilityType: typeof(Abilities.SecondEdition.TargetingAstromechAbility)
             );
-
-            ImageUrl = "https://i.imgur.com/caQnNAX.jpg";
         }
     }
 }

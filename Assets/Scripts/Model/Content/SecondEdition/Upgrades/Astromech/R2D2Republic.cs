@@ -22,9 +22,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Republic),
                 charges: 2
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/c3/6f/c36f6f13-6998-4120-acbf-3c85132ea416/swz79_r2d2.png";
-
             NameCanonical = "r2d2-republic";
         }
 

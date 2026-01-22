@@ -19,7 +19,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Resistance),
                 abilityType: typeof(Abilities.SecondEdition.BBAstromechAbility)
             );
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/f8/fd/f8fd534a-43df-4285-a41c-1f8a789d06a5/swz25_bb-astromech_a1.png";
         }
 
         public void UpdateCost(GenericShip ship)

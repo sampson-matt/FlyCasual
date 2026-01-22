@@ -21,8 +21,6 @@ namespace UpgradesList.SecondEdition
 
             SelectSideOnSetup = false;
             AnotherSide = typeof(C110PErratic);
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/10/a8/10a8d369-5f71-4f3c-80c1-0b3dbed5d2ff/swz48_cards-c1-10p.png";
         }
     }
 
@@ -39,10 +37,8 @@ namespace UpgradesList.SecondEdition
                 isLimited: true,
                 abilityType: typeof(Abilities.SecondEdition.C110PErraticAbility)
             );
-
+            NameCanonical = "c110p-sideb";
             AnotherSide = typeof(C110P);
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/16/fb/16fb5483-81db-4172-857b-08cdcb254a3a/swz48_cards-c1-10p_erratic.png";
         }
     }
 }

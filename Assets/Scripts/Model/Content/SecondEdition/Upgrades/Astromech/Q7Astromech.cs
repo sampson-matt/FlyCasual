@@ -16,8 +16,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.Q7AstromechAbility),
                 restriction: new FactionRestriction(Faction.Republic)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/75/b9/75b924e8-88e2-4e11-808c-f47f1e2115c2/swz80_upgrade_q7-astromech.png";
         }
         public void UpdateCost(GenericShip ship)
         {

@@ -28,8 +28,6 @@ namespace UpgradesList.SecondEdition
                 ),
                 addActionLink: new LinkedActionInfo(typeof(RotateArcAction), typeof(CalculateAction), linkedColor: ActionColor.White)
             );
-
-            ImageUrl = "https://i.imgur.com/3HnRV9Z.png";
         }
     }
 }

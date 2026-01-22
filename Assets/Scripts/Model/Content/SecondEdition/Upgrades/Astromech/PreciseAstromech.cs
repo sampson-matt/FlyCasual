@@ -19,8 +19,6 @@ namespace UpgradesList.SecondEdition
                 charges: 2,
                 abilityType: typeof(Abilities.SecondEdition.PreciseAstromechAbility)
             );
-
-            ImageUrl = "https://i.imgur.com/MtJ6aYt.jpg";
         }
     }
 }

@@ -23,7 +23,7 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.MagPulseDamageAbility)
             );
 
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/8f/95/8f95b9f7-5990-4060-acea-0fc73d026d2a/swz62_mag-pulse-warheads.png";
+            NameCanonical = "magpulsewarheads";
         }
 
         public void UpdateCost(GenericShip ship)

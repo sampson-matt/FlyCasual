@@ -32,7 +32,7 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.XX23SThreadTracersAbility)
             );
 
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/96/d7/96d7fd7e-cca2-403d-a291-5fcb973404c6/swz81_upgrade_s-tread-tracers.png";
+            NameCanonical = "xx23sthreadtracers";
         }
     }
 }

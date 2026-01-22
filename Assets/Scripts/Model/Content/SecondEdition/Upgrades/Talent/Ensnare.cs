@@ -17,8 +17,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.EnsnareAbility),
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.NantexClassStarfighter.NantexClassStarfighter))
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/a0/4e/a04e0bc0-8028-46f1-acfa-33c8dc815da2/swz_w5_card-ensnare.png";
         }
 
         public void UpdateCost(GenericShip ship)

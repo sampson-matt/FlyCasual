@@ -16,8 +16,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.GraviticDeflectionAbility),
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.NantexClassStarfighter.NantexClassStarfighter))
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/b0/6f/b06f34a5-7c10-4f97-a915-3b935b16d6ff/swz47_upgrade-gravitic-deflection.png";
         }
     }
 }

@@ -21,8 +21,6 @@ namespace UpgradesList.SecondEdition
                     new ActionBarRestriction(typeof(ReloadAction))
                 )
             );
-
-            ImageUrl = "https://i.imgur.com/48SK1DJ.png";
         }
     }
 }

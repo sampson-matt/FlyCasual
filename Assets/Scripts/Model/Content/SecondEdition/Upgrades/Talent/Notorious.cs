@@ -22,8 +22,6 @@ namespace UpgradesList.SecondEdition
                 charges: 2,
                 regensCharges: true
             );
-
-            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/notorious.png";
         }        
     }
 }

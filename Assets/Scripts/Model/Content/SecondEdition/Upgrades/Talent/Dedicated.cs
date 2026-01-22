@@ -17,8 +17,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.DedicatedAbility),
                 restrictions: new UpgradeCardRestrictions(new FactionRestriction(Faction.Republic), new NonLimitedRestriction())
             );
-
-            ImageUrl = "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/d/dd/Swz32_dedicated.png";
         }        
     }
 }

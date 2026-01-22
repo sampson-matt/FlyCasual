@@ -19,8 +19,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.MargSablClosureAbility),
                 restriction: new BaseSizeRestriction(BaseSize.Small, BaseSize.Medium)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/64/ff/64ff6a96-57a4-44ef-938f-68cda3df71b6/swz81_upgrade_marg-sabl-clousre.png";
         }
     }
 }

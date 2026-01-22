@@ -16,8 +16,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.FanaticalAbility),
                 restriction: new FactionRestriction(Faction.FirstOrder)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/6d/44/6d440bea-11dd-4e4c-b7ef-167a4b6d23e2/swz18_a1_fanatical.png";
         }
     }
 }

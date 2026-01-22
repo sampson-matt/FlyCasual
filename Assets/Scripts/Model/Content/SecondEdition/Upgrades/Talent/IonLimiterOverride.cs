@@ -18,8 +18,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.IonLimiterOverrideAbility),
                 restriction: new TagRestriction(Content.Tags.Tie)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/a5/d9/a5d987e9-ec4c-4a99-828b-c498799a7d6c/swz67_ion-limiter-overdrive.png";
         }
     }
 }

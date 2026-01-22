@@ -20,8 +20,6 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.EnduringAbility)
             );
-
-            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/enduring.png";
         }        
     }
 }

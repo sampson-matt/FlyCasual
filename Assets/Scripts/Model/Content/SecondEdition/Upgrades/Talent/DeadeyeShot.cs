@@ -16,8 +16,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.DeadeyeShotAbility),
                 restriction: new BaseSizeRestriction(BaseSize.Small, BaseSize.Medium)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/4d/84/4d84d319-d6ad-425b-b05e-4e679a54a508/swz70_a1_deadeye-shot_upgrade.png";
         }
     }
 }

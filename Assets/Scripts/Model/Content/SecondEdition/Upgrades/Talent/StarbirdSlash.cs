@@ -17,8 +17,6 @@ namespace UpgradesList.SecondEdition
                 cost: 1,
                 abilityType: typeof(Abilities.SecondEdition.StarbirdSlashAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/65/61/656136b2-2981-4e18-80fb-771fb2810669/swz68_starbird-slash.png";
         }
 
         public override bool IsAllowedForShip(GenericShip ship)

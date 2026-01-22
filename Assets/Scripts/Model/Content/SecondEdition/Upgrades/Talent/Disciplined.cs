@@ -19,8 +19,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.DisciplinedAbility),
                 restriction: new FactionRestriction(Faction.Imperial)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/f0/8f/f08f0b17-d82b-4446-ad46-f8c2da7fad1d/swz84_upgrade_disciplined.png";
         }        
     }
 }

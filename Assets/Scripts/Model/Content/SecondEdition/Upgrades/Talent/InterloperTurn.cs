@@ -16,8 +16,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.InterloperTurnAbility),
                 restriction: new ShipRestriction(typeof(Ship.SecondEdition.TIEDDefender.TIEDDefender))
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/12/25/1225b83d-2bdb-45f1-8301-2150bdc5ec26/swz84_upgrade_interloperturn.png";
         }
     }
 }

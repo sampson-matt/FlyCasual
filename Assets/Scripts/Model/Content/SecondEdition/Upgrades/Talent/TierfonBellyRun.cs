@@ -21,8 +21,6 @@ namespace UpgradesList.SecondEdition
                     typeof(Ship.SecondEdition.BTLBYWing.BTLBYWing)
                 )
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/e1/fc/e1fc1361-b9c1-4c44-8144-1bb7a16da4f3/swz85_upgrade_tierfonbellyrun.png";
         }
 
         public void UpdateCost(GenericShip ship)

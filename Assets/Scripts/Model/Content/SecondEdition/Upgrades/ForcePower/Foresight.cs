@@ -25,8 +25,6 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.ForesightAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/7b/b1/7bb148c4-74d6-4caf-a427-0270d40488b8/swz48_cards-foresight.png";
         }
     }
 }

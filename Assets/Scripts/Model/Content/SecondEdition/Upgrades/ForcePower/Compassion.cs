@@ -16,8 +16,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new TagRestriction(Content.Tags.LightSide),
                 abilityType: typeof(Abilities.SecondEdition.CompassionAbility)       
             );
-
-            ImageUrl = "https://i.imgur.com/pKEXMaB.png";
         }
     }
 }

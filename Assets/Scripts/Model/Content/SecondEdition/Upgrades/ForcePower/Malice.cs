@@ -17,8 +17,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new TagRestriction(Content.Tags.DarkSide),
                 abilityType: typeof(Abilities.SecondEdition.MaliceAbility)       
             );
-
-            ImageUrl = "https://i.imgur.com/mRyM1s0.png";
         }
     }
 }

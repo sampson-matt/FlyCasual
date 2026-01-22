@@ -20,8 +20,6 @@ namespace UpgradesList.SecondEdition
                 addAction: new ActionInfo(typeof(CoordinateAction), ActionColor.Purple),
                 abilityType: typeof(Abilities.SecondEdition.BattleMeditationAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/e3/0b/e30ba082-91c7-408b-9738-d631079911c7/swz32_battle-meditation.png";
         }
 
         public void UpdateCost(GenericShip ship)

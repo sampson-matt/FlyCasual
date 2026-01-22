@@ -14,8 +14,6 @@ namespace UpgradesList.SecondEdition
                 cost: 2,
                 abilityType: typeof(Abilities.SecondEdition.ShatteringShotAbility)                
             );
-
-            ImageUrl = "https://i.imgur.com/6NeEkwu.png";
         }
     }
 }

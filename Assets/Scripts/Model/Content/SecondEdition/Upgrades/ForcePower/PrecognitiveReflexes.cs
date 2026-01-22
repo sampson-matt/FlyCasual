@@ -17,8 +17,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.PrecognitiveReflexesAbility),
                 restriction: new BaseSizeRestriction(BaseSize.Small)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/de/c2/dec27d21-73b1-4b44-b61e-78188a5555cb/swz48_cards-precog-reflexes.png";
         }
 
         public void UpdateCost(GenericShip ship)

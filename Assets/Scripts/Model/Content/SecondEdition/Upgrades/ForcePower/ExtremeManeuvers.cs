@@ -21,8 +21,6 @@ namespace UpgradesList.SecondEdition
                     new ActionBarRestriction(typeof(BoostAction))
                 )
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/5f/dd/5fdda9e7-dea9-4188-aaf1-e06446b38e45/swz79_extreme-maneuvers.png";
         }
     }
 }

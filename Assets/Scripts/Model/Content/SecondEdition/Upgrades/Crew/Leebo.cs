@@ -61,6 +61,8 @@ namespace Abilities.SecondEdition
                 .Where(n => n.IsInActionBar)
                 .ToList();
 
+            Selection.ChangeActiveShip(HostShip);
+
             HostShip.AskPerformFreeAction(
                 actionBarActions,
                 delegate

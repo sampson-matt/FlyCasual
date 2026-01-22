@@ -43,8 +43,7 @@ namespace DamageDeckCardSE
         {
             Host.AssignedDamageDiceroll = SavedAssignedDamageDiceRoll;
 
-            DiscardEffect();
-            Triggers.FinishTrigger();
+            Host.Damage.FlipFaceupCritFacedown(this, Triggers.FinishTrigger);
         }
 
         public override void DiscardEffect()

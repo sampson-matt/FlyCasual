@@ -25,9 +25,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.ThermalDetonatorsAbility),
                 subType: UpgradeSubType.Bomb
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/52/bf/52bff580-897d-4af0-9084-5088765babf0/swz80_upgrade_thermal-detonators.png";
-
             bombPrefabPath = "Prefabs/Bombs/ThermalDetonator";
         }
 

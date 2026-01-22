@@ -25,8 +25,6 @@ namespace UpgradesList.SecondEdition
                 new Vector2(235, 1),
                 new Vector2(75, 75)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/41/90/4190fb29-a8d8-4576-b112-48df9944fc4c/swz70_a1_cpt-rex_upgrade.png";
         }        
     }
 }

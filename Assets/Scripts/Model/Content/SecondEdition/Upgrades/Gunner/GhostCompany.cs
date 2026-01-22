@@ -29,8 +29,6 @@ namespace UpgradesList.SecondEdition
                 new Vector2(304, 31),
                 new Vector2(50, 50)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/7e/83/7e836a20-1ed5-44c3-9f21-3e0e5e7f9347/swz70_a1_ghost-company_upgrade.png";
         }
     }
 }

@@ -29,8 +29,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Republic,
                 new Vector2(194, 10)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/12/bc/12bc6f68-e805-4985-8d94-12bfa1a4b617/swz48_cards-ahsoka.png";
         }
     }
 }

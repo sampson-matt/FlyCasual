@@ -21,8 +21,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Rebel,
                 new Vector2(248, 12)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/c8/de/c8de95b1-c5f8-467e-b9ef-0d81cc92f72e/swz82_a1_upgrade_weapon-systems.png";
         }
     }
 }

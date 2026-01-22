@@ -26,8 +26,6 @@ namespace UpgradesList.SecondEdition
                 new Vector2(269, 1),
                 new Vector2(50, 50)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/11/69/116909f3-2f9f-4a5d-b8b4-6beed48e7a03/swz70_a1_wolfpack_upgrade.png";
         }
     }
 }

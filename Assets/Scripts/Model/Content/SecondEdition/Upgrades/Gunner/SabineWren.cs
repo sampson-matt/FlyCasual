@@ -20,9 +20,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.SabineWrenGunnerAbility),
                 restriction: new FactionRestriction(Faction.Rebel)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/c5/8a/c58aba0b-0768-450b-afd9-c1e67ffab677/swz83_upgrade_sabinewrengunner.png";
-
             NameCanonical = "sabinewren-gunner";
         }
     }

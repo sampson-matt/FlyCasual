@@ -21,8 +21,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Republic,
                 new Vector2(234, 1)
             );
-
-            ImageUrl = "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/d/d7/Swz33_cody-upgrade.png";
         }        
     }
 }

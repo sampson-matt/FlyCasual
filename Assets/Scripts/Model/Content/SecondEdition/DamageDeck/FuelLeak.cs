@@ -15,7 +15,7 @@ namespace DamageDeckCardSE
         {
             Name = "Fuel Leak";
             Type = CriticalCardType.Ship;
-            ImageUrl = "https://i.imgur.com/cPQWoCr.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/fuel-leak.png";
         }
 
         public override void ApplyEffect(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace Tokens
     {
         public FuelLeakCritToken(GenericShip host) : base(host)
         {
-            Tooltip = "https://i.imgur.com/cPQWoCr.png";
+            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/fuel-leak.png";
         }
     }
 }

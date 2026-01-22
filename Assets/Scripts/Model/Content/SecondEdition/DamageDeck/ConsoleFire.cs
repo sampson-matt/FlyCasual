@@ -10,7 +10,7 @@ namespace DamageDeckCardSE
     {
         public ConsoleFire()
         {
-            ImageUrl = "https://i.imgur.com/Q1Te8M5.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/console-fire.png";
         }
 
         public override void ApplyEffect(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace Tokens
     {
         public ConsoleFireSECritToken(GenericShip host) : base(host)
         {
-            Tooltip = "https://i.imgur.com/Q1Te8M5.png";
+            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/console-fire.png";
         }
     }
 }

@@ -13,7 +13,7 @@ namespace DamageDeckCardSE
         {
             Name = "Weapons Failure";
             Type = CriticalCardType.Ship;
-            ImageUrl = "https://i.imgur.com/GmoA8km.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/weapons-failure.png";
         }
 
         public override void ApplyEffect(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace Tokens
     {
         public WeaponsFailureSECritToken(GenericShip host) : base(host)
         {
-            Tooltip = "https://i.imgur.com/GmoA8km.png";
+            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/weapons-failure.png";
         }
     }
 }

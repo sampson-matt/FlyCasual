@@ -14,7 +14,7 @@ namespace DamageDeckCardSE
             Name = "Structural Damage";
             Type = CriticalCardType.Ship;
             CancelDiceResults.Add(DieSide.Success);
-            ImageUrl = "https://i.imgur.com/jINTEHu.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/structural-damage.png";
         }
 
         public override void ApplyEffect(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace Tokens
     {
         public StructuralDamageSECritToken(GenericShip host) : base(host)
         {
-            Tooltip = "https://i.imgur.com/jINTEHu.png";
+            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/structural-damage.png";
         }
     }
 }

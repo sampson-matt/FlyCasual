@@ -14,7 +14,7 @@ namespace DamageDeckCardSE
             Name = "Blinded Pilot";
             Type = CriticalCardType.Pilot;
             AiAvoids = true;
-            ImageUrl = "https://i.imgur.com/qYZJv8y.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/blinded-pilot.png";
         }
 
         public override void ApplyEffect(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace Tokens
     {
         public BlindedPilotSECritToken(GenericShip host) : base(host)
         {
-            Tooltip = "https://i.imgur.com/qYZJv8y.png";
+            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/blinded-pilot.png";
         }
     }
 }

@@ -14,7 +14,7 @@ namespace DamageDeckCardSE
         {
             Name = "Wounded Pilot";
             Type = CriticalCardType.Pilot;
-            ImageUrl = "https://i.imgur.com/t8QRIOh.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/wounded-pilot.png";
         }
 
         public override void ApplyEffect(object sender, EventArgs e)
@@ -120,7 +120,7 @@ namespace Tokens
     {
         public WoundedPilotCritToken(GenericShip host) : base(host)
         {
-            Tooltip = "https://i.imgur.com/t8QRIOh.png";
+            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/wounded-pilot.png";
         }
     }
 }

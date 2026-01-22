@@ -13,7 +13,7 @@ namespace DamageDeckCardSE
         {
             Name = "Disabled Power Regulator";
             Type = CriticalCardType.Ship;
-            ImageUrl = "https://i.imgur.com/DB5EaO0.png";
+            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/disabled-power-regulator.png";
         }
 
         public override void ApplyEffect(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace Tokens
     {
         public DisabledPowerRegulatorCritToken(GenericShip host) : base(host)
         {
-            Tooltip = "https://i.imgur.com/DB5EaO0.png";
+            Tooltip = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/DamageCards/disabled-power-regulator.png";
         }
     }
 }

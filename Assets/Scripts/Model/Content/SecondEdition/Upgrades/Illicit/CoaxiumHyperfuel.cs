@@ -17,8 +17,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new ActionBarRestriction(typeof(SlamAction)),
                 abilityType: typeof(Abilities.SecondEdition.CoaxiumHyperfuelAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/6e/de/6ede85e0-1f8b-459d-be5d-34cb56cf301c/swz63_coaxium-hyperfuel.png";
         }        
     }
 }

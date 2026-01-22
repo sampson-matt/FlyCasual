@@ -18,8 +18,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.OvertunedModulatorsAbility),
                 charges: 1
             );
-
-            ImageUrl = "https://i.imgur.com/WC14X2N.png";
         }        
     }
 }

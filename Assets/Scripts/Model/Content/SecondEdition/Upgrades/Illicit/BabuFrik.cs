@@ -22,8 +22,6 @@ namespace UpgradesList.SecondEdition
                 restriction: new FactionRestriction(Faction.Resistance, Faction.Scum),
                 abilityType: typeof(Abilities.SecondEdition.BabuFrikAbility)
             );
-
-            ImageUrl = "https://i.imgur.com/pSLHvH1.png";
         }        
     }
 }

@@ -25,7 +25,6 @@ namespace UpgradesList.SecondEdition
                     charges: 2
                 )
             );
-            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/hotshottailblaster.png";
         }        
     }
 }

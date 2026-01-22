@@ -31,7 +31,6 @@ namespace UpgradesList.SecondEdition
                 addSlot: new UpgradeSlot(UpgradeType.Crew),
                 abilityType: typeof(Abilities.SecondEdition.GauntletAbility)
             );
-            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/gauntlet.png";
         }        
     }
 }

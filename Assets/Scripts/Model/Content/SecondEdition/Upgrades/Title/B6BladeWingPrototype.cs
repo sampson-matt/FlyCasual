@@ -20,7 +20,7 @@ namespace UpgradesList.SecondEdition
                 )
             );
 
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/af/a8/afa8ba7b-d5dd-42ac-a992-618bd3f71dbb/swz83_upgrade_b6bladewingprototype1.png";
+            NameCanonical = "b6bladewingprototype1";
         }        
     }
 }

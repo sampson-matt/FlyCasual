@@ -29,7 +29,7 @@ namespace UpgradesList.SecondEdition
                 new Vector2(192, 1)
             );
 
-            ImageUrl = "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/9/97/TacRelay_TV-94.png";
+            NameCanonical = "tv94";
         }        
     }
 }

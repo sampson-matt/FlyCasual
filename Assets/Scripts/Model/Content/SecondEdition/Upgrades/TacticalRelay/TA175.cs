@@ -29,7 +29,7 @@ namespace UpgradesList.SecondEdition
                 new Vector2(211, 14)
             );
 
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/3c/78/3c789eaf-ce5d-443a-8696-f0ad4781346c/swz41_ta-175.png";
+            NameCanonical = "ta175";
         }        
     }
 }

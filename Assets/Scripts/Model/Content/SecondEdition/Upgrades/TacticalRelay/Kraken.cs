@@ -31,8 +31,6 @@ namespace UpgradesList.SecondEdition
                 Faction.Separatists,
                 new Vector2(209, 1)
             );
-
-            ImageUrl = "https://vignette.wikia.nocookie.net/xwing-miniatures-second-edition/images/7/77/Swz29_kraken.png";
         }        
     }
 }

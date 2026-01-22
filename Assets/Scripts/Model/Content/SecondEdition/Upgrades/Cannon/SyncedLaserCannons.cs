@@ -17,8 +17,6 @@ namespace UpgradesList.SecondEdition
                 cost: 7,
                 weaponInfo: new SyncedLaserCannonsWeaponInfo(this)                
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/9b/11/9b115a04-a49d-40f0-ac06-5accb903aa5c/swz71_upgrade_synced-cannons.png";
         }
 
         private class SyncedLaserCannonsWeaponInfo : SpecialWeaponInfo

@@ -21,8 +21,6 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.PrecisionTunedCannonsAbility)
             );
-
-            ImageUrl = "https://raw.githubusercontent.com/sampson-matt/FlyCasualLegacyCustomCards/refs/heads/main/BattleOverEndor/PrecisionTunedCannons.jpg";
         } 
     }
 }

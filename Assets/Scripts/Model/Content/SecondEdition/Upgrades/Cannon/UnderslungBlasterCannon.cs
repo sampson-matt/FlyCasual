@@ -35,8 +35,6 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.UnderslungBlasterCannonAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/b5/6d/b56db2ed-dca8-4cdf-8fa0-a8e35d27ae2b/swz68_underslung-blaster-cannon.png";
         }        
     }
 }

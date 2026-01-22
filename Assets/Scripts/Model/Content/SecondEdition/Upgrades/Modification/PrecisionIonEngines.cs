@@ -19,8 +19,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.PrecisionIonEnginesAbility),
                 restriction: new TagRestriction(Content.Tags.Tie)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/bb/fb/bbfb4727-e2f5-4f23-be9a-3341ea4de7b5/swz80_upgrade_precison-ion-engines.png";
         }
 
         public void UpdateCost(GenericShip ship)

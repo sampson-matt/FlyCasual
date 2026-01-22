@@ -25,8 +25,6 @@ namespace UpgradesList.SecondEdition
                 addAction: new ActionInfo(typeof(SlamAction)),
                 abilityType: typeof(Abilities.SecondEdition.BurnoutThrustersAbility)
             );
-
-            ImageUrl = "https://infinitearenas.com/xw2/images/upgrades/burnoutthrusters.png";
         }        
     }
 }

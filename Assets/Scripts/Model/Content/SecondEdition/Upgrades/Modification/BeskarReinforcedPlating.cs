@@ -22,8 +22,6 @@ namespace UpgradesList.SecondEdition
                 abilityType: typeof(Abilities.SecondEdition.BeskarReinforcedPlatingAbility),
                 charges: 2
             );
-
-            ImageUrl = "https://static.wikia.nocookie.net/xwing-miniatures-second-edition/images/2/2b/Beskarreinforcedplating.png";
         }
 
         public void UpdateCost(GenericShip ship)

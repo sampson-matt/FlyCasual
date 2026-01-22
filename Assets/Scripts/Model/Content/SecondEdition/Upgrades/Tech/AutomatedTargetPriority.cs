@@ -18,8 +18,6 @@ namespace UpgradesList.SecondEdition
                 cost: 1,
                 abilityType: typeof(Abilities.SecondEdition.AutomatedTargetPriorityAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/e9/e2/e9e2f789-fc77-4ac5-861d-6c08b97ea244/swz69_target-priority_card.png";
         }
 
         public override bool IsAllowedForShip(GenericShip ship)

@@ -23,8 +23,6 @@ namespace UpgradesList.SecondEdition
                 ),
                 abilityType: typeof(Abilities.SecondEdition.SensorBuoySuiteAbility)
             );
-
-            ImageUrl = "https://images-cdn.fantasyflightgames.com/filer_public/7d/19/7d199d6b-808a-47d2-9aa1-1fc3432e7d3f/swz69_sensor-buoy-suite_card.png";
         }
     }
 }

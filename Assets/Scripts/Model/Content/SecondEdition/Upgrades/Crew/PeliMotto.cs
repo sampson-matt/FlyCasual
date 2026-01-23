@@ -177,7 +177,10 @@ namespace Abilities.SecondEdition
 
         private void TemporaryAllowAnyActionsWhileStressed(GenericAction action, ref bool isAllowed)
         {
-            isAllowed = true;
+            if (action.IsCritCancelAction) 
+            {
+                isAllowed = true;
+            }
         }
 
         private void TemporaryAllowActionsWhileStressed(ref bool isAllowed)

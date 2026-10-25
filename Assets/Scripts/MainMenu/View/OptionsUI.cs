@@ -373,7 +373,7 @@ public class OptionsUI : MonoBehaviour {
                 Resolution newResolution = availableResolutions[newIndex];
                 resolutionText.text = newResolution.ToString();
                 Options.ChangeParameterValue("Resolution", newResolution.ToString());
-                Screen.SetResolution(newResolution.width, newResolution.height, Options.FullScreen, newResolution.refreshRate);
+                Screen.SetResolution(newResolution.width, newResolution.height, Options.FullScreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed, newResolution.refreshRateRatio);
             }
         }
         catch (Exception)

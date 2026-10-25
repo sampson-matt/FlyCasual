@@ -246,7 +246,7 @@ public partial class Die
     {
         if (!ModelRollingIsFinished)
         {
-            Vector3 velocity = Model.GetComponentInChildren<Rigidbody>().velocity;
+            Vector3 velocity = Model.GetComponentInChildren<Rigidbody>().linearVelocity;
             bool isModelRollingNow = (velocity != Vector3.zero);
 
             RollingIsFinishedTimePassed = (isModelRollingNow) ? 0 : RollingIsFinishedTimePassed + Time.deltaTime;

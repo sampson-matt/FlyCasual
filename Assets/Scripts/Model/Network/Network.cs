@@ -42,7 +42,7 @@ public static class Network
     public static void JoinRoom(string password)
     {
         ConnectionIsEstablished = false;
-        ConnectionAttempt = GameObject.FindObjectOfType<NetworkConnectionAttemptHandler>();
+        ConnectionAttempt = GameObject.FindAnyObjectByType<NetworkConnectionAttemptHandler>();
 
         try
         {

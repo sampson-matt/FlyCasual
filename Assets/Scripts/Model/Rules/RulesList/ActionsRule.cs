@@ -17,6 +17,8 @@ namespace RulesList
         {
             if (ship.IsAlreadyExecutedAction(action)) result = false;
 
+            if (ship.IsFailedAction(action)) result = false;
+
             if (action.Color == ActionColor.Purple && (ship.State.Force == 0 || !ship.IsCanUseForceNow())) result = false;
         }
 

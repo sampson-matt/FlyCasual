@@ -189,7 +189,19 @@ namespace Editions
 
         public override void ActionIsFailed(GenericShip ship, GenericAction action, bool overWrittenInstead = false, bool hasSecondChance = false)
         {
-            base.ActionIsFailed(ship, action, overWrittenInstead, hasSecondChance);
+            if (!overWrittenInstead && !hasSecondChance) ship.AddFailedAction(action);
+
+            // The action step is skipped below, so going back must not ask for a new decision.
+            // Otherwise the AI queues a command for a subphase that is about to finish and the command queue stalls.
+            Phases.IsRevertingFailedAction = !hasSecondChance;
+            try
+            {
+                base.ActionIsFailed(ship, action, overWrittenInstead, hasSecondChance);
+            }
+            finally
+            {
+                Phases.IsRevertingFailedAction = false;
+            }
 
             // Temporary solution for off-the-board problem
 

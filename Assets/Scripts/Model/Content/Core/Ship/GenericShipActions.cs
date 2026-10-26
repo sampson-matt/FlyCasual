@@ -19,6 +19,7 @@ namespace Ship
         private     List<GenericAction> AvailableActionsList        = new List<GenericAction>();
         private     List<GenericAction> AvailableFreeActionsList    = new List<GenericAction>();
         private     List<GenericAction> AlreadyExecutedActions      = new List<GenericAction>();
+        private     List<GenericAction> FailedActions               = new List<GenericAction>();
 
         private     List<GenericAction> AvailableDiceModifications  = new List<GenericAction>();
         private     List<GenericAction> AlreadUsedDiceModifications = new List<GenericAction>();
@@ -374,6 +375,22 @@ namespace Ship
         public void ClearAlreadyExecutedActions()
         {
             AlreadyExecutedActions = new List<GenericAction>();
+        }
+
+        // A ship cannot perform an action it has failed this round
+        public void AddFailedAction(GenericAction action)
+        {
+            if (action.IsRealAction) FailedActions.Add(action);
+        }
+
+        public void ClearFailedActions()
+        {
+            FailedActions = new List<GenericAction>();
+        }
+
+        public bool IsFailedAction(GenericAction action)
+        {
+            return action.IsRealAction && FailedActions.Any(n => n.Name == action.Name);
         }
 
         public void RemoveAlreadyExecutedAction(GenericAction action)

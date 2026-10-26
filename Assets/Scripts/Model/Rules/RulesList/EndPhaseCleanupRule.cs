@@ -50,6 +50,7 @@ namespace RulesList
                 ClearShipFlags(shipHolder);
                 ClearAssignedManeuvers(shipHolder);
                 shipHolder.ClearAlreadyExecutedActions();
+                shipHolder.ClearFailedActions();
 
                 List<GenericToken> allShipTokens = shipHolder.Tokens.GetAllTokens();
                 if (allShipTokens != null) tokensList.AddRange(allShipTokens.Where(n => n.Host != null && n.Host.ShouldRemoveTokenInEndPhase(n)));
@@ -60,6 +61,7 @@ namespace RulesList
                 ClearShipFlags(shipHolder);
                 ClearAssignedManeuvers(shipHolder);
                 shipHolder.ClearAlreadyExecutedActions();
+                shipHolder.ClearFailedActions();
 
                 List<GenericToken> allShipTokens = shipHolder.Tokens.GetAllTokens();
                 if (allShipTokens != null) tokensList.AddRange(allShipTokens.Where(n => n.Host != null && n.Host.ShouldRemoveTokenInEndPhase(n)));

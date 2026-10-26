@@ -145,10 +145,12 @@ public static partial class Phases
         Board.Cleanup();
     }
 
+    public static bool IsRevertingFailedAction { get; set; }
+
     public static void GoBack(Type specificSubphaseToFinish = null)
     {
         DecisionSubPhase decisionSubphase = CurrentSubPhase.PreviousSubPhase as DecisionSubPhase;
-        if (decisionSubphase != null) decisionSubphase.DecisionWasPreparedAndShown = false;
+        if (decisionSubphase != null && !IsRevertingFailedAction) decisionSubphase.DecisionWasPreparedAndShown = false;
 
         Type subphaseToFinish = specificSubphaseToFinish ?? CurrentSubPhase.GetType();
         FinishSubPhase(subphaseToFinish);

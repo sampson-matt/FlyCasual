@@ -172,6 +172,7 @@ namespace ActionsList
             * 100 - Rotate arc to get a shot in no enemies in arc
             * 90 - Cancel crit
             * 80 - Evade action is 1-hull
+            * 40-75 - Boost or barrel roll to get a shot and/or get out of enemy arcs (see RepositionSubSystem)
             * 50 - Focus action if has target
             * 25 - Reinforce action if there are no enemies
             * 20 - Focus action if no target

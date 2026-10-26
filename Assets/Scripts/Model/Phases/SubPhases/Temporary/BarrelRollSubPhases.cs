@@ -11,6 +11,7 @@ using Actions;
 using Movement;
 using Ship;
 using Bombs;
+using AI.Aggressor;
 
 namespace SubPhases
 {
@@ -104,7 +105,89 @@ namespace SubPhases
         protected void StartBarrelRollPlanning(bool isDeckloak = false)
         {
             IsDecloak = isDeckloak;
-            AskToSelectTemplate(PerfromTemplatePlanning);
+
+            if (IsAiBarrelRoll())
+            {
+                StartAiBarrelRollPlanning();
+            }
+            else
+            {
+                AskToSelectTemplate(PerfromTemplatePlanning);
+            }
+        }
+
+        // AI
+
+        private List<RepositionOption> AiOptions;
+        private int AiOptionIndex;
+
+        private bool IsAiBarrelRoll()
+        {
+            return GetType() == typeof(BarrelRollPlanningSubPhase)
+                && !IsDecloak
+                && HostAction is BarrelRollAction
+                && Controller is Players.AggressorAiPlayer
+                && Edition.Current is Editions.SecondEdition;
+        }
+
+        private void StartAiBarrelRollPlanning()
+        {
+            AiOptions = (HostAction as BarrelRollAction).AiRepositionOptions
+                ?? RepositionSubSystem.GetBarrelRollOptionsForPlanning(TheShip, HostAction);
+            AiOptionIndex = 0;
+
+            TryNextAiBarrelRollOption();
+        }
+
+        // Tries the AI's options in order and barrel rolls with the first one that is allowed
+        private void TryNextAiBarrelRollOption()
+        {
+            if (AiOptionIndex >= AiOptions.Count)
+            {
+                if (BarrelRollProblems.Count == 0) BarrelRollProblems.Add(ActionFailReason.NoTemplateAvailable);
+                ShowInformationAboutProblems();
+                WhenCancelBarrelRollWithProblems(BarrelRollProblems);
+                return;
+            }
+
+            RepositionOption option = AiOptions[AiOptionIndex++];
+            SelectTemplate(option.BarrelRollTemplate, option.BarrelRollDirection);
+            TheShip.CallUpdateChosenBarrelRollTemplate(ref SelectedTemplate);
+
+            GameManagerScript.Instance.StartCoroutine(CheckAiBarrelRollOption(option.BarrelRollShift));
+        }
+
+        private IEnumerator CheckAiBarrelRollOption(Direction shift)
+        {
+            // Collision checks record mines and obstacles as hit, so a rejected option must not leave them behind
+            List<GenericDeviceGameObject> savedMinesHit = new List<GenericDeviceGameObject>(TheShip.MinesHit);
+            List<GenericObstacle> savedObstaclesHit = new List<GenericObstacle>(TheShip.ObstaclesHit);
+
+            BarrelRollProblems = new List<ActionFailReason>();
+            yield return CheckTemplate();
+            bool isAllowed = IsColliderDataAllowed(SelectedTemplate.Collider);
+
+            if (isAllowed)
+            {
+                yield return CheckPotentialFinalPositions();
+
+                SelectedShift = shift;
+                BarrelRollProblems = new List<ActionFailReason>();
+                isAllowed = IsColliderDataAllowed(TemporaryBaseCollider, isBaseFinalPosition: true);
+            }
+
+            if (isAllowed)
+            {
+                ConfirmBarrelRollPosition();
+            }
+            else
+            {
+                TheShip.MinesHit = savedMinesHit;
+                TheShip.ObstaclesHit = savedObstaclesHit;
+
+                DestroyTemporaryElements(isAll: true);
+                TryNextAiBarrelRollOption();
+            }
         }
 
         public virtual void PerfromTemplatePlanning()
@@ -575,31 +658,7 @@ namespace SubPhases
                 Board.GetBoard()
             );
 
-            int directionModifier = (SelectedDirectionPrimary == Direction.Left) ? -1 : 1;
-
-            float finalShift = 0;
-            switch (shiftDirection)
-            {
-                case Direction.Top:
-                    finalShift += (SelectedTemplate.IsSideTemplate) ? 0.5f : 0.25f;
-                    break;
-                case Direction.Bottom:
-                    finalShift -= (SelectedTemplate.IsSideTemplate) ? 0.5f : 0.25f;
-                    break;
-                default:
-                    break;
-            }
-
-            temporaryShipBase.transform.localEulerAngles += new Vector3(0, directionModifier * -90, 0);
-
-            Vector3 shift = new Vector3(
-                directionModifier * TheShip.ShipBase.HALF_OF_SHIPSTAND_SIZE,
-                0,
-                TheShip.ShipBase.HALF_OF_SHIPSTAND_SIZE + finalShift
-            );
-            Vector3 absPosition = temporaryShipBase.transform.TransformPoint(shift);
-
-            temporaryShipBase.transform.position = absPosition;
+            ApplyBarrelRollShift(temporaryShipBase.transform, TheShip, SelectedTemplate, SelectedDirectionPrimary, shiftDirection);
 
             temporaryShipBase.transform.Find("ShipBase").Find("ShipStandInsert").Find("ShipStandInsertImage").Find("default").GetComponent<Renderer>().material = TheShip.Model.transform.Find("RotationHelper").Find("RotationHelper2").Find("ShipAllParts").Find("ShipBase").Find("ShipStandInsert").Find("ShipStandInsertImage").Find("default").GetComponent<Renderer>().material;
             temporaryShipBase.transform.Find("ShipBase").Find("ObstaclesStayDetector").gameObject.AddComponent<ObstaclesStayDetectorForced>();
@@ -607,6 +666,49 @@ namespace SubPhases
             ToggleTemporaryShipBaseVisibility(temporaryShipBase, isVisible);
 
             return temporaryShipBase;
+        }
+
+        // Moves a ship base placed at the end of the barrel roll template to its final position
+        private static void ApplyBarrelRollShift(Transform shipBase, GenericShip ship, ManeuverTemplate template, Direction directionPrimary, Direction shiftDirection)
+        {
+            int directionModifier = (directionPrimary == Direction.Left) ? -1 : 1;
+
+            float finalShift = 0;
+            switch (shiftDirection)
+            {
+                case Direction.Top:
+                    finalShift += (template.IsSideTemplate) ? 0.5f : 0.25f;
+                    break;
+                case Direction.Bottom:
+                    finalShift -= (template.IsSideTemplate) ? 0.5f : 0.25f;
+                    break;
+                default:
+                    break;
+            }
+
+            shipBase.localEulerAngles += new Vector3(0, directionModifier * -90, 0);
+
+            Vector3 shift = new Vector3(
+                directionModifier * ship.ShipBase.HALF_OF_SHIPSTAND_SIZE,
+                0,
+                ship.ShipBase.HALF_OF_SHIPSTAND_SIZE + finalShift
+            );
+            shipBase.position = shipBase.TransformPoint(shift);
+        }
+
+        // Final position of a barrel roll, for a template that is already applied to the ship
+        public static ShipPositionInfo GetFinalPositionInfo(GenericShip ship, ManeuverTemplate appliedTemplate, Direction directionPrimary, Direction shiftDirection)
+        {
+            GameObject helper = new GameObject("BarrelRollPositionHelper");
+            helper.transform.SetParent(Board.GetBoard(), false);
+            helper.transform.position = appliedTemplate.GetFinalPosition();
+            helper.transform.rotation = appliedTemplate.GetFinalRotation();
+
+            ApplyBarrelRollShift(helper.transform, ship, appliedTemplate, directionPrimary, shiftDirection);
+            ShipPositionInfo result = new ShipPositionInfo(helper.transform.position, helper.transform.eulerAngles);
+
+            GameObject.DestroyImmediate(helper);
+            return result;
         }
 
         private void ToggleTemporaryShipBaseVisibility(GameObject shipBase, bool isVisible)

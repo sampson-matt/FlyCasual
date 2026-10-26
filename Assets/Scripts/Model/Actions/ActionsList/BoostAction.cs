@@ -13,6 +13,7 @@ using Ship;
 using Movement;
 using System;
 using AI;
+using AI.Aggressor;
 using Players;
 
 namespace ActionsList
@@ -58,18 +59,16 @@ namespace ActionsList
             Phases.GoBack();
         }
 
+        // Boosts that improve the AI ship's position, best first; filled when the AI considers this action
+        public List<RepositionOption> AiRepositionOptions { get; set; }
+
         public override int GetActionPriority()
         {
-            int result = 0;
+            AiRepositionOptions = null;
+            if (!RepositionSubSystem.IsEnabledFor(Selection.ThisShip)) return 0;
 
-            // Check to see if we are before the maneuver phase or not.
-            bool isBeforeManeuverPhase = !Selection.ActiveShip.AiPlans.shipHasManeuvered;
-            // Until I get Advanced Sensors fixed...
-            isBeforeManeuverPhase = false;
-            if (Mods.ModsManager.Mods[typeof(Mods.ModsList.AIBoostTestModSE)].IsOn)
-            {
-                result = AI.Aggressor.NavigationSubSystem.TryActionPossibilities(this, isBeforeManeuverPhase);
-            }            
+            int result = RepositionSubSystem.GetBoostPriority(Selection.ThisShip, this, out List<RepositionOption> options);
+            AiRepositionOptions = options;
 
             return result;
         }
@@ -165,27 +164,49 @@ namespace SubPhases
 
             InitializeRendering();
 
-            if (TheShip.Owner.PlayerType == PlayerType.Ai)
-            {
-                // We have AI here.  Do AI things.
-                AiSinglePlan aiBoostAction = TheShip.AiPlans.GetPlanByActionName("Boost");
-                if (aiBoostAction != null)
-                {
-                    SelectTemplateByName(aiBoostAction.actionName, aiBoostAction.isRedAction);
-
-                    // Now that we're done with the plan, remove it.
-                    TheShip.AiPlans.RemovePlan(aiBoostAction);
-                }
-            }
-            else if(SelectedBoostHelper != null)
+            if (SelectedBoostHelper != null)
             {
                 SelectTemplate(AvailableBoostMoves.First(n => n.Name == SelectedBoostHelper));
                 SelectTemplateDecisionIsTaken();
+            }
+            else if (TheShip.Owner.PlayerType == PlayerType.Ai)
+            {
+                List<RepositionOption> options = (HostAction as BoostAction)?.AiRepositionOptions
+                    ?? RepositionSubSystem.GetBoostOptionsForPlanning(TheShip, HostAction);
+
+                TryAiBoostOption(options, 0);
             }
             else
             {
                 AskSelectTemplate();
             }
+        }
+
+        // Tries the AI's options in order and boosts with the first one that is allowed
+        private void TryAiBoostOption(List<RepositionOption> options, int index)
+        {
+            if (index >= options.Count)
+            {
+                CancelBoost(new List<ActionFailReason>() { ActionFailReason.NoTemplateAvailable });
+                return;
+            }
+
+            // Each check hides the planning templates and destroys the temporary ship stand
+            if (index > 0) InitializeRendering();
+
+            SelectedBoostHelper = options[index].BoostTemplateName;
+            TryConfirmBoostPosition(delegate (bool canBoost)
+            {
+                if (canBoost)
+                {
+                    InitializeRendering();
+                    SelectTemplateByName(options[index].BoostTemplateName, false);
+                }
+                else
+                {
+                    TryAiBoostOption(options, index + 1);
+                }
+            });
         }
 
         private void AskSelectTemplate()
@@ -330,7 +351,7 @@ namespace SubPhases
         {
             TheShip.IsLandedOnObstacle = false;
 
-            MonoBehaviour.Destroy(ShipStand);
+            if (ShipStand != null) MonoBehaviour.Destroy(ShipStand);
 
             GameManagerScript Game = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
             Game.Movement.CollidedWith = null;
@@ -405,18 +426,7 @@ namespace SubPhases
             }
             else
             {
-                if (TheShip.Owner.PlayerType == PlayerType.Ai)
-                {
-                    //TODO figure out why this allows the AI to take a different action. Find a better way to gracefully fail the boost action
-                    //Phases.GoBack();
-                    //TheShip.CallActionIsReadyToBeFailed(HostAction, boostProblems, false);
-                    //TheShip.CallOnActionIsReallyFailed(HostAction, false, false);
-                    HostAction.RevertActionOnFail(false);
-                }
-                else
-                {
-                    CancelBoost(boostProblems);
-                }
+                CancelBoost(boostProblems);
             }
         }
 

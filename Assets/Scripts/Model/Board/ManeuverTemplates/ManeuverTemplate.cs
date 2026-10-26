@@ -145,6 +145,13 @@ namespace BoardTools
             TemplateGO = null;
         }
 
+        // For templates that only exist during a calculation, so they don't linger until the end of the frame
+        public void DestroyTemplateImmediately()
+        {
+            GameObject.DestroyImmediate(TemplateGO.gameObject);
+            TemplateGO = null;
+        }
+
         public bool IsValidTemplate()
         {
             bool result = true;

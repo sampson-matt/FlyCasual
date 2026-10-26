@@ -6,8 +6,8 @@ namespace Mods
         {
             public AIBoostTestModSE()
             {
-                Name = "A.I. Boost Capability";
-                Description = "Allow A.I. to boost";
+                Name = "A.I. Boost and Barrel Roll";
+                Description = "Allow A.I. to boost or barrel roll to get a shot on an enemy ship or to get out of enemy firing arcs";
             }
         }
     }

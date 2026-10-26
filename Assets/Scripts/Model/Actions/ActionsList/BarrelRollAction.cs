@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using AI.Aggressor;
 using BoardTools;
 using SubPhases;
 namespace ActionsList
@@ -39,6 +40,20 @@ namespace ActionsList
         public override void RevertActionOnFail(bool hasSecondChance = false)
         {
             Phases.GoBack();
+        }
+
+        // Barrel rolls that improve the AI ship's position, best first; filled when the AI considers this action
+        public List<RepositionOption> AiRepositionOptions { get; set; }
+
+        public override int GetActionPriority()
+        {
+            AiRepositionOptions = null;
+            if (!RepositionSubSystem.IsEnabledFor(Selection.ThisShip)) return 0;
+
+            int result = RepositionSubSystem.GetBarrelRollPriority(Selection.ThisShip, this, out List<RepositionOption> options);
+            AiRepositionOptions = options;
+
+            return result;
         }
 
     }

@@ -2,6 +2,7 @@ using Actions;
 using ActionsList;
 using BoardTools;
 using Movement;
+using Obstacles;
 using Players;
 using Ship;
 using SubPhases;
@@ -26,6 +27,8 @@ namespace AI.Aggressor
         public int EnemiesInShotRange { get; set; }
         public int EnemiesTargetingThisShip { get; set; }
         public bool IsOffTheBoard { get; set; }
+        // The template or the final position overlaps something that would make the action fail
+        public bool IsObstructed { get; set; }
 
         public int Utility
         {
@@ -54,8 +57,9 @@ namespace AI.Aggressor
     }
 
     // Decides if a boost or barrel roll gets the ship a shot or gets it out of enemy firing arcs.
-    // Options are only ranked here; their legality (ships, obstacles) is checked by the planning subphases,
-    // which try the options in order and fail the action if none of them is allowed.
+    // Options that would overlap a ship, an obstacle or leave the board are dropped here, so the AI doesn't
+    // choose an action that would fail. The planning subphases still run the game's legality checks
+    // on the options in order and fail the action if none of them is allowed.
     public static class RepositionSubSystem
     {
         private const int BasePriority = 40;
@@ -123,13 +127,16 @@ namespace AI.Aggressor
                 // AI doesn't perform red actions, see AggressorAiPlayer.PerformActionFromList
                 if (move.IsRed || move.IsPurple) continue;
 
-                Transform finalBase = ship.GetBoosterHelper().Find(move.Name + "/Finisher/BasePosition");
+                Transform boostHelper = ship.GetBoosterHelper().Find(move.Name);
+                Transform finalBase = boostHelper?.Find("Finisher/BasePosition");
                 if (finalBase == null) continue;
 
-                options.Add(RepositionOption.ForBoost(
+                RepositionOption option = RepositionOption.ForBoost(
                     move.Name,
                     new ShipPositionInfo(new Vector3(finalBase.position.x, 0, finalBase.position.z), finalBase.eulerAngles)
-                ));
+                );
+                option.IsObstructed = IsTemplateOverObstacle(ship, boostHelper.gameObject);
+                options.Add(option);
             }
 
             return options;
@@ -150,15 +157,18 @@ namespace AI.Aggressor
                     // Separate instance, so the template objects shared by the ship base are not touched
                     ManeuverTemplate probeTemplate = new ManeuverTemplate(template.Bearing, template.Direction, template.Speed, isSideTemplate: template.IsSideTemplate);
                     probeTemplate.ApplyTemplate(ship, (direction == Direction.Left) ? ship.GetLeft() : ship.GetRight(), direction);
+                    bool isTemplateObstructed = IsTemplateOverObstacle(ship, probeTemplate.Collider.gameObject);
 
                     foreach (Direction shift in shifts)
                     {
-                        options.Add(RepositionOption.ForBarrelRoll(
+                        RepositionOption option = RepositionOption.ForBarrelRoll(
                             template,
                             direction,
                             shift,
                             BarrelRollPlanningSubPhase.GetFinalPositionInfo(ship, probeTemplate, direction, shift)
-                        ));
+                        );
+                        option.IsObstructed = isTemplateObstructed;
+                        options.Add(option);
                     }
 
                     probeTemplate.DestroyTemplateImmediately();
@@ -182,7 +192,10 @@ namespace AI.Aggressor
                     Physics.SyncTransforms();
 
                     option.IsOffTheBoard = Board.IsOffTheBoard(ship);
-                    if (!option.IsOffTheBoard) EvaluatePosition(ship, option);
+                    if (option.IsOffTheBoard || option.IsObstructed) continue;
+
+                    option.IsObstructed = IsBaseOverAnotherShip(ship) || IsBaseOverObstacle(ship);
+                    if (!option.IsObstructed) EvaluatePosition(ship, option);
                 }
             }
             finally
@@ -193,9 +206,65 @@ namespace AI.Aggressor
 
             // OrderByDescending is stable, so equally good options keep their preferred order
             return options
-                .Where(n => !n.IsOffTheBoard)
+                .Where(n => !n.IsOffTheBoard && !n.IsObstructed)
                 .OrderByDescending(n => n.Utility)
                 .ToList();
+        }
+
+        private static bool IsBaseOverAnotherShip(GenericShip ship)
+        {
+            return IsOverlappingAny(
+                ship.Collider,
+                Roster.AllShips.Values.Where(n => n != ship).Select(n => n.Collider as Collider)
+            );
+        }
+
+        private static bool IsBaseOverObstacle(GenericShip ship)
+        {
+            return !ship.IsIgnoreObstacles && IsOverlappingAny(ship.Collider, GetObstacleColliders());
+        }
+
+        // Ships that can move through obstacles during a boost or barrel roll still hit them, so the AI avoids those too
+        private static bool IsTemplateOverObstacle(GenericShip ship, GameObject template)
+        {
+            if (ship.IsIgnoreObstacles) return false;
+
+            // Planning templates are hidden while not in use
+            bool wasActive = template.activeSelf;
+            template.SetActive(true);
+            try
+            {
+                Collider templateCollider = template.GetComponentInChildren<ObstaclesStayDetectorForced>()?.GetComponent<Collider>();
+                return IsOverlappingAny(templateCollider, GetObstacleColliders());
+            }
+            finally
+            {
+                template.SetActive(wasActive);
+            }
+        }
+
+        private static IEnumerable<Collider> GetObstacleColliders()
+        {
+            return ObstaclesManager.GetPlacedObstacles().Select(n => n.Collider as Collider);
+        }
+
+        // Checked immediately, unlike the trigger based detectors used by the planning subphases
+        private static bool IsOverlappingAny(Collider collider, IEnumerable<Collider> others)
+        {
+            if (collider == null) return false;
+
+            foreach (Collider other in others)
+            {
+                if (other == null || other == collider) continue;
+
+                if (Physics.ComputePenetration(
+                    collider, collider.transform.position, collider.transform.rotation,
+                    other, other.transform.position, other.transform.rotation,
+                    out Vector3 direction, out float distance
+                )) return true;
+            }
+
+            return false;
         }
 
         private static RepositionOption EvaluateCurrentPosition(GenericShip ship)

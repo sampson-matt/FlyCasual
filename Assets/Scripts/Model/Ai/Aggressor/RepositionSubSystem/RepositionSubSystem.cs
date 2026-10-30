@@ -1,11 +1,13 @@
 using Actions;
 using ActionsList;
 using BoardTools;
+using Bombs;
 using Movement;
 using Obstacles;
 using Players;
 using Ship;
 using SubPhases;
+using Upgrade;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -27,7 +29,7 @@ namespace AI.Aggressor
         public int EnemiesInShotRange { get; set; }
         public int EnemiesTargetingThisShip { get; set; }
         public bool IsOffTheBoard { get; set; }
-        // The template or the final position overlaps something that would make the action fail
+        // The template or the final position overlaps something that would make the action fail, or a mine
         public bool IsObstructed { get; set; }
 
         public int Utility
@@ -58,7 +60,8 @@ namespace AI.Aggressor
 
     // Decides if a boost or barrel roll gets the ship a shot or gets it out of enemy firing arcs.
     // Options that would overlap a ship, an obstacle or leave the board are dropped here, so the AI doesn't
-    // choose an action that would fail. The planning subphases still run the game's legality checks
+    // choose an action that would fail. Options that would move through or onto a mine are dropped too.
+    // The planning subphases still run the game's legality checks
     // on the options in order and fail the action if none of them is allowed.
     public static class RepositionSubSystem
     {
@@ -135,7 +138,7 @@ namespace AI.Aggressor
                     move.Name,
                     new ShipPositionInfo(new Vector3(finalBase.position.x, 0, finalBase.position.z), finalBase.eulerAngles)
                 );
-                option.IsObstructed = IsTemplateOverObstacle(ship, boostHelper.gameObject);
+                option.IsObstructed = IsTemplateOverHazard(ship, boostHelper.gameObject);
                 options.Add(option);
             }
 
@@ -157,7 +160,7 @@ namespace AI.Aggressor
                     // Separate instance, so the template objects shared by the ship base are not touched
                     ManeuverTemplate probeTemplate = new ManeuverTemplate(template.Bearing, template.Direction, template.Speed, isSideTemplate: template.IsSideTemplate);
                     probeTemplate.ApplyTemplate(ship, (direction == Direction.Left) ? ship.GetLeft() : ship.GetRight(), direction);
-                    bool isTemplateObstructed = IsTemplateOverObstacle(ship, probeTemplate.Collider.gameObject);
+                    bool isTemplateObstructed = IsTemplateOverHazard(ship, probeTemplate.Collider.gameObject);
 
                     foreach (Direction shift in shifts)
                     {
@@ -194,7 +197,7 @@ namespace AI.Aggressor
                     option.IsOffTheBoard = Board.IsOffTheBoard(ship);
                     if (option.IsOffTheBoard || option.IsObstructed) continue;
 
-                    option.IsObstructed = IsBaseOverAnotherShip(ship) || IsBaseOverObstacle(ship);
+                    option.IsObstructed = IsBaseOverAnotherShip(ship) || IsBaseOverObstacle(ship) || IsOverMine(ship, ship.Collider);
                     if (!option.IsObstructed) EvaluatePosition(ship, option);
                 }
             }
@@ -225,17 +228,16 @@ namespace AI.Aggressor
         }
 
         // Ships that can move through obstacles during a boost or barrel roll still hit them, so the AI avoids those too
-        private static bool IsTemplateOverObstacle(GenericShip ship, GameObject template)
+        private static bool IsTemplateOverHazard(GenericShip ship, GameObject template)
         {
-            if (ship.IsIgnoreObstacles) return false;
-
             // Planning templates are hidden while not in use
             bool wasActive = template.activeSelf;
             template.SetActive(true);
             try
             {
                 Collider templateCollider = template.GetComponentInChildren<ObstaclesStayDetectorForced>()?.GetComponent<Collider>();
-                return IsOverlappingAny(templateCollider, GetObstacleColliders());
+                return (!ship.IsIgnoreObstacles && IsOverlappingAny(templateCollider, GetObstacleColliders()))
+                    || IsOverMine(ship, templateCollider);
             }
             finally
             {
@@ -246,6 +248,20 @@ namespace AI.Aggressor
         private static IEnumerable<Collider> GetObstacleColliders()
         {
             return ObstaclesManager.GetPlacedObstacles().Select(n => n.Collider as Collider);
+        }
+
+        // Mines this ship has already hit don't detonate again, matching the planning subphases
+        private static bool IsOverMine(GenericShip ship, Collider collider)
+        {
+            Dictionary<GenericDeviceGameObject, GenericBomb> devices = BombsManager.GetBombsOnBoard();
+            if (devices == null) return false;
+
+            return IsOverlappingAny(
+                collider,
+                devices.Keys
+                    .Where(n => n != null && !ship.MinesHit.Contains(n))
+                    .SelectMany(n => n.GetComponentsInChildren<Collider>().Where(c => c.CompareTag("Mine")))
+            );
         }
 
         // Checked immediately, unlike the trigger based detectors used by the planning subphases
